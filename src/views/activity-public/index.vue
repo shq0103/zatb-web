@@ -114,7 +114,7 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
 </template>
 <style>
 .public-bottom {
-  padding: 30px;
+  /* padding: 30px; */
 
   border-top-left-radius: 10px;
   -webkit-border-top-left-radius: 10px;

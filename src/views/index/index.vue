@@ -385,15 +385,14 @@ export default {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .tr-content-left-content {
+  width: 70%;
   display: flex;
   flex-direction: column;
 }
 .tr-content-left-img {
   width: 40%;
 }
-.tr-content-left-content {
-  width: 70%;
-}
+
 .el-button + .el-button {
   margin-left: 4px !important;
 }
