@@ -88,7 +88,7 @@
             </el-form-item>-->
             <el-form-item>
               <el-button type="success">搜索</el-button>
-              <el-button>重置</el-button>
+              <el-button type="success" plain>重置</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -103,7 +103,9 @@
         </div>
         <div class="public-content">
           <el-row>
-            <el-button class="public-button1" type="success">发布线上活动</el-button>
+            <router-link to="/activity-public">
+              <el-button class="public-button1" type="success">发布线上活动</el-button>
+            </router-link>
             <!-- <el-button class="public-button2" type="success">发布线下活动</el-button> -->
           </el-row>
         </div>
