@@ -11,7 +11,8 @@
       :default-active="activeIndex"
     >
       <el-menu-item index="/index" :style="{ fontSize: '16px'}">首页</el-menu-item>
-      <el-submenu index="2">
+      <el-menu-item index="/activity" :style="{ fontSize: '16px'}">活动</el-menu-item>
+      <!-- <el-submenu index="2">
         <template slot="title" :style="{ fontSize: '16px'}">活动</template>
         <el-menu-item index="2-1">最新活动</el-menu-item>
         <el-menu-item index="2-2">官方活动</el-menu-item>
@@ -22,7 +23,7 @@
           <el-menu-item index="2-4-2">活动报名</el-menu-item>
           <el-menu-item index="2-4-3">选项3</el-menu-item>
         </el-submenu>
-      </el-submenu>
+      </el-submenu>-->
       <el-submenu index="3">
         <template slot="title" :style="{ fontSize: '16px'}">咨讯</template>
         <el-menu-item index="3-1">徒步新闻</el-menu-item>
@@ -99,7 +100,7 @@ a {
   background-color: #fff;
 }
 .el-menu.el-menu--horizontal {
-  border-bottom: solid 1px #fff;
+  border-bottom: none !important;
 }
 .el-menu-item:hover {
   outline: 0 !important;
