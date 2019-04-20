@@ -2,7 +2,7 @@
   <div class="index">
     <div class="index-left">
       <div class="activity">
-        <div class="search-title">
+        <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div activity-content1>
             <div
@@ -20,12 +20,26 @@
           </div>
         </div>
       </div>
-      <div calss="activity-content"></div>
-      <div class="page"></div>
+      <div class="activity-content">
+        <div class="activity-content1">
+          <div class="content-left">
+            <img>
+          </div>
+          <div class="content-right">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="page">
+        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+      </div>
     </div>
     <div class="index-right">
       <div class="search">
-        <div class="activity-title">
+        <div class="search-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
@@ -90,7 +104,7 @@
         <div class="public-content">
           <el-row>
             <el-button class="public-button1" type="success">发布线上活动</el-button>
-            <el-button class="public-button2" type="success">发布线下活动</el-button>
+            <!-- <el-button class="public-button2" type="success">发布线下活动</el-button> -->
           </el-row>
         </div>
       </div>
@@ -140,6 +154,7 @@ export default {};
 .activity-title {
   height: 30px;
   margin-top: 10px;
+  padding-bottom: 8px;
 }
 
 .search-content {
@@ -161,5 +176,15 @@ export default {};
   font-size: 16px !important;
   padding: 12px 30px !important;
   margin-left: 10px !important;
+}
+/* .page-1 {
+  padding-left: 10px !important;
+} */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #75b628 !important;
+}
+.activity-content1 {
+  padding: 15px;
+  border-bottom: 1px solid #dedbdb;
 }
 </style>
