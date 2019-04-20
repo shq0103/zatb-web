@@ -44,7 +44,6 @@
     <el-input
       :style="{ width: '250px'}"
       placeholder="搜索目的地/活动"
-      v-model="input1"
       class="input-with-select"
       size="medium"
     >
@@ -59,11 +58,12 @@
 export default {
   data() {
     return {
-      activeIndex: "/index"
+      activeIndex: localStorage.getItem("path") || "/index"
     };
   },
   methods: {
     clickMenuItem(key, keyPath) {
+      localStorage.setItem("path", key);
       this.$router.push(key);
     }
   }
