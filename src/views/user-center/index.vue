@@ -76,18 +76,18 @@ color: #FFF;">暂无所属俱乐部</b>
                 </a>
               </li>
               <li>
-                <a href data-mname="follow">
+                <router-link to="/userinfo">
                   <img src="../../assets/余额.png">我的余额
-                </a>
+                </router-link>
               </li>
             </ul>
           </el-collapse-item>
           <el-collapse-item title="安全中心" name="2">
             <ul>
               <li class="actived">
-                <a href data-mname="join">
+                <router-link to="/userinfo">
                   <img src="../../assets/个人设置.png">个人设置
-                </a>
+                </router-link>
               </li>
               <li>
                 <a href data-mname="setting">

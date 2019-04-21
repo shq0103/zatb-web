@@ -50,6 +50,14 @@ export default new Router({
       // this generates a separate chunk (activity.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "activity" */ "./views/user-center/index.vue")
+    },
+    {
+      path: "/userinfo",
+      name: "userinfo",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./components/userinfo/index.vue")
     }
   ]
 });
