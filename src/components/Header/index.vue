@@ -12,11 +12,11 @@
     >
       <el-menu-item index="/index" :style="{ fontSize: '16px'}">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px'}">活动</el-menu-item>
-      <el-submenu index="3">
+      <el-submenu index="/new">
         <template slot="title" :style="{ fontSize: '16px'}">咨讯</template>
-        <el-menu-item index="3-1">徒步新闻</el-menu-item>
-        <el-menu-item index="3-2">户外知识</el-menu-item>
-        <el-menu-item index="3-3">选项3</el-menu-item>
+
+        <el-menu-item index="/new">徒步新闻</el-menu-item>
+        <el-menu-item index="/new">户外知识</el-menu-item>
       </el-submenu>
       <el-menu-item index="4" :style="{ fontSize: '16px'}">
         <a href="http://www.tubu100.com/Mall" target="_blank">论坛</a>
