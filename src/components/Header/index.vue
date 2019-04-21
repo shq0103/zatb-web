@@ -12,18 +12,6 @@
     >
       <el-menu-item index="/index" :style="{ fontSize: '16px'}">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px'}">活动</el-menu-item>
-      <!-- <el-submenu index="2">
-        <template slot="title" :style="{ fontSize: '16px'}">活动</template>
-        <el-menu-item index="2-1">最新活动</el-menu-item>
-        <el-menu-item index="2-2">官方活动</el-menu-item>
-        <el-menu-item index="2-3">往期活动</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">最新活动</template>
-          <el-menu-item index="2-4-1">活动发布</el-menu-item>
-          <el-menu-item index="2-4-2">活动报名</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
-      </el-submenu>-->
       <el-submenu index="3">
         <template slot="title" :style="{ fontSize: '16px'}">咨讯</template>
         <el-menu-item index="3-1">徒步新闻</el-menu-item>
@@ -49,7 +37,30 @@
     >
       <el-button slot="append" icon="el-icon-search"></el-button>
     </el-input>
-    <el-button :style="{margin: '0 0 0 50px',color:'#333' }" type="text">登录</el-button>
+    <router-link to="/user-center">
+      <el-button
+        :style="{margin: '0 0 0 50px',color:'#333' }"
+        type="text"
+        @click="dialogFormVisible = true"
+      >登录</el-button>
+    </router-link>
+    <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-form>
+        <el-form-item label="活动名称" :label-width="formLabelWidth">
+          <el-input autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="活动区域" :label-width="formLabelWidth">
+          <el-select placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
     <div class="border">|</div>
     <el-button :style="{color:'#333'}" type="text">注册</el-button>
   </div>
