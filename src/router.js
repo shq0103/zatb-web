@@ -58,6 +58,15 @@ export default new Router({
       // this generates a separate chunk (activity.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "activity" */ "./components/userinfo/index.vue")
+    },
+    {
+      path: "/user-secure",
+      name: "user-secure",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "activity" */ "./components/user-secure/index.vue")
     }
   ]
 });

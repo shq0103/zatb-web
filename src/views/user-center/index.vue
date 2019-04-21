@@ -90,9 +90,9 @@ color: #FFF;">暂无所属俱乐部</b>
                 </router-link>
               </li>
               <li>
-                <a href data-mname="setting">
+                <router-link to="/user-secure">
                   <img src="../../assets/系统通知.png">系统通知
-                </a>
+                </router-link>
               </li>
             </ul>
           </el-collapse-item>
