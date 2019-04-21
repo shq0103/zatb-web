@@ -71,6 +71,206 @@ font-size: 14px;">2019-4-20</span>
             </div>
           </div>
         </div>
+        <div class="activity-content2">
+          <div class="ac-content-left">
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <el-alert
+                title="带辅助性文字介绍"
+                type="success"
+                :closable="false"
+                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+              ></el-alert>
+            </div>
+            <div class="ac-content-right2">
+              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
+            </div>
+            <div class="ac-content-right3">
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动费用</span>
+              </div>
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动地点</span>
+              </div>
+              <div class="ac-content-right3-2">
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动时间</span>
+              </div>
+            </div>
+            <div class="ac-content-right4">
+              <div class="ac-content-right4-1">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right4-2">
+                <span>报名:</span>
+                <span>13</span>
+                <br>
+                <span style="padding-left: 6px;">关注:</span>
+                <span>1300</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-content2">
+          <div class="ac-content-left">
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <el-alert
+                title="带辅助性文字介绍"
+                type="success"
+                :closable="false"
+                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+              ></el-alert>
+            </div>
+            <div class="ac-content-right2">
+              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
+            </div>
+            <div class="ac-content-right3">
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动费用</span>
+              </div>
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动地点</span>
+              </div>
+              <div class="ac-content-right3-2">
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动时间</span>
+              </div>
+            </div>
+            <div class="ac-content-right4">
+              <div class="ac-content-right4-1">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right4-2">
+                <span>报名:</span>
+                <span>13</span>
+                <br>
+                <span style="padding-left: 6px;">关注:</span>
+                <span>1300</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-content2">
+          <div class="ac-content-left">
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <el-alert
+                title="带辅助性文字介绍"
+                type="success"
+                :closable="false"
+                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+              ></el-alert>
+            </div>
+            <div class="ac-content-right2">
+              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
+            </div>
+            <div class="ac-content-right3">
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动费用</span>
+              </div>
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动地点</span>
+              </div>
+              <div class="ac-content-right3-2">
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动时间</span>
+              </div>
+            </div>
+            <div class="ac-content-right4">
+              <div class="ac-content-right4-1">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right4-2">
+                <span>报名:</span>
+                <span>13</span>
+                <br>
+                <span style="padding-left: 6px;">关注:</span>
+                <span>1300</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-content2">
+          <div class="ac-content-left">
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <el-alert
+                title="带辅助性文字介绍"
+                type="success"
+                :closable="false"
+                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+              ></el-alert>
+            </div>
+            <div class="ac-content-right2">
+              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
+            </div>
+            <div class="ac-content-right3">
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动费用</span>
+              </div>
+              <div class="ac-content-right3-1">
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动地点</span>
+              </div>
+              <div class="ac-content-right3-2">
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
+                <span style="font-size: 10px;color:#888;">活动时间</span>
+              </div>
+            </div>
+            <div class="ac-content-right4">
+              <div class="ac-content-right4-1">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right4-2">
+                <span>报名:</span>
+                <span>13</span>
+                <br>
+                <span style="padding-left: 6px;">关注:</span>
+                <span>1300</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="page">
         <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
@@ -224,7 +424,7 @@ export default {};
   background-color: #75b628 !important;
 }
 .activity-content2 {
-  padding: 15px 15px 5px 15px;
+  padding: 15px 15px 10px 15px;
   border-bottom: 1px solid #dedbdb;
   display: flex;
 }

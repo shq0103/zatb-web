@@ -95,6 +95,26 @@
             </div>
           </div>
         </div>
+        <div class="activity-content2">
+          <div class="ac-content-left">
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <el-alert
+                class="new-alert"
+                title="带辅助性文字介绍"
+                type="success"
+                :closable="false"
+                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+              ></el-alert>
+            </div>
+            <div style="margin-top:10px">
+              <i class="el-icon-time">2019-4-21 18:24</i>
+              <i class="el-icon-view" style="padding-left:20px">300</i>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="page">
         <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
@@ -244,16 +264,17 @@ export default {};
   background-color: #75b628 !important;
 }
 .activity-content2 {
-  padding: 15px 15px 5px 15px;
-  border-bottom: 1px solid #dedbdb;
+  padding: 15px 15px 15px 15px;
+  border-bottom: 1px dotted #adadad;
   display: flex;
+  margin: 5px 20px 0 20px;
 }
 .activity-content1 {
   display: flex;
 }
 .ac-content-left {
   width: 30%;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .ac-content-right {
   width: 70%;
@@ -312,5 +333,8 @@ export default {};
   border-bottom: 1px solid #ccc;
   border-bottom-style: dotted;
   margin-bottom: 10px;
+}
+.page {
+  margin: 10px 0;
 }
 </style>

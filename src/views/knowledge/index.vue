@@ -7,91 +7,182 @@
           <div class="activity-content1">
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >最新咨讯</div>
+            >全部知识</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >热门咨讯</div>
+            >户外技巧</div>
+            <div
+              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
+            >户外常识</div>
+            <div
+              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
+            >户外装备</div>
           </div>
         </div>
       </div>
       <div class="activity-content">
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
             </div>
-            <div style="margin-top:10px">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+            <div class="know-c-t-rf">
+              <h2>
+                <a href="#">冬季户外徒步穿越的注意事项</a>
+              </h2>
+              <p>作者： Admin | 来源于： 互联网</p>
             </div>
           </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
-            <div style="margin-top:10px">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div>
+                <el-button type="text" style="color:#75b628">
+                  更多
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
             </div>
-            <div style="margin-top:10px">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+            <div class="know-c-t-rf">
+              <h2>
+                <a href="#">冬季户外徒步穿越的注意事项</a>
+              </h2>
+              <p>作者： Admin | 来源于： 互联网</p>
+            </div>
+          </div>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
+            </div>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div>
+                <el-button type="text" style="color:#75b628">
+                  更多
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
             </div>
-            <div style="margin-top:10px">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+            <div class="know-c-t-rf">
+              <h2>
+                <a href="#">冬季户外徒步穿越的注意事项</a>
+              </h2>
+              <p>作者： Admin | 来源于： 互联网</p>
+            </div>
+          </div>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
+            </div>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div>
+                <el-button type="text" style="color:#75b628">
+                  更多
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
+            </div>
+            <div class="know-c-t-rf">
+              <h2>
+                <a href="#">冬季户外徒步穿越的注意事项</a>
+              </h2>
+              <p>作者： Admin | 来源于： 互联网</p>
+            </div>
+          </div>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
+            </div>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div>
+                <el-button type="text" style="color:#75b628">
+                  更多
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
+            </div>
+            <div class="know-c-t-rf">
+              <h2>
+                <a href="#">冬季户外徒步穿越的注意事项</a>
+              </h2>
+              <p>作者： Admin | 来源于： 互联网</p>
+            </div>
+          </div>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
+            </div>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div>
+                <el-button type="text" style="color:#75b628">
+                  更多
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+              </div>
             </div>
           </div>
         </div>
@@ -124,48 +215,18 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >热门推荐</div>
+          >点击排行</div>
         </div>
         <div class="search-content">
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
           <div>
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -312,5 +373,73 @@ export default {};
   border-bottom: 1px solid #ccc;
   border-bottom-style: dotted;
   margin-bottom: 10px;
+}
+.know-c-t-lf {
+  border: 1px solid #e1e0e0;
+  width: 38px;
+}
+.know-c-t-lf h2 {
+  width: 38px;
+  height: 18px;
+  font-size: 10px;
+  color: #fcfbfb;
+  background: #75b628;
+  text-align: center;
+  line-height: 15px;
+  margin: 0px;
+  padding-top: 5px;
+}
+.know-c-t-lf p {
+  font-size: 14px;
+  color: #75b628;
+  text-align: center;
+  line-height: 25px;
+  margin: 0px;
+  margin-top: -2px;
+}
+.know-c-t-rf p {
+  font-size: 14px;
+  color: #919191;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: -55px;
+}
+.know-c-t-rf h2 {
+  margin: 0px;
+  font-size: 20px;
+}
+.know-c-t-rf h2 a {
+  color: #75b628;
+  font-weight: initial;
+}
+.know-c-t-rf {
+  margin-left: 30px;
+}
+.know-content-top {
+  display: flex;
+}
+.know-content-top-content2 {
+  border-bottom: 1px dotted #adadad;
+  margin: 20px 15px 0px 20px;
+}
+.know-content-bottom {
+  display: flex;
+  margin-top: 20px;
+}
+.know-c-b-lf img {
+}
+.know-c-b-rf {
+  margin-left: 20px;
+}
+.know-c-b-rf p {
+  width: 565px;
+  height: 110px;
+  font-size: 13px;
+  color: #919191;
+  letter-spacing: 1px;
+  overflow: hidden;
+  line-height: 22px;
+  position: relative;
+  text-align: left;
 }
 </style>
