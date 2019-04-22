@@ -1,14 +1,14 @@
 <template>
   <div class="user-secure">
     <div class="public-bottom">
-      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tabs type="border-card" value="first">
         <el-tab-pane label="更改密码" name="first">
           <div class="ac-public-content">
             <div class="ac-public-form1">
-              <h3
+              <!-- <h3
                 style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #99cccc;"
-              >修改密码</h3>
+              >修改密码</h3>-->
 
               <div class="ac-public-form2-2">
                 <el-form ref="form" :model="form" label-width="80px">
@@ -29,10 +29,10 @@
         <el-tab-pane label="更改绑定手机" name="second">
           <div class="ac-public-content">
             <div class="ac-public-form1">
-              <h3
+              <!-- <h3
                 style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #99cccc;"
-              >修改手机号</h3>
+              >修改手机号</h3>-->
 
               <div class="ac-public-form2-2">
                 <el-form ref="form" :model="form" label-width="80px">

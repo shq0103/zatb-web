@@ -2,7 +2,6 @@
   <div class="header">
     <img :style="{height:'60px'}" class="logo" src="../../assets/logo4.jpg">
     <el-menu
-      :style="{margin: '0 150px 0 0'}"
       class="el-menu-demo"
       mode="horizontal"
       active-text-color="#75b628"

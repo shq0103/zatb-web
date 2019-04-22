@@ -37,18 +37,16 @@ color: #FFF;">暂无所属俱乐部</b>
         </div>
       </div>
       <div class="us-center-left-bottom">
-        <el-collapse @change="handleChange">
+        <el-collapse @change="handleChange" value="1">
           <el-collapse-item title="个人中心" name="1">
-            <ul>
-              <li class="actived">
-                <a href data-mname="join">
-                  <img src="../../assets/报名.png">我的报名
-                </a>
+            <ul @click="clickItem">
+              <li id="myBaoming" :class="{'actived':actived=='myBaoming'}">
+                <img src="../../assets/报名.png">
+                我的报名
               </li>
-              <li>
-                <a href data-mname="favorite">
-                  <img src="../../assets/结伴.png">我的结伴
-                </a>
+              <li id="activityPublic" :class="{'actived':actived=='activityPublic'}">
+                <img src="../../assets/结伴.png">
+                发布活动
               </li>
               <li>
                 <a href data-mname="order">
@@ -66,9 +64,9 @@ color: #FFF;">暂无所属俱乐部</b>
                 </a>
               </li>
               <li>
-                <a href data-mname="note">
+                <router-link to="/user-collect">
                   <img src="../../assets/收藏.png">我的收藏
-                </a>
+                </router-link>
               </li>
               <li>
                 <a href data-mname="comment">
@@ -83,25 +81,55 @@ color: #FFF;">暂无所属俱乐部</b>
             </ul>
           </el-collapse-item>
           <el-collapse-item title="安全中心" name="2">
-            <ul>
-              <li class="actived">
-                <router-link to="/userinfo">
-                  <img src="../../assets/个人设置.png">个人设置
-                </router-link>
+            <ul @click="clickItem">
+              <li id="setting" :class="{'actived':actived=='setting'}">
+                <img src="../../assets/个人设置.png">
+                个人设置
+              </li>
+              <li id="password" :class="{'actived':actived=='password'}">
+                <img src="../../assets/密码.png">修改密码
               </li>
               <li>
-                <router-link to="/user-secure">
-                  <img src="../../assets/系统通知.png">系统通知
-                </router-link>
+                <img src="../../assets/系统通知.png">系统通知
               </li>
             </ul>
           </el-collapse-item>
         </el-collapse>
       </div>
     </div>
-    <div class="us-center-right"></div>
+    <div class="us-center-right">
+      <ActivityPublic v-if="actived==='activityPublic'"/>
+      <UserSecure v-if="actived==='password'"/>
+      <UserInfo v-if="actived==='setting'"/>
+    </div>
   </div>
 </template>
+<script>
+import ActivityPublic from "@/components/activity-public";
+import UserSecure from "@/components/user-secure";
+import UserInfo from "@/components/userinfo";
+export default {
+  components: {
+    ActivityPublic,
+    UserSecure,
+    UserInfo
+  },
+  data() {
+    return {
+      actived: "myBaoming"
+    };
+  },
+  methods: {
+    clickItem(e) {
+      if (e.target.nodeName.toLowerCase() === "li") {
+        const id = e.target.id;
+        this.actived = id;
+      }
+    }
+  }
+};
+</script>
+
 <style>
 .user-center {
   display: flex;
@@ -113,6 +141,7 @@ color: #FFF;">暂无所属俱乐部</b>
 .us-center-right {
   width: 60%;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 }
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
@@ -158,8 +187,9 @@ color: #FFF;">暂无所属俱乐部</b>
 .us-center-left-bottom ul li.actived {
   background: #99cccc;
 }
-.us-center-left-bottom ul li a:hover,
-.us-center-left-bottom ul li a.actived {
+.us-center-left-bottom ul li:hover,
+.us-center-left-bottom ul li .actived {
+  cursor: pointer;
   color: #f7fcf7;
   font-weight: bold;
 }
@@ -168,11 +198,10 @@ ol,
 dl {
   list-style-type: none;
 }
-.us-center-left-bottom ul li a {
+.us-center-left-bottom ul li {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  text-indent: 9em;
   font-size: 18px;
   position: relative;
   color: #666;
