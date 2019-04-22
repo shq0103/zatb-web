@@ -34,15 +34,15 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "activity" */ "./views/activity/index.vue")
     },
-    {
-      path: "/activity-public",
-      name: "activity-public",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "activity" */ "./views/activity-public/index.vue")
-    },
+    // {
+    //   path: "/activity-public",
+    //   name: "activity-public",
+    //   // route level code-splitting
+    //   // this generates a separate chunk (activity.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () =>
+    //     import(/* webpackChunkName: "activity" */ "./views/activity-public/index.vue")
+    // },
     {
       path: "/user-center",
       name: "user-center",

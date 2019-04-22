@@ -1,7 +1,7 @@
 <template>
   <div class="user-secure">
     <div class="public-bottom">
-      <el-tabs @tab-click="handleClick" value="first">
+      <el-tabs value="first">
         <el-tab-pane label="更改登录密码" name="first">
           <div class="ac-public-content">
             <div class="ac-public-form1">
@@ -11,15 +11,27 @@
               >修改密码</h3>-->
 
               <div class="ac-public-form2-2">
-                <el-form ref="form" :model="form" label-width="80px">
+                <el-form ref="form" label-width="80px">
                   <el-form-item label="旧密码">
                     <el-input></el-input>
                   </el-form-item>
                   <el-form-item label="新密码">
                     <el-input></el-input>
                   </el-form-item>
+                  <el-form-item label="验证码">
+                    <el-row>
+                      <ElCol :span="12">
+                        <el-input></el-input>
+                      </ElCol>
+                      <ElCol :span="12">
+                        <div @click="refreshCode">
+                          <Identify :identify-code="identifyCode" />
+                        </div>
+                      </ElCol>
+                    </el-row>
+                  </el-form-item>
                   <el-form-item>
-                    <el-button class="user-secure-button" type="success" @click="onSubmit">提交</el-button>
+                    <el-button class="user-secure-button" type="success">提交</el-button>
                   </el-form-item>
                 </el-form>
               </div>
@@ -35,7 +47,7 @@
               >修改手机号</h3>-->
 
               <div class="ac-public-form2-2">
-                <el-form ref="form" :model="form" label-width="80px">
+                <el-form ref="form" label-width="80px">
                   <el-form-item label="旧密码">
                     <el-input></el-input>
                   </el-form-item>
@@ -48,11 +60,11 @@
                   </el-form-item>
 
                   <el-form-item>
-                    <el-button type="primary" @click="onSubmit">查询</el-button>
+                    <el-button type="primary">查询</el-button>
                   </el-form-item>
 
                   <el-form-item>
-                    <el-button class="user-secure-button" type="success" @click="onSubmit">提交</el-button>
+                    <el-button class="user-secure-button" type="success">提交</el-button>
                   </el-form-item>
                 </el-form>
               </div>
@@ -63,6 +75,39 @@
     </div>
   </div>
 </template>
+<script>
+import Identify from "@/components/Identify";
+export default {
+  components: {
+    Identify
+  },
+  data() {
+    return {
+      identifyCodes: "1234567890",
+      identifyCode: ""
+    };
+  },
+  mounted() {
+    this.identifyCode = "";
+    this.makeCode(this.identifyCodes, 4);
+  },
+  methods: {
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    },
+    refreshCode() {
+      this.identifyCode = "";
+      this.makeCode(this.identifyCodes, 4);
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[this.randomNum(0, this.identifyCodes.length)];
+      }
+    }
+  }
+};
+</script>
+
 <style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
@@ -87,5 +132,11 @@
 }
 .el-tabs--top .el-tabs__item.is-top:nth-child(2) {
   padding-left: 10px !important;
+}
+
+.el-input-group__append,
+.el-input-group__prepend {
+  padding: 0 !important;
+  border: none !important;
 }
 </style>
