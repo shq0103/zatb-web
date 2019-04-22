@@ -8,7 +8,7 @@
               <img
                 class="lunbo"
                 src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-              />
+              >
             </el-carousel-item>
           </el-carousel>
         </el-col>
@@ -37,7 +37,9 @@
           </ul>
         </el-col>
         <el-col class="post-top-border2" :span="6" style="height:250px">
-          <h4><span class="zxzt"></span>最新主题</h4>
+          <h4>
+            <span class="zxzt"></span>最新主题
+          </h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
             <li>222</li>
@@ -54,20 +56,218 @@
       <div class="post-bottom-title">hhh</div>
       <div class="post-bottom-content">
         <el-row :gutter="24">
-          <el-col :span="12" style="border-right:2px dotted #ccc">
+          <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
             <el-row :gutter="24">
-              <el-col :span="14">
-                <div class="grid-content bg-purple">1</div>
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
               </el-col>
-              <el-col :span="10">
-                <div class="grid-content bg-purple">2</div>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
               </el-col>
             </el-row>
           </el-col>
-          <el-col :span="12">
-            <div class="grid-content bg-purple">2</div>
+          <el-col :span="12" style="border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
           </el-col>
         </el-row>
+        <el-row :gutter="24">
+          <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="12" style="border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row :gutter="24">
+          <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="12" style="border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row :gutter="24">
+          <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="12" style="border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row :gutter="24">
+          <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="12" style="border-bottom:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="4">
+                <div class="post-bottom-content-lf">
+                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="post-bottom-content-rf">
+                  <div class="ac-content-right1">
+                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  </div>
+                  <div class="new-right2">
+                    <i class="el-icon-time">2019-4-21 18:24</i>
+                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="post-page">
+        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
     </div>
   </div>
@@ -101,6 +301,7 @@
   text-align: left;
   text-indent: 2.5em;
   margin-left: 10px;
+  margin-top: 0px;
 }
 .post-top-border0 h4:hover {
   background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
@@ -130,6 +331,7 @@
   text-align: left;
   text-indent: 2.5em;
   margin-left: 10px;
+  margin-top: 0px;
 }
 .post-top-border1 h4:hover {
   background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;
@@ -147,6 +349,7 @@
   text-align: left;
   text-indent: 2.5em;
   margin-left: 10px;
+  margin-top: 0px;
 }
 .post-top-border2 h4:hover {
   background: url("../../assets/rt.png") no-repeat scroll 10px -22px transparent;
@@ -165,5 +368,20 @@
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
+}
+.post-bottom-content-lf img {
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+.el-alert--success {
+  height: 50px;
+  margin: 5px 0px;
+}
+.post-page {
+  padding-bottom: 20px;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #75b628 !important;
 }
 </style>
