@@ -1,17 +1,18 @@
 <template>
-  <div class="user-sign">
+  <div class="user-comment">
     <div class="public-bottom">
       <div class="ac-public-content">
         <div class="ac-public-form1">
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #99cccc;"
-          >我的报名</h3>
+          >我的评论</h3>
           <el-table :data="tableData" border :style="{width: '100%'}">
-            <el-table-column align="center" prop="date" label="活动"></el-table-column>
-            <el-table-column align="center" prop="name" label="参加人"></el-table-column>
-            <el-table-column align="center" prop="address" label="积分"></el-table-column>
-            <el-table-column align="center" prop="address" label="时间"></el-table-column>
+            <el-table-column align="center" prop="date" label="评论内容"></el-table-column>
+            <el-table-column align="center" prop="name" label="评论游记"></el-table-column>
+            <el-table-column align="center" prop="address" label="评论时间"></el-table-column>
+            <el-table-column align="center" prop="address" label="状态"></el-table-column>
+            <el-table-column align="center" prop="address" label="操作"></el-table-column>
           </el-table>
         </div>
       </div>

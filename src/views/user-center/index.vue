@@ -3,18 +3,11 @@
     <div class="us-center-left">
       <div class="us-center-left-top">
         <div class="us-center-left-top1">
-          <img src="http://tubu100.com:8053/Files/Default/UserHead.png" />
-          <h3
-            style="font-size: 25px;
-color: #FFF;margin:5px 0px;"
-          >
-            徒步用户
-          </h3>
-          <b
-            style="font-weight: normal;
-color: #FFF;"
-            >暂无所属俱乐部</b
-          >
+          <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
+          <h3 style="font-size: 25px;
+color: #FFF;margin:5px 0px;">徒步用户</h3>
+          <b style="font-weight: normal;
+color: #FFF;">暂无所属俱乐部</b>
           <!-- <ul>
             <li>
               <span>0</span>
@@ -47,59 +40,66 @@ color: #FFF;"
         <el-collapse value="1">
           <el-collapse-item title="个人中心" name="1">
             <ul @click="clickItem">
-              <li id="myBaoming" :class="{ actived: actived == 'myBaoming' }">
-                <img src="../../assets/报名.png" />
+              <li id="usersign" :class="{ actived: actived == 'usersign' }">
+                <img src="../../assets/报名.png">
                 我的报名
               </li>
               <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
-                <img src="../../assets/结伴.png" />
+                <img src="../../assets/结伴.png">
                 发布活动
               </li>
-              <li>
-                <img src="../../assets/游记.png" />
+              <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
+                <img src="../../assets/游记.png">
                 我的游记
               </li>
-              <li>
-                <img src="../../assets/评论.png" />
+              <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
+                <img src="../../assets/评论.png">
                 我的评论
               </li>
-              <li>
-                <a href data-mname="note"> <img src="../../assets/关注.png" />我的关注 </a>
+              <li id="user-point" :class="{ actived: actived == 'user-point' }">
+                <img src="../../assets/关注.png">我的关注
               </li>
               <li id="usercollect" :class="{ actived: actived == 'usercollect' }">
-                <img src="../../assets/收藏.png" />
+                <img src="../../assets/收藏.png">
                 我的收藏
               </li>
-              <li>
-                <a href data-mname="comment"> <img src="../../assets/订单.png" />我的订单 </a>
+              <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
+                <img src="../../assets/订单.png">
+                我的订单
               </li>
               <li>
-                <router-link to="/userinfo">
-                  <img src="../../assets/余额.png" />我的余额
-                </router-link>
+                <img src="../../assets/余额.png">
+                我的余额
               </li>
             </ul>
           </el-collapse-item>
           <el-collapse-item title="安全中心" name="2">
             <ul @click="clickItem">
               <li id="setting" :class="{ actived: actived == 'setting' }">
-                <img src="../../assets/个人设置.png" />
+                <img src="../../assets/个人设置.png">
                 个人设置
               </li>
               <li id="password" :class="{ actived: actived == 'password' }">
-                <img src="../../assets/密码.png" />修改密码
+                <img src="../../assets/密码.png">修改密码
               </li>
-              <li><img src="../../assets/系统通知.png" />系统通知</li>
+              <li>
+                <img src="../../assets/系统通知.png">系统通知
+              </li>
             </ul>
           </el-collapse-item>
         </el-collapse>
       </div>
     </div>
     <div class="us-center-right">
-      <ActivityPublic v-if="actived === 'activityPublic'" />
-      <UserSecure v-if="actived === 'password'" />
-      <UserInfo v-if="actived === 'setting'" />
-      <UserCollect v-if="actived === 'usercollect'" />
+      <ActivityPublic v-if="actived === 'activityPublic'"/>
+      <UserSecure v-if="actived === 'password'"/>
+      <UserInfo v-if="actived === 'setting'"/>
+      <UserCollect v-if="actived === 'usercollect'"/>
+      <UserTravels v-if="actived === 'usertravels'"/>
+      <UserSign v-if="actived === 'usersign'"/>
+      <UserComment v-if="actived === 'user-comment'"/>
+      <UserGoods v-if="actived === 'user-goods'"/>
+      <UserPoint v-if="actived === 'user-point'"/>
     </div>
   </div>
 </template>
@@ -108,16 +108,26 @@ import ActivityPublic from "@/components/activity-public";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
 import UserCollect from "@/components/user-collect";
+import UserTravels from "@/components/user-travels";
+import UserSign from "@/components/user-sign";
+import UserComment from "@/components/user-comment";
+import UserGoods from "@/components/user-goods";
+import UserPoint from "@/components/user-point";
 export default {
   components: {
     ActivityPublic,
     UserSecure,
     UserInfo,
-    UserCollect
+    UserCollect,
+    UserTravels,
+    UserSign,
+    UserComment,
+    UserGoods,
+    UserPoint
   },
   data() {
     return {
-      actived: "myBaoming"
+      actived: "usersign"
     };
   },
   methods: {

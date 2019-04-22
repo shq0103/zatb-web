@@ -69,6 +69,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -89,6 +92,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -111,6 +117,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -131,6 +140,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -153,6 +165,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -173,6 +188,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -195,6 +213,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -215,6 +236,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -237,6 +261,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -257,6 +284,9 @@
                     <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
                   </div>
                   <div class="new-right2">
+                    <i>
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
+                    </i>
                     <i class="el-icon-time">2019-4-21 18:24</i>
                     <i class="el-icon-view" style="padding-left:20px">300</i>
                   </div>
@@ -375,7 +405,7 @@
   border: 1px solid #fff;
 }
 .el-alert--success {
-  height: 50px;
+  height: 40px;
   margin: 5px 0px;
 }
 .post-page {
@@ -383,5 +413,8 @@
 }
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #75b628 !important;
+}
+.new-right2 {
+  margin-top: 10px;
 }
 </style>
