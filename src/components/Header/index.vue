@@ -36,14 +36,14 @@
     >
       <el-button slot="append" icon="el-icon-search"></el-button>
     </el-input>
-    <router-link to="/user-center">
-      <el-button
-        :style="{ margin: '0 0 0 50px', color: '#333' }"
-        type="text"
-        @click="dialogFormVisible = true"
-        >登录</el-button
-      >
-    </router-link>
+
+    <el-button
+      :style="{ margin: '0 0 0 50px', color: '#333' }"
+      type="text"
+      @click="dialogFormVisible = true"
+      >登录</el-button
+    >
+
     <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
       <el-form>
         <el-form-item label="活动名称">
@@ -62,7 +62,9 @@
       </div>
     </el-dialog>
     <div class="border">|</div>
-    <el-button :style="{ color: '#333' }" type="text">注册</el-button>
+    <router-link to="/user-center">
+      <el-button :style="{ color: '#333' }" type="text">注册</el-button>
+    </router-link>
   </div>
 </template>
 <script>

@@ -55,8 +55,17 @@
                     <el-input></el-input>
                   </el-form-item>
 
-                  <el-form-item label="审批人">
-                    <el-input placeholder="审批人"></el-input>
+                  <el-form-item label="验证码">
+                    <el-row>
+                      <ElCol :span="12">
+                        <el-input></el-input>
+                      </ElCol>
+                      <ElCol :span="12">
+                        <div @click="refreshCode">
+                          <Identify :identify-code="identifyCode" />
+                        </div>
+                      </ElCol>
+                    </el-row>
                   </el-form-item>
 
                   <el-form-item>

@@ -8,11 +8,11 @@
               <img
                 class="lunbo"
                 src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-              >
+              />
             </el-carousel-item>
           </el-carousel>
         </el-col>
-        <el-col :span="6" class="post-top-border" style="height:250px">
+        <el-col :span="6" class="post-top-border0" style="height:250px">
           <h4>最新主题</h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
@@ -24,7 +24,7 @@
             <li>777</li>
           </ul>
         </el-col>
-        <el-col :span="6" class="post-top-border" style="height:250px">
+        <el-col :span="6" class="post-top-border1" style="height:250px">
           <h4>最新主题</h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
@@ -36,10 +36,8 @@
             <li>777</li>
           </ul>
         </el-col>
-        <el-col class="post-top-border1" :span="6" style="height:250px">
-          <h4>
-            <span class="zxzt"></span>最新主题
-          </h4>
+        <el-col class="post-top-border2" :span="6" style="height:250px">
+          <h4><span class="zxzt"></span>最新主题</h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
             <li>222</li>
@@ -79,24 +77,34 @@
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
-.post-top-border {
+.post-top-border0,
+.post-top-border1 {
   border-right: 1px solid #e7e7e7;
 }
 .el-row {
   padding: 20px 20px;
 }
-.post-top-border ul {
+.post-top-border0,
+.post-top-border1,
+.post-top-border2 ul {
   overflow: hidden;
 }
-.post-top-border h4 {
+.post-top-border0 h4 {
+  background: url(../../assets/zxzt.png) 10px 0 no-repeat;
   color: #5e5e5e;
   font-size: 16px;
   font-weight: normal;
   line-height: 22px;
-
   transition: 400ms;
   -webkit-transition: 400ms;
   -moz-transition: 400ms;
+  text-align: left;
+  text-indent: 2.5em;
+  margin-left: 10px;
+}
+.post-top-border0 h4:hover {
+  background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
 }
 .post-top-border ul li {
   font-size: 13px;
@@ -111,14 +119,38 @@
   overflow: hidden;
 }
 .post-top-border1 h4 {
+  background: url(../../assets/zxhf.png) 10px 0 no-repeat;
   color: #5e5e5e;
   font-size: 16px;
   font-weight: normal;
   line-height: 22px;
-
   transition: 400ms;
   -webkit-transition: 400ms;
   -moz-transition: 400ms;
+  text-align: left;
+  text-indent: 2.5em;
+  margin-left: 10px;
+}
+.post-top-border1 h4:hover {
+  background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
+}
+.post-top-border2 h4 {
+  background: url(../../assets/rt.png) 10px 0 no-repeat;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  text-align: left;
+  text-indent: 2.5em;
+  margin-left: 10px;
+}
+.post-top-border2 h4:hover {
+  background: url("../../assets/rt.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
 }
 .post-top-border1 ul li {
   font-size: 13px;
@@ -133,9 +165,5 @@
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
-}
-.zxzt h4 {
-  /* background: url(../../assets/zxzt.png) 10px -22px no-repeat; */
-  background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
 }
 </style>
