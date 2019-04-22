@@ -17,9 +17,7 @@
         <el-menu-item index="/new">徒步新闻</el-menu-item>
         <el-menu-item index="/new">户外知识</el-menu-item>
       </el-submenu>
-      <el-menu-item index="4" :style="{ fontSize: '16px'}">
-        <a href="http://www.tubu100.com/Mall" target="_blank">论坛</a>
-      </el-menu-item>
+      <el-menu-item index="/post" :style="{ fontSize: '16px'}">论坛</el-menu-item>
       <el-menu-item index="5" :style="{ fontSize: '16px'}">
         <a href="http://www.tubu100.com/Mall" target="_blank">游记</a>
       </el-menu-item>

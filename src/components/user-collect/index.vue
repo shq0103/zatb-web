@@ -7,10 +7,10 @@
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #99cccc;"
           >我的收藏</h3>
-          <el-table :data="tableData" border style="width: 100%">
-            <el-table-column prop="date" label="活动" width="180"></el-table-column>
-            <el-table-column prop="name" label="收藏时间" width="180"></el-table-column>
-            <el-table-column prop="address" label="操作"></el-table-column>
+          <el-table :data="tableData" border :style="{width: '100%'}">
+            <el-table-column align="center" prop="date" label="活动"></el-table-column>
+            <el-table-column align="center" prop="name" label="收藏时间"></el-table-column>
+            <el-table-column align="center" prop="address" label="操作"></el-table-column>
           </el-table>
         </div>
       </div>
@@ -31,6 +31,10 @@
 background: #f0f9eb !important;
 } */
 el-table th,
+.el-table tr {
+  background: #f0f9eb !important;
+}
+.el-table th,
 .el-table tr {
   background: #f0f9eb !important;
 }

@@ -1,0 +1,141 @@
+<template>
+  <div class="post">
+    <div class="post-top">
+      <el-row :gutter="24">
+        <el-col :span="6">
+          <el-carousel height="250px">
+            <el-carousel-item v-for="item in 4" :key="item">
+              <img
+                class="lunbo"
+                src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
+              >
+            </el-carousel-item>
+          </el-carousel>
+        </el-col>
+        <el-col :span="6" class="post-top-border" style="height:250px">
+          <h4>最新主题</h4>
+          <ul>
+            <li>1111111111111111111111111111111111111111111111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+            <li>777</li>
+          </ul>
+        </el-col>
+        <el-col :span="6" class="post-top-border" style="height:250px">
+          <h4>最新主题</h4>
+          <ul>
+            <li>1111111111111111111111111111111111111111111111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+            <li>777</li>
+          </ul>
+        </el-col>
+        <el-col class="post-top-border1" :span="6" style="height:250px">
+          <h4>
+            <span class="zxzt"></span>最新主题
+          </h4>
+          <ul>
+            <li>1111111111111111111111111111111111111111111111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+            <li>777</li>
+          </ul>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="post-bottom">
+      <div class="post-bottom-title">hhh</div>
+      <div class="post-bottom-content">
+        <el-row :gutter="24">
+          <el-col :span="12" style="border-right:2px dotted #ccc">
+            <el-row :gutter="24">
+              <el-col :span="14">
+                <div class="grid-content bg-purple">1</div>
+              </el-col>
+              <el-col :span="10">
+                <div class="grid-content bg-purple">2</div>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="12">
+            <div class="grid-content bg-purple">2</div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+  </div>
+</template>
+<style scored>
+.post-top {
+  /* display: flex; */
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+}
+.post-top-border {
+  border-right: 1px solid #e7e7e7;
+}
+.el-row {
+  padding: 20px 20px;
+}
+.post-top-border ul {
+  overflow: hidden;
+}
+.post-top-border h4 {
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+}
+.post-top-border ul li {
+  font-size: 13px;
+
+  margin-bottom: 5px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.post-top-border1 ul {
+  overflow: hidden;
+}
+.post-top-border1 h4 {
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+}
+.post-top-border1 ul li {
+  font-size: 13px;
+
+  margin-bottom: 5px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.post-bottom {
+  /* display: flex; */
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+.zxzt h4 {
+  /* background: url(../../assets/zxzt.png) 10px -22px no-repeat; */
+  background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
+}
+</style>

@@ -49,24 +49,21 @@ color: #FFF;">暂无所属俱乐部</b>
                 发布活动
               </li>
               <li>
-                <a href data-mname="order">
-                  <img src="../../assets/游记.png">我的游记
-                </a>
+                <img src="../../assets/游记.png">
+                我的游记
               </li>
               <li>
-                <a href data-mname="balance">
-                  <img src="../../assets/评论.png">我的评论
-                </a>
+                <img src="../../assets/评论.png">
+                我的评论
               </li>
               <li>
                 <a href data-mname="note">
                   <img src="../../assets/关注.png">我的关注
                 </a>
               </li>
-              <li>
-                <router-link to="/user-collect">
-                  <img src="../../assets/收藏.png">我的收藏
-                </router-link>
+              <li id="usercollect" :class="{'actived':actived=='usercollect'}">
+                <img src="../../assets/收藏.png">
+                我的收藏
               </li>
               <li>
                 <a href data-mname="comment">
@@ -101,6 +98,7 @@ color: #FFF;">暂无所属俱乐部</b>
       <ActivityPublic v-if="actived==='activityPublic'"/>
       <UserSecure v-if="actived==='password'"/>
       <UserInfo v-if="actived==='setting'"/>
+      <UserCollect v-if="actived==='usercollect'"/>
     </div>
   </div>
 </template>
@@ -108,11 +106,13 @@ color: #FFF;">暂无所属俱乐部</b>
 import ActivityPublic from "@/components/activity-public";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
+import UserCollect from "@/components/user-collect";
 export default {
   components: {
     ActivityPublic,
     UserSecure,
-    UserInfo
+    UserInfo,
+    UserCollect
   },
   data() {
     return {

@@ -1,8 +1,8 @@
 <template>
   <div class="user-secure">
     <div class="public-bottom">
-      <el-tabs type="border-card" value="first">
-        <el-tab-pane label="更改密码" name="first">
+      <el-tabs @tab-click="handleClick" value="first">
+        <el-tab-pane label="更改登录密码" name="first">
           <div class="ac-public-content">
             <div class="ac-public-form1">
               <!-- <h3
@@ -63,7 +63,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
 }
@@ -71,5 +71,21 @@
   color: #fff;
   background-color: #99cccc !important;
   border-color: #99cccc !important;
+}
+.el-tabs__item.is-active {
+  color: #336699 !important;
+}
+.el-tabs__active-bar {
+  background-color: #336699 !important;
+}
+.el-tabs__item {
+  font-size: 15px !important;
+}
+.el-tabs__item:hover,
+.el-tabs__item.is-active {
+  color: #336699 !important;
+}
+.el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+  padding-left: 10px !important;
 }
 </style>
