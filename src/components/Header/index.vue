@@ -15,15 +15,11 @@
         <template slot="title" :style="{ fontSize: '16px' }">咨讯</template>
 
         <el-menu-item index="/new">徒步新闻</el-menu-item>
-        <el-menu-item index="/new">户外知识</el-menu-item>
+        <el-menu-item index="/knowledge">户外知识</el-menu-item>
       </el-submenu>
       <el-menu-item index="/post" :style="{ fontSize: '16px' }">论坛</el-menu-item>
-      <el-menu-item index="/travels" :style="{ fontSize: '16px' }">
-        <a href="http://www.tubu100.com/Mall" target="_blank">游记</a>
-      </el-menu-item>
-      <el-menu-item index="6" :style="{ fontSize: '16px' }">
-        <a href="http://www.tubu100.com/Mall" target="_blank">商城</a>
-      </el-menu-item>
+      <el-menu-item index="/travels" :style="{ fontSize: '16px' }">游记</el-menu-item>
+      <el-menu-item index="6" :style="{ fontSize: '16px' }">商城</el-menu-item>
     </el-menu>
 
     <el-input

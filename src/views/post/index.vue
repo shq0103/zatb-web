@@ -325,7 +325,7 @@
     </div>
   </div>
 </template>
-<style scored>
+<style scoped>
 .post-top {
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);

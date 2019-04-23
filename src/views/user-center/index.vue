@@ -240,3 +240,10 @@ dl {
   padding-left: 15px;
 }
 </style>
+<style>
+.el-table th,
+.el-table tr {
+  background-color: #f0f9eb;
+}
+</style>
+
