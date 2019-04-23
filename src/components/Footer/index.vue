@@ -38,6 +38,9 @@ export default {
   flex-direction: row;
   align-items: center;
 }
+.logo {
+  width: 350px;
+}
 .weixin {
   height: 30px;
 }

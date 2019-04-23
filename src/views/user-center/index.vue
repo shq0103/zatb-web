@@ -38,7 +38,10 @@ color: #FFF;">暂无所属俱乐部</b>
       </div>
       <div class="us-center-left-bottom">
         <el-collapse value="1">
-          <el-collapse-item title="个人中心" name="1">
+          <el-collapse-item name="1">
+            <template slot="title">
+              <div class="collapse-title">个人中心</div>
+            </template>
             <ul @click="clickItem">
               <li id="usersign" :class="{ actived: actived == 'usersign' }">
                 <img src="../../assets/报名.png">
@@ -67,13 +70,16 @@ color: #FFF;">暂无所属俱乐部</b>
                 <img src="../../assets/订单.png">
                 我的订单
               </li>
-              <li>
+              <!-- <li>
                 <img src="../../assets/余额.png">
                 我的余额
-              </li>
+              </li>-->
             </ul>
           </el-collapse-item>
-          <el-collapse-item title="安全中心" name="2">
+          <el-collapse-item name="2">
+            <template slot="title">
+              <div class="collapse-title">安全中心</div>
+            </template>
             <ul @click="clickItem">
               <li id="setting" :class="{ actived: actived == 'setting' }">
                 <img src="../../assets/个人设置.png">
@@ -141,7 +147,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .user-center {
   display: flex;
 }
@@ -228,5 +234,9 @@ dl {
 .el-collapse-item__header {
   font-size: 18px !important;
   margin: 10px 5px 0 10px;
+}
+.collapse-title {
+  font-size: 18px;
+  padding-left: 15px;
 }
 </style>

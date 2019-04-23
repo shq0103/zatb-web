@@ -25,7 +25,7 @@
           </ul>
         </el-col>
         <el-col :span="6" class="post-top-border1" style="height:250px">
-          <h4>最新主题</h4>
+          <h4>最新回复</h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
             <li>222</li>
@@ -38,7 +38,7 @@
         </el-col>
         <el-col class="post-top-border2" :span="6" style="height:250px">
           <h4>
-            <span class="zxzt"></span>最新主题
+            <span class="zxzt"></span>热帖
           </h4>
           <ul>
             <li>1111111111111111111111111111111111111111111111</li>
@@ -53,7 +53,30 @@
       </el-row>
     </div>
     <div class="post-bottom">
-      <div class="post-bottom-title">hhh</div>
+      <div class="post-bottom-title">
+        <div class="post-bottom-title-all">
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+              全部主题
+              <i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>黄金糕</el-dropdown-item>
+              <el-dropdown-item>狮子头</el-dropdown-item>
+              <el-dropdown-item>螺蛳粉</el-dropdown-item>
+              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <div class="post-bottom-title-zxzt">最新</div>
+        <div class="post-bottom-title-rt">热帖</div>
+        <div class="post-bottom-button">
+          <el-button type="success" plain size="small">
+            <i class="el-icon-edit-outline"></i>发布新帖
+          </el-button>
+        </div>
+      </div>
       <div class="post-bottom-content">
         <el-row :gutter="24">
           <el-col :span="12" style="border-right:2px dotted #ccc;border-bottom:2px dotted #ccc">
@@ -404,9 +427,9 @@
   border-radius: 50%;
   border: 1px solid #fff;
 }
-.el-alert--success {
-  height: 40px;
-  margin: 5px 0px;
+.new-alert {
+  height: 40px !important;
+  margin: 5px 0px !important;
 }
 .post-page {
   padding-bottom: 20px;
@@ -416,5 +439,72 @@
 }
 .new-right2 {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.post-bottom-title {
+  display: flex;
+
+  padding: 1.5% 0 1% 1%;
+}
+.post-bottom-title-zxzt {
+  background: url(../../assets/zxhf.png) 10px 0 no-repeat;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  text-indent: 2.5em;
+  margin: 0 20px 0 20px;
+}
+.post-bottom-title-zxzt:hover {
+  background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
+  color: #75b628;
+}
+.post-bottom-title-rt {
+  background: url(../../assets/rt.png) 10px 0 no-repeat;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  text-indent: 2.5em;
+}
+.post-bottom-title-rt:hover {
+  background: url("../../assets/rt.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
+  color: #75b628;
+}
+.post-bottom-title-all {
+  background: url(../../assets/zxzt.png) 10px 0 no-repeat;
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  text-indent: 1.2em;
+}
+.post-bottom-title-all:hover {
+  background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
+  cursor: pointer;
+  color: #75b628;
+}
+.el-icon--right {
+  margin-left: -15px;
+}
+.post-bottom-button {
+  position: absolute;
+  right: 100px;
+  margin-top: -5px;
+}
+.el-icon-edit-outline {
+  padding-right: 5px;
 }
 </style>

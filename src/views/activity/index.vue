@@ -7,31 +7,23 @@
           <div class="activity-content1">
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              热门活动
-            </div>
+            >热门活动</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              最新活动
-            </div>
+            >最新活动</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              官方活动
-            </div>
+            >官方活动</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              自游行
-            </div>
+            >自游行</div>
           </div>
         </div>
       </div>
       <div class="activity-content">
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -47,42 +39,33 @@
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >AA</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >桂林市</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >2019-4-20</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
                 <span>13</span>
-                <br />
-                <span style="padding-left: 6px;">关注:</span>
+                <br>
+                <span>关注:</span>
                 <span>1300</span>
               </div>
             </div>
@@ -90,7 +73,7 @@ font-size: 14px;"
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -106,42 +89,33 @@ font-size: 14px;"
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >AA</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >桂林市</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >2019-4-20</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
                 <span>13</span>
-                <br />
-                <span style="padding-left: 6px;">关注:</span>
+                <br>
+                <span>关注:</span>
                 <span>1300</span>
               </div>
             </div>
@@ -149,7 +123,7 @@ font-size: 14px;"
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -165,42 +139,33 @@ font-size: 14px;"
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >AA</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >桂林市</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >2019-4-20</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
                 <span>13</span>
-                <br />
-                <span style="padding-left: 6px;">关注:</span>
+                <br>
+                <span>关注:</span>
                 <span>1300</span>
               </div>
             </div>
@@ -208,7 +173,7 @@ font-size: 14px;"
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -224,42 +189,33 @@ font-size: 14px;"
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >AA</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >桂林市</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >2019-4-20</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
                 <span>13</span>
-                <br />
-                <span style="padding-left: 6px;">关注:</span>
+                <br>
+                <span>关注:</span>
                 <span>1300</span>
               </div>
             </div>
@@ -267,7 +223,7 @@ font-size: 14px;"
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -283,42 +239,33 @@ font-size: 14px;"
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >AA</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">AA</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >桂林市</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">桂林市</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span
-                  style="color: #000;
-font-size: 14px;"
-                  >2019-4-20</span
-                >
-                <br />
+                <span style="color: #000;
+font-size: 14px;">2019-4-20</span>
+                <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
                 <span>13</span>
-                <br />
-                <span style="padding-left: 6px;">关注:</span>
+                <br>
+                <span>关注:</span>
                 <span>1300</span>
               </div>
             </div>
@@ -326,12 +273,7 @@ font-size: 14px;"
         </div>
       </div>
       <div class="page">
-        <el-pagination
-          class="page-1"
-          background
-          layout="prev, pager, next"
-          :total="1000"
-        ></el-pagination>
+        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -340,9 +282,7 @@ font-size: 14px;"
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            搜索活动
-          </div>
+          >搜索活动</div>
         </div>
         <div class="search-content">
           <el-form ref="form" label-width="80px">
@@ -351,19 +291,11 @@ font-size: 14px;"
             </el-form-item>
             <el-form-item label="活动时间">
               <el-col :span="11">
-                <el-date-picker
-                  type="date"
-                  placeholder="开始日期"
-                  style="width: 100%;"
-                ></el-date-picker>
+                <el-date-picker type="date" placeholder="开始日期" style="width: 100%;"></el-date-picker>
               </el-col>
               <el-col class="line" :span="2">-</el-col>
               <el-col :span="11">
-                <el-date-picker
-                  type="date"
-                  placeholder="截止日期"
-                  style="width: 100%;"
-                ></el-date-picker>
+                <el-date-picker type="date" placeholder="截止日期" style="width: 100%;"></el-date-picker>
               </el-col>
             </el-form-item>
             <el-form-item label="活动区域">
@@ -406,9 +338,7 @@ font-size: 14px;"
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            活动发布
-          </div>
+          >活动发布</div>
         </div>
         <div class="public-content">
           <el-row>
@@ -425,7 +355,7 @@ font-size: 14px;"
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .index {
   display: flex;
 }
@@ -551,5 +481,6 @@ export default {};
   width: 20%;
   font-size: 13px;
   color: #888;
+  text-align: left;
 }
 </style>

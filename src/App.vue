@@ -53,4 +53,10 @@ body {
 .el-footer {
   padding: 0 !important ;
 }
+.ac-public-form1 h3 {
+  margin: 0;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 20px !important;
+  /* background-color: #99cccc !important; */
+}
 </style>

@@ -69,7 +69,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .el-form-item img {
   height: 100px;
 }

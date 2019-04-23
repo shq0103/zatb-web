@@ -19,17 +19,18 @@
                     <el-input></el-input>
                   </el-form-item>
                   <el-form-item label="验证码">
-                    <el-row>
+                    <el-row style="padding:0px">
                       <ElCol :span="12">
                         <el-input></el-input>
                       </ElCol>
                       <ElCol :span="12">
                         <div @click="refreshCode">
-                          <Identify :identify-code="identifyCode" />
+                          <Identify :identify-code="identifyCode"/>
                         </div>
                       </ElCol>
                     </el-row>
                   </el-form-item>
+
                   <el-form-item>
                     <el-button class="user-secure-button" type="success">提交</el-button>
                   </el-form-item>
@@ -56,20 +57,16 @@
                   </el-form-item>
 
                   <el-form-item label="验证码">
-                    <el-row>
+                    <el-row style="padding:0px">
                       <ElCol :span="12">
                         <el-input></el-input>
                       </ElCol>
                       <ElCol :span="12">
                         <div @click="refreshCode">
-                          <Identify :identify-code="identifyCode" />
+                          <Identify :identify-code="identifyCode"/>
                         </div>
                       </ElCol>
                     </el-row>
-                  </el-form-item>
-
-                  <el-form-item>
-                    <el-button type="primary">查询</el-button>
                   </el-form-item>
 
                   <el-form-item>
@@ -110,7 +107,9 @@ export default {
     },
     makeCode(o, l) {
       for (let i = 0; i < l; i++) {
-        this.identifyCode += this.identifyCodes[this.randomNum(0, this.identifyCodes.length)];
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+        ];
       }
     }
   }

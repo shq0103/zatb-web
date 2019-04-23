@@ -17,7 +17,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
 }

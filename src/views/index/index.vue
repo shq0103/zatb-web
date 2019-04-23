@@ -202,7 +202,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .lunbo {
   height: 420px;
 }

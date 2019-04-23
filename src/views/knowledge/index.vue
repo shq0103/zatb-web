@@ -7,24 +7,16 @@
           <div class="activity-content1">
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              全部知识
-            </div>
+            >全部知识</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              户外技巧
-            </div>
+            >户外技巧</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              户外常识
-            </div>
+            >户外常识</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              户外装备
-            </div>
+            >户外装备</div>
           </div>
         </div>
       </div>
@@ -44,7 +36,7 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
             <div class="know-c-b-rf">
               <div>
@@ -77,7 +69,7 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
             <div class="know-c-b-rf">
               <div>
@@ -110,7 +102,7 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
             <div class="know-c-b-rf">
               <div>
@@ -143,7 +135,7 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
             <div class="know-c-b-rf">
               <div>
@@ -176,7 +168,7 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
             </div>
             <div class="know-c-b-rf">
               <div>
@@ -196,12 +188,7 @@
         </div>
       </div>
       <div class="page">
-        <el-pagination
-          class="page-1"
-          background
-          layout="prev, pager, next"
-          :total="1000"
-        ></el-pagination>
+        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -210,9 +197,7 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            相关推荐
-          </div>
+          >相关推荐</div>
         </div>
         <div class="public-content">
           <el-row>
@@ -230,9 +215,7 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            点击排行
-          </div>
+          >点击排行</div>
         </div>
         <div class="search-content">
           <div>
@@ -253,7 +236,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .index {
   display: flex;
 }

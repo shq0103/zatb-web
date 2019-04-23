@@ -7,21 +7,17 @@
           <div class="activity-content1">
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              最新咨讯
-            </div>
+            >最新咨讯</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >
-              热门咨讯
-            </div>
+            >热门咨讯</div>
           </div>
         </div>
       </div>
       <div class="activity-content">
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -41,7 +37,7 @@
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -61,7 +57,7 @@
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -81,7 +77,7 @@
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -101,7 +97,7 @@
         </div>
         <div class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -121,12 +117,7 @@
         </div>
       </div>
       <div class="page">
-        <el-pagination
-          class="page-1"
-          background
-          layout="prev, pager, next"
-          :total="1000"
-        ></el-pagination>
+        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -135,9 +126,7 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            相关推荐
-          </div>
+          >相关推荐</div>
         </div>
         <div class="public-content">
           <el-row>
@@ -155,14 +144,12 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >
-            热门推荐
-          </div>
+          >热门推荐</div>
         </div>
         <div class="search-content">
           <div class="search-content-1">
             <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
             </div>
             <div class="ac-content-right4-2-1">
               <div>ddddddddd</div>
@@ -170,7 +157,7 @@
           </div>
           <div class="search-content-1">
             <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
             </div>
             <div class="ac-content-right4-2-1">
               <div>ddddddddd</div>
@@ -178,7 +165,7 @@
           </div>
           <div class="search-content-1">
             <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
             </div>
             <div class="ac-content-right4-2-1">
               <div>ddddddddd</div>
@@ -186,7 +173,7 @@
           </div>
           <div class="search-content-1">
             <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
             </div>
             <div class="ac-content-right4-2-1">
               <div>ddddddddd</div>
@@ -194,7 +181,7 @@
           </div>
           <div>
             <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg" />
+              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
             </div>
             <div class="ac-content-right4-2-1">
               <div>ddddddddd</div>
@@ -208,7 +195,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .index {
   display: flex;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg" />
+    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg">
     <el-menu
       class="el-menu-demo"
       mode="horizontal"
@@ -12,15 +12,13 @@
       <el-menu-item index="/index" :style="{ fontSize: '16px' }">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px' }">活动</el-menu-item>
       <el-submenu index="/new">
-        <template slot="title" :style="{ fontSize: '16px' }"
-          >咨讯</template
-        >
+        <template slot="title" :style="{ fontSize: '16px' }">咨讯</template>
 
         <el-menu-item index="/new">徒步新闻</el-menu-item>
         <el-menu-item index="/new">户外知识</el-menu-item>
       </el-submenu>
       <el-menu-item index="/post" :style="{ fontSize: '16px' }">论坛</el-menu-item>
-      <el-menu-item index="5" :style="{ fontSize: '16px' }">
+      <el-menu-item index="/travels" :style="{ fontSize: '16px' }">
         <a href="http://www.tubu100.com/Mall" target="_blank">游记</a>
       </el-menu-item>
       <el-menu-item index="6" :style="{ fontSize: '16px' }">
@@ -41,8 +39,7 @@
       :style="{ margin: '0 0 0 50px', color: '#333' }"
       type="text"
       @click="dialogFormVisible = true"
-      >登录</el-button
-    >
+    >登录</el-button>
 
     <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
       <el-form>
@@ -83,7 +80,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .header {
   background-color: #fff;
   color: #333;
@@ -124,6 +121,8 @@ a {
   color: #fff !important;
   background: #75b628 !important;
 }
+</style>
+<style>
 .el-submenu__title {
   font-size: 16px !important;
 }

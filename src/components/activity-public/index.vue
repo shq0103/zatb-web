@@ -111,7 +111,7 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .public-bottom {
   /* padding: 30px; */
 
