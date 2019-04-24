@@ -47,14 +47,19 @@ color: #FFF;">暂无所属俱乐部</b>
                 <img src="../../assets/报名.png">
                 我的报名
               </li>
-              <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
-                <img src="../../assets/结伴.png">
-                发布活动
-              </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
                 <img src="../../assets/游记.png">
                 我的游记
               </li>
+              <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
+                <img src="../../assets/结伴.png">
+                发布活动
+              </li>
+              <li>
+                <img src="../../assets/游记.png">
+                发布游记
+              </li>
+
               <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
                 <img src="../../assets/评论.png">
                 我的评论
@@ -70,10 +75,6 @@ color: #FFF;">暂无所属俱乐部</b>
                 <img src="../../assets/订单.png">
                 我的订单
               </li>
-              <!-- <li>
-                <img src="../../assets/余额.png">
-                我的余额
-              </li>-->
             </ul>
           </el-collapse-item>
           <el-collapse-item name="2">
@@ -190,7 +191,7 @@ export default {
 
 .us-center-left-bottom ul {
   width: 100%;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   box-sizing: border-box;
   float: left;
 }
@@ -198,7 +199,7 @@ export default {
   width: 100%;
   padding: 5px 0;
   float: left;
-  margin-top: 10px;
+  margin-top: 5px;
   border-radius: 5px;
 }
 .us-center-left-bottom ul li.actived {

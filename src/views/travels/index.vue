@@ -525,9 +525,7 @@
 travels-top-rf {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
-.travels {
-  padding: 0px 60px;
-}
+
 .travels-top-lf ul li,
 .travels-top-lf ul {
   list-style: none;
@@ -539,7 +537,9 @@ travels-top-rf {
   border-radius: 0px !important;
 }
 .travels-bottom {
-  margin-top: 40px;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 15px 5px 0 5px;
 }
 .tr-b-rf-public {
   margin-top: 10px;

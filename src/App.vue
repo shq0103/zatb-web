@@ -59,4 +59,20 @@ body {
   border-bottom-right-radius: 20px !important;
   /* background-color: #99cccc !important; */
 }
+.el-pagination li.active {
+  background: #75b628 !important;
+}
+.el-pager li.active {
+  color: #75b628;
+}
+.el-pager li:hover {
+  color: #75b628 !important;
+}
+.el-main {
+  padding: 20px 70px 10px 80px !important;
+  background-color: #f2f3f4;
+}
+a {
+  text-decoration: none;
+}
 </style>

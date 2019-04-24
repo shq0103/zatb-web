@@ -247,6 +247,8 @@ export default {};
 -webkit-border-radius: 5px; */
   border-radius: 5px;
   margin-right: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .index-right {
   width: 30%;
@@ -258,6 +260,8 @@ export default {};
 -webkit-border-radius: 5px; */
   border-radius: 5px;
   margin-top: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .activity {
   border-bottom: 1px solid #dedbdb;
@@ -267,6 +271,8 @@ export default {};
   /* -moz-border-radius: 5px;
 -webkit-border-radius: 5px; */
   border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .search-title {
   height: 30px;
@@ -432,7 +438,7 @@ export default {};
   margin-left: 20px;
 }
 .know-c-b-rf p {
-  width: 565px;
+  /* width: 565px; */
   height: 110px;
   font-size: 13px;
   color: #919191;

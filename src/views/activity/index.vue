@@ -366,6 +366,8 @@ export default {};
 -webkit-border-radius: 5px; */
   border-radius: 5px;
   margin-right: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .index-right {
   width: 30%;
@@ -376,6 +378,8 @@ export default {};
   /* -moz-border-radius: 5px;
 -webkit-border-radius: 5px; */
   border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .activity {
   border-bottom: 1px solid #dedbdb;
@@ -386,6 +390,8 @@ export default {};
 -webkit-border-radius: 5px; */
   border-radius: 5px;
   margin-top: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .search-title {
   height: 30px;
@@ -425,14 +431,14 @@ export default {};
 }
 .activity-content2 {
   padding: 15px 15px 10px 15px;
-  border-bottom: 1px solid #dedbdb;
+  border-bottom: 1px dotted #adadad;
   display: flex;
+  margin: 5px 20px 0 20px;
 }
 .activity-content1 {
   display: flex;
 }
 .ac-content-left {
-  width: 30%;
   margin-right: 5px;
 }
 .ac-content-right {
@@ -482,5 +488,8 @@ export default {};
   font-size: 13px;
   color: #888;
   text-align: left;
+}
+.el-pagination {
+  margin: 10px 0 !important;
 }
 </style>
