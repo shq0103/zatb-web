@@ -12,9 +12,9 @@
       </el-carousel>
     </div>
     <div class="activity">
-      <div id="act">
+      <!-- <div id="act">
         <h3>活动</h3>
-      </div>
+      </div>-->
       <div>
         <el-tabs value="first">
           <el-tab-pane name="first">
@@ -467,6 +467,9 @@ export default {
 .news_box {
   white-space: nowrap;
   overflow: hidden;
+}
+.el-col-5 {
+  width: 24.5% !important;
 }
 </style>
 

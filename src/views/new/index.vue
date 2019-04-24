@@ -90,7 +90,7 @@
               ></el-alert>
             </div>
             <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
+              <i><2019-4-21 18:24</i>
               <i class="el-icon-view" style="padding-left:20px">300</i>
             </div>
           </div>

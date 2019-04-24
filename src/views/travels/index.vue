@@ -94,7 +94,7 @@
         </el-col>
         <el-col :span="16">
           <div class="travels-top-rf">
-            <el-carousel indicator-position="outside">
+            <el-carousel>
               <el-carousel-item v-for="item in 4" :key="item">
                 <img src="../../assets/1.jpg">
               </el-carousel-item>
@@ -109,14 +109,14 @@
           <div class="tr-b-lf">
             <div class="tr-b-rf-top">
               <div style="font-size:18px;font-weight:bold;padding:0 15px;">
-                <img class="hot" src="../../assets/我的点赞.png">推荐游记
+                <img class="hot" src="../../assets/我的点赞.png">推荐路书
               </div>
             </div>
             <div class="tr-b-lf-bottom">
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:365px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -143,7 +143,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:365px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -170,7 +170,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:365px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -197,7 +197,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:365px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -228,14 +228,14 @@
           <div class="tr-b-rf">
             <div class="tr-b-rf-top">
               <div style="font-size:18px;font-weight:bold;padding:0 5px;">
-                <img class="hot" src="../../assets/hot.png">最热游记
+                <img class="hot" src="../../assets/hot.png">最热路书
               </div>
               <div style="font-size:18px;font-weight:bold;padding:0 15px;">
-                <img class="hot" src="../../assets/new4.png">最新游记
+                <img class="hot" src="../../assets/new4.png">最新路书
               </div>
               <div class="post-bottom-button">
                 <el-button type="success" plain size="small">
-                  <i class="el-icon-edit-outline"></i>发布新帖
+                  <i class="el-icon-edit-outline"></i>发布路书
                 </el-button>
               </div>
             </div>
@@ -539,7 +539,7 @@ travels-top-rf {
 .travels-bottom {
   margin-top: 20px;
   background-color: #fff;
-  padding: 15px 5px 0 5px;
+  padding: 15px 15px 0 15px;
 }
 .tr-b-rf-public {
   margin-top: 10px;
@@ -584,5 +584,14 @@ travels-top-rf {
 }
 .tr-b-lf-bottom {
   padding: 0 5px;
+}
+.tr-b-rf-page {
+  padding: 0 0 10px 0 !important;
+}
+.tr-b-lf {
+  padding: 0 10px;
+}
+tr-b-rf {
+  padding: 0 10px;
 }
 </style>

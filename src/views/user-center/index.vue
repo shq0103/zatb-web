@@ -48,7 +48,7 @@ color: #FFF;">暂无所属俱乐部</b>
                 我的报名
               </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
-                <img src="../../assets/游记.png">
+                <img src="../../assets/笔记本.png">
                 我的游记
               </li>
               <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
@@ -74,6 +74,10 @@ color: #FFF;">暂无所属俱乐部</b>
               <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
                 <img src="../../assets/订单.png">
                 我的订单
+              </li>
+              <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
+                <img src="../../assets/订单.png">
+                发布闲置
               </li>
             </ul>
           </el-collapse-item>

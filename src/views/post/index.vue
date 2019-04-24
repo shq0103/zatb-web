@@ -4,11 +4,8 @@
       <el-row :gutter="24">
         <el-col :span="6">
           <el-carousel height="250px">
-            <el-carousel-item v-for="item in 4" :key="item">
-              <img
-                class="lunbo"
-                src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-              >
+            <el-carousel-item v-for="item in 3" :key="item">
+              <img class="lunbo" src="../../assets/timg.jpg" style="height:250px;width=289px;">
             </el-carousel-item>
           </el-carousel>
         </el-col>
@@ -513,5 +510,9 @@
 }
 .el-row {
   margin: 0 !important;
+  padding: 20px 15px !important;
+}
+.el-col-6 {
+  padding: 0 5px !important;
 }
 </style>

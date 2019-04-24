@@ -39,7 +39,8 @@ export default {
   align-items: center;
 }
 .logo {
-  width: 350px;
+  /* width: 350px; */
+  height: 120px; /* 图片大小记得手改*/
 }
 .weixin {
   height: 30px;
