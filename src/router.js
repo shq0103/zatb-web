@@ -116,6 +116,22 @@ export default new Router({
       // this generates a separate chunk (activity.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "activity" */ "./views/goods/index.vue")
+    },
+    {
+      path: "/activity-show",
+      name: "activity-show",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./views/activity-show/index.vue")
+    },
+    {
+      path: "/new-show",
+      name: "new-show",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./views/new-show/index.vue")
     }
   ]
 });

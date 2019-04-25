@@ -116,7 +116,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:333px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -143,7 +143,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:333px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -170,7 +170,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:333px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -197,7 +197,7 @@
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:340px;">
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:333px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -269,17 +269,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -314,17 +314,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -359,17 +359,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -404,17 +404,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -449,17 +449,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -494,17 +494,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:245px;">
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -586,12 +586,16 @@ travels-top-rf {
   padding: 0 5px;
 }
 .tr-b-rf-page {
-  padding: 0 0 10px 0 !important;
+  padding: 10px 0 20px 0 !important;
 }
 .tr-b-lf {
   padding: 0 10px;
 }
 tr-b-rf {
   padding: 0 10px;
+  /* margin: 0 20px !important; */
+}
+.tr-b-rf-bottom1 {
+  margin: 0 15px;
 }
 </style>

@@ -1,125 +1,20 @@
 <template>
-  <div class="new-index">
+  <div class="new-show">
     <div class="index-left">
       <div class="activity">
         <div class="activity-title">
-          <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >最新咨讯</div>
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >热门咨讯</div>
-          </div>
-        </div>
-      </div>
-      <div class="activity-content">
-        <router-link to="/new-show">
-          <div class="activity-content2">
-            <div class="ac-content-left">
-              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-            </div>
-            <div class="ac-content-right">
-              <div class="ac-content-right1">
-                <el-alert
-                  class="new-alert"
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="new-right2">
-                <i class="el-icon-time">2019-4-21 18:24</i>
-                <i class="el-icon-view" style="padding-left:20px">300</i>
-              </div>
-            </div>
-          </div>
-        </router-link>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+            <h2>第十三届平谷桃花节国际徒步大会即将隆重举行</h2>
+            <div class="title-intro">
+              <span>来源： 中国徒步网</span>
+              <span>作者： Admin</span>
+              <span>时间：2019-03-11 12:03:40</span>
+              <span>
+                <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">223
+              </span>
             </div>
           </div>
         </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i><2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="page">
-        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -225,7 +120,7 @@ export default {};
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .activity {
-  border-bottom: 1px solid #dedbdb;
+  margin: 0 40px;
 }
 .public-1 {
   border: 1px solid #dedbdb;
@@ -278,7 +173,13 @@ export default {};
   margin: 5px 20px 0 20px;
 }
 .activity-content1 {
-  display: flex;
+  border-bottom: 1px dotted #dedbdb;
+  padding-top: 5px;
+}
+.activity-content1 h2 {
+  font-size: 20px;
+  color: #454444;
+  text-align: center;
 }
 .ac-content-left {
   margin-right: 10px;
@@ -334,7 +235,7 @@ export default {};
   font-size: 13px;
   color: #888;
 }
-.new-index {
+.new-show {
   display: flex;
 }
 .new-alert {
@@ -349,4 +250,18 @@ export default {};
 .page {
   margin: 10px 0;
 }
+.title-intro span {
+  font-size: 12px;
+  color: #919191;
+  margin-left: 15px;
+  position: relative;
+}
+/* .title-intro {
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  text-align: center;
+} */
 </style>

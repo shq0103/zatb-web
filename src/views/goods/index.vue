@@ -65,10 +65,15 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -79,16 +84,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -99,16 +112,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -119,16 +140,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -139,6 +168,126 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+
+        <div class="g-i-middle">
+          <el-row :gutter="24">
+            <el-col :span="6">
+              <div class="g-i-m-1">
+                <div class="g-i-m-img">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
+                </div>
+                <div class="g-i-m-content">
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
+                </div>
+                <div class="g-i-m-user">
+                  <div class="new-right2">
+                    <i>
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
+                    </i>
+                    <i style="padding-left:20px">
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
+                    </i>
+                  </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="g-i-m-1">
+                <div class="g-i-m-img">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
+                </div>
+                <div class="g-i-m-content">
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
+                </div>
+                <div class="g-i-m-user">
+                  <div class="new-right2">
+                    <i>
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
+                    </i>
+                    <i style="padding-left:20px">
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
+                    </i>
+                  </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="g-i-m-1">
+                <div class="g-i-m-img">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
+                </div>
+                <div class="g-i-m-content">
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
+                </div>
+                <div class="g-i-m-user">
+                  <div class="new-right2">
+                    <i>
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
+                    </i>
+                    <i style="padding-left:20px">
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
+                    </i>
+                  </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="6">
+              <div class="g-i-m-1">
+                <div class="g-i-m-img">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
+                </div>
+                <div class="g-i-m-content">
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
+                </div>
+                <div class="g-i-m-user">
+                  <div class="new-right2">
+                    <i>
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
+                    </i>
+                    <i style="padding-left:20px">
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
+                    </i>
+                  </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
@@ -149,10 +298,15 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -163,16 +317,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -183,16 +345,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -203,16 +373,24 @@
                       <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
+                </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
+                  <el-alert
+                    title="带辅助性文字介绍"
+                    type="success"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                    :closable="false"
+                  ></el-alert>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
@@ -224,173 +402,8 @@
                     </i>
                   </div>
                 </div>
-              </div>
-            </el-col>
-          </el-row>
-        </div>
-        <div class="g-i-middle">
-          <el-row :gutter="24">
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-          </el-row>
-        </div>
-        <div class="g-i-middle">
-          <el-row :gutter="24">
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="g-i-m-1">
-                <div class="g-i-m-img">
-                  <img src="../../assets/timg.jpg" style="width:271px;height:158px;">
-                </div>
-                <div class="g-i-m-content">
-                  <el-alert title="带辅助性文字介绍" type="success" description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"></el-alert>
-                </div>
-                <div class="g-i-m-user">
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
-                    </i>
-                    <i style="padding-left:20px">
-                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
-                    </i>
-                  </div>
+                <div class="show-more">
+                  <a>更多>></a>
                 </div>
               </div>
             </el-col>
@@ -540,7 +553,7 @@
 }
 .g-i-middle {
   padding: 15px 0;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
   margin: 0 20px;
 }
 .g-i-m-1 {
@@ -552,7 +565,7 @@
   justify-content: space-between;
 }
 .page {
-  margin: 10px 0;
+  margin: 50px 0 15px 0;
 }
 .activity {
   margin-bottom: 25px;
@@ -572,5 +585,22 @@
 }
 .el-tabs__active-bar {
   background-color: #75b628 !important;
+}
+.show-more {
+  width: 100%;
+  height: 35px;
+  background: url(../../assets/line_2.png) no-repeat center center;
+  text-align: center;
+  margin-top: 6px;
+}
+.show-more a {
+  height: 35px;
+  line-height: 35px;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 0 40px;
+  color: #fff;
+  font-size: 14px;
+  background: #75b628;
 }
 </style>
