@@ -1,22 +1,45 @@
 <template>
   <div class="new-show">
     <div class="index-left">
-      <div class="activity">
-        <div class="activity-title">
-          <div class="activity-content1">
-            <h2>第十三届平谷桃花节国际徒步大会即将隆重举行</h2>
-            <div class="title-intro">
-              <span>来源： 中国徒步网</span>
-              <span>作者： Admin</span>
-              <span>时间：2019-03-11 12:03:40</span>
-              <span>
-                <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">223
-              </span>
+      <div class="public-1">
+        <div class="activity">
+          <div class="activity-title">
+            <div class="activity-content1">
+              <h2>第十三届平谷桃花节国际徒步大会即将隆重举行</h2>
+              <div class="title-intro">
+                <span>来源： 中国徒步网</span>
+                <span>作者： Admin</span>
+                <span>时间：2019-03-11 12:03:40</span>
+                <span>
+                  <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">223
+                </span>
+              </div>
             </div>
           </div>
+          <div class></div>
+        </div>
+      </div>
+      <div class="search-1">
+        <div class="search-title">
+          <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
+          <div
+            style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
+          >网友评论</div>
+        </div>
+        <div class="search-content"></div>
+        <div class="show-comment">
+          <el-form ref="form" :model="form" label-width="80px">
+            <el-form-item label="发表评论">
+              <el-input type="textarea"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="success" @click="onSubmit">发表</el-button>
+            </el-form-item>
+          </el-form>
         </div>
       </div>
     </div>
+
     <div class="index-right">
       <div class="public-1">
         <div class="search-title">
@@ -98,13 +121,8 @@ export default {};
 }
 .index-left {
   width: 70%;
-  border: 1px solid #dedbdb;
-  /* -moz-border-radius: 5px;
--webkit-border-radius: 5px; */
-  border-radius: 5px;
+
   margin-right: 20px;
-  background-color: #fff;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .index-right {
   width: 30%;
@@ -135,7 +153,6 @@ export default {};
   margin-top: 15px;
 }
 .activity-title {
-  height: 30px;
   margin-top: 15px;
   padding-bottom: 8px;
 }
@@ -264,4 +281,9 @@ export default {};
   margin-bottom: 8px;
   text-align: center;
 } */
+.show-comment {
+  /* border-top: 1px dotted #ccc; */
+  margin: 10px 10px;
+  padding-top: 10px;
+}
 </style>
