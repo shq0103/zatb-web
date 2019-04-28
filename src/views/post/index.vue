@@ -460,6 +460,9 @@
   text-indent: 2.5em;
   margin: 0 20px 0 20px;
 }
+.post-bottom-content {
+  margin: 0 15px;
+}
 .post-bottom-title-zxzt:hover {
   background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;
   cursor: pointer;
@@ -510,7 +513,7 @@
 }
 .el-row {
   margin: 0 !important;
-  padding: 20px 15px !important;
+  padding: 20px 0px !important;
 }
 .el-col-6 {
   padding: 0 5px !important;

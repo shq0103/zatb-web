@@ -7,7 +7,7 @@
           <img
             class="lunbo"
             src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-          />
+          >
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -19,7 +19,7 @@
         <el-tabs value="first">
           <el-tab-pane name="first">
             <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
-              <img class="ac1" src="../../assets/activity.png" /> 常规活动
+              <img class="ac1" src="../../assets/activity.png"> 常规活动
             </span>
 
             <el-row :gutter="24" type="flex" justify="center">
@@ -28,7 +28,7 @@
                   <img
                     src="http://tubu100.com:8053/Files/At/20190129175037c0f3d5.jpg"
                     class="image"
-                  />
+                  >
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -47,7 +47,7 @@
                   <img
                     src="http://tubu100.com:8053/Files/At/20190415164701d73e6d.jpg"
                     class="image"
-                  />
+                  >
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -66,7 +66,7 @@
                   <img
                     src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                     class="image"
-                  />
+                  >
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -85,7 +85,7 @@
                   <img
                     src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                     class="image"
-                  />
+                  >
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -104,19 +104,21 @@
       <div class="travel">
         <div class="tr-title">
           <div class="tr-title-1">
-            <div class="tr1"><img class="hot" src="../../assets/hot.png" />热门游记</div>
+            <div class="tr1">
+              <img class="hot" src="../../assets/hot.png">热门游记
+            </div>
             <div class="tr1-right">
               <el-row>
-                <el-button :style="{ marginTop: '15px' }" type="success" size="small" plain
-                  >更多</el-button
-                >
+                <el-button :style="{ marginTop: '15px' }" type="success" size="small" plain>更多</el-button>
                 <!-- <el-button type="text" size="small">更多</el-button> -->
               </el-row>
             </div>
           </div>
 
           <div class="tr-title-2">
-            <div class="tr2"><img class="hot" src="../../assets/new.png" />最新发表</div>
+            <div class="tr2">
+              <img class="hot" src="../../assets/new.png">最新发表
+            </div>
             <div class="tr2-right">
               <el-row>
                 <el-button
@@ -140,7 +142,7 @@
         <div class="tr-content">
           <div class="tr-content-left">
             <div class="tr-content-left-img">
-              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
+              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
             </div>
             <div class="tr-content-left-content">
               <div class="tr-content-left-content1">dddd</div>
@@ -159,9 +161,7 @@
                 <div class="tip left">
                   <span class="time">2019-02-17</span>
                   <p class="bt">
-                    <router-link to="/foo"
-                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
-                    >
+                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
                   </p>
                   <p class="aut">
                     <router-link to="/foo">—作者：kelegai2008</router-link>
@@ -173,9 +173,7 @@
                 <div class="tip left">
                   <span class="time">2019-02-17</span>
                   <p class="bt">
-                    <router-link to="/foo"
-                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
-                    >
+                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
                   </p>
                   <p class="aut">
                     <router-link to="/foo">—作者：kelegai2008</router-link>
@@ -187,9 +185,7 @@
                 <div class="tip left">
                   <span class="time">2019-02-17</span>
                   <p class="bt">
-                    <router-link to="/foo"
-                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
-                    >
+                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
                   </p>
                   <p class="aut">
                     <router-link to="/foo">—作者：kelegai2008</router-link>
@@ -201,9 +197,7 @@
                 <div class="tip left">
                   <span class="time">2019-02-17</span>
                   <p class="bt">
-                    <router-link to="/foo"
-                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
-                    >
+                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
                   </p>
                   <p class="aut">
                     <router-link to="/foo">—作者：kelegai2008</router-link>
@@ -220,7 +214,7 @@
       <div class="post">
         <div class="p-title">
           <div class="p1">
-            <img class="p-img" src="../../assets/论坛.png" />
+            <img class="p-img" src="../../assets/论坛.png">
             论坛
           </div>
           <div class="p-more">
@@ -240,7 +234,9 @@
       </div>
       <div class="post">
         <div class="p-title">
-          <div class="p1"><img class="p-img" src="../../assets/知识.png" />户外知识</div>
+          <div class="p1">
+            <img class="p-img" src="../../assets/知识.png">户外知识
+          </div>
           <div class="p-more">
             <el-button type="text">
               更多
@@ -324,6 +320,7 @@ export default {
   flex-direction: column;
   background-color: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
 }
 .tr-title {
   line-height: 40px;
@@ -364,7 +361,7 @@ export default {
 }
 .tr1-right {
   margin-left: auto;
-  padding-right: 20px;
+  padding-right: 35px;
 }
 .tr2-right {
   margin-left: auto;
@@ -432,7 +429,7 @@ export default {
   display: flex;
 }
 .tr-content-right {
-  width: 30%;
+  width: 35%;
   border-left: 2px solid #e1e1e0;
   border-left-style: dotted;
   height: 300px;
@@ -446,7 +443,7 @@ export default {
   align-items: center;
   font-size: 18px;
   font-weight: bold;
-  width: 30%;
+  width: 33%;
 }
 .post {
   width: 49%;
@@ -549,7 +546,7 @@ export default {
   margin-top: -9px;
 }
 .slideshow {
-  border-left: 2px #4aaea4 solid;
+  border-left: 2px #75b628 solid;
   margin: 0 15px 10px 20px;
   padding-left: 30px;
 }

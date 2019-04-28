@@ -58,21 +58,265 @@
     </div>
     <div class="activity_content">
       <el-row :gutter="20">
-        <el-col :span="16">
-          <div class="a-c-lf">qq</div>
+        <el-col :span="17">
+          <div class="a-c-lf">
+            <div class="a-c-lf-title">
+              <ul class="tabbar">
+                <li class="tabbar-1">
+                  <a href="javascript:void(0);">行程安排</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">费用说明</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">线路描述</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">目的地地图</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">装备要求</a>
+                </li>
+              </ul>
+            </div>
+            <div class="a-c-lf-content">
+              <div class="a-c-l-c-1">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/行程.png" class="icon-intro">行程安排
+                  </h3>
+                </div>
+                <div class="attr-content">22</div>
+              </div>
+              <div class="a-c-l-c-1">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/费用说明.png" class="icon-intro">费用说明
+                  </h3>
+                </div>
+                <div class="attr-content">33</div>
+              </div>
+              <div class="a-c-l-c-1">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/线路.png" class="icon-intro">线路介绍
+                  </h3>
+                </div>
+                <div class="attr-content">11</div>
+              </div>
+              <div class="a-c-l-c-1">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/地图.png" class="icon-intro">目的地地图
+                  </h3>
+                </div>
+                <div class="attr-content">44</div>
+              </div>
+              <div class="a-c-l-c-1">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/装备.png" class="icon-intro">装备要求
+                  </h3>
+                </div>
+                <div class="attr-content">55</div>
+              </div>
+              <div class="a-c-l-c-2">
+                <div class="attr-title">
+                  <h3>
+                    <img src="../../assets/更多.png" class="icon-intro">更多介绍
+                  </h3>
+                </div>
+                <div class="attr-content">55</div>
+              </div>
+            </div>
+          </div>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="7">
           <div class="a-c-rf">
             <div class="a-c-rf-1">
               <div class="a-c-rf-2-title">报名列表</div>
               <div class="a-c-rf-2-title1">已参加：9人</div>
-              <div>
+              <div class="a-c-rf-2-content">
                 <el-row :gutter="24">
                   <el-col :span="12">
-                    <div class="grid-content bg-purple">11</div>
+                    <div class="a-c-rf-2-people">
+                      <el-row :gutter="24">
+                        <el-col :span="12">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
                   </el-col>
                   <el-col :span="12">
-                    <div class="grid-content bg-purple">22</div>
+                    <div class="a-c-rf-2-people-1">
+                      <el-row :gutter="24">
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+              <div class="a-c-rf-2-content">
+                <el-row :gutter="24">
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people">
+                      <el-row :gutter="24">
+                        <el-col :span="12">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people-1">
+                      <el-row :gutter="24">
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+              <div class="a-c-rf-2-content">
+                <el-row :gutter="24">
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people">
+                      <el-row :gutter="24">
+                        <el-col :span="12">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people-1">
+                      <el-row :gutter="24">
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+              <div class="a-c-rf-2-content">
+                <el-row :gutter="24">
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people">
+                      <el-row :gutter="24">
+                        <el-col :span="12">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </el-col>
+                  <el-col :span="12">
+                    <div class="a-c-rf-2-people-1">
+                      <el-row :gutter="24">
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-lf">
+                            <img
+                              src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
+                            >
+                          </div>
+                        </el-col>
+                        <el-col :span="12" class="a-c-rf-2-people-1">
+                          <div class="post-bottom-content-rf">
+                            <ul>
+                              <li>美少女美少女</li>
+                              <li>性别：女</li>
+                            </ul>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
                   </el-col>
                 </el-row>
               </div>
@@ -114,7 +358,7 @@ ul {
 }
 .a-i-title {
   display: flex;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .activity_title {
   line-height: 24px;
@@ -138,7 +382,7 @@ ul {
   box-sizing: border-box;
   line-height: 14px;
   font-size: 14px;
-  margin: 20px 0;
+  margin: 15px 0;
   color: #999;
   display: flex;
 }
@@ -158,7 +402,7 @@ ul {
 }
 .a-i-c-lf b.stat_01 {
   color: #fff;
-  background: #75b628;
+  background: #7594ac;
 }
 .a-i-c-lf b {
   padding: 0 15px;
@@ -190,9 +434,14 @@ ul {
   background: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
+.a-c-lf-title {
+  background-color: #f6f8fa;
+  box-shadow: 0 -1px 3px rgba(4, 0, 0, 0.06);
+}
 .a-c-rf {
   background: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
 }
 .activity_content {
   margin: 30px 0px;
@@ -201,20 +450,20 @@ ul {
   height: 28px;
   line-height: 28px;
   font-size: 18px;
-  color: #75b628;
+  color: #7594ac;
   text-align: left;
-  margin: 10px 40px;
+  margin: 10px 10px;
 }
 .a-c-rf-2-title1 {
   height: 28px;
   line-height: 28px;
   font-size: 12px;
-  color: #75b628;
+  color: #7594ac;
   text-align: left;
-  margin: -10px 40px 10px 40px;
+  margin: -10px 40px 10px 10px;
 }
 .a-c-rf-2-cloud {
-  width: 80%;
+  width: 90%;
   height: 85px;
   background: #4b8ee7 url(../../assets/cloud.png) no-repeat 20px center;
   position: relative;
@@ -235,16 +484,86 @@ ul {
 }
 .a-c-rf-1 {
   border-bottom: #ccc dotted 2px;
-  margin: 0px 10px;
+
   padding: 10px 0px;
 }
 .a-c-rf-2 {
   border-bottom: #ccc dotted 2px;
-  margin: 0px 10px;
+
+  padding: 20px 0px;
+}
+.a-c-rf-3 {
   padding: 10px 0px;
 }
-.a-c-rf-2 {
-  margin: 0px 10px;
-  padding: 10px 0px;
+.post-bottom-content-lf img {
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin: 0 10px;
+}
+.post-bottom-content-rf ul {
+  padding: 0;
+  text-align: left;
+  font-size: 15px;
+  color: #999;
+}
+/* .a-c-rf-2-people-1 {
+  padding-left: 0px !important;
+} */
+.a-c-rf-2-content {
+  margin: 20px 0px;
+}
+.tabbar {
+  position: relative;
+  height: 56px;
+  padding-left: 10px;
+  margin: 0px;
+}
+.tabbar-1 {
+  background-color: #fff;
+  border-top: 2px solid #75b628;
+  height: 54px;
+  line-height: 52px;
+}
+.tabbar li {
+  position: relative;
+  float: left;
+  height: 56px;
+  line-height: 56px;
+}
+.tabbar a {
+  padding: 0 20px;
+  font-size: 16px;
+  color: #585858;
+  display: block;
+  text-align: center;
+}
+.attr-title {
+  padding: 0 20px 10px 20px;
+}
+.attr-title i {
+  display: inline-block;
+  vertical-align: middle;
+  margin: -3px 10px 0 0;
+}
+.icon-intro {
+  height: 25px;
+  /* background: url(../../assets/xianlu.png) no-repeat; */
+  margin-bottom: -5px;
+  margin-right: 5px;
+}
+.attr-title h3 {
+  text-shadow: 0 2px 0 rgba(98, 133, 161, 0.2);
+  color: #7594ac;
+  font: 400 20px/32px "Microsoft Yahei";
+  text-align: left;
+}
+.a-c-l-c-1 {
+  border-bottom: 1px dotted #ccc;
+  margin: 5px 20px;
+}
+.a-c-l-c-2 {
+  margin: 5px 20px;
+  padding-bottom: 20px;
 }
 </style>

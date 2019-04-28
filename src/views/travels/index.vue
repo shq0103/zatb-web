@@ -225,7 +225,7 @@
           </div>
         </el-col>
         <el-col :span="16">
-          <div class="tr-b-rf">
+          <div class="tr-b-rf" style="margin:0 15px;">
             <div class="tr-b-rf-top">
               <div style="font-size:18px;font-weight:bold;padding:0 5px;">
                 <img class="hot" src="../../assets/hot.png">最热路书
@@ -569,7 +569,7 @@ travels-top-rf {
 }
 .post-bottom-button {
   position: absolute;
-  right: 20px;
+  right: 45px;
   margin-top: -5px;
 }
 .tr-t-lf-input {
@@ -593,7 +593,7 @@ travels-top-rf {
 }
 tr-b-rf {
   padding: 0 10px;
-  /* margin: 0 20px !important; */
+  margin: 0 20px !important;
 }
 .tr-b-rf-bottom1 {
   margin: 0 15px;
