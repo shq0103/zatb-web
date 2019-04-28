@@ -77,48 +77,18 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >热门推荐</div>
+          >点击排行</div>
         </div>
         <div class="search-content">
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
           <div>
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -313,8 +283,5 @@ export default {};
 }
 .activity_top li:nth-child(2n) {
   padding: 0 10px;
-}
-ul {
-  list-style-type: none;
 }
 </style>

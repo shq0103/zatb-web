@@ -29,7 +29,7 @@
             </div>
             <div class="know-c-t-rf">
               <h2>
-                <a href="#">冬季户外徒步穿越的注意事项</a>
+                <router-link to="/knowledge-show">冬季户外徒步穿越的注意事项</router-link>
               </h2>
               <p>作者： Admin | 来源于： 互联网</p>
             </div>
@@ -413,6 +413,9 @@ export default {};
 .know-c-t-rf h2 {
   margin: 0px;
   font-size: 20px;
+}
+.know-c-t-rf h2:hover {
+  text-decoration: underline;
 }
 .know-c-t-rf h2 a {
   color: #75b628;
