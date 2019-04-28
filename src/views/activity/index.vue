@@ -26,14 +26,16 @@
             <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
           </div>
           <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
+            <router-link to="/activity-show">
+              <div class="ac-content-right1">
+                <el-alert
+                  title="带辅助性文字介绍"
+                  type="success"
+                  :closable="false"
+                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                ></el-alert>
+              </div>
+            </router-link>
             <div class="ac-content-right2">
               <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
             </div>
