@@ -7,7 +7,7 @@
           <img
             class="lunbo"
             src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-          >
+          />
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -18,17 +18,17 @@
       <div>
         <el-tabs value="first">
           <el-tab-pane name="first">
-            <span slot="label" :style="{ fontSize: '18px',fontWeight:'bold'}">
-              <img class="ac1" src="../../assets/activity.png"> 常规活动
+            <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
+              <img class="ac1" src="../../assets/activity.png" /> 常规活动
             </span>
 
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px'}">
+                <el-card :body-style="{ padding: '0px' }">
                   <img
                     src="http://tubu100.com:8053/Files/At/20190129175037c0f3d5.jpg"
                     class="image"
-                  >
+                  />
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -43,11 +43,11 @@
           <el-tab-pane label="官方活动" name="second">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px'}">
+                <el-card :body-style="{ padding: '0px' }">
                   <img
                     src="http://tubu100.com:8053/Files/At/20190415164701d73e6d.jpg"
                     class="image"
-                  >
+                  />
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -62,11 +62,11 @@
           <el-tab-pane label="最新上线" name="third">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px'}">
+                <el-card :body-style="{ padding: '0px' }">
                   <img
                     src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                     class="image"
-                  >
+                  />
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -81,11 +81,11 @@
           <el-tab-pane label="自游行" name="fourth">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px'}">
+                <el-card :body-style="{ padding: '0px' }">
                   <img
                     src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                     class="image"
-                  >
+                  />
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
@@ -104,32 +104,30 @@
       <div class="travel">
         <div class="tr-title">
           <div class="tr-title-1">
-            <div class="tr1">
-              <img class="hot" src="../../assets/hot.png">热门游记
-            </div>
+            <div class="tr1"><img class="hot" src="../../assets/hot.png" />热门游记</div>
             <div class="tr1-right">
               <el-row>
-                <el-button :style="{marginTop:'15px'}" type="success" size="small" plain>更多</el-button>
+                <el-button :style="{ marginTop: '15px' }" type="success" size="small" plain
+                  >更多</el-button
+                >
                 <!-- <el-button type="text" size="small">更多</el-button> -->
               </el-row>
             </div>
           </div>
 
           <div class="tr-title-2">
-            <div class="tr2">
-              <img class="hot" src="../../assets/new.png">最新发表
-            </div>
+            <div class="tr2"><img class="hot" src="../../assets/new.png" />最新发表</div>
             <div class="tr2-right">
               <el-row>
                 <el-button
-                  :style="{marginTop:'15px'}"
+                  :style="{ marginTop: '15px' }"
                   type="success"
                   size="small"
                   plain
                   icon="el-icon-arrow-up"
                 ></el-button>
                 <el-button
-                  :style="{marginTop:'15px'}"
+                  :style="{ marginTop: '15px' }"
                   type="success"
                   size="small"
                   plain
@@ -142,7 +140,7 @@
         <div class="tr-content">
           <div class="tr-content-left">
             <div class="tr-content-left-img">
-              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg" />
             </div>
             <div class="tr-content-left-content">
               <div class="tr-content-left-content1">dddd</div>
@@ -154,7 +152,66 @@
               </div>
             </div>
           </div>
-          <div class="tr-content-right"></div>
+          <div class="tr-content-right">
+            <ul class="slideshow">
+              <li>
+                <i></i>
+                <div class="tip left">
+                  <span class="time">2019-02-17</span>
+                  <p class="bt">
+                    <router-link to="/foo"
+                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
+                    >
+                  </p>
+                  <p class="aut">
+                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i></i>
+                <div class="tip left">
+                  <span class="time">2019-02-17</span>
+                  <p class="bt">
+                    <router-link to="/foo"
+                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
+                    >
+                  </p>
+                  <p class="aut">
+                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i></i>
+                <div class="tip left">
+                  <span class="time">2019-02-17</span>
+                  <p class="bt">
+                    <router-link to="/foo"
+                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
+                    >
+                  </p>
+                  <p class="aut">
+                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i></i>
+                <div class="tip left">
+                  <span class="time">2019-02-17</span>
+                  <p class="bt">
+                    <router-link to="/foo"
+                      >标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link
+                    >
+                  </p>
+                  <p class="aut">
+                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -163,7 +220,7 @@
       <div class="post">
         <div class="p-title">
           <div class="p1">
-            <img class="p-img" src="../../assets/论坛.png">
+            <img class="p-img" src="../../assets/论坛.png" />
             论坛
           </div>
           <div class="p-more">
@@ -176,16 +233,14 @@
         <div class="p-content">
           <div class="news_box">
             <div class="inner-container">
-              <p class="text" v-for="(text, index) in arr" :key="index">{{text}}</p>
+              <p class="text" v-for="(text, index) in arr" :key="index">{{ text }}</p>
             </div>
           </div>
         </div>
       </div>
       <div class="post">
         <div class="p-title">
-          <div class="p1">
-            <img class="p-img" src="../../assets/知识.png">户外知识
-          </div>
+          <div class="p1"><img class="p-img" src="../../assets/知识.png" />户外知识</div>
           <div class="p-more">
             <el-button type="text">
               更多
@@ -471,5 +526,68 @@ export default {
 .el-col-5 {
   width: 24.5% !important;
 }
+.tip {
+  position: relative;
+  background-color: #f0f9eb;
+  height: 60px;
+  color: white;
+  text-align: left;
+  font-family: sans-serif;
+  padding: 5px 10px;
+}
+.tip:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid;
+}
+.left:after {
+  border-right-color: #f0f9eb;
+  top: 50%;
+  right: 100%;
+  margin-top: -9px;
+}
+.slideshow {
+  border-left: 2px #4aaea4 solid;
+  margin: 0 15px 10px 20px;
+  padding-left: 30px;
+}
+.slideshow li {
+  height: 70px;
+  padding-top: 5px;
+  list-style: none;
+  position: relative;
+}
+.slideshow li i {
+  position: absolute;
+  left: -40px;
+  top: 30px;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background: url(../../assets/yuangfang.png) 0px -270px no-repeat;
+}
+.time {
+  font-size: 12px;
+  color: #757575;
+}
+.bt {
+  margin: 0px;
+  height: 20px;
+  overflow: hidden;
+}
+.bt a {
+  font-size: 14px;
+  color: #4c4b4b;
+  font-weight: 500;
+}
+.aut {
+  margin: 0px;
+  text-align: right;
+}
+.aut a {
+  font-size: 12px;
+  color: #757575;
+}
 </style>
-
