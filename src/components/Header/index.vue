@@ -86,6 +86,7 @@ export default {
   justify-content: center;
   border-bottom: solid 1px #e6e6e6;
   border-top: 3px solid #009a61;
+
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 
