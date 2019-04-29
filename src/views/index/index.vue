@@ -32,7 +32,7 @@
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <time class="time">2019-04-29 21:36</time>
                       <el-button type="text" class="button">操作按钮</el-button>
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <time class="time">2019-04-29 21:36</time>
                       <el-button type="text" class="button">操作按钮</el-button>
                     </div>
                   </div>
@@ -70,7 +70,7 @@
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <time class="time">2019-04-29 21:36</time>
                       <el-button type="text" class="button">操作按钮</el-button>
                     </div>
                   </div>
@@ -89,7 +89,7 @@
                   <div style="padding: 14px;">
                     <span>好吃的汉堡</span>
                     <div class="bottom clearfix">
-                      <time class="time">{{ currentDate }}</time>
+                      <time class="time">2019-04-29 21:36</time>
                       <el-button type="text" class="button">操作按钮</el-button>
                     </div>
                   </div>
@@ -178,7 +178,7 @@
                   ></el-alert>
                 </div>
                 <div class="tr-b-rf-public">
-                  <i :style="{float:'left'}">
+                  <i :style="{ float: 'left' }">
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
@@ -210,7 +210,7 @@
                   ></el-alert>
                 </div>
                 <div class="tr-b-rf-public">
-                  <i :style="{float:'left'}">
+                  <i :style="{ float: 'left' }">
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
@@ -242,7 +242,7 @@
                   ></el-alert>
                 </div>
                 <div class="tr-b-rf-public">
-                  <i :style="{float:'left'}">
+                  <i :style="{ float: 'left' }">
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
