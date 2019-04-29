@@ -141,21 +141,139 @@
         </div>
         <div class="tr-content">
           <div class="tr-content-left">
-            <div class="tr-content-left-img">
-              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+            <!-- <div class="tr-content-left-1">
+              <div class="tr-content-left-img">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="tr-content-left-content">
+                <div class="tr-content-left-content1">
+                  <el-alert
+                    class="new-alert"
+                    title="带辅助性文字介绍"
+                    type="success"
+                    :closable="false"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                  ></el-alert>
+                </div>
+
+                <div class="tr-content-left-content2">
+                  <i class="el-icon-location">ddd</i>
+                  <i class="tr-author">ddd</i>
+                  <i class="el-icon-view">ddd</i>
+                </div>
+              </div>
+            </div>-->
+            <div class="activity-content2">
+              <div class="ac-content-left">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right">
+                <div class="ac-content-right1">
+                  <el-alert
+                    class="new-alert"
+                    title="带辅助性文字介绍"
+                    type="success"
+                    :closable="false"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                  ></el-alert>
+                </div>
+                <div class="tr-b-rf-public">
+                  <i :style="{float:'left'}">
+                    <img
+                      src="../../assets/个人1.png"
+                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
+                    >###
+                  </i>
+                  <img
+                    src="../../assets/评论1.png"
+                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
+                  >3700
+                  <img
+                    src="../../assets/浏览.png"
+                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
+                  >300
+                </div>
+              </div>
             </div>
-            <div class="tr-content-left-content">
-              <div class="tr-content-left-content1">dddd</div>
-              <div class="tr-content-left-content2">ddddd</div>
-              <div class="tr-content-left-content3">
-                <i class="el-icon-location">ddd</i>
-                <i class="tr-author">ddd</i>
-                <i class="el-icon-view">ddd</i>
+            <div class="activity-content2">
+              <div class="ac-content-left">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right">
+                <div class="ac-content-right1">
+                  <el-alert
+                    class="new-alert"
+                    title="带辅助性文字介绍"
+                    type="success"
+                    :closable="false"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                  ></el-alert>
+                </div>
+                <div class="tr-b-rf-public">
+                  <i :style="{float:'left'}">
+                    <img
+                      src="../../assets/个人1.png"
+                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
+                    >###
+                  </i>
+                  <img
+                    src="../../assets/评论1.png"
+                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
+                  >3700
+                  <img
+                    src="../../assets/浏览.png"
+                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
+                  >300
+                </div>
+              </div>
+            </div>
+            <div class="activity-content3">
+              <div class="ac-content-left">
+                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+              </div>
+              <div class="ac-content-right">
+                <div class="ac-content-right1">
+                  <el-alert
+                    class="new-alert"
+                    title="带辅助性文字介绍"
+                    type="success"
+                    :closable="false"
+                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                  ></el-alert>
+                </div>
+                <div class="tr-b-rf-public">
+                  <i :style="{float:'left'}">
+                    <img
+                      src="../../assets/个人1.png"
+                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
+                    >###
+                  </i>
+                  <img
+                    src="../../assets/评论1.png"
+                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
+                  >3700
+                  <img
+                    src="../../assets/浏览.png"
+                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
+                  >300
+                </div>
               </div>
             </div>
           </div>
           <div class="tr-content-right">
             <ul class="slideshow">
+              <li>
+                <i></i>
+                <div class="tip left">
+                  <span class="time">2019-02-17</span>
+                  <p class="bt">
+                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
+                  </p>
+                  <p class="aut">
+                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                  </p>
+                </div>
+              </li>
               <li>
                 <i></i>
                 <div class="tip left">
@@ -225,14 +343,113 @@
           </div>
         </div>
         <div class="p-content">
-          <div class="news_box">
-            <div class="inner-container">
-              <p class="text" v-for="(text, index) in arr" :key="index">{{ text }}</p>
-            </div>
-          </div>
+          <el-row :gutter="24">
+            <el-col :span="12">
+              <div class="grid-content bg-purple">
+                <div class="p-c-1">
+                  <div class="p-content-top">
+                    <img
+                      id="touxiangimg"
+                      src="http://avatar.8264.com/data/avatar/000/12/84/45_avatar_middle.jpg?ZB8R69?tempid=527"
+                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
+                    >
+                    <div class="p-content-top-info">
+                      <span>发布人：美少女</span>
+                      <a
+                        href="http://www.8264.com/wenda/35762.html"
+                        target="_blank"
+                      >新手请教，防潮垫时用传统的还是自充气的？</a>
+                    </div>
+                  </div>
+                  <div class="p-content-bottom">
+                    <div
+                      class="p-c-b-content"
+                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="12">
+              <div class="grid-content bg-purple">
+                <div class="p-c-1">
+                  <div class="p-content-top">
+                    <img
+                      id="touxiangimg"
+                      src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
+                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
+                    >
+                    <div class="p-content-top-info">
+                      <span>发布人：美少女</span>
+                      <a
+                        href="http://www.8264.com/wenda/35762.html"
+                        target="_blank"
+                      >新手请教，防潮垫时用传统的还是自充气的？</a>
+                    </div>
+                  </div>
+                  <div class="p-content-bottom">
+                    <div
+                      class="p-c-b-content"
+                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+          <el-row :gutter="24">
+            <el-col :span="12">
+              <div class="grid-content bg-purple">
+                <div class="p-c-1">
+                  <div class="p-content-top">
+                    <img
+                      id="touxiangimg"
+                      src="http://avatar.8264.com/data/avatar/034/24/36/11_avatar_middle.jpg?qCB02M?tempid=7787"
+                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
+                    >
+                    <div class="p-content-top-info">
+                      <span>发布人：美少女</span>
+                      <a
+                        href="http://www.8264.com/wenda/35762.html"
+                        target="_blank"
+                      >新手请教，防潮垫时用传统的还是自充气的？</a>
+                    </div>
+                  </div>
+                  <div class="p-content-bottom">
+                    <div
+                      class="p-c-b-content"
+                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="12">
+              <div class="grid-content bg-purple">
+                <div class="p-c-1">
+                  <div class="p-content-top">
+                    <img
+                      id="touxiangimg"
+                      src="http://avatar.8264.com/data/avatar/034/60/39/98_avatar_middle.jpg?XBP1Pz?tempid=5603"
+                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
+                    >
+                    <div class="p-content-top-info">
+                      <span>发布人：美少女</span>
+                      <a
+                        href="http://www.8264.com/wenda/35762.html"
+                        target="_blank"
+                      >新手请教，防潮垫时用传统的还是自充气的？</a>
+                    </div>
+                  </div>
+                  <div class="p-content-bottom">
+                    <div
+                      class="p-c-b-content"
+                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
         </div>
       </div>
-      <div class="post">
+      <div class="post1">
         <div class="p-title">
           <div class="p1">
             <img class="p-img" src="../../assets/知识.png">户外知识
@@ -244,7 +461,13 @@
             </el-button>
           </div>
         </div>
-        <div class="s-content"></div>
+        <div class="s-content">
+          <div class="news_box">
+            <div class="inner-container">
+              <p class="text" v-for="(text, index) in arr" :key="index">{{ text }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -329,6 +552,7 @@ export default {
   height: 50px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 5px;
   /* background-color: #c2e7b0; */
 }
 .p-title {
@@ -369,7 +593,7 @@ export default {
 }
 .p1 {
   left: 20px;
-  width: 20%;
+  width: 30%;
   margin-top: 10px;
   margin-left: 10px;
   font-size: 18px;
@@ -418,21 +642,20 @@ export default {
 }
 .tr-content {
   display: flex;
-  height: 300px;
+
   padding-top: 15px;
   padding-bottom: 15px;
   /* background-color: #f0f9eb; */
 }
 .tr-content-left {
   width: 70%;
-  height: 300px;
-  display: flex;
+
+  /* display: flex; */
 }
 .tr-content-right {
   width: 35%;
   border-left: 2px solid #e1e1e0;
   border-left-style: dotted;
-  height: 300px;
 }
 .tr-title-1 {
   display: flex;
@@ -446,7 +669,12 @@ export default {
   width: 33%;
 }
 .post {
-  width: 49%;
+  width: 66.5%;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+}
+.post1 {
+  width: 32%;
   background-color: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
@@ -514,11 +742,13 @@ export default {
 .text {
   white-space: nowrap;
   overflow: hidden;
+  text-align: left;
 }
 
 .news_box {
   white-space: nowrap;
   overflow: hidden;
+  margin: 0 20px;
 }
 .el-col-5 {
   width: 24.5% !important;
@@ -547,19 +777,19 @@ export default {
 }
 .slideshow {
   border-left: 2px #75b628 solid;
-  margin: 0 15px 10px 20px;
+  margin: 0px 15px 10px 20px;
   padding-left: 30px;
 }
 .slideshow li {
   height: 70px;
-  padding-top: 5px;
+  padding-top: 15px;
   list-style: none;
   position: relative;
 }
 .slideshow li i {
   position: absolute;
   left: -40px;
-  top: 30px;
+  top: 40px;
   display: inline-block;
   height: 18px;
   width: 18px;
@@ -586,5 +816,103 @@ export default {
 .aut a {
   font-size: 12px;
   color: #757575;
+}
+.tr-content-left-1 {
+  display: flex;
+  padding: 0 10px;
+}
+.tr-content-left-content1 {
+  padding: 0 5px;
+}
+.activity-content2 {
+  padding: 10px 15px 15px 15px;
+  border-bottom: 1px dotted #adadad;
+  display: flex;
+  margin: 5px 20px 0 5px;
+}
+.activity-content3 {
+  padding: 15px 15px 15px 15px;
+
+  display: flex;
+  margin: 5px 20px 0 5px;
+}
+.ac-content-left {
+  margin-right: 10px;
+}
+.ac-content-left img {
+  height: 110px;
+}
+.tr-b-rf-public {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.p-c-1 {
+  margin: 20px 25px;
+}
+.p-content-top {
+  display: flex;
+  text-align: left;
+}
+.p-content-top img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0px 10px 0px 0px;
+}
+.p-content-top-info {
+  overflow: hidden;
+}
+.p-content-top-info span {
+  color: #000;
+  font-size: 12px;
+  margin: 0px 10px 0px 0px;
+}
+.p-content-top-info a {
+  font-size: 16px;
+  color: #457598;
+  display: block;
+  font-weight: bold;
+  padding: 5px 0px 0px 0px;
+  height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.p-content-bottom {
+  line-height: 22px;
+  font-size: 14px;
+  color: #666;
+  border: #e0e7eb solid 1px;
+  border-radius: 3px;
+  padding: 10px 5px;
+  margin: 15px 0px 0px 0px;
+  height: 60px;
+  position: relative;
+  background-color: #eefaec;
+  /* overflow: hidden; */
+}
+.p-content-bottom ::before {
+  border-color: transparent transparent #e0e7eb transparent;
+  border-style: solid solid dashed solid;
+  border-width: 8px;
+  top: -17px;
+  content: "";
+  left: 17px;
+  position: absolute;
+}
+.p-c-b-content {
+  /* height: 66px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.p-content-bottom::after {
+  border-color: transparent transparent #eefaec transparent;
+  border-style: solid solid dashed solid;
+  border-width: 8px;
+  top: -16px;
+  content: "";
+  left: 17px;
+  position: absolute;
 }
 </style>
