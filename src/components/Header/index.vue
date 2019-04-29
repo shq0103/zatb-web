@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg">
+    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg" />
     <el-menu
       class="el-menu-demo"
       mode="horizontal"
@@ -12,7 +12,9 @@
       <el-menu-item index="/index" :style="{ fontSize: '16px' }">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px' }">活动</el-menu-item>
       <el-submenu index="/new">
-        <template slot="title" :style="{ fontSize: '16px' }">咨讯</template>
+        <template slot="title" :style="{ fontSize: '16px' }"
+          >咨讯</template
+        >
 
         <el-menu-item index="/new">徒步新闻</el-menu-item>
         <el-menu-item index="/knowledge">户外知识</el-menu-item>
@@ -35,23 +37,21 @@
       :style="{ margin: '0 0 0 50px', color: '#333' }"
       type="text"
       @click="dialogFormVisible = true"
-    >登录</el-button>
+      >登录</el-button
+    >
 
-    <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-      <el-form>
-        <el-form-item label="活动名称">
-          <el-input autocomplete="off"></el-input>
+    <el-dialog title="登陆" :center="true" width="20%" :visible.sync="dialogFormVisible">
+      <el-form ref="loginForm" :model="loginForm" :rules="loginFormRules" label-width="70px">
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="loginForm.username" clearable></el-input>
         </el-form-item>
-        <el-form-item label="活动区域">
-          <el-select placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
+        <el-form-item label="密码" prop="password">
+          <el-input type="password" v-model="loginForm.password" clearable></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button type="primary" @click="handleLogin('loginForm')">登 陆</el-button>
       </div>
     </el-dialog>
     <div class="border">|</div>
@@ -61,17 +61,43 @@
   </div>
 </template>
 <script>
+import { Auth } from "@/api/login";
+import { Message } from "element-ui";
 export default {
   data() {
     return {
       activeIndex: localStorage.getItem("path") || "/index",
-      dialogFormVisible: false
+      dialogFormVisible: false,
+      loginForm: {
+        username: "",
+        password: ""
+      },
+      loginFormRules: {
+        username: [{ required: true, message: "请输入用户名", trigger: "change" }],
+        password: [{ required: true, message: "请输入密码", trigger: "change" }]
+      }
     };
   },
   methods: {
     clickMenuItem(key) {
       localStorage.setItem("path", key);
       this.$router.push(key);
+    },
+    handleLogin(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          Auth(this.loginForm).then(res => {
+            Message({
+              message: "登陆成功！",
+              type: "success",
+              duration: 5 * 1000
+            });
+          });
+        } else {
+          alert("error submit!!");
+          return false;
+        }
+      });
     }
   }
 };
