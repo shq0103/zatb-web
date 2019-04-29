@@ -105,7 +105,7 @@
         <div class="tr-title">
           <div class="tr-title-1">
             <div class="tr1">
-              <img class="hot" src="../../assets/hot.png">热门游记
+              <img class="hot" src="../../assets/hot.png">热门路书
             </div>
             <div class="tr1-right">
               <el-row>
@@ -531,7 +531,7 @@ export default {
 }
 .new {
   margin-top: 35px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   display: flex;
   flex-direction: row;

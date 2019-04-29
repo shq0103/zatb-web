@@ -149,13 +149,32 @@
           >热门推荐</div>
         </div>
         <div class="search-content">
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
+          <div class="tr-b-rf-bottom">
+            <div class="tr-b-rf-img">
+              <div class="tr-b-rf-img1">
+                <img src="../../assets/timg.jpg" style="heigh:120px;width:300px;">
+              </div>
             </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
+            <div class="tr-b-rf-title">
+              <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
             </div>
+
+            <!-- <div class="tr-b-rf-public">
+              <i :style="{float:'left'}">
+                <img
+                  src="../../assets/个人1.png"
+                  style="height: 16px; margin-right:3px;margin-bottom: -2px;"
+                >###
+              </i>
+              <img
+                src="../../assets/评论1.png"
+                style="height: 20px; margin-bottom: -3px;margin-right:3px;"
+              >3700
+              <img
+                src="../../assets/浏览.png"
+                style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
+              >300
+            </div>-->
           </div>
           <div class="search-content-1">
             <div class="ac-content-right4-1">
@@ -246,7 +265,7 @@ export default {};
 }
 
 .search-content {
-  padding: 12px;
+  padding: 0 12px 12px 12px;
   border-top: 1px solid #dedbdb;
   margin-top: 8px;
 }
@@ -348,5 +367,15 @@ export default {};
 }
 .page {
   margin: 10px 0;
+}
+.tr-b-rf-bottom {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+
+  padding: 0 10px 10px 10px;
+}
+.tr-b-rf-img {
+  margin-top: 15px;
+  padding-right: 5px;
 }
 </style>
