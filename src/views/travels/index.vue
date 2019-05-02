@@ -234,9 +234,11 @@
                 <img class="hot" src="../../assets/new4.png">最新路书
               </div>
               <div class="post-bottom-button">
-                <el-button type="success" plain size="small">
-                  <i class="el-icon-edit-outline"></i>发布路书
-                </el-button>
+                <router-link to="/travels-create">
+                  <el-button type="success" plain size="small">
+                    <i class="el-icon-edit-outline"></i>发布路书
+                  </el-button>
+                </router-link>
               </div>
             </div>
             <div class="tr-b-rf-bottom1">

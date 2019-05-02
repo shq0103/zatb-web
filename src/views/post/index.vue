@@ -85,9 +85,11 @@
               </el-col>
               <el-col :span="20">
                 <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
+                  <router-link to="/post-show">
+                    <div class="ac-content-right1">
+                      <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                    </div>
+                  </router-link>
                   <div class="new-right2">
                     <i>
                       <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###

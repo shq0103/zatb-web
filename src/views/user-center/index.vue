@@ -49,16 +49,20 @@ color: #FFF;">暂无所属俱乐部</b>
               </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
                 <img src="../../assets/笔记本.png">
-                我的游记
+                我的路书
               </li>
               <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
                 <img src="../../assets/结伴.png">
                 发布活动
               </li>
-              <li>
-                <img src="../../assets/游记.png">
-                发布游记
+              <li id="activityPublic2" :class="{ actived: actived == 'activityPublic2' }">
+                <img src="../../assets/结伴.png">
+                发布活动2
               </li>
+              <!-- <li>
+                <img src="../../assets/游记.png">
+                发布路书
+              </li>-->
 
               <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
                 <img src="../../assets/评论.png">
@@ -103,6 +107,7 @@ color: #FFF;">暂无所属俱乐部</b>
     </div>
     <div class="us-center-right">
       <ActivityPublic v-if="actived === 'activityPublic'"/>
+      <ActivityPublic2 v-if="actived === 'activityPublic2'"/>
       <UserSecure v-if="actived === 'password'"/>
       <UserInfo v-if="actived === 'setting'"/>
       <UserCollect v-if="actived === 'usercollect'"/>
@@ -116,6 +121,7 @@ color: #FFF;">暂无所属俱乐部</b>
 </template>
 <script>
 import ActivityPublic from "@/components/activity-public";
+import ActivityPublic2 from "@/components/activity-public2";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
 import UserCollect from "@/components/user-collect";
@@ -127,6 +133,7 @@ import UserPoint from "@/components/user-point";
 export default {
   components: {
     ActivityPublic,
+    ActivityPublic2,
     UserSecure,
     UserInfo,
     UserCollect,

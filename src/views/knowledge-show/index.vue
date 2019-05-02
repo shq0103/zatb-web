@@ -54,7 +54,7 @@
     </div>
 
     <div class="index-right">
-      <div class="public-1">
+      <div class="public-2">
         <div class="search-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
@@ -124,6 +124,15 @@ export default {};
   margin: 0 40px;
 }
 .public-1 {
+  border: 1px solid #dedbdb;
+  /* -moz-border-radius: 5px;
+-webkit-border-radius: 5px; */
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  min-height: 800px;
+}
+.public-2 {
   border: 1px solid #dedbdb;
   /* -moz-border-radius: 5px;
 -webkit-border-radius: 5px; */

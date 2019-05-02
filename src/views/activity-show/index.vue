@@ -63,10 +63,10 @@
             <div class="a-c-lf-title">
               <ul class="tabbar">
                 <li class="tabbar-1">
-                  <a href="javascript:void(0);">行程安排</a>
+                  <a href="#position1;">行程安排</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);">费用说明</a>
+                  <a href="#position2;">费用说明</a>
                 </li>
                 <li>
                   <a href="javascript:void(0);">线路描述</a>
@@ -83,16 +83,20 @@
               <div class="a-c-l-c-1">
                 <div class="attr-title">
                   <h3>
-                    <img src="../../assets/行程.png" class="icon-intro">行程安排
+                    <a name="position1">
+                      <img src="../../assets/行程.png" class="icon-intro">行程安排
+                    </a>
                   </h3>
                 </div>
                 <div class="attr-content">22</div>
               </div>
               <div class="a-c-l-c-1">
                 <div class="attr-title">
-                  <h3>
-                    <img src="../../assets/费用说明.png" class="icon-intro">费用说明
-                  </h3>
+                  <a name="position2">
+                    <h3>
+                      <img src="../../assets/费用说明.png" class="icon-intro">费用说明
+                    </h3>
+                  </a>
                 </div>
                 <div class="attr-content">33</div>
               </div>
@@ -348,7 +352,7 @@ ul {
 }
 .activity_top li {
   line-height: 20px;
-  font-size: 12px;
+  font-size: 13px;
 }
 .activity_top li a {
   color: #999;
@@ -494,6 +498,7 @@ ul {
 }
 .a-c-rf-3 {
   padding: 10px 0px;
+  min-height: 100px;
 }
 .post-bottom-content-lf img {
   height: 70px;
@@ -565,5 +570,8 @@ ul {
 .a-c-l-c-2 {
   margin: 5px 20px;
   padding-bottom: 20px;
+}
+.attr-content {
+  min-height: 300px;
 }
 </style>

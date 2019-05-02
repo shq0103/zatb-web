@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg" />
+    <img :style="{ height: '60px' }" class="logo" src="../../assets/logo4.jpg">
     <el-menu
       class="el-menu-demo"
       mode="horizontal"
@@ -12,9 +12,7 @@
       <el-menu-item index="/index" :style="{ fontSize: '16px' }">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px' }">活动</el-menu-item>
       <el-submenu index="/new">
-        <template slot="title" :style="{ fontSize: '16px' }"
-          >咨讯</template
-        >
+        <template slot="title" :style="{ fontSize: '16px' }">咨讯</template>
 
         <el-menu-item index="/new">徒步新闻</el-menu-item>
         <el-menu-item index="/knowledge">户外知识</el-menu-item>
@@ -32,15 +30,14 @@
     >
       <el-button slot="append" icon="el-icon-search"></el-button>
     </el-input>
-
-    <el-button
-      :style="{ margin: '0 0 0 50px', color: '#333' }"
-      type="text"
-      @click="dialogFormVisible = true"
-      >登录</el-button
-    >
-
-    <el-dialog title="登陆" :center="true" width="20%" :visible.sync="dialogFormVisible">
+    <router-link to="/login">
+      <el-button
+        :style="{ margin: '0 0 0 50px', color: '#333' }"
+        type="text"
+        @click="dialogFormVisible = true"
+      >登录</el-button>
+    </router-link>
+    <!-- <el-dialog title="登陆" :center="true" width="20%" :visible.sync="dialogFormVisible">
       <el-form ref="loginForm" :model="loginForm" :rules="loginFormRules" label-width="70px">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="loginForm.username" clearable></el-input>
@@ -51,9 +48,10 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
+
         <el-button type="primary" @click="handleLogin('loginForm')">登 陆</el-button>
       </div>
-    </el-dialog>
+    </el-dialog>-->
     <div class="border">|</div>
     <router-link to="/user-center">
       <el-button :style="{ color: '#333' }" type="text">注册</el-button>
@@ -73,7 +71,9 @@ export default {
         password: ""
       },
       loginFormRules: {
-        username: [{ required: true, message: "请输入用户名", trigger: "change" }],
+        username: [
+          { required: true, message: "请输入用户名", trigger: "change" }
+        ],
         password: [{ required: true, message: "请输入密码", trigger: "change" }]
       }
     };

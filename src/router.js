@@ -140,6 +140,30 @@ export default new Router({
       // this generates a separate chunk (activity.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "activity" */ "./views/knowledge-show/index.vue")
+    },
+    {
+      path: "/login",
+      name: "login",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./views/login/index.vue")
+    },
+    {
+      path: "/travels-create",
+      name: "travels-create",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./views/travels-create/index.vue")
+    },
+    {
+      path: "/post-show",
+      name: "post-show",
+      // route level code-splitting
+      // this generates a separate chunk (activity.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "activity" */ "./views/post-show/index.vue")
     }
   ]
 });

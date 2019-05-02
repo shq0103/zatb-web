@@ -11,7 +11,7 @@
             <el-tabs value="first">
               <el-tab-pane name="first">
                 <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
-                  <img class="ac1" src="../../assets/卖.png" /> 热门闲置
+                  <img class="ac1" src="../../assets/卖.png"> 热门闲置
                 </span>
 
                 <el-row :gutter="24" type="flex" justify="center">
@@ -20,7 +20,7 @@
                       <img
                         src="http://tubu100.com:8053/Files/At/20190129175037c0f3d5.jpg"
                         class="image"
-                      />
+                      >
                       <div style="padding: 14px;">
                         <span>好吃的汉堡</span>
                         <div class="bottom clearfix">
@@ -39,14 +39,14 @@
     </div>
     <div class="sell-public">
       <div class="s-p-lf">
-        <img style="height:56px;" src="../../assets/闲置搜索.png" />
+        <img style="height:56px;" src="../../assets/闲置搜索.png">
         <div class="el-input">
           <el-input v-model="input" placeholder="请输入内容"></el-input>
         </div>
       </div>
       <div class="line"></div>
       <div class="s-p-lf">
-        <img class="icon" src="../../assets/发布闲置.png" />
+        <img class="icon" src="../../assets/发布闲置.png">
         <div class="s-p-lf-1">
           <p class="name">发布闲置</p>
           <!-- <p class="cont">闲置换钱 快速出手</p> -->
@@ -65,7 +65,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -78,16 +78,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -99,7 +93,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -112,16 +106,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -133,7 +121,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -146,16 +134,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -167,7 +149,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -180,16 +162,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -206,7 +182,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -219,16 +195,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -240,7 +210,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -253,16 +223,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -274,7 +238,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -287,16 +251,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -308,7 +266,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -321,16 +279,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -346,7 +298,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -359,16 +311,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -380,7 +326,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -393,16 +339,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -414,7 +354,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -427,16 +367,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -448,7 +382,7 @@
             <el-col :span="6">
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img src="../../assets/3.jpg" style="width:271px;height:158px;" />
+                  <img src="../../assets/3.jpg" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <el-alert
@@ -461,16 +395,10 @@
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <i>
-                      <img
-                        src="../../assets/用户.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />###
+                      <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                     </i>
                     <i style="padding-left:20px">
-                      <img
-                        src="../../assets/钱.png"
-                        style="height: 20px; margin-bottom: -3px;"
-                      />300
+                      <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                     </i>
                   </div>
                 </div>
@@ -482,12 +410,7 @@
           </el-row>
         </div>
         <div class="page">
-          <el-pagination
-            class="page-1"
-            background
-            layout="prev, pager, next"
-            :total="1000"
-          ></el-pagination>
+          <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
         </div>
       </div>
     </div>
@@ -544,7 +467,7 @@
 }
 .s-p-lf-1 {
   margin: 0;
-  padding: 0;
+  padding: 0 15px;
 }
 .el-input {
   width: 95% !important;
