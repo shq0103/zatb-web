@@ -63,10 +63,10 @@
             <div class="a-c-lf-title">
               <ul class="tabbar">
                 <li class="tabbar-1">
-                  <a href="#position1;">行程安排</a>
+                  <a href="#position1">行程安排</a>
                 </li>
                 <li>
-                  <a href="#position2;">费用说明</a>
+                  <a href="#position2">费用说明</a>
                 </li>
                 <li>
                   <a href="javascript:void(0);">线路描述</a>
@@ -91,7 +91,7 @@
                 <div class="attr-content">22</div>
               </div>
               <div class="a-c-l-c-1">
-                <div class="attr-title">
+                <div id="position2" class="attr-title">
                   <a name="position2">
                     <h3>
                       <img src="../../assets/费用说明.png" class="icon-intro">费用说明

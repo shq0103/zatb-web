@@ -64,12 +64,29 @@
               Already have an account?
               <a href class="login-link">Login</a>
             </div>
+            <footer class="lowin-footer">
+              Design By
+              <a href="http://fb.me/itskodinger">@itskodinger</a>
+            </footer>
           </form>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+import { Auth } from "./test";
+export default {
+  mounted() {
+    Auth.init({
+      login_url: "#login",
+      forgot_url: "#forgot"
+    });
+  }
+};
+</script>
+
+
 <style scoped>
 .lowin {
   /* variables */

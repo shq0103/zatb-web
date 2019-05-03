@@ -1,16 +1,7 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>
-        <Header/>
-      </el-header>
-      <el-main>
-        <router-view/>
-      </el-main>
-      <el-footer>
-        <Footer/>
-      </el-footer>
-    </el-container>
+    <router-view/>
+
     <back-top>
       <div>
         <img class="return" src="./assets/return.png">

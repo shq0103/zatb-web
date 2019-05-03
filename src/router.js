@@ -1,169 +1,117 @@
 import Vue from "vue";
 import Router from "vue-router";
+import Layout from "@/views/layout/Layout.vue";
 // import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
-      redirect: "/index"
+      component: Layout,
+      redirect: "/index",
+      children: [
+        {
+          path: "index",
+          mane: "index",
+          component: () => import("@/views/index/index.vue")
+        },
+        {
+          path: "activity",
+          name: "activity",
+          component: () => import("./views/activity/index.vue")
+        },
+        {
+          path: "user-center",
+          name: "user-center",
+          component: () => import("./views/user-center/index.vue")
+        },
+        {
+          path: "userinfo",
+          name: "userinfo",
+
+          component: () => import("./components/userinfo/index.vue")
+        },
+
+        {
+          path: "user-secure",
+          name: "user-secure",
+
+          component: () => import("./components/user-secure/index.vue")
+        },
+        {
+          path: "new",
+          name: "new",
+
+          component: () => import("./views/new/index.vue")
+        },
+        {
+          path: "knowledge",
+          name: "knowledge",
+
+          component: () => import("./views/knowledge/index.vue")
+        },
+        {
+          path: "travels-create",
+          name: "travels-create",
+
+          component: () => import("./views/travels-create/index.vue")
+        },
+        {
+          path: "post-show",
+          name: "post-show",
+
+          component: () => import("./views/post-show/index.vue")
+        },
+        {
+          path: "user-collect",
+          name: "user-collect",
+          component: () => import("./components/user-collect/index.vue")
+        },
+        {
+          path: "post",
+          name: "post",
+          component: () => import("./views/post/index.vue")
+        },
+        {
+          path: "travels",
+          name: "travels",
+          component: () => import("./views/travels/index.vue")
+        },
+        {
+          path: "goods",
+          name: "goods",
+          component: () => import("./views/goods/index.vue")
+        },
+        {
+          path: "activity-show",
+          name: "activity-show",
+          component: () => import("./views/activity-show/index.vue")
+        },
+        {
+          path: "new-show",
+          name: "new-show",
+          component: () => import("./views/new-show/index.vue")
+        },
+        {
+          path: "knowledge-show",
+          name: "knowledge-show",
+          component: () => import("./views/knowledge-show/index.vue")
+        }
+      ]
     },
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ "./views/About.vue")
-    },
-    {
-      path: "/index",
-      name: "index",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ "./views/index/index.vue")
-    },
-    {
-      path: "/activity",
-      name: "activity",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/activity/index.vue")
-    },
-    // {
-    //   path: "/activity-public",
-    //   name: "activity-public",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (activity.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "activity" */ "./views/activity-public/index.vue")
-    // },
-    {
-      path: "/user-center",
-      name: "user-center",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/user-center/index.vue")
-    },
-    {
-      path: "/userinfo",
-      name: "userinfo",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./components/userinfo/index.vue")
-    },
-    {
-      path: "/user-secure",
-      name: "user-secure",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "activity" */ "./components/user-secure/index.vue")
-    },
-    {
-      path: "/new",
-      name: "new",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/new/index.vue")
-    },
-    {
-      path: "/knowledge",
-      name: "knowledge",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/knowledge/index.vue")
-    },
-    {
-      path: "/user-collect",
-      name: "user-collect",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "activity" */ "./components/user-collect/index.vue")
-    },
-    {
-      path: "/post",
-      name: "post",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/post/index.vue")
-    },
-    {
-      path: "/travels",
-      name: "travels",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/travels/index.vue")
-    },
-    {
-      path: "/goods",
-      name: "goods",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/goods/index.vue")
-    },
-    {
-      path: "/activity-show",
-      name: "activity-show",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/activity-show/index.vue")
-    },
-    {
-      path: "/new-show",
-      name: "new-show",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/new-show/index.vue")
-    },
-    {
-      path: "/knowledge-show",
-      name: "knowledge-show",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/knowledge-show/index.vue")
+
+      component: () => import("./views/About.vue")
     },
     {
       path: "/login",
       name: "login",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/login/index.vue")
-    },
-    {
-      path: "/travels-create",
-      name: "travels-create",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/travels-create/index.vue")
-    },
-    {
-      path: "/post-show",
-      name: "post-show",
-      // route level code-splitting
-      // this generates a separate chunk (activity.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "activity" */ "./views/post-show/index.vue")
+      component: () => import("./views/login/index.vue")
     }
   ]
 });
