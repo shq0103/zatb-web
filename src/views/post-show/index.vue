@@ -80,7 +80,13 @@
                   <div class="jump">
                     <span class="zi" style="font-size:13px;">到</span>
                     <span class="zi" style="font-size:13px;">第</span>
-                    <el-input v-model="input" size="mini" class="jump-input"></el-input>
+                    <el-input
+                      v-model="input"
+                      s
+                      ize="mini"
+                      class="jump-input"
+                      style="padding:0 5px;"
+                    ></el-input>
                     <span class="zi" style="font-size:13px;">楼</span>
                   </div>
                 </div>
