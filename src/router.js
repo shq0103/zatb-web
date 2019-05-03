@@ -99,6 +99,11 @@ export default new Router({
           path: "knowledge-show",
           name: "knowledge-show",
           component: () => import("./views/knowledge-show/index.vue")
+        },
+        {
+          path: "goods-show",
+          name: "goods-show",
+          component: () => import("./views/goods-show/index.vue")
         }
       ]
     },
