@@ -48,8 +48,9 @@
       <div class="s-p-lf">
         <img class="icon" src="../../assets/发布闲置.png">
         <div class="s-p-lf-1">
-          <p class="name">发布闲置</p>
-          <!-- <p class="cont">闲置换钱 快速出手</p> -->
+          <router-link to="/goods-public">
+            <p class="name">发布闲置</p>
+          </router-link>
         </div>
       </div>
     </div>

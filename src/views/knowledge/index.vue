@@ -28,9 +28,40 @@
               <p>21</p>
             </div>
             <div class="know-c-t-rf">
-              <h2>
-                <router-link to="/knowledge-show">冬季户外徒步穿越的注意事项</router-link>
-              </h2>
+              <h2>冬季户外徒步穿越的注意事项</h2>
+              <p>作者： Admin | 来源于： 互联网</p>
+            </div>
+          </div>
+          <div class="know-content-bottom">
+            <div class="know-c-b-lf">
+              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
+            </div>
+            <div class="know-c-b-rf">
+              <div>
+                <p>
+                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
+                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
+                </p>
+              </div>
+              <div class="more">
+                <router-link to="/knowledge-show">
+                  <el-button type="text" style="color:#75b628">
+                    更多
+                    <i class="el-icon-d-arrow-right"></i>
+                  </el-button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="know-content-top-content2">
+          <div class="know-content-top">
+            <div class="know-c-t-lf">
+              <h2>04月</h2>
+              <p>21</p>
+            </div>
+            <div class="know-c-t-rf">
+              <h2>冬季户外徒步穿越的注意事项</h2>
               <p>作者： Admin | 来源于： 互联网</p>
             </div>
           </div>
@@ -61,9 +92,7 @@
               <p>21</p>
             </div>
             <div class="know-c-t-rf">
-              <h2>
-                <a href="#">冬季户外徒步穿越的注意事项</a>
-              </h2>
+              <h2>冬季户外徒步穿越的注意事项</h2>
               <p>作者： Admin | 来源于： 互联网</p>
             </div>
           </div>
@@ -94,9 +123,7 @@
               <p>21</p>
             </div>
             <div class="know-c-t-rf">
-              <h2>
-                <a href="#">冬季户外徒步穿越的注意事项</a>
-              </h2>
+              <h2>冬季户外徒步穿越的注意事项</h2>
               <p>作者： Admin | 来源于： 互联网</p>
             </div>
           </div>
@@ -127,42 +154,7 @@
               <p>21</p>
             </div>
             <div class="know-c-t-rf">
-              <h2>
-                <a href="#">冬季户外徒步穿越的注意事项</a>
-              </h2>
-              <p>作者： Admin | 来源于： 互联网</p>
-            </div>
-          </div>
-          <div class="know-content-bottom">
-            <div class="know-c-b-lf">
-              <img src="http://tubu100.com:8053/Files/Article/20180523112541501d71.jpg">
-            </div>
-            <div class="know-c-b-rf">
-              <div>
-                <p>
-                  徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单：
-                  一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单
-                </p>
-              </div>
-              <div class="more">
-                <el-button type="text" style="color:#75b628">
-                  更多
-                  <i class="el-icon-d-arrow-right"></i>
-                </el-button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="know-content-top-content2">
-          <div class="know-content-top">
-            <div class="know-c-t-lf">
-              <h2>04月</h2>
-              <p>21</p>
-            </div>
-            <div class="know-c-t-rf">
-              <h2>
-                <a href="#">冬季户外徒步穿越的注意事项</a>
-              </h2>
+              <h2>冬季户外徒步穿越的注意事项</h2>
               <p>作者： Admin | 来源于： 互联网</p>
             </div>
           </div>
@@ -304,9 +296,9 @@ export default {};
   padding: 12px 30px !important;
   margin-left: 10px !important;
 }
-/* .page-1 {
-  padding-left: 10px !important;
-} */
+.page-1 {
+  padding: 10px 0;
+}
 .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #75b628 !important;
 }
@@ -413,13 +405,13 @@ export default {};
 .know-c-t-rf h2 {
   margin: 0px;
   font-size: 20px;
+  color: #75b628;
+  font-weight: initial;
 }
 .know-c-t-rf h2:hover {
   text-decoration: underline;
 }
 .know-c-t-rf h2 a {
-  color: #75b628;
-  font-weight: initial;
 }
 .know-c-t-rf {
   margin-left: 30px;

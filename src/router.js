@@ -54,10 +54,10 @@ export default new Router({
           component: () => import("./views/knowledge/index.vue")
         },
         {
-          path: "travels-create",
-          name: "travels-create",
+          path: "travels-public",
+          name: "travels-public",
 
-          component: () => import("./views/travels-create/index.vue")
+          component: () => import("./views/travels-public/index.vue")
         },
         {
           path: "post-show",
@@ -104,6 +104,21 @@ export default new Router({
           path: "goods-show",
           name: "goods-show",
           component: () => import("./views/goods-show/index.vue")
+        },
+        {
+          path: "user-info",
+          name: "user-info",
+          component: () => import("./views/user-info/index.vue")
+        },
+        {
+          path: "goods-public",
+          name: "goods-public",
+          component: () => import("./views/goods-public/index.vue")
+        },
+        {
+          path: "post-public",
+          name: "post-public",
+          component: () => import("./views/post-public/index.vue")
         }
       ]
     },

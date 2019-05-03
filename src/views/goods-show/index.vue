@@ -98,7 +98,7 @@
                 <div class="attr-title">
                   <h3>
                     <a name="position1">
-                      <img src="../../assets/行程.png" class="icon-intro">闲趣介绍
+                      <img src="../../assets/介绍.png" class="icon-intro">闲趣介绍
                     </a>
                   </h3>
                 </div>
@@ -108,7 +108,7 @@
                 <div class="attr-title">
                   <a name="position2">
                     <h3>
-                      <img src="../../assets/费用说明.png" class="icon-intro">评论
+                      <img src="../../assets/评价.png" class="icon-intro">留言及评价
                     </h3>
                   </a>
                 </div>
@@ -116,7 +116,7 @@
                   <div class="attr-content-info">33</div>
                   <div class="attr-content-commend">
                     <el-form ref="form" label-width="80px">
-                      <el-form-item label="进行评论">
+                      <el-form-item label="进行点评">
                         <el-input type="textarea"></el-input>
                       </el-form-item>
                     </el-form>
@@ -137,6 +137,72 @@
           <div class="a-c-rf">
             <div class="a-c-rf-1">
               <div class="a-c-rf-2-title">卖家的其他闲趣</div>
+              <div class="a-c-rf-2-other">
+                <div class="a-c-rf-img">
+                  <img
+                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
+                  >
+                </div>
+                <div class="a-c-rf-content">
+                  <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
+                  <p>
+                    <a
+                      href="//2.taobao.com/item.htm?id=593596487343"
+                      target="_blank"
+                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
+                  </p>
+                  <p class="price-block">
+                    <span class="price">
+                      <b>¥</b>
+                      <em>35.00</em>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="a-c-rf-2-other">
+                <div class="a-c-rf-img">
+                  <img
+                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
+                  >
+                </div>
+                <div class="a-c-rf-content">
+                  <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
+                  <p>
+                    <a
+                      href="//2.taobao.com/item.htm?id=593596487343"
+                      target="_blank"
+                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
+                  </p>
+                  <p class="price-block">
+                    <span class="price">
+                      <b>¥</b>
+                      <em>35.00</em>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="a-c-rf-2-other">
+                <div class="a-c-rf-img">
+                  <img
+                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
+                  >
+                </div>
+                <div class="a-c-rf-content">
+                  <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
+                  <p>
+                    <a
+                      href="//2.taobao.com/item.htm?id=593596487343"
+                      target="_blank"
+                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
+                  </p>
+                  <p class="price-block">
+                    <span class="price">
+                      <b>¥</b>
+                      <em>35.00</em>
+                    </span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </el-col>
@@ -383,7 +449,9 @@ ul {
   font-size: 18px;
   color: #7594ac;
   text-align: left;
-  margin: 10px 10px;
+  margin: 10px 0px;
+  padding: 0 0 10px 0;
+  border-bottom: #ccc dotted 2px;
 }
 .a-c-rf-2-title1 {
   height: 28px;
@@ -414,8 +482,6 @@ ul {
   font-size: 16px;
 }
 .a-c-rf-1 {
-  border-bottom: #ccc dotted 2px;
-
   padding: 10px 0px;
 }
 .a-c-rf-2 {
@@ -514,5 +580,38 @@ ul {
 }
 .attr-content-commend {
   margin: 15px 0;
+}
+.a-c-rf-2-other {
+  display: flex;
+  margin-bottom: 15px;
+}
+.a-c-rf-2-other p {
+  margin: 0px;
+  overflow: hidden;
+}
+.a-c-rf-2-other a {
+  color: #333;
+}
+.price-block {
+  font-family: Verdana;
+  font-size: 12px;
+}
+.price-block b {
+  font-weight: 400;
+  font-family: Arial, Verdana;
+  padding-right: 2px;
+  color: #999;
+}
+.price-block .price em {
+  font-weight: 700;
+  font-size: 14px;
+  color: #f40;
+}
+.a-c-rf-content {
+  padding: 0 10px;
+  text-align: left;
+}
+.a-c-rf-content p {
+  font: 13px/1.5 tahoma, arial, 宋体;
 }
 </style>

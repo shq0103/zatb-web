@@ -11,9 +11,19 @@
           <div class="ac-public-form2-2">
             <el-form ref="form" :model="form" label-width="80px">
               <el-form-item label="修改头像">
-                <p class="update-img">
+                <!-- <p class="update-img">
                   <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
-                </p>
+                </p>-->
+                <el-upload
+                  class="avatar-uploader"
+                  action="https://jsonplaceholder.typicode.com/posts/"
+                  :show-file-list="false"
+                  :on-success="handleAvatarSuccess"
+                  :before-upload="beforeAvatarUpload"
+                >
+                  <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
               </el-form-item>
               <el-form-item label="输入昵称">
                 <el-input></el-input>
@@ -94,5 +104,31 @@
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 20px !important;
   /* background-color: #99cccc !important; */
+}
+.avatar-uploader {
+  border: 1px dashed #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+}
+.avatar-uploader:hover {
+  border-color: #409eff;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+}
+.avatar {
+  width: 120px;
+  height: 120px;
+  display: block;
 }
 </style>

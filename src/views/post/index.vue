@@ -69,9 +69,11 @@
         <div class="post-bottom-title-zxzt">最新</div>
         <div class="post-bottom-title-rt">热帖</div>
         <div class="post-bottom-button">
-          <el-button type="success" plain size="small">
-            <i class="el-icon-edit-outline"></i>发布新帖
-          </el-button>
+          <router-link to="/post-public">
+            <el-button type="success" plain size="small">
+              <i class="el-icon-edit-outline"></i>发布新帖
+            </el-button>
+          </router-link>
         </div>
       </div>
       <div class="post-bottom-content">

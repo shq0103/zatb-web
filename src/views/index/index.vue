@@ -109,7 +109,9 @@
             </div>
             <div class="tr1-right">
               <el-row>
-                <el-button :style="{ marginTop: '15px' }" type="success" size="small" plain>更多</el-button>
+                <router-link to="/travels">
+                  <el-button :style="{ marginTop: '15px' }" type="success" size="small" plain>更多</el-button>
+                </router-link>
                 <!-- <el-button type="text" size="small">更多</el-button> -->
               </el-row>
             </div>
@@ -336,10 +338,12 @@
             论坛
           </div>
           <div class="p-more">
-            <el-button type="text">
-              更多
-              <i class="el-icon-plus el-icon--right"></i>
-            </el-button>
+            <router-link to="/travels">
+              <el-button type="text" class="more-link">
+                更多
+                <i class="el-icon-plus el-icon--right"></i>
+              </el-button>
+            </router-link>
           </div>
         </div>
         <div class="p-content">
@@ -455,10 +459,12 @@
             <img class="p-img" src="../../assets/知识.png">户外知识
           </div>
           <div class="p-more">
-            <el-button type="text">
-              更多
-              <i class="el-icon-plus el-icon--right"></i>
-            </el-button>
+            <router-link to="/knowledge">
+              <el-button type="text">
+                更多
+                <i class="el-icon-plus el-icon--right"></i>
+              </el-button>
+            </router-link>
           </div>
         </div>
         <div class="s-content">
@@ -693,6 +699,9 @@ export default {
 .p-more {
   margin-left: auto;
   padding-right: 10px;
+}
+.router-link-active .more-link {
+  color: #fff;
 }
 .el-button--text {
   color: #009a61;

@@ -18,8 +18,10 @@
       <div class="post-content-1">
         <div class="p-c-public">
           <el-row>
-            <el-button type="success" icon="el-icon-edit">发新帖</el-button>
-            <el-button type="success" icon="el-icon-s-order">回复</el-button>
+            <router-link to="/post-public">
+              <el-button type="success" icon="el-icon-edit">发新帖</el-button>
+            </router-link>
+            <el-button type="success" icon="el-icon-s-order" style="margin-left:10px;">回复</el-button>
           </el-row>
           <el-pagination
             @size-change="handleSizeChange"
@@ -51,9 +53,9 @@
                 <div class="p-c-c-lf-name">
                   <ul>
                     <li class="li-name">
-                      <a href="#" target="_blank" class="xw1">
+                      <router-link to="/user-info">
                         <img src="../../assets/个人头像.png">美少女
-                      </a>
+                      </router-link>
                     </li>
 
                     <li class="li-other">发帖：120</li>
@@ -200,11 +202,54 @@
             class="page"
           ></el-pagination>
         </div>
-        <div class="p-c-reply"></div>
+        <div class="p-c-reply">
+          <div class="p-c-c-f-lf">
+            <div class="p-c-c-f-lf-2">
+              <div class="p-c-c-lf-img">
+                <img
+                  src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
+                >
+              </div>
+            </div>
+          </div>
+          <div class="p-c-c-f-rf">
+            <div class="p-c-c-f-rf-2">
+              <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item>
+                  <!-- <el-input type="textarea"></el-input> -->
+                  <TextEditor :menu="commentMenu"/>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="success" @click="onSubmit">发表回复</el-button>
+                </el-form-item>
+              </el-form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+import TextEditor from "@/components/TextEditor";
+export default {
+  components: {
+    TextEditor
+  },
+  data() {
+    return {
+      commentMenu: [
+        "bold",
+        "fontSize",
+        "fontName",
+        "foreColor",
+        "emoticon",
+        "image"
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .activity_top {
   display: flex;
@@ -399,5 +444,9 @@ em {
 }
 .p-c-c-f-lf-2 {
   padding: 20px 0 0 0;
+}
+.p-c-reply {
+  display: flex;
+  background-color: #fff;
 }
 </style>

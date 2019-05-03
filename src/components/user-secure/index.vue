@@ -11,12 +11,21 @@
               >修改密码</h3>-->
 
               <div class="ac-public-form2-2">
-                <el-form ref="form" label-width="80px">
+                <el-form
+                  label-width="80px"
+                  status-icon
+                  :rules="rules"
+                  ref="ruleForm"
+                  class="demo-ruleForm"
+                >
                   <el-form-item label="旧密码">
                     <el-input></el-input>
                   </el-form-item>
-                  <el-form-item label="新密码">
-                    <el-input></el-input>
+                  <el-form-item label="新密码" prop="pass">
+                    <el-input type="password" autocomplete="off"></el-input>
+                  </el-form-item>
+                  <el-form-item label="确认密码" prop="checkPass">
+                    <el-input type="password" autocomplete="off"></el-input>
                   </el-form-item>
                   <el-form-item label="验证码">
                     <el-row style="padding:0px">
@@ -42,17 +51,12 @@
         <el-tab-pane label="更改绑定手机" name="second">
           <div class="ac-public-content">
             <div class="ac-public-form1">
-              <!-- <h3
-                style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #99cccc;"
-              >修改手机号</h3>-->
-
               <div class="ac-public-form2-2">
                 <el-form ref="form" label-width="80px">
-                  <el-form-item label="旧密码">
+                  <el-form-item label="旧号码">
                     <el-input></el-input>
                   </el-form-item>
-                  <el-form-item label="新密码">
+                  <el-form-item label="新号码">
                     <el-input></el-input>
                   </el-form-item>
 

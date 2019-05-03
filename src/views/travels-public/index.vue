@@ -1,5 +1,5 @@
 <template>
-  <div class="travels-create">
+  <div class="travels-public">
     <div class="travel_02">
       <div class="edit">
         <div class="edit_01">
@@ -29,7 +29,6 @@
 </template>
 <style scoped>
 .travel_02 {
-  width: 800px;
   padding: 50px 200px 0 200px;
   min-height: 500px;
   background: #fff;

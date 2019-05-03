@@ -43,49 +43,37 @@ color: #FFF;">暂无所属俱乐部</b>
               <div class="collapse-title">个人中心</div>
             </template>
             <ul @click="clickItem">
+              <li id="user-fund" :class="{ actived: actived == 'user-fund' }">
+                <img src="../../assets/报名.png">
+                基本信息
+              </li>
               <li id="usersign" :class="{ actived: actived == 'usersign' }">
                 <img src="../../assets/报名.png">
-                我的报名
+                他的活动
               </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
                 <img src="../../assets/笔记本.png">
-                我的路书
+                他的路书
               </li>
-              <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
-                <img src="../../assets/结伴.png">
-                发布活动
-              </li>
-              <li id="activityPublic2" :class="{ actived: actived == 'activityPublic2' }">
-                <img src="../../assets/结伴.png">
-                发布活动2
-              </li>
-              <!-- <li>
-                <img src="../../assets/游记.png">
-                发布路书
-              </li>-->
 
               <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
                 <img src="../../assets/评论.png">
-                我的评论
+                他的评论
               </li>
               <li id="user-point" :class="{ actived: actived == 'user-point' }">
-                <img src="../../assets/关注.png">我的关注
+                <img src="../../assets/关注.png">他的关注
               </li>
               <li id="usercollect" :class="{ actived: actived == 'usercollect' }">
                 <img src="../../assets/收藏.png">
-                我的收藏
+                他的收藏
               </li>
               <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
                 <img src="../../assets/订单.png">
-                我的订单
-              </li>
-              <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
-                <img src="../../assets/订单.png">
-                发布闲置
+                他的闲趣
               </li>
             </ul>
           </el-collapse-item>
-          <el-collapse-item name="2">
+          <!-- <el-collapse-item name="2">
             <template slot="title">
               <div class="collapse-title">安全中心</div>
             </template>
@@ -101,7 +89,7 @@ color: #FFF;">暂无所属俱乐部</b>
                 <img src="../../assets/系统通知.png">系统通知
               </li>
             </ul>
-          </el-collapse-item>
+          </el-collapse-item>-->
         </el-collapse>
       </div>
     </div>
@@ -116,6 +104,7 @@ color: #FFF;">暂无所属俱乐部</b>
       <UserComment v-if="actived === 'user-comment'"/>
       <UserGoods v-if="actived === 'user-goods'"/>
       <UserPoint v-if="actived === 'user-point'"/>
+      <UserFund v-if="actived === 'user-fund'"/>
     </div>
   </div>
 </template>
@@ -130,6 +119,7 @@ import UserSign from "@/components/user-sign";
 import UserComment from "@/components/user-comment";
 import UserGoods from "@/components/user-goods";
 import UserPoint from "@/components/user-point";
+import UserFund from "@/components/user-fund";
 export default {
   components: {
     ActivityPublic,
@@ -141,11 +131,12 @@ export default {
     UserSign,
     UserComment,
     UserGoods,
-    UserPoint
+    UserPoint,
+    UserFund
   },
   data() {
     return {
-      actived: "usersign"
+      actived: "user-fund"
     };
   },
   methods: {
@@ -171,7 +162,6 @@ export default {
   width: 60%;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   height: fit-content;
-  background-color: #fff;
 }
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);

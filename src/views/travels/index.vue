@@ -234,7 +234,7 @@
                 <img class="hot" src="../../assets/new4.png">最新路书
               </div>
               <div class="post-bottom-button">
-                <router-link to="/travels-create">
+                <router-link to="/travels-public">
                   <el-button type="success" plain size="small">
                     <i class="el-icon-edit-outline"></i>发布路书
                   </el-button>
