@@ -86,7 +86,7 @@
                   </div>
                 </div>
                 <div class="show-more">
-                  <a>更多>></a>
+                  <router-link to="/goods-show">更多>></router-link>
                 </div>
               </div>
             </el-col>
