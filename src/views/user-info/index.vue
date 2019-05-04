@@ -8,32 +8,35 @@
 color: #FFF;margin:5px 0px;">徒步用户</h3>
           <b style="font-weight: normal;
 color: #FFF;">暂无所属俱乐部</b>
-          <!-- <ul>
+          <ul>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>路书</p>
             </li>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>活动</p>
             </li>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>帖子</p>
             </li>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>闲趣</p>
             </li>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>关注</p>
             </li>
             <li>
               <span>0</span>
-              <p>积分</p>
+              <p>粉丝</p>
             </li>
-          </ul>-->
+          </ul>
+          <el-row>
+            <el-button type="success" plain style="width:80%;">关注</el-button>
+          </el-row>
         </div>
       </div>
       <div class="us-center-left-bottom">
@@ -43,33 +46,29 @@ color: #FFF;">暂无所属俱乐部</b>
               <div class="collapse-title">个人中心</div>
             </template>
             <ul @click="clickItem">
-              <li id="user-fund" :class="{ actived: actived == 'user-fund' }">
-                <img src="../../assets/报名.png">
-                基本信息
-              </li>
-              <li id="usersign" :class="{ actived: actived == 'usersign' }">
+              <li id="peoplesign" :class="{ actived: actived == 'peoplesign' }">
                 <img src="../../assets/报名.png">
                 他的活动
               </li>
-              <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
+              <li id="peopletravels" :class="{ actived: actived == 'peopletravels' }">
                 <img src="../../assets/笔记本.png">
                 他的路书
               </li>
-
-              <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
+              <li id="people-goods" :class="{ actived: actived == 'people-goods' }">
+                <img src="../../assets/订单.png">
+                他的闲趣
+              </li>
+              <li id="PeoplePost" :class="{ actived: actived == 'PeoplePost' }">
+                <img src="../../assets/收藏.png">
+                他的帖子
+              </li>
+              <li id="people-comment" :class="{ actived: actived == 'people-comment' }">
                 <img src="../../assets/评论.png">
                 他的评论
               </li>
-              <li id="user-point" :class="{ actived: actived == 'user-point' }">
+
+              <li id="people-point" :class="{ actived: actived == 'people-point' }">
                 <img src="../../assets/关注.png">他的关注
-              </li>
-              <li id="usercollect" :class="{ actived: actived == 'usercollect' }">
-                <img src="../../assets/收藏.png">
-                他的收藏
-              </li>
-              <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
-                <img src="../../assets/订单.png">
-                他的闲趣
               </li>
             </ul>
           </el-collapse-item>
@@ -98,12 +97,12 @@ color: #FFF;">暂无所属俱乐部</b>
       <ActivityPublic2 v-if="actived === 'activityPublic2'"/>
       <UserSecure v-if="actived === 'password'"/>
       <UserInfo v-if="actived === 'setting'"/>
-      <UserCollect v-if="actived === 'usercollect'"/>
-      <UserTravels v-if="actived === 'usertravels'"/>
-      <UserSign v-if="actived === 'usersign'"/>
-      <UserComment v-if="actived === 'user-comment'"/>
-      <UserGoods v-if="actived === 'user-goods'"/>
-      <UserPoint v-if="actived === 'user-point'"/>
+      <PeoplePost v-if="actived === 'PeoplePost'"/>
+      <Peopletravels v-if="actived === 'peopletravels'"/>
+      <PeopleSign v-if="actived === 'peoplesign'"/>
+      <Peoplecomment v-if="actived === 'people-comment'"/>
+      <PeopleGoods v-if="actived === 'people-goods'"/>
+      <Peoplepoint v-if="actived === 'people-point'"/>
       <UserFund v-if="actived === 'user-fund'"/>
     </div>
   </div>
@@ -113,30 +112,28 @@ import ActivityPublic from "@/components/activity-public";
 import ActivityPublic2 from "@/components/activity-public2";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
-import UserCollect from "@/components/user-collect";
-import UserTravels from "@/components/user-travels";
-import UserSign from "@/components/user-sign";
-import UserComment from "@/components/user-comment";
-import UserGoods from "@/components/user-goods";
-import UserPoint from "@/components/user-point";
-import UserFund from "@/components/user-fund";
+import PeoplePost from "@/components/PeoplePost";
+import Peopletravels from "@/components/people-travels";
+import PeopleSign from "@/components/people-sign";
+import Peoplecomment from "@/components/people-comment";
+import PeopleGoods from "@/components/people-goods";
+import Peoplepoint from "@/components/people-point";
 export default {
   components: {
     ActivityPublic,
     ActivityPublic2,
     UserSecure,
     UserInfo,
-    UserCollect,
-    UserTravels,
-    UserSign,
-    UserComment,
-    UserGoods,
-    UserPoint,
-    UserFund
+    PeoplePost,
+    Peopletravels,
+    PeopleSign,
+    Peoplecomment,
+    PeopleGoods,
+    Peoplepoint
   },
   data() {
     return {
-      actived: "user-fund"
+      actived: "peoplesign"
     };
   },
   methods: {
@@ -155,42 +152,79 @@ export default {
   display: flex;
 }
 .us-center-left {
-  width: 40%;
+  width: 35%;
   /* background: url(../../assets/personal_left.png) no-repeat; */
 }
 .us-center-right {
-  width: 60%;
+  width: 65%;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   height: fit-content;
+  background-color: #fff;
 }
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  background-color: #99cccc;
+  background: linear-gradient(
+    to top right,
+    #cddc39 0%,
+    #74b628 25%,
+    #ffeb3b 100%
+  );
+  height: 455px;
 }
 .us-center-left-bottom {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  margin-top: 30px;
-  width: 96%;
+  margin-top: 15px;
+  /* width: 96%; */
   border-radius: 2px;
   background: #fff;
   float: left;
 }
 .us-center-left-top img {
   border-radius: 50%;
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
 }
 
 .us-center-left-top1 ul li {
   width: 33.33%;
-  margin: 20px 0;
+  margin: 5px 0 20px 0;
   box-sizing: border-box;
   border-left: 1px dashed #fff;
   line-height: 28px;
   float: left;
 }
-
+.us-center-left-top1 ul {
+  margin-left: -40px;
+}
+.us-center-left-top1 h3 {
+  font-size: 20px;
+}
+.us-center-left-top1 b {
+  font-size: 15px;
+}
+.us-center-left-top1 ul::before {
+  width: 29%;
+  height: 1px;
+  top: 385px;
+  border-top: 1px dashed #fff;
+  content: "";
+  position: absolute;
+  margin-left: -196px;
+}
+.us-center-left-top1 ul li:nth-child(1),
+.us-center-left-top1 ul li:nth-child(4) {
+  border-left: 0;
+}
+.us-center-left-top1 ul li span {
+  font-size: 24px;
+  color: #fff;
+}
+.us-center-left-top1 ul li p {
+  color: #fff;
+  font-size: 14px;
+  margin: 5px 0;
+}
 .us-center-left-bottom ul {
   width: 100%;
   padding: 0px 20px 20px 20px;
@@ -205,14 +239,15 @@ export default {
   border-radius: 5px;
 }
 .us-center-left-bottom ul li.actived {
-  background: #99cccc;
+  background: #dcedc8;
 }
 .us-center-left-bottom ul li:hover,
 .us-center-left-bottom ul li .actived {
   cursor: pointer;
-  color: #f7fcf7;
+  color: #8bc34a;
   font-weight: bold;
 }
+
 ul,
 ol,
 dl {
@@ -227,7 +262,7 @@ dl {
   color: #666;
 }
 .us-center-left-bottom ul li:hover {
-  background-color: #99cccc;
+  background-color: #dcedc8;
 }
 .us-center-left-bottom ul li img {
   height: 20px;

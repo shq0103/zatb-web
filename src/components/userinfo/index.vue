@@ -5,7 +5,7 @@
         <div class="ac-public-form1">
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #75b628;"
+-webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8bc34a;"
           >完善资料</h3>
 
           <div class="ac-public-form2-2">

@@ -542,6 +542,7 @@ travels-top-rf {
   margin-top: 20px;
   background-color: #fff;
   padding: 15px 15px 0 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .tr-b-rf-public {
   margin-top: 10px;

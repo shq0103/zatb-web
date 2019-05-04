@@ -42,8 +42,10 @@
         <div class="search-content"></div>
         <div class="show-comment">
           <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item label="发表评论">
-              <el-input type="textarea"></el-input>
+            <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
+            <el-form-item>
+              <!-- <el-input type="textarea"></el-input> -->
+              <TextEditor :menu="commentMenu"/>
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发表</el-button>
@@ -96,7 +98,24 @@
   </div>
 </template>
 <script>
-export default {};
+import TextEditor from "@/components/TextEditor";
+export default {
+  components: {
+    TextEditor
+  },
+  data() {
+    return {
+      commentMenu: [
+        "bold",
+        "fontSize",
+        "fontName",
+        "foreColor",
+        "emoticon",
+        "image"
+      ]
+    };
+  }
+};
 </script>
 <style scoped>
 .index {

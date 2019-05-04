@@ -12,7 +12,7 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
         <div class="ac-public-form1">
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #99cccc;"
+-webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
           >你的活动计划</h3>
 
           <div class="ac-public-form2">

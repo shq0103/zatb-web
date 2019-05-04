@@ -65,11 +65,7 @@ export default new Router({
 
           component: () => import("./views/post-show/index.vue")
         },
-        {
-          path: "user-collect",
-          name: "user-collect",
-          component: () => import("./components/user-collect/index.vue")
-        },
+
         {
           path: "post",
           name: "post",
@@ -119,6 +115,11 @@ export default new Router({
           path: "post-public",
           name: "post-public",
           component: () => import("./views/post-public/index.vue")
+        },
+        {
+          path: "travels-public-1",
+          name: "travels-public-1",
+          component: () => import("./views/travels-public-1/index.vue")
         }
       ]
     },

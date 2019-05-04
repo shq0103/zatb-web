@@ -62,6 +62,7 @@ export default {
   min-height: 500px;
   background: #fff;
   padding: 0 0 10px 0;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .p-p-content {
   margin: 20px 60px;

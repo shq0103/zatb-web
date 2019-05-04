@@ -124,7 +124,7 @@ export default {
   --color-primary: #75b628;
   --color-grey: rgba(208, 239, 132, 0.15);
   --color-dark: #9fdb5b;
-  --color-semidark: #afdb7d;
+  --color-semidark: #8bc34a;
 }
 
 .lowin.lowin-purple {

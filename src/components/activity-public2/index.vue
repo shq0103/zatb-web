@@ -113,11 +113,12 @@
   -webkit-border-bottom-left-radius: 20px;
   -moz-border-bottom-left-radius: 20px;
   -webkit-border-bottom-right-radius: 20px;
-  background: #99cccc;
+  background: #8bc34a;
   display: flex;
 }
 .ac-h3 h3 {
   margin: auto;
+  font-size: 16px;
 }
 
 .prev-link {
@@ -128,10 +129,10 @@
   font-size: 14px;
   position: absolute;
   right: 85px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .prev-link img {
-  width: 20px;
+  width: 19px;
   margin-bottom: -5px;
   margin-right: 2px;
 }

@@ -331,7 +331,6 @@
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .post-top-border0,
 .post-top-border1 {
@@ -425,7 +424,7 @@
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   background-color: #fff;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  
 }
 .post-bottom-content-lf img {
   height: 70px;

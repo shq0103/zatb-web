@@ -5,7 +5,7 @@
         <h3
           style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #99cccc;"
-        >你的活动计划</h3>
+        >发布闲趣</h3>
       </div>
       <div class="g-p-content">
         <el-form ref="form" label-width="80px">
@@ -63,6 +63,7 @@
   /* padding: 50px 200px 0 200px; */
   min-height: 500px;
   background: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .g-p-content {
   padding: 50px 200px 15px 200px;

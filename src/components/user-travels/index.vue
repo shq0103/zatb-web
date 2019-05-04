@@ -26,8 +26,8 @@
 }
 .user-secure-button {
   color: #fff;
-  background-color: #99cccc !important;
-  border-color: #99cccc !important;
+  background-color: #8bc34a !important;
+  border-color: #8bc34a !important;
 }
 .ac-h3 {
   color: #fff;
@@ -38,11 +38,12 @@
   -webkit-border-bottom-left-radius: 20px;
   -moz-border-bottom-left-radius: 20px;
   -webkit-border-bottom-right-radius: 20px;
-  background: #99cccc;
+  background: #8bc34a;
   display: flex;
 }
 .ac-h3 h3 {
   margin: auto;
+  font-size: 16px;
 }
 .ac-h3 span {
   position: absolute;
@@ -59,5 +60,8 @@ el-table th,
 .el-table th,
 .el-table tr {
   background: #f0f9eb !important;
+}
+.ac-public-content {
+  min-height: 1100px;
 }
 </style>

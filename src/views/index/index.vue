@@ -564,7 +564,7 @@ export default {
 .p-title {
   padding: 0;
   line-height: 40px;
-  border-bottom: 2px solid #009a61;
+  border-bottom: 2px solid #689f38;
   overflow: visible;
   height: 50px;
   display: flex;
@@ -577,7 +577,7 @@ export default {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .tr1 {
-  /* border-bottom: 2px solid #009a61; */
+  /* border-bottom: 2px solid #689F38; */
   /* border-bottom-style: dotted; */
 
   margin-top: 10px;
@@ -644,7 +644,7 @@ export default {
   font-weight: 500;
 }
 .el-tabs__active-bar {
-  background-color: #009a61;
+  background-color: #689f38;
 }
 .tr-content {
   display: flex;
@@ -704,7 +704,7 @@ export default {
   color: #fff;
 }
 .el-button--text {
-  color: #009a61;
+  color: #689f38;
 }
 
 .inner-container {

@@ -8,26 +8,6 @@
         <div class="edit_02">
           <span class="select_text">选择参与的等级</span>
         </div>
-        <div class="select">
-          <el-select v-model="value" filterable placeholder="请选择" class="select_list">
-            <!-- <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>-->
-            <el-option label="全部" value="beijing"></el-option>
-            <el-option label="短线" value="beijing"></el-option>
-            <el-option label="中线" value="beijing"></el-option>
-            <el-option label="长线" value="shanghai"></el-option>
-          </el-select>
-          <router-link to="/travels-public-1">
-            <el-button type="success" round class="tr-edit-buttom" :plain="true" @click="open2">创建</el-button>
-          </router-link>
-        </div>
-        <div class="content">
-          <el-input type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
-        </div>
       </div>
     </div>
   </div>

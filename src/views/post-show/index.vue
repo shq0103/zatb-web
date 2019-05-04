@@ -195,8 +195,10 @@
         </div>
         <div class="p-c-public">
           <el-row>
-            <el-button type="success" icon="el-icon-edit">发新帖</el-button>
-            <el-button type="success" icon="el-icon-s-order">回复</el-button>
+            <router-link to="/post-public">
+              <el-button type="success" icon="el-icon-edit">发新帖</el-button>
+            </router-link>
+            <el-button type="success" icon="el-icon-s-order" style="margin-left:10px;">回复</el-button>
           </el-row>
           <el-pagination
             @size-change="handleSizeChange"
@@ -219,7 +221,7 @@
             </div>
           </div>
           <div class="p-c-c-f-rf">
-            <div class="p-c-c-f-rf-2">
+            <div class="p-c-c-f-rf-3">
               <el-form ref="form" :model="form" label-width="80px">
                 <el-form-item>
                   <!-- <el-input type="textarea"></el-input> -->
@@ -283,6 +285,7 @@ ul {
 .p-c-content {
   border: solid 1px #f1f1f1;
   background: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .page {
   position: absolute;
@@ -378,6 +381,9 @@ a:active {
 .p-c-c-f-rf-2 {
   margin: 10px 20px;
 }
+.p-c-c-f-rf-3 {
+  padding: 25px 10px 0px 10px;
+}
 .p-r-other-1 {
   font-size: 12px;
   color: #949494;
@@ -445,7 +451,7 @@ em {
   font-size: 14px;
 }
 .p-c-c-rf-other img {
-  height: 22px;
+  height: 30px;
   margin-right: 5px;
 }
 .p-c-c-f-lf-2 {
@@ -454,5 +460,6 @@ em {
 .p-c-reply {
   display: flex;
   background-color: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 </style>
