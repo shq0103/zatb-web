@@ -3,11 +3,13 @@
     <div class="public-bottom">
       <div class="ac-public-content">
         <div class="ac-public-form1">
-          <h3
-            style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8BC34A;"
-          >我的报名</h3>
-          <el-table :data="tableData" border :style="{width: '100%'}">
+          <div class="ac-h3">
+            <h3>我的报名</h3>
+            <router-link to="/activity-public">
+              <span>发布活动</span>
+            </router-link>
+          </div>
+          <el-table :data="tableData" border :style="{ width: '100%' }">
             <el-table-column align="center" prop="date" label="活动"></el-table-column>
             <el-table-column align="center" prop="name" label="参加人"></el-table-column>
             <el-table-column align="center" prop="address" label="积分"></el-table-column>
@@ -41,5 +43,26 @@ el-table th,
 }
 .ac-public-content {
   min-height: 1100px;
+}
+.ac-h3 {
+  color: #fff;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 16px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-bottom-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  background: #8bc34a;
+  display: flex;
+}
+.ac-h3 h3 {
+  margin: auto;
+  font-size: 16px;
+}
+.ac-h3 span {
+  position: absolute;
+  right: 85px;
+  font-size: 13px;
 }
 </style>

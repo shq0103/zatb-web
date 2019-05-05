@@ -4,8 +4,10 @@
       <div class="p-p-title">
         <h3
           style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #99cccc;"
-        >发表帖子</h3>
+-webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
+        >
+          发表帖子
+        </h3>
       </div>
       <div class="p-p-content">
         <div class="p-p-form">
@@ -25,7 +27,7 @@
             <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
             <el-form-item>
               <!-- <el-input type="textarea"></el-input> -->
-              <TextEditor :menu="commentMenu"/>
+              <TextEditor :menu="commentMenu" />
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发布帖子</el-button>
@@ -45,14 +47,7 @@ export default {
   },
   data() {
     return {
-      commentMenu: [
-        "bold",
-        "fontSize",
-        "fontName",
-        "foreColor",
-        "emoticon",
-        "image"
-      ]
+      commentMenu: ["bold", "fontSize", "fontName", "foreColor", "emoticon", "image"]
     };
   }
 };
@@ -65,7 +60,7 @@ export default {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .p-p-content {
-  margin: 20px 60px;
+  padding: 30px 150px 5px 150px;
 }
 .p-p-form {
   text-align: left;

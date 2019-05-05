@@ -4,8 +4,10 @@
       <div class="g-p-title">
         <h3
           style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
--webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #99cccc;"
-        >发布闲趣</h3>
+-webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
+        >
+          发布闲趣
+        </h3>
       </div>
       <div class="g-p-content">
         <el-form ref="form" label-width="80px">
@@ -26,7 +28,11 @@
             </el-select>
           </el-form-item>
           <el-form-item label="价格">
-            <el-input></el-input>元
+            <el-input>
+              <template slot="append"
+                >元</template
+              >
+            </el-input>
           </el-form-item>
           <el-form-item label="标题">
             <el-input></el-input>
@@ -44,7 +50,7 @@
               <i class="el-icon-plus"></i>
             </el-upload>
             <el-dialog :visible.sync="dialogVisible">
-              <img width="100%" :src="dialogImageUrl" alt>
+              <img width="100%" :src="dialogImageUrl" alt />
             </el-dialog>
           </el-form-item>
           <el-form-item label="联系方式">

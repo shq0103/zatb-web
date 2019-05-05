@@ -3,11 +3,18 @@
     <div class="us-center-left">
       <div class="us-center-left-top">
         <div class="us-center-left-top1">
-          <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
-          <h3 style="font-size: 25px;
-color: #FFF;margin:5px 0px;">徒步用户</h3>
-          <b style="font-weight: normal;
-color: #FFF;">暂无所属俱乐部</b>
+          <img src="http://tubu100.com:8053/Files/Default/UserHead.png" />
+          <h3
+            style="font-size: 25px;
+color: #FFF;margin:5px 0px;"
+          >
+            徒步用户
+          </h3>
+          <b
+            style="font-weight: normal;
+color: #FFF;"
+            >暂无所属俱乐部</b
+          >
           <ul>
             <li>
               <span>0</span>
@@ -47,28 +54,28 @@ color: #FFF;">暂无所属俱乐部</b>
             </template>
             <ul @click="clickItem">
               <li id="peoplesign" :class="{ actived: actived == 'peoplesign' }">
-                <img src="../../assets/报名.png">
+                <img src="../../assets/报名.png" />
                 他的活动
               </li>
               <li id="peopletravels" :class="{ actived: actived == 'peopletravels' }">
-                <img src="../../assets/笔记本.png">
+                <img src="../../assets/笔记本.png" />
                 他的路书
               </li>
               <li id="people-goods" :class="{ actived: actived == 'people-goods' }">
-                <img src="../../assets/订单.png">
+                <img src="../../assets/订单.png" />
                 他的闲趣
               </li>
               <li id="PeoplePost" :class="{ actived: actived == 'PeoplePost' }">
-                <img src="../../assets/收藏.png">
+                <img src="../../assets/收藏.png" />
                 他的帖子
               </li>
               <li id="people-comment" :class="{ actived: actived == 'people-comment' }">
-                <img src="../../assets/评论.png">
+                <img src="../../assets/评论.png" />
                 他的评论
               </li>
 
               <li id="people-point" :class="{ actived: actived == 'people-point' }">
-                <img src="../../assets/关注.png">他的关注
+                <img src="../../assets/关注.png" />他的关注
               </li>
             </ul>
           </el-collapse-item>
@@ -93,23 +100,19 @@ color: #FFF;">暂无所属俱乐部</b>
       </div>
     </div>
     <div class="us-center-right">
-      <ActivityPublic v-if="actived === 'activityPublic'"/>
-      <ActivityPublic2 v-if="actived === 'activityPublic2'"/>
-      <UserSecure v-if="actived === 'password'"/>
-      <UserInfo v-if="actived === 'setting'"/>
-      <PeoplePost v-if="actived === 'PeoplePost'"/>
-      <Peopletravels v-if="actived === 'peopletravels'"/>
-      <PeopleSign v-if="actived === 'peoplesign'"/>
-      <Peoplecomment v-if="actived === 'people-comment'"/>
-      <PeopleGoods v-if="actived === 'people-goods'"/>
-      <Peoplepoint v-if="actived === 'people-point'"/>
-      <UserFund v-if="actived === 'user-fund'"/>
+      <UserSecure v-if="actived === 'password'" />
+      <UserInfo v-if="actived === 'setting'" />
+      <PeoplePost v-if="actived === 'PeoplePost'" />
+      <Peopletravels v-if="actived === 'peopletravels'" />
+      <PeopleSign v-if="actived === 'peoplesign'" />
+      <Peoplecomment v-if="actived === 'people-comment'" />
+      <PeopleGoods v-if="actived === 'people-goods'" />
+      <Peoplepoint v-if="actived === 'people-point'" />
+      <UserFund v-if="actived === 'user-fund'" />
     </div>
   </div>
 </template>
 <script>
-import ActivityPublic from "@/components/activity-public";
-import ActivityPublic2 from "@/components/activity-public2";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
 import PeoplePost from "@/components/PeoplePost";
@@ -120,8 +123,6 @@ import PeopleGoods from "@/components/people-goods";
 import Peoplepoint from "@/components/people-point";
 export default {
   components: {
-    ActivityPublic,
-    ActivityPublic2,
     UserSecure,
     UserInfo,
     PeoplePost,
@@ -164,12 +165,7 @@ export default {
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  background: linear-gradient(
-    to top right,
-    #cddc39 0%,
-    #74b628 25%,
-    #ffeb3b 100%
-  );
+  background: linear-gradient(to top right, #cddc39 0%, #74b628 25%, #ffeb3b 100%);
   height: 455px;
 }
 .us-center-left-bottom {
@@ -284,4 +280,3 @@ dl {
   background-color: #f0f9eb;
 }
 </style>
-

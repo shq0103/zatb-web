@@ -29,17 +29,17 @@ export default new Router({
           component: () => import("./views/user-center/index.vue")
         },
         {
-          path: "userinfo",
-          name: "userinfo",
+          path: "activity-public2",
+          name: "activity-public2",
 
-          component: () => import("./components/userinfo/index.vue")
+          component: () => import("./views/activity-public2/index.vue")
         },
 
         {
-          path: "user-secure",
-          name: "user-secure",
+          path: "activity-public",
+          name: "activity-public",
 
-          component: () => import("./components/user-secure/index.vue")
+          component: () => import("./views/activity-public/index.vue")
         },
         {
           path: "new",
@@ -120,6 +120,11 @@ export default new Router({
           path: "travels-public-1",
           name: "travels-public-1",
           component: () => import("./views/travels-public-1/index.vue")
+        },
+        {
+          path: "travels-show",
+          name: "travels-show",
+          component: () => import("./views/travels-show/index.vue")
         }
       ]
     },

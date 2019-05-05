@@ -3,11 +3,18 @@
     <div class="us-center-left">
       <div class="us-center-left-top">
         <div class="us-center-left-top1">
-          <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
-          <h3 style="font-size: 25px;
-color: #FFF;margin:5px 0px;">徒步用户</h3>
-          <b style="font-weight: normal;
-color: #FFF;">暂无所属俱乐部</b>
+          <img src="http://tubu100.com:8053/Files/Default/UserHead.png" />
+          <h3
+            style="font-size: 25px;
+color: #FFF;margin:5px 0px;"
+          >
+            徒步用户
+          </h3>
+          <b
+            style="font-weight: normal;
+color: #FFF;"
+            >暂无所属俱乐部</b
+          >
           <ul>
             <li>
               <span>0</span>
@@ -44,35 +51,31 @@ color: #FFF;">暂无所属俱乐部</b>
             </template>
             <ul @click="clickItem">
               <li id="usersign" :class="{ actived: actived == 'usersign' }">
-                <img src="../../assets/报名.png">
+                <img src="../../assets/报名.png" />
                 我的报名
               </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
-                <img src="../../assets/笔记本.png">
+                <img src="../../assets/笔记本.png" />
                 我的路书
               </li>
-              <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
+              <!-- <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
                 <img src="../../assets/结伴.png">
                 发布活动
-              </li>
-              <li id="activityPublic2" :class="{ actived: actived == 'activityPublic2' }">
-                <img src="../../assets/结伴.png">
-                发布活动2
-              </li>
+              </li>-->
               <!-- <li>
                 <img src="../../assets/游记.png">
                 发布路书
               </li>-->
 
               <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
-                <img src="../../assets/评论.png">
+                <img src="../../assets/评论.png" />
                 我的评论
               </li>
               <li id="user-point" :class="{ actived: actived == 'user-point' }">
-                <img src="../../assets/关注.png">我的关注
+                <img src="../../assets/关注.png" />我的关注
               </li>
               <li id="userpost" :class="{ actived: actived == 'userpost' }">
-                <img src="../../assets/收藏.png">
+                <img src="../../assets/收藏.png" />
                 我的帖子
               </li>
               <!-- <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
@@ -80,7 +83,7 @@ color: #FFF;">暂无所属俱乐部</b>
                 我的订单
               </li>-->
               <li id="user-goods" :class="{ actived: actived == 'user-goods' }">
-                <img src="../../assets/订单.png">
+                <img src="../../assets/订单.png" />
                 发布闲趣
               </li>
             </ul>
@@ -91,14 +94,14 @@ color: #FFF;">暂无所属俱乐部</b>
             </template>
             <ul @click="clickItem">
               <li id="setting" :class="{ actived: actived == 'setting' }">
-                <img src="../../assets/个人设置.png">
+                <img src="../../assets/个人设置.png" />
                 个人设置
               </li>
               <li id="password" :class="{ actived: actived == 'password' }">
-                <img src="../../assets/密码.png">修改密码
+                <img src="../../assets/密码.png" />修改密码
               </li>
               <li id="usernotice" :class="{ actived: actived == 'usernotice' }">
-                <img src="../../assets/系统通知.png">系统通知
+                <img src="../../assets/系统通知.png" />系统通知
               </li>
             </ul>
           </el-collapse-item>
@@ -106,23 +109,19 @@ color: #FFF;">暂无所属俱乐部</b>
       </div>
     </div>
     <div class="us-center-right">
-      <ActivityPublic v-if="actived === 'activityPublic'"/>
-      <ActivityPublic2 v-if="actived === 'activityPublic2'"/>
-      <UserSecure v-if="actived === 'password'"/>
-      <UserInfo v-if="actived === 'setting'"/>
-      <UserPost v-if="actived === 'userpost'"/>
-      <UserTravels v-if="actived === 'usertravels'"/>
-      <UserSign v-if="actived === 'usersign'"/>
-      <UserComment v-if="actived === 'user-comment'"/>
-      <UserGoods v-if="actived === 'user-goods'"/>
-      <UserPoint v-if="actived === 'user-point'"/>
-      <UserNotice v-if="actived === 'usernotice'"/>
+      <UserSecure v-if="actived === 'password'" />
+      <UserInfo v-if="actived === 'setting'" />
+      <UserPost v-if="actived === 'userpost'" />
+      <UserTravels v-if="actived === 'usertravels'" />
+      <UserSign v-if="actived === 'usersign'" />
+      <UserComment v-if="actived === 'user-comment'" />
+      <UserGoods v-if="actived === 'user-goods'" />
+      <UserPoint v-if="actived === 'user-point'" />
+      <UserNotice v-if="actived === 'usernotice'" />
     </div>
   </div>
 </template>
 <script>
-import ActivityPublic from "@/components/activity-public";
-import ActivityPublic2 from "@/components/activity-public2";
 import UserSecure from "@/components/user-secure";
 import UserInfo from "@/components/userinfo";
 import UserPost from "@/components/user-collect";
@@ -134,8 +133,6 @@ import UserPoint from "@/components/user-point";
 import UserNotice from "@/components/user-notice";
 export default {
   components: {
-    ActivityPublic,
-    ActivityPublic2,
     UserSecure,
     UserInfo,
     UserPost,
@@ -179,12 +176,7 @@ export default {
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  background: linear-gradient(
-    to top right,
-    #cddc39 0%,
-    #74b628 25%,
-    #ffeb3b 100%
-  );
+  background: linear-gradient(to top right, #cddc39 0%, #74b628 25%, #ffeb3b 100%);
   height: 400px;
 }
 .us-center-left-bottom {
@@ -299,4 +291,3 @@ dl {
   background-color: #f0f9eb;
 }
 </style>
-

@@ -3,17 +3,13 @@
     <div class="public-top"></div>
     <div class="public-bottom">
       <div class="ac-public-content">
-        <!-- <div class="ac-public-tilte">
-          <h3 style="font-size:25px;margin:0">活动发布</h3>
-          <p style="color: #999;
-padding-top: 5px;
-font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
-        </div>-->
         <div class="ac-public-form1">
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
-          >你的活动计划</h3>
+          >
+            你的活动计划
+          </h3>
 
           <div class="ac-public-form2">
             <el-form ref="form" label-width="80px">
@@ -35,16 +31,28 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
 
               <el-form-item label="活动时间">
                 <el-col :span="11">
-                  <el-date-picker type="date" placeholder="开始日期" style="width: 100%;"></el-date-picker>
+                  <el-date-picker
+                    type="date"
+                    placeholder="开始日期"
+                    style="width: 100%;"
+                  ></el-date-picker>
                 </el-col>
                 <el-col class="line" :span="2">-</el-col>
                 <el-col :span="11">
-                  <el-date-picker type="date" placeholder="结束日期" style="width: 100%;"></el-date-picker>
+                  <el-date-picker
+                    type="date"
+                    placeholder="结束日期"
+                    style="width: 100%;"
+                  ></el-date-picker>
                 </el-col>
               </el-form-item>
               <el-form-item label="报名截止时间">
                 <el-col :span="11">
-                  <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
+                  <el-date-picker
+                    type="date"
+                    placeholder="选择日期"
+                    style="width: 100%;"
+                  ></el-date-picker>
                 </el-col>
                 <el-col class="line" :span="2">-</el-col>
                 <el-col :span="11">
@@ -62,7 +70,10 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
               <el-form-item label="活动性质">
                 <el-radio-group size="medium">
                   <el-radio border label="商业：组织者以盈利为目的或组织者不参与AA。"></el-radio>
-                  <el-radio border label="AA：表示全体人员包括领队组织者均摊费用，多退少补。"></el-radio>
+                  <el-radio
+                    border
+                    label="AA：表示全体人员包括领队组织者均摊费用，多退少补。"
+                  ></el-radio>
                 </el-radio-group>
               </el-form-item>
 
@@ -77,10 +88,23 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
                 <el-input placeholder="人数上限"></el-input>人
               </el-form-item>
               <el-form-item label="活动封面">
-                <el-button type="primary" @click="onSubmit">上传活动照片</el-button>
+                <el-upload
+                  class="upload-demo"
+                  action="https://jsonplaceholder.typicode.com/posts/"
+                  :on-preview="handlePreview"
+                  :on-remove="handleRemove"
+                  :before-remove="beforeRemove"
+                  multiple
+                  :limit="3"
+                  :on-exceed="handleExceed"
+                  :file-list="fileList"
+                >
+                  <el-button size="small" type="success" plain>点击上传</el-button>
+                  <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                </el-upload>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="onSubmit">下一步</el-button>
+                <el-button type="success" @click="onSubmit">下一步</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -111,6 +135,11 @@ font-size: 14px;">实时发布活动项目，简单方便集齐驴友！</p>
   -moz-border-top-right-radius: 10px;
 }
 .ac-public-form2 {
-  padding: 20px 20px;
+  padding: 30px 150px 20px 150px;
+}
+.upload-demo {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  padding: 5px 0;
 }
 </style>
