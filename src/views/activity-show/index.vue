@@ -94,11 +94,14 @@
                 <li>
                   <a href="javascript:void(0);">线路描述</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="javascript:void(0);">目的地地图</a>
-                </li>
+                </li>-->
                 <li>
                   <a href="javascript:void(0);">装备要求</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">更多介绍</a>
                 </li>
               </ul>
             </div>
@@ -127,12 +130,12 @@
                 </div>
                 <div class="attr-content">11</div>
               </div>
-              <div class="a-c-l-c-1">
+              <!-- <div class="a-c-l-c-1">
                 <div class="attr-title">
                   <h3><img src="../../assets/地图.png" class="icon-intro" />目的地地图</h3>
                 </div>
                 <div class="attr-content">44</div>
-              </div>
+              </div>-->
               <div class="a-c-l-c-1">
                 <div class="attr-title">
                   <h3><img src="../../assets/装备.png" class="icon-intro" />装备要求</h3>

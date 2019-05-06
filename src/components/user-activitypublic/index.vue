@@ -1,19 +1,17 @@
 <template>
-  <div class="user-goods">
+  <div class="user-sign">
     <div class="public-bottom">
       <div class="ac-public-content">
         <div class="ac-public-form1">
           <div class="ac-h3">
-            <h3>我的闲趣</h3>
-            <router-link to="/goods-public">
-              <span>发布闲趣</span>
+            <h3>我的结伴</h3>
+            <router-link to="/activity-public">
+              <span>发布活动</span>
             </router-link>
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }">
-            <el-table-column align="center" prop="date" label="闲趣标题"></el-table-column>
-            <el-table-column align="center" prop="name" label="闲趣类型"></el-table-column>
-
-            <el-table-column align="center" prop="address" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="date" label="活动名称"></el-table-column>
+            <el-table-column align="center" prop="address" label="发布时间"></el-table-column>
             <el-table-column align="center" prop="name" label="状态"></el-table-column>
             <el-table-column align="center" prop="address" label="操作"></el-table-column>
           </el-table>
@@ -30,6 +28,21 @@
   color: #fff;
   background-color: #8bc34a !important;
   border-color: #8bc34a !important;
+}
+
+/* .el-table thead {
+background: #f0f9eb !important;
+} */
+el-table th,
+.el-table tr {
+  background: #f0f9eb !important;
+}
+.el-table th,
+.el-table tr {
+  background: #f0f9eb !important;
+}
+.ac-public-content {
+  min-height: 1100px;
 }
 .ac-h3 {
   color: #fff;
@@ -51,19 +64,5 @@
   position: absolute;
   right: 85px;
   font-size: 13px;
-}
-/* .el-table thead {
-background: #f0f9eb !important;
-} */
-el-table th,
-.el-table tr {
-  background: #f0f9eb !important;
-}
-.el-table th,
-.el-table tr {
-  background: #f0f9eb !important;
-}
-.ac-public-content {
-  min-height: 1100px;
 }
 </style>

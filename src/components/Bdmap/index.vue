@@ -17,22 +17,34 @@
     >
       <bm-label
         content="海琴小仙女真可爱"
-        :labelStyle="{color: 'red', fontSize : '18px'}"
-        :offset="{width: -50, height: 30}"
+        :label-style="{ color: 'red', fontSize: '18px' }"
+        :offset="{ width: -50, height: 30 }"
       />
     </bm-marker>
-    <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
+    <bm-geolocation
+      anchor="BMAP_ANCHOR_BOTTOM_RIGHT"
+      :showAddressBar="true"
+      :autoLocation="true"
+    ></bm-geolocation>
 
-    <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']" anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-map-type>
-    <bm-overview-map anchor="BMAP_ANCHOR_TOP_LEFT" :isOpen="true"></bm-overview-map>
+    <bm-map-type
+      :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
+      anchor="BMAP_ANCHOR_TOP_RIGHT"
+    ></bm-map-type>
+    <bm-overview-map anchor="BMAP_ANCHOR_TOP_LEFT" :is-open="true"></bm-overview-map>
 
-    <bm-local-search :panel="false" :keyword="keyword" :auto-viewport="true" :location="'桂林'"></bm-local-search>
+    <bm-local-search
+      :panel="false"
+      :keyword="keyword"
+      :auto-viewport="true"
+      :location="'桂林'"
+    ></bm-local-search>
   </baidu-map>
 </template>
 <script>
 export default {
   props: {
-    keyword: "",
+    keyword: ,
     point: null
   },
 
@@ -51,10 +63,10 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .map {
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 .container {
   display: flex;
@@ -66,4 +78,3 @@ export default {
   width: 300px;
 }
 </style>
-

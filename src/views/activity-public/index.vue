@@ -104,7 +104,9 @@
                 </el-upload>
               </el-form-item>
               <el-form-item>
-                <el-button type="success" @click="onSubmit">下一步</el-button>
+                <router-link to="/activity-public2">
+                  <el-button type="success" @click="onSubmit">下一步</el-button>
+                </router-link>
               </el-form-item>
             </el-form>
           </div>

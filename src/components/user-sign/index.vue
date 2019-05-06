@@ -10,10 +10,10 @@
             </router-link>
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }">
-            <el-table-column align="center" prop="date" label="活动"></el-table-column>
+            <el-table-column align="center" prop="date" label="活动名称"></el-table-column>
             <el-table-column align="center" prop="name" label="参加人"></el-table-column>
-            <el-table-column align="center" prop="address" label="积分"></el-table-column>
-            <el-table-column align="center" prop="address" label="时间"></el-table-column>
+            <el-table-column align="center" prop="name" label="状态"></el-table-column>
+            <el-table-column align="center" prop="address" label="操作"></el-table-column>
           </el-table>
         </div>
       </div>

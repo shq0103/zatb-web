@@ -5,10 +5,10 @@
       <div class="ac-public-content">
         <div class="ac-h3">
           <h3>标题</h3>
-
-          <a href="javascript:void(0);" class="prev-link" onclick="tostep1()">
-            <img src="../../assets/加载.png" />返回上一步
-          </a>
+          <router-link to="/activity-public" class="prev-link">
+            <img src="../../assets/加载.png" />
+            返回上一步
+          </router-link>
         </div>
         <div class="ac-content">
           <div class="ac-content1">

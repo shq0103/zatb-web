@@ -9,10 +9,11 @@
               <span>发帖子</span>
             </router-link>
           </div>
-          <el-table :data="tableData" border :style="{width: '100%'}">
+          <el-table :data="tableData" border :style="{ width: '100%' }">
             <el-table-column align="center" prop="date" label="帖子标题"></el-table-column>
-            <el-table-column align="center" prop="name" label="状态"></el-table-column>
+
             <el-table-column align="center" prop="address" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="name" label="状态"></el-table-column>
             <el-table-column align="center" prop="address" label="操作"></el-table-column>
           </el-table>
         </div>

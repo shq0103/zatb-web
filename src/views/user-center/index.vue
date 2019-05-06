@@ -54,14 +54,14 @@ color: #FFF;"
                 <img src="../../assets/报名.png" />
                 我的报名
               </li>
+              <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
+                <img src="../../assets/结伴.png" />
+                我的结伴
+              </li>
               <li id="usertravels" :class="{ actived: actived == 'usertravels' }">
                 <img src="../../assets/笔记本.png" />
                 我的路书
               </li>
-              <!-- <li id="activityPublic" :class="{ actived: actived == 'activityPublic' }">
-                <img src="../../assets/结伴.png">
-                发布活动
-              </li>-->
               <!-- <li>
                 <img src="../../assets/游记.png">
                 发布路书
@@ -118,6 +118,7 @@ color: #FFF;"
       <UserGoods v-if="actived === 'user-goods'" />
       <UserPoint v-if="actived === 'user-point'" />
       <UserNotice v-if="actived === 'usernotice'" />
+      <ActivityPublic v-if="actived === 'activityPublic'" />
     </div>
   </div>
 </template>
@@ -131,6 +132,7 @@ import UserComment from "@/components/user-comment";
 import UserGoods from "@/components/user-goods";
 import UserPoint from "@/components/user-point";
 import UserNotice from "@/components/user-notice";
+import ActivityPublic from "@/components/user-activitypublic";
 export default {
   components: {
     UserSecure,
@@ -141,7 +143,8 @@ export default {
     UserComment,
     UserGoods,
     UserPoint,
-    UserNotice
+    UserNotice,
+    ActivityPublic
   },
   data() {
     return {

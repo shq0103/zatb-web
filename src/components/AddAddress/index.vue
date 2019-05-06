@@ -4,12 +4,12 @@
       <el-form ref="form" label-position="top" label-width="80px">
         <div class="edit_01">
           <el-form-item>
-            <input class="edit_name" type="text" placeholder="请填写打卡点标题" maxlength="50">
+            <input class="edit_name" type="text" placeholder="请填写打卡点标题" maxlength="50" />
           </el-form-item>
         </div>
         <div class="edit_02">
           <span class="select_text">选择打卡的地点</span>
-          <Bdmap/>
+          <Bdmap />
         </div>
         <div class="map"></div>
         <div class="edit_02">
@@ -32,7 +32,7 @@
           <span class="select_text">请输入打卡点概述</span>
         </div>
         <el-form-item>
-          <TextEditor :menu="commentMenu"/>
+          <TextEditor :menu="commentMenu" />
         </el-form-item>
       </el-form>
     </div>
@@ -80,5 +80,10 @@ export default {
 .img {
   border: 1px solid #ccc;
   padding: 20px 0;
+}
+</style>
+<style>
+.el-dialog__body {
+  padding: 0px 20px !important;
 }
 </style>

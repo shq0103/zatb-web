@@ -6,13 +6,15 @@
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8bc34a;"
-          >我的关注</h3>
+          >
+            我的关注
+          </h3>
         </div>
         <div>
           <ul class="follow_users">
             <li>
               <a>
-                <img src="http://tubu100.com:8053/Files/UserHead/201803201009380990a8.jpg">
+                <img src="http://tubu100.com:8053/Files/UserHead/201803201009380990a8.jpg" />
                 <label style="font-size:16px">徒步小能手</label>
               </a>
               <a class="btn_cf">取消关注</a>
@@ -29,8 +31,8 @@
 }
 .user-secure-button {
   color: #fff;
-  background-color: #99cccc !important;
-  border-color: #99cccc !important;
+  /* background-color: #99cccc !important;
+  border-color: #99cccc !important; */
 }
 
 /* .el-table thead {
