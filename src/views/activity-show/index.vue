@@ -19,40 +19,63 @@
         <b class="activity_distance">长线</b>
       </div>
       <p class="activity_text">
-        <img src="../../assets/咨讯浏览.png" style="height:20px;margin:-3px 2px -5px 0;">223人浏览
+        <img src="../../assets/咨讯浏览.png" style="height:20px;margin:-3px 2px -5px 0;" />223人浏览
       </p>
       <div class="a-i-content">
         <div class="a-i-c-lf">
-          <img src="http://tubu100.com:8053/Files/At/20190410141532d19b24.jpg">
+          <img src="http://tubu100.com:8053/Files/At/20190410141532d19b24.jpg" />
           <label>长线系列</label>
           <b class="stat_01">报名中</b>
         </div>
         <div class="a-i-c-rf">
           <div class="a-i-c-rf-text">
             <p>
-              <img src="../../assets/时间.png" style="height:20px;margin:-3px 15px -5px 0;">2019年08月01日 ~ 2019年08月05日
+              <img
+                src="../../assets/时间.png"
+                style="height:20px;margin:-3px 15px -5px 0;"
+              />活动时间：2019年08月01日 ~ 2019年08月05日
             </p>
             <p>
-              <img src="../../assets/感叹号.png" style="height:20px;margin:-3px 15px -5px 0;">报名截止日期：2019年06月30日
+              <img
+                src="../../assets/感叹号.png"
+                style="height:20px;margin:-3px 15px -5px 0;"
+              />报名截止日期：2019年06月30日
             </p>
             <p>
-              <img src="../../assets/出发地.png" style="height:20px;margin:-3px 15px -2px 0;">出发地：桂林
+              <img
+                src="../../assets/出发地.png"
+                style="height:20px;margin:-3px 15px -2px 0;"
+              />出发地：桂林
             </p>
             <p>
-              <img src="../../assets/目的地.png" style="height:20px;margin:-3px 15px -2px 0;">目的地：桂林
+              <img
+                src="../../assets/目的地.png"
+                style="height:20px;margin:-3px 15px -2px 0;"
+              />目的地：桂林
             </p>
 
             <p>
-              <img src="../../assets/小人头.png" style="height:20px;margin:-3px 15px -2px 0;">发起人：全国徒步大会
+              <img
+                src="../../assets/小人头.png"
+                style="height:20px;margin:-3px 15px -2px 0;"
+              />发起人：全国徒步大会
             </p>
             <p>
-              <img src="../../assets/限制.png" style="height:20px;margin:-3px 15px -2px 0;">限额600人
+              <img
+                src="../../assets/限制.png"
+                style="height:20px;margin:-3px 15px -2px 0;"
+              />限额600人
             </p>
             <p>
-              <img src="../../assets/费用.png" style="height:20px;margin:-3px 15px -2px 0;">费用：AA
+              <img
+                src="../../assets/费用.png"
+                style="height:20px;margin:-3px 15px -2px 0;"
+              />费用：AA
             </p>
           </div>
-          <el-button type="success" round>我要报名</el-button>
+          <router-link to="/activity-join">
+            <el-button type="success" round>我要报名</el-button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -84,7 +107,7 @@
                 <div class="attr-title">
                   <h3>
                     <a name="position1">
-                      <img src="../../assets/行程.png" class="icon-intro">行程安排
+                      <img src="../../assets/行程.png" class="icon-intro" />行程安排
                     </a>
                   </h3>
                 </div>
@@ -93,42 +116,32 @@
               <div class="a-c-l-c-1">
                 <div id="position2" class="attr-title">
                   <a name="position2">
-                    <h3>
-                      <img src="../../assets/费用说明.png" class="icon-intro">费用说明
-                    </h3>
+                    <h3><img src="../../assets/费用说明.png" class="icon-intro" />费用说明</h3>
                   </a>
                 </div>
                 <div class="attr-content">33</div>
               </div>
               <div class="a-c-l-c-1">
                 <div class="attr-title">
-                  <h3>
-                    <img src="../../assets/线路.png" class="icon-intro">线路介绍
-                  </h3>
+                  <h3><img src="../../assets/线路.png" class="icon-intro" />线路介绍</h3>
                 </div>
                 <div class="attr-content">11</div>
               </div>
               <div class="a-c-l-c-1">
                 <div class="attr-title">
-                  <h3>
-                    <img src="../../assets/地图.png" class="icon-intro">目的地地图
-                  </h3>
+                  <h3><img src="../../assets/地图.png" class="icon-intro" />目的地地图</h3>
                 </div>
                 <div class="attr-content">44</div>
               </div>
               <div class="a-c-l-c-1">
                 <div class="attr-title">
-                  <h3>
-                    <img src="../../assets/装备.png" class="icon-intro">装备要求
-                  </h3>
+                  <h3><img src="../../assets/装备.png" class="icon-intro" />装备要求</h3>
                 </div>
                 <div class="attr-content">55</div>
               </div>
               <div class="a-c-l-c-2">
                 <div class="attr-title">
-                  <h3>
-                    <img src="../../assets/更多.png" class="icon-intro">更多介绍
-                  </h3>
+                  <h3><img src="../../assets/更多.png" class="icon-intro" />更多介绍</h3>
                 </div>
                 <div class="attr-content">55</div>
               </div>
@@ -149,7 +162,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12">
@@ -170,7 +183,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12" class="a-c-rf-2-people-1">
@@ -195,7 +208,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12">
@@ -216,7 +229,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12" class="a-c-rf-2-people-1">
@@ -241,7 +254,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12">
@@ -262,7 +275,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12" class="a-c-rf-2-people-1">
@@ -287,7 +300,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12">
@@ -308,7 +321,7 @@
                           <div class="post-bottom-content-lf">
                             <img
                               src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small"
-                            >
+                            />
                           </div>
                         </el-col>
                         <el-col :span="12" class="a-c-rf-2-people-1">

@@ -369,6 +369,6 @@ ul {
 }
 .a-c-rf-b-content p {
   text-indent: 2em;
-  text-align: justify;
+  text-align: justify0;
 }
 </style>

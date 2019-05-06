@@ -125,6 +125,11 @@ export default new Router({
           path: "travels-show",
           name: "travels-show",
           component: () => import("./views/travels-show/index.vue")
+        },
+        {
+          path: "activity-join",
+          name: "activity-join",
+          component: () => import("./views/activity-join/index.vue")
         }
       ]
     },
