@@ -5,7 +5,7 @@
         <div class="edit">
           <div class="edit_01">
             <el-form-item>
-              <input class="edit_name" type="text" placeholder="请填写路书标题" maxlength="50" />
+              <input class="edit_name" type="text" placeholder="请填写路书标题" maxlength="50">
             </el-form-item>
           </div>
           <div class="edit_02">
@@ -25,11 +25,8 @@
                 <el-option label="中线" value="beijing"></el-option>
                 <el-option label="长线" value="shanghai"></el-option>
               </el-select>
-              <router-link to="/travels-public-1">
-                <el-button type="success" round class="tr-edit-buttom" :plain="true" @click="open2"
-                  >创建</el-button
-                >
-              </router-link>
+
+              <el-button type="success" round class="tr-edit-buttom" :plain="true" @click="open2">创建</el-button>
             </el-form-item>
           </div>
           <el-form-item>
@@ -55,12 +52,15 @@
               <el-input type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
             </el-form-item>
           </div>
-          <el-button @click="dialogFormVisible = true" type="success" icon="el-icon-plus" round
-            >添加打卡点</el-button
-          >
+          <el-button
+            @click="dialogFormVisible = true"
+            type="success"
+            icon="el-icon-plus"
+            round
+          >添加打卡点</el-button>
         </div>
-        <el-dialog :visible.sync="dialogFormVisible" width="80%">
-          <AddAddress />
+        <el-dialog top="50px" :visible.sync="dialogFormVisible" width="80%">
+          <AddAddress/>
           <div slot="footer" class="dialog-footer">
             <el-button @click="dialogFormVisible = false" type="success" plain>取 消</el-button>
             <el-button type="success" @click="dialogFormVisible = false">确 定</el-button>

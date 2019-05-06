@@ -5,33 +5,33 @@
         <h3
           style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
-        >
-          发表帖子
-        </h3>
+        >发表帖子</h3>
       </div>
       <div class="p-p-content">
         <div class="p-p-form">
-          <el-form :inline="true" class="demo-form-inline">
+          <el-form label-position="top">
             <el-form-item>
-              <el-select placeholder="选择分类信息">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-              </el-select>
+              <el-col :span="6">
+                <el-form-item>
+                  <el-select placeholder="选择分类信息">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="2" style="height:10px"></el-col>
+              <el-col :span="16">
+                <el-form-item>
+                  <el-input placeholder="请输入标题" style="width:100%;"></el-input>
+                </el-form-item>
+              </el-col>
             </el-form-item>
-            <el-form-item>
-              <el-input placeholder="请输入标题" style="width:450px;"></el-input>
-            </el-form-item>
-            <el-form-item>还可以输入80个字符</el-form-item>
-          </el-form>
-          <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
-            <el-form-item>
+            <el-form-item label="内容">
               <!-- <el-input type="textarea"></el-input> -->
-              <TextEditor :menu="commentMenu" />
+              <TextEditor :menu="commentMenu"/>
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发布帖子</el-button>
-              <el-button type="success" @click="onSubmit" plain>保存草稿</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -47,7 +47,14 @@ export default {
   },
   data() {
     return {
-      commentMenu: ["bold", "fontSize", "fontName", "foreColor", "emoticon", "image"]
+      commentMenu: [
+        "bold",
+        "fontSize",
+        "fontName",
+        "foreColor",
+        "emoticon",
+        "image"
+      ]
     };
   }
 };

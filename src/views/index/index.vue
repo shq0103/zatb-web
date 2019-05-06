@@ -925,3 +925,16 @@ export default {
   position: absolute;
 }
 </style>
+
+<style>
+.el-tabs__active-bar {
+  background-color: #75b628;
+}
+.el-tabs__item.is-active {
+  color: #75b628;
+}
+.el-tabs__item:hover {
+  color: #75b628;
+}
+</style>
+

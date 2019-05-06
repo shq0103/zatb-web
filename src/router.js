@@ -117,11 +117,6 @@ export default new Router({
           component: () => import("./views/post-public/index.vue")
         },
         {
-          path: "travels-public-1",
-          name: "travels-public-1",
-          component: () => import("./views/travels-public-1/index.vue")
-        },
-        {
           path: "travels-show",
           name: "travels-show",
           component: () => import("./views/travels-show/index.vue")

@@ -222,7 +222,7 @@
           </div>
           <div class="p-c-c-f-rf">
             <div class="p-c-c-f-rf-3">
-              <el-form ref="form" :model="form" label-width="80px">
+              <el-form ref="form" :model="form">
                 <el-form-item>
                   <!-- <el-input type="textarea"></el-input> -->
                   <TextEditor :menu="commentMenu"/>

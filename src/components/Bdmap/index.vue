@@ -1,46 +1,41 @@
 <template>
-  <div class="container">
-    <el-input class="sinput" v-model="keyword" clearable placeholder="搜索打卡点"></el-input>
-    <baidu-map
-      class="map"
-      @dblclick="dblClickMap"
-      :scroll-wheel-zoom="true"
-      :double-click-zoom="false"
-      :center="'桂林'"
-      :zoom="15"
-      :map-click="false"
+  <baidu-map
+    class="map"
+    @dblclick="dblClickMap"
+    :scroll-wheel-zoom="true"
+    :double-click-zoom="false"
+    :center="'桂林'"
+    :zoom="15"
+    :map-click="false"
+  >
+    <bm-marker
+      v-if="point"
+      :position="point"
+      :dragging="true"
+      animation="BMAP_ANIMATION_BOUNCE"
+      @dragend="dragendDone"
     >
-      <bm-marker
-        v-if="point"
-        :position="point"
-        :dragging="true"
-        animation="BMAP_ANIMATION_BOUNCE"
-        @dragend="dragendDone"
-      >
-        <bm-label
-          content="海琴小仙女真可爱"
-          :labelStyle="{color: 'red', fontSize : '18px'}"
-          :offset="{width: -50, height: 30}"
-        />
-      </bm-marker>
-      <bm-map-type
-        :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
-        anchor="BMAP_ANCHOR_TOP_RIGHT"
-      ></bm-map-type>
-      <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true"></bm-overview-map>
+      <bm-label
+        content="海琴小仙女真可爱"
+        :labelStyle="{color: 'red', fontSize : '18px'}"
+        :offset="{width: -50, height: 30}"
+      />
+    </bm-marker>
+    <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
 
-      <bm-local-search :panel="false" :keyword="keyword" :auto-viewport="true" :location="'桂林'"></bm-local-search>
-    </baidu-map>
-  </div>
+    <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']" anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-map-type>
+    <bm-overview-map anchor="BMAP_ANCHOR_TOP_LEFT" :isOpen="true"></bm-overview-map>
+
+    <bm-local-search :panel="false" :keyword="keyword" :auto-viewport="true" :location="'桂林'"></bm-local-search>
+  </baidu-map>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      point: undefined,
-      keyword: ""
-    };
+  props: {
+    keyword: "",
+    point: null
   },
+
   methods: {
     dblClickMap: function({ point }) {
       this.point = point;
@@ -58,8 +53,8 @@ export default {
 
 <style  scoped>
 .map {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 400px;
 }
 .container {
   display: flex;

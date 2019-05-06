@@ -41,9 +41,8 @@
         </div>
         <div class="search-content"></div>
         <div class="show-comment">
-          <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
-            <el-form-item>
+          <el-form ref="form" label-position="top" :model="form">
+            <el-form-item label="发表评论">
               <!-- <el-input type="textarea"></el-input> -->
               <TextEditor :menu="commentMenu"/>
             </el-form-item>
@@ -326,6 +325,7 @@ export default {
   /* border-top: 1px dotted #ccc; */
   margin: 10px 10px;
   padding-top: 10px;
+  text-align: left;
 }
 .activity_top {
   display: flex;

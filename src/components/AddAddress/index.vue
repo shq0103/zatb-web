@@ -4,11 +4,12 @@
       <el-form ref="form" label-position="top" label-width="80px">
         <div class="edit_01">
           <el-form-item>
-            <input class="edit_name" type="text" placeholder="请填写打卡点标题" maxlength="50" />
+            <input class="edit_name" type="text" placeholder="请填写打卡点标题" maxlength="50">
           </el-form-item>
         </div>
         <div class="edit_02">
           <span class="select_text">选择打卡的地点</span>
+          <Bdmap/>
         </div>
         <div class="map"></div>
         <div class="edit_02">
@@ -31,7 +32,7 @@
           <span class="select_text">请输入打卡点概述</span>
         </div>
         <el-form-item>
-          <TextEditor :menu="commentMenu" />
+          <TextEditor :menu="commentMenu"/>
         </el-form-item>
       </el-form>
     </div>
@@ -39,13 +40,15 @@
 </template>
 <script>
 import TextEditor from "@/components/TextEditor";
+import Bdmap from "@/components/Bdmap";
 export default {
   components: {
-    TextEditor
+    TextEditor,
+    Bdmap
   },
   data() {
     return {
-      commentMenu: ["bold", "fontSize", "fontName", "foreColor", "emoticon", "image"]
+      commentMenu: ["bold", "fontSize", "fontName", "foreColor", "emoticon"]
     };
   }
 };
