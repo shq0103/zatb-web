@@ -6,9 +6,7 @@
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8bc34a;"
-          >
-            他的评论
-          </h3>
+          >Ta的评论</h3>
           <el-table :data="tableData" border :style="{ width: '100%' }">
             <el-table-column align="center" prop="date" label="评论内容"></el-table-column>
             <el-table-column align="center" prop="name" label="评论游记"></el-table-column>

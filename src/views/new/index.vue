@@ -146,7 +146,7 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >热门推荐</div>
+          >热门文章</div>
         </div>
         <div class="search-content">
           <div class="tr-b-rf-bottom">
@@ -344,6 +344,7 @@ export default {};
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  font-size: 15px;
 }
 /* .ac-content-right4-1 img {
    height: 40px;

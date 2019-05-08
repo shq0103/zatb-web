@@ -30,32 +30,29 @@
     >
       <el-button slot="append" icon="el-icon-search"></el-button>
     </el-input>
-    <router-link to="/login">
+
+    <router-link v-if="!isLogin" to="/login">
       <el-button
         :style="{ margin: '0 0 0 50px', color: '#333' }"
         type="text"
         @click="dialogFormVisible = true"
       >登录</el-button>
     </router-link>
-    <!-- <el-dialog title="登陆" :center="true" width="20%" :visible.sync="dialogFormVisible">
-      <el-form ref="loginForm" :model="loginForm" :rules="loginFormRules" label-width="70px">
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="loginForm.username" clearable></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="loginForm.password" clearable></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-
-        <el-button type="primary" @click="handleLogin('loginForm')">登 陆</el-button>
-      </div>
-    </el-dialog>-->
-    <div class="border">|</div>
-    <router-link to="/user-center">
+    <div v-if="!isLogin" class="border">|</div>
+    <router-link v-if="!isLogin" to="/login">
       <el-button :style="{ color: '#333' }" type="text">注册</el-button>
     </router-link>
+    <router-link v-if="isLogin" to="/user-center">
+      <el-button :style="{ margin: '0 0 0 50px', color: '#333' }" type="text">
+        <img
+          src="../../assets/usercenter.png"
+          style=" height: 16px;margin-right: 5px;margin-bottom: -2px;margin-top: -16px;"
+        >个人中心
+      </el-button>
+    </router-link>
+    <div v-if="isLogin" class="border">|</div>
+
+    <el-button v-if="isLogin" @click="logout" :style="{ color: '#333' }" type="text">退出登录</el-button>
   </div>
 </template>
 <script>
@@ -75,7 +72,8 @@ export default {
           { required: true, message: "请输入用户名", trigger: "change" }
         ],
         password: [{ required: true, message: "请输入密码", trigger: "change" }]
-      }
+      },
+      isLogin: localStorage.getItem("token") ? true : false
     };
   },
   methods: {
@@ -98,6 +96,10 @@ export default {
           return false;
         }
       });
+    },
+    logout() {
+      localStorage.removeItem("token");
+      this.isLogin = false;
     }
   }
 };

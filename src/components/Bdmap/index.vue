@@ -21,30 +21,18 @@
         :offset="{ width: -50, height: 30 }"
       />
     </bm-marker>
-    <bm-geolocation
-      anchor="BMAP_ANCHOR_BOTTOM_RIGHT"
-      :showAddressBar="true"
-      :autoLocation="true"
-    ></bm-geolocation>
+    <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
 
-    <bm-map-type
-      :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']"
-      anchor="BMAP_ANCHOR_TOP_RIGHT"
-    ></bm-map-type>
+    <bm-map-type :map-types="['BMAP_NORMAL_MAP', 'BMAP_HYBRID_MAP']" anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-map-type>
     <bm-overview-map anchor="BMAP_ANCHOR_TOP_LEFT" :is-open="true"></bm-overview-map>
 
-    <bm-local-search
-      :panel="false"
-      :keyword="keyword"
-      :auto-viewport="true"
-      :location="'桂林'"
-    ></bm-local-search>
+    <bm-local-search :panel="false" :keyword="keyword" :auto-viewport="true" :location="'桂林'"></bm-local-search>
   </baidu-map>
 </template>
 <script>
 export default {
   props: {
-    keyword: ,
+    keyword: "",
     point: null
   },
 

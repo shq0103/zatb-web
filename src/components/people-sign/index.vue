@@ -6,7 +6,7 @@
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8BC34A;"
-          >他的参与</h3>
+          >Ta的参与</h3>
           <el-table :data="tableData" border :style="{width: '100%'}">
             <el-table-column align="center" prop="date" label="活动"></el-table-column>
 

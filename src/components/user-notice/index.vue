@@ -14,14 +14,10 @@
                 description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
               ></el-alert>
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
+                <i :style="{float:'left',fontSize:'13px'}">
+                  <img src="../../assets/时间1.png" style="height: 15px; margin-bottom: -2px;">
+                  2019-5-4 23:58
                 </i>
-                <img src="../../assets/时间1.png" style="height: 18px; margin-bottom: -3px;">
-                2019-5-4 23:58
               </div>
             </div>
             <div class="u-n-c-1">
@@ -31,14 +27,10 @@
                 description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
               ></el-alert>
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
+                <i :style="{float:'left',fontSize:'13px'}">
+                  <img src="../../assets/时间1.png" style="height: 15px; margin-bottom: -2px;">
+                  2019-5-4 23:58
                 </i>
-                <img src="../../assets/时间1.png" style="height: 18px; margin-bottom: -3px;">
-                2019-5-4 23:58
               </div>
             </div>
             <div class="u-n-c-1">
@@ -48,14 +40,10 @@
                 description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
               ></el-alert>
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
+                <i :style="{float:'left',fontSize:'13px'}">
+                  <img src="../../assets/时间1.png" style="height: 15px; margin-bottom: -2px;">
+                  2019-5-4 23:58
                 </i>
-                <img src="../../assets/时间1.png" style="height: 18px; margin-bottom: -3px;">
-                2019-5-4 23:58
               </div>
             </div>
             <div class="u-n-c-1">
@@ -65,14 +53,10 @@
                 description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
               ></el-alert>
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
+                <i :style="{float:'left',fontSize:'13px'}">
+                  <img src="../../assets/时间1.png" style="height: 15px; margin-bottom: -2px;">
+                  2019-5-4 23:58
                 </i>
-                <img src="../../assets/时间1.png" style="height: 18px; margin-bottom: -3px;">
-                2019-5-4 23:58
               </div>
             </div>
             <div class="u-n-c-1">
@@ -82,14 +66,10 @@
                 description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
               ></el-alert>
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
+                <i :style="{float:'left',fontSize:'13px'}">
+                  <img src="../../assets/时间1.png" style="height: 15px; margin-bottom: -2px;">
+                  2019-5-4 23:58
                 </i>
-                <img src="../../assets/时间1.png" style="height: 18px; margin-bottom: -3px;">
-                2019-5-4 23:58
               </div>
             </div>
           </div>
@@ -151,7 +131,7 @@ el-table th,
   text-align: right;
 }
 .u-n-c-1 {
-  padding: 15px 0px;
+  padding: 25px 0px;
   border-bottom: 1px dotted #ccc;
 }
 </style>

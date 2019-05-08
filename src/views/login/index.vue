@@ -6,82 +6,181 @@
     <div class="lowin-wrapper">
       <div class="lowin-box lowin-login">
         <div class="lowin-box-inner">
-          <form>
-            <p></p>
-            <div class="lowin-group">
-              <label>
-                用户名
-                <a href="#" class="login-back-link">Sign in?</a>
-              </label>
-              <input type="email" autocomplete="email" name="email" class="lowin-input">
-            </div>
-            <div class="lowin-group password-group">
-              <label>
-                密码
-                <a href="#" class="forgot-link">忘记密码?</a>
-              </label>
-              <input
-                type="password"
-                name="password"
-                autocomplete="current-password"
-                class="lowin-input"
-              >
-            </div>
-            <button class="lowin-btn login-btn">立即登录</button>
+          <p></p>
+          <div class="lowin-group">
+            <label>
+              用户名
+              <a href="#" class="login-back-link">Sign in?</a>
+            </label>
+            <input
+              type="email"
+              v-model="loginForm.username"
+              autocomplete="email"
+              name="email"
+              class="lowin-input"
+            >
+          </div>
+          <div class="lowin-group password-group">
+            <label>
+              密码
+              <a href="#" class="forgot-link">忘记密码?</a>
+            </label>
+            <input
+              type="password"
+              name="password"
+              v-model="loginForm.password"
+              autocomplete="current-password"
+              class="lowin-input"
+            >
+          </div>
+          <button @click="userLogin" class="lowin-btn login-btn">立即登录</button>
 
-            <div class="text-foot">
-              没有账号?
-              <a href class="register-link">注册</a>
-            </div>
-          </form>
+          <div class="text-foot">
+            没有账号?
+            <a href class="register-link">注册</a>
+          </div>
         </div>
       </div>
 
       <div class="lowin-box lowin-register">
         <div class="lowin-box-inner">
-          <form>
-            <p>创建新账户</p>
-            <div class="lowin-group">
-              <label>用户名</label>
-              <input type="text" name="name" autocomplete="name" class="lowin-input">
-            </div>
-            <div class="lowin-group">
-              <label>邮箱</label>
-              <input type="email" autocomplete="email" name="email" class="lowin-input">
-            </div>
-            <div class="lowin-group">
-              <label>密码</label>
-              <input
-                type="password"
-                name="password"
-                autocomplete="current-password"
-                class="lowin-input"
-              >
-            </div>
-            <button class="lowin-btn">注册</button>
+          <p>创建新账户</p>
+          <div class="lowin-group">
+            <label>用户名</label>
+            <input
+              type="text"
+              name="name"
+              v-model="signinForm.username"
+              autocomplete="name"
+              class="lowin-input"
+            >
+          </div>
+          <div class="lowin-group">
+            <label>邮箱</label>
+            <input
+              type="email"
+              autocomplete="email"
+              v-model="signinForm.mail"
+              name="email"
+              class="lowin-input"
+            >
+          </div>
+          <div class="lowin-group">
+            <label>密码</label>
+            <input
+              type="password"
+              name="password"
+              v-model="signinForm.password"
+              autocomplete="current-password"
+              class="lowin-input"
+            >
+          </div>
+          <button class="lowin-btn" @click="userSign">注册</button>
 
-            <div class="text-foot">
-              已有账号?
-              <a href class="login-link">登录</a>
-            </div>
-            <footer class="lowin-footer">
-              <!-- Design By -->
-              <a href="http://fb.me/itskodinger"></a>
-            </footer>
-          </form>
+          <div class="text-foot">
+            已有账号?
+            <a href class="login-link">登录</a>
+          </div>
+          <footer class="lowin-footer">
+            <!-- Design By -->
+            <a href="http://fb.me/itskodinger"></a>
+          </footer>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { Auth } from "./test";
+import { Test } from "./test";
+import { Signin, Auth } from "@/api/login";
 export default {
+  data() {
+    return {
+      signinForm: {
+        username: "",
+        password: "",
+        mail: ""
+      },
+      loginForm: {
+        username: "",
+        password: ""
+      }
+    };
+  },
   mounted() {
-    Auth.init({
+    Test.init({
       login_url: "#login",
       forgot_url: "#forgot"
     });
+  },
+  methods: {
+    userSign: function() {
+      if (this.signinForm.username === "") {
+        this.$message({
+          message: "用户名不能为空",
+          type: "error"
+        });
+        return;
+      }
+      if (this.signinForm.password === "") {
+        this.$message({
+          message: "密码不能为空",
+          type: "error"
+        });
+        return;
+      }
+      if (this.signinForm.mail === "") {
+        this.$message({
+          message: "邮箱不能为空",
+          type: "error"
+        });
+        return;
+      }
+      Signin(this.signinForm).then(resp => {
+        if (resp.data.code === 0) {
+          this.$message({
+            message: resp.data.message,
+            type: "success"
+          });
+        } else {
+          this.$message({
+            message: resp.data.message,
+            type: "error"
+          });
+        }
+      });
+    },
+    userLogin: function() {
+      if (this.loginForm.username === "") {
+        this.$message({
+          message: "用户名不能为空",
+          type: "error"
+        });
+        return;
+      }
+      if (this.loginForm.password === "") {
+        this.$message({
+          message: "密码不能为空",
+          type: "error"
+        });
+        return;
+      }
+      Auth(this.loginForm).then(resp => {
+        if (resp.data.code === 0) {
+          this.$message({
+            message: resp.data.message,
+            type: "success"
+          });
+          localStorage.setItem("token", resp.data.data.token);
+          this.$router.push("/index");
+        } else {
+          this.$message({
+            message: resp.data.message,
+            type: "error"
+          });
+        }
+      });
+    }
   }
 };
 </script>
@@ -113,18 +212,13 @@ export default {
   margin: 0 auto;
 }
 
-.lowin.lowin-red {
-  --color-primary: #ff6464;
-  --color-grey: rgba(255, 100, 100, 0.06);
-  --color-dark: rgba(255, 100, 100, 0.8);
-  --color-semidark: rgba(255, 100, 100, 0.55);
-}
-
 .lowin.lowin-green {
   --color-primary: #75b628;
   --color-grey: rgba(208, 239, 132, 0.15);
   --color-dark: #9fdb5b;
   --color-semidark: #8bc34a;
+  background: url(../../assets/login_bg.jpg);
+  padding: 20px 0;
 }
 
 .lowin.lowin-purple {

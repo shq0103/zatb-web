@@ -4,7 +4,7 @@
       <div class="ac-public-content">
         <div class="ac-public-form1">
           <div class="ac-h3">
-            <h3>他的闲趣</h3>
+            <h3>Ta的闲趣</h3>
           </div>
           <div class="tr-b-rf-bottom1">
             <el-row :gutter="24">

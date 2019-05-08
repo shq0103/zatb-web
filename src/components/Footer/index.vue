@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <img class="logo" src="../../assets/logo2.png">
+    <img class="logo" src="../../assets/logo尾部.png">
     <el-popover class="align1" placement="top-start" width="400" trigger="hover">
       <img class="weixin" src="../../assets/logo4.jpg">
 

@@ -8,6 +8,22 @@ export function Auth(data) {
   });
 }
 
+export function publishPost(data) {
+  return request({
+    url: "/api/Post",
+    method: "post",
+    data
+  });
+}
+
+export function Signin(data) {
+  return request({
+    url: "/api/Auth/signin",
+    method: "post",
+    data
+  });
+}
+
 export function logout() {
   return request({
     url: "/login/logout",

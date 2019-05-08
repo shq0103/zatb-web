@@ -3,18 +3,11 @@
     <div class="us-center-left">
       <div class="us-center-left-top">
         <div class="us-center-left-top1">
-          <img src="http://tubu100.com:8053/Files/Default/UserHead.png" />
-          <h3
-            style="font-size: 25px;
-color: #FFF;margin:5px 0px;"
-          >
-            徒步用户
-          </h3>
-          <b
-            style="font-weight: normal;
-color: #FFF;"
-            >暂无所属俱乐部</b
-          >
+          <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
+          <h3 style="font-size: 25px;
+color: #FFF;margin:5px 0px;">徒步用户</h3>
+          <b style="font-weight: normal;
+color: #FFF;">暂无所属俱乐部</b>
           <ul>
             <li>
               <span>0</span>
@@ -54,28 +47,31 @@ color: #FFF;"
             </template>
             <ul @click="clickItem">
               <li id="peoplesign" :class="{ actived: actived == 'peoplesign' }">
-                <img src="../../assets/报名.png" />
-                他的活动
+                <img src="../../assets/报名.png">
+                Ta的活动
               </li>
               <li id="peopletravels" :class="{ actived: actived == 'peopletravels' }">
-                <img src="../../assets/笔记本.png" />
-                他的路书
+                <img src="../../assets/笔记本.png">
+                Ta的路书
               </li>
               <li id="people-goods" :class="{ actived: actived == 'people-goods' }">
-                <img src="../../assets/订单.png" />
-                他的闲趣
+                <img src="../../assets/卖出.png">
+                Ta的闲趣
               </li>
               <li id="PeoplePost" :class="{ actived: actived == 'PeoplePost' }">
-                <img src="../../assets/收藏.png" />
-                他的帖子
+                <img src="../../assets/收藏.png">
+                Ta的帖子
               </li>
               <li id="people-comment" :class="{ actived: actived == 'people-comment' }">
-                <img src="../../assets/评论.png" />
-                他的评论
+                <img src="../../assets/评论.png">
+                Ta的评论
               </li>
 
               <li id="people-point" :class="{ actived: actived == 'people-point' }">
-                <img src="../../assets/关注.png" />他的关注
+                <img src="../../assets/关注.png">Ta的关注
+              </li>
+              <li id="people-fans" :class="{ actived: actived == 'people-fans' }">
+                <img src="../../assets/粉丝.png">Ta的粉丝
               </li>
             </ul>
           </el-collapse-item>
@@ -100,15 +96,16 @@ color: #FFF;"
       </div>
     </div>
     <div class="us-center-right">
-      <UserSecure v-if="actived === 'password'" />
-      <UserInfo v-if="actived === 'setting'" />
-      <PeoplePost v-if="actived === 'PeoplePost'" />
-      <Peopletravels v-if="actived === 'peopletravels'" />
-      <PeopleSign v-if="actived === 'peoplesign'" />
-      <Peoplecomment v-if="actived === 'people-comment'" />
-      <PeopleGoods v-if="actived === 'people-goods'" />
-      <Peoplepoint v-if="actived === 'people-point'" />
-      <UserFund v-if="actived === 'user-fund'" />
+      <UserSecure v-if="actived === 'password'"/>
+      <UserInfo v-if="actived === 'setting'"/>
+      <PeoplePost v-if="actived === 'PeoplePost'"/>
+      <Peopletravels v-if="actived === 'peopletravels'"/>
+      <PeopleSign v-if="actived === 'peoplesign'"/>
+      <Peoplecomment v-if="actived === 'people-comment'"/>
+      <PeopleGoods v-if="actived === 'people-goods'"/>
+      <Peoplepoint v-if="actived === 'people-point'"/>
+      <Peoplefans v-if="actived === 'people-fans'"/>
+      <UserFund v-if="actived === 'user-fund'"/>
     </div>
   </div>
 </template>
@@ -121,6 +118,7 @@ import PeopleSign from "@/components/people-sign";
 import Peoplecomment from "@/components/people-comment";
 import PeopleGoods from "@/components/people-goods";
 import Peoplepoint from "@/components/people-point";
+import Peoplefans from "@/components/people-fans";
 export default {
   components: {
     UserSecure,
@@ -130,7 +128,8 @@ export default {
     PeopleSign,
     Peoplecomment,
     PeopleGoods,
-    Peoplepoint
+    Peoplepoint,
+    Peoplefans
   },
   data() {
     return {
@@ -165,7 +164,12 @@ export default {
 .us-center-left-top {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
-  background: linear-gradient(to top right, #cddc39 0%, #74b628 25%, #ffeb3b 100%);
+  background: linear-gradient(
+    to top right,
+    #cddc39 0%,
+    #74b628 25%,
+    #ffeb3b 100%
+  );
   height: 455px;
 }
 .us-center-left-bottom {

@@ -29,22 +29,11 @@
                 <el-input></el-input>
               </el-form-item>
               <el-form-item label="地区">
-                <el-select class="userinfo-select" placeholder="请选择所在省">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-                <el-select class="userinfo-select" placeholder="请选择所在市">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-                <el-select class="userinfo-select" placeholder="请选择所在县区">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
+                <el-input></el-input>
               </el-form-item>
               <el-form-item label="出生日期">
                 <el-col :span="11">
-                  <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
+                  <el-date-picker type="date" placeholder="选择日期" style="width: 218%;"></el-date-picker>
                 </el-col>
               </el-form-item>
               <el-form-item label="性别">

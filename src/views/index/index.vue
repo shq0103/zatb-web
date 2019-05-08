@@ -4,10 +4,7 @@
       <span class="demonstration"></span>
       <el-carousel height="420px">
         <el-carousel-item v-for="item in 4" :key="item">
-          <img
-            class="lunbo"
-            src="https://p1-q.mafengwo.net/s13/M00/01/F5/wKgEaVywDQWAC_h4AAUK11aBDu824.jpeg?imageMogr2%2Finterlace%2F1"
-          >
+          <img class="lunbo" src="../../assets/首页1.jpg">
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -498,7 +495,8 @@ export default {
 </script>
 <style scoped>
 .lunbo {
-  height: 420px;
+  height: 100%;
+  width: 100%;
 }
 
 .travels {
@@ -935,6 +933,15 @@ export default {
 }
 .el-tabs__item:hover {
   color: #75b628;
+}
+.el-tabs__nav-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
 }
 </style>
 

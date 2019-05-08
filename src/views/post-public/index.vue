@@ -13,22 +13,30 @@
             <el-form-item>
               <el-col :span="6">
                 <el-form-item>
-                  <el-select placeholder="选择分类信息">
-                    <el-option label="区域一" value="shanghai"></el-option>
-                    <el-option label="区域二" value="beijing"></el-option>
+                  <el-select v-model="postForm.type" placeholder="选择分类信息">
+                    <el-option label="户外问答" value="户外问答"></el-option>
+                    <el-option label="装备问答" value="装备问答"></el-option>
+                    <el-option label="路线问答" value="路线问答"></el-option>
+                    <el-option label="旅途风光" value="旅途风光"></el-option>
+                    <el-option label="其他" value="其他"></el-option>
                   </el-select>
                 </el-form-item>
               </el-col>
               <el-col :span="2" style="height:10px"></el-col>
               <el-col :span="16">
                 <el-form-item>
-                  <el-input placeholder="请输入标题" style="width:100%;"></el-input>
+                  <el-input
+                    v-model="postForm.title"
+                    :contents="postForm.contents"
+                    placeholder="请输入标题"
+                    style="width:100%;"
+                  ></el-input>
                 </el-form-item>
               </el-col>
             </el-form-item>
             <el-form-item label="内容">
-              <!-- <el-input type="textarea"></el-input> -->
-              <TextEditor :menu="commentMenu"/>
+              <el-input v-model="postForm.contents" type="textarea"></el-input>
+              <!-- <TextEditor v-model="postForm.contents" @on-change="change" :menu="commentMenu"/> -->
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发布帖子</el-button>
@@ -41,6 +49,7 @@
 </template>
 <script>
 import TextEditor from "@/components/TextEditor";
+import { publishPost } from "@/api/login";
 export default {
   components: {
     TextEditor
@@ -54,8 +63,30 @@ export default {
         "foreColor",
         "emoticon",
         "image"
-      ]
+      ],
+      postForm: {
+        title: "",
+        contents: "",
+        type: ""
+      }
     };
+  },
+  methods: {
+    onSubmit: function() {
+      publishPost(this.postForm).then(resp => {
+        if (resp.data.code === 0) {
+          this.$message({
+            message: resp.data.message,
+            type: "success"
+          });
+        } else {
+          this.$message({
+            message: resp.data.message,
+            type: "error"
+          });
+        }
+      });
+    }
   }
 };
 </script>

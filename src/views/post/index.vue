@@ -58,11 +58,11 @@
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>黄金糕</el-dropdown-item>
-              <el-dropdown-item>狮子头</el-dropdown-item>
-              <el-dropdown-item>螺蛳粉</el-dropdown-item>
-              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+              <el-dropdown-item>户外问答</el-dropdown-item>
+              <el-dropdown-item>装备问答</el-dropdown-item>
+              <el-dropdown-item>路线问答</el-dropdown-item>
+              <el-dropdown-item>旅途风光</el-dropdown-item>
+              <el-dropdown-item>其他</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -424,7 +424,6 @@
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   background-color: #fff;
-  
 }
 .post-bottom-content-lf img {
   height: 70px;
@@ -445,6 +444,7 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
+  font-size: 15px;
 }
 .post-bottom-title {
   display: flex;

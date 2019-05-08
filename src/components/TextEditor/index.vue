@@ -9,7 +9,9 @@ import E from "wangeditor";
 
 export default {
   name: "editor",
+
   props: {
+    contents: "",
     menu: {
       default: [
         "head",
@@ -37,7 +39,9 @@ export default {
   },
   data() {
     return {
-      editorContent: ""
+      editorContent: "",
+      editor: null,
+      info_: null
     };
   },
   methods: {
@@ -46,13 +50,22 @@ export default {
     }
   },
   mounted() {
-    var editor = new E(this.$refs.editor);
-    editor.customConfig.menus = this.menu;
-    editor.customConfig.uploadImgShowBase64 = true;
-    editor.customConfig.onchange = html => {
+    this.editor = new E(this.$refs.editor);
+    this.editor.customConfig.menus = this.menu;
+    this.editor.customConfig.uploadImgShowBase64 = true;
+    this.editor.customConfig.onchange = html => {
       this.editorContent = html;
     };
-    editor.create();
+    this.editor.customConfig.onchange = html => {
+      this.info_ = html; // 绑定当前逐渐地值
+      this.$emit("on-change", this.info_); // 将内容同步到父组件中
+    };
+    this.editor.create();
+  },
+  watch: {
+    contents(newOne, oldOne) {
+      this.editor.txt.html(newOne);
+    }
   }
 };
 </script>

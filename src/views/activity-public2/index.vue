@@ -6,7 +6,7 @@
         <div class="ac-h3">
           <h3>标题</h3>
           <router-link to="/activity-public" class="prev-link">
-            <img src="../../assets/加载.png" />
+            <img src="../../assets/加载.png">
             返回上一步
           </router-link>
         </div>
@@ -15,90 +15,65 @@
             <div class="ac-c-title">
               <h3>
                 <a name="position1">
-                  <img src="../../assets/行程.png" class="icon-intro" />行程安排
+                  <img src="../../assets/行程.png" class="icon-intro">行程安排
                 </a>
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <el-input
-                type="textarea"
-                :rows="15"
-                placeholder="请输入内容"
-                v-model="textarea"
-              ></el-input>
+              <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="textarea"></el-input>
             </div>
           </div>
           <div class="ac-content1">
             <div class="ac-c-title">
               <h3>
                 <a name="position1">
-                  <img src="../../assets/费用说明.png" class="icon-intro" />费用说明
+                  <img src="../../assets/费用说明.png" class="icon-intro">费用说明
                 </a>
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <el-input
-                type="textarea"
-                :rows="15"
-                placeholder="请输入内容"
-                v-model="textarea"
-              ></el-input>
+              <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="textarea"></el-input>
             </div>
           </div>
           <div class="ac-content1">
             <div class="ac-c-title">
               <h3>
                 <a name="position1">
-                  <img src="../../assets/线路.png" class="icon-intro" />线路介绍
+                  <img src="../../assets/线路.png" class="icon-intro">线路介绍
                 </a>
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <el-input
-                type="textarea"
-                :rows="15"
-                placeholder="请输入内容"
-                v-model="textarea"
-              ></el-input>
+              <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="textarea"></el-input>
             </div>
           </div>
           <div class="ac-content1">
             <div class="ac-c-title">
               <h3>
                 <a name="position1">
-                  <img src="../../assets/装备.png" class="icon-intro" />装备要求
+                  <img src="../../assets/装备.png" class="icon-intro">装备要求
                 </a>
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <el-input
-                type="textarea"
-                :rows="15"
-                placeholder="请输入内容"
-                v-model="textarea"
-              ></el-input>
+              <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="textarea"></el-input>
             </div>
           </div>
           <div class="ac-content1">
             <div class="ac-c-title">
               <h3>
                 <a name="position1">
-                  <img src="../../assets/更多.png" class="icon-intro" />更多介绍
+                  <img src="../../assets/更多.png" class="icon-intro">更多介绍
                   <span style="font-size:14px;">非必填</span>
                 </a>
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <el-input
-                type="textarea"
-                :rows="15"
-                placeholder="请输入内容"
-                v-model="textarea"
-              ></el-input>
+              <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="textarea"></el-input>
             </div>
           </div>
           <div class="ac-content2">
-            <el-button type="primary">发布活动</el-button>
+            <el-button type="success">发布活动</el-button>
           </div>
         </div>
       </div>
@@ -194,5 +169,6 @@ ac-content1 {
 } */
 .ac-content2 {
   margin: 10px 0;
+  padding: 10px;
 }
 </style>

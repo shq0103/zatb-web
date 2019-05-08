@@ -26,7 +26,14 @@
                 <el-option label="长线" value="shanghai"></el-option>
               </el-select>
 
-              <el-button type="success" round class="tr-edit-buttom" :plain="true" @click="open2">创建</el-button>
+              <el-button
+                type="success"
+                round
+                @click="dialogFormVisible = true"
+                class="tr-edit-buttom"
+                :plain="true"
+                icon="el-icon-plus"
+              >添加打卡点</el-button>
             </el-form-item>
           </div>
           <el-form-item>
@@ -52,12 +59,10 @@
               <el-input type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
             </el-form-item>
           </div>
-          <el-button
-            @click="dialogFormVisible = true"
-            type="success"
-            icon="el-icon-plus"
-            round
-          >添加打卡点</el-button>
+
+          <el-button type="success" round style="float: left;">保存草稿</el-button>
+          <el-button type="success" round style="float: left;">预览路书</el-button>
+          <el-button type="success" round style="float: right;">创建路书</el-button>
         </div>
         <el-dialog top="50px" :visible.sync="dialogFormVisible" width="80%">
           <AddAddress/>
@@ -86,7 +91,7 @@ export default {
 
 <style scoped>
 .travel_02 {
-  padding: 50px 200px 0 200px;
+  padding: 50px 200px 60px 200px;
   min-height: 500px;
   background: #fff;
 }

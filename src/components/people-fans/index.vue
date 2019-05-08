@@ -6,7 +6,7 @@
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8bc34a;"
-          >Ta的关注</h3>
+          >Ta的粉丝</h3>
         </div>
         <div>
           <ul class="follow_users">

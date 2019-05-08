@@ -1,7 +1,7 @@
 <template>
   <div class="goods">
     <div class="hot-sell">
-      <!-- <div class="h-s-title">热门闲置</div> -->
+      <!-- <div class="h-s-title">热门闲趣</div> -->
       <div class="h-s-bottom">
         <div class="activity">
           <!-- <div id="act">
@@ -11,7 +11,7 @@
             <el-tabs value="first">
               <el-tab-pane name="first">
                 <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
-                  <img class="ac1" src="../../assets/卖.png"> 热门闲置
+                  <img class="ac1" src="../../assets/卖.png"> 热门闲趣
                 </span>
 
                 <el-row :gutter="24" type="flex" justify="center">
@@ -49,7 +49,7 @@
         <img class="icon" src="../../assets/发布闲置.png">
         <div class="s-p-lf-1">
           <router-link to="/goods-public">
-            <p class="name">发布闲置</p>
+            <p class="name">发布闲趣</p>
           </router-link>
         </div>
       </div>

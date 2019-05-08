@@ -7,9 +7,7 @@
           <h3
             style="color: #fff;height: 42px;line-height: 42px;text-align: center;font-size: 16px;
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-bottom-right-radius: 20px;background: #8bc34a;"
-          >
-            你的活动计划
-          </h3>
+          >你的活动计划</h3>
 
           <div class="ac-public-form2">
             <el-form ref="form" label-width="80px">
@@ -31,28 +29,16 @@
 
               <el-form-item label="活动时间">
                 <el-col :span="11">
-                  <el-date-picker
-                    type="date"
-                    placeholder="开始日期"
-                    style="width: 100%;"
-                  ></el-date-picker>
+                  <el-date-picker type="date" placeholder="开始日期" style="width: 100%;"></el-date-picker>
                 </el-col>
                 <el-col class="line" :span="2">-</el-col>
                 <el-col :span="11">
-                  <el-date-picker
-                    type="date"
-                    placeholder="结束日期"
-                    style="width: 100%;"
-                  ></el-date-picker>
+                  <el-date-picker type="date" placeholder="结束日期" style="width: 100%;"></el-date-picker>
                 </el-col>
               </el-form-item>
               <el-form-item label="报名截止时间">
                 <el-col :span="11">
-                  <el-date-picker
-                    type="date"
-                    placeholder="选择日期"
-                    style="width: 100%;"
-                  ></el-date-picker>
+                  <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
                 </el-col>
                 <el-col class="line" :span="2">-</el-col>
                 <el-col :span="11">
@@ -60,32 +46,41 @@
                 </el-col>
               </el-form-item>
               <el-form-item label="活动程度">
-                <el-select placeholder="请选择活动程度">
+                <el-select placeholder="请选择活动程度" style="width: 820px!important;">
                   <el-option label="短线" value="shanghai"></el-option>
                   <el-option label="中线" value="beijing"></el-option>
                   <el-option label="长线" value="beijing"></el-option>
                   <el-option label="其他" value="beijing"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="活动性质">
+              <!-- <el-form-item label="活动性质">
                 <el-radio-group size="medium">
                   <el-radio border label="商业：组织者以盈利为目的或组织者不参与AA。"></el-radio>
-                  <el-radio
-                    border
-                    label="AA：表示全体人员包括领队组织者均摊费用，多退少补。"
-                  ></el-radio>
+                  <el-radio border label="AA：表示全体人员包括领队组织者均摊费用，多退少补。"></el-radio>
                 </el-radio-group>
-              </el-form-item>
+              </el-form-item>-->
 
-              <el-form-item label="俱乐部简称">
+              <!-- <el-form-item label="俱乐部简称">
                 <el-input></el-input>
-              </el-form-item>
-              <el-form-item label="手机号">
+              </el-form-item>-->
+              <!-- <el-form-item label="手机号">
                 <el-input></el-input>
-              </el-form-item>
+              </el-form-item>-->
               <el-form-item label="活动要求">
-                <el-input placeholder="费用"></el-input>元/人
-                <el-input placeholder="人数上限"></el-input>人
+                <el-col :span="11">
+                  <el-input placeholder="费用">
+                    <template slot="append">元/人</template>
+                  </el-input>
+                </el-col>
+                <el-col class="line" :span="2">-</el-col>
+                <el-col :span="11">
+                  <el-input placeholder="人数上限">
+                    <template slot="append">人</template>
+                  </el-input>
+                </el-col>
+              </el-form-item>
+              <el-form-item label="活动说明">
+                <el-input placeholder="请简要说明活动内容或需注意事项" type="textarea" minrows="6"></el-input>
               </el-form-item>
               <el-form-item label="活动封面">
                 <el-upload

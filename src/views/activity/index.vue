@@ -9,14 +9,14 @@
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
             >热门活动</div>
             <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
+              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 30px;"
             >最新活动</div>
             <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
+              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 30px;"
             >官方活动</div>
-            <div
+            <!-- <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >自游行</div>
+            >自游行</div>-->
           </div>
         </div>
       </div>
@@ -292,13 +292,15 @@ font-size: 14px;">2019-4-20</span>
               <el-input placeholder="关键字查找"></el-input>
             </el-form-item>
             <el-form-item label="活动时间">
-              <el-col :span="11">
-                <el-date-picker type="date" placeholder="开始日期" style="width: 100%;"></el-date-picker>
-              </el-col>
-              <el-col class="line" :span="2">-</el-col>
-              <el-col :span="11">
-                <el-date-picker type="date" placeholder="截止日期" style="width: 100%;"></el-date-picker>
-              </el-col>
+              <!-- <el-col :span="11"> -->
+              <el-date-picker type="date" placeholder="开始日期" style="width: 100%;padding-right:0px;"></el-date-picker>
+              <!-- </el-col> -->
+              <!-- <el-col class="line" :span="2">-</el-col> -->
+              <!-- <el-col :span="11"> -->
+            </el-form-item>
+            <el-form-item>
+              <el-date-picker type="date" placeholder="截止日期" style="width: 100%;"></el-date-picker>
+              <!-- </el-col> -->
             </el-form-item>
             <el-form-item label="活动区域">
               <el-select placeholder="请选择活动区域">
