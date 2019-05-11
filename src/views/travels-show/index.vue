@@ -120,9 +120,76 @@
         </el-col>
       </el-row>
     </div>
+    <div class="mMenu">
+      <Hamburger class="hamburger-container" @toggleClick="toggleClick" :is-active="isCollapse" />
+      <!-- background-color背景颜色
+      text-color文字颜色
+      active-text-color选中颜色-->
+      <el-menu
+        default-active="2"
+        class="el-menu-vertical-demo"
+        @open="handleOpen"
+        @close="handleClose"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        :collapse="isCollapse"
+      >
+        <el-menu-item index="1">
+          <i class="el-icon-location"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="2">
+          <i class="el-icon-location"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+          <i class="el-icon-location"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-location"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="5">
+          <i class="el-icon-location"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+      </el-menu>
+    </div>
   </div>
 </template>
+<script>
+import Hamburger from "./Hamburger.vue";
+export default {
+  components: {
+    Hamburger
+  },
+  data() {
+    return {
+      isCollapse: false
+    };
+  },
+  methods: {
+    toggleClick: function() {
+      this.isCollapse = !this.isCollapse;
+    }
+  }
+};
+</script>
+
 <style scoped>
+.hamburger-container {
+  line-height: 46px;
+  height: 100%;
+  cursor: pointer;
+  transition: background 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-container:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
 ul {
   list-style-type: none;
 }
@@ -370,5 +437,12 @@ ul {
 .a-c-rf-b-content p {
   text-indent: 2em;
   text-align: justify0;
+}
+
+.mMenu {
+  position: fixed;
+  top: 200px;
+  right: 0;
+  text-align: center;
 }
 </style>
