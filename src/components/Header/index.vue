@@ -12,7 +12,7 @@
       <el-menu-item index="/index" :style="{ fontSize: '16px' }">首页</el-menu-item>
       <el-menu-item index="/activity" :style="{ fontSize: '16px' }">活动</el-menu-item>
       <el-submenu index="/new">
-        <template slot="title" :style="{ fontSize: '16px' }">咨讯</template>
+        <template slot="title" :style="{ fontSize: '16px' }">资讯</template>
 
         <el-menu-item index="/new">徒步新闻</el-menu-item>
         <el-menu-item index="/knowledge">户外知识</el-menu-item>

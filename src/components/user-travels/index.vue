@@ -9,18 +9,76 @@
               <span>写路书</span>
             </router-link>
           </div>
-          <el-table :data="tableData" border :style="{ width: '100%' }">
-            <el-table-column align="center" prop="date" label="路书标题"></el-table-column>
-            <el-table-column align="center" prop="address" label="创建时间"></el-table-column>
-            <el-table-column align="center" prop="name" label="状态"></el-table-column>
-
-            <el-table-column align="center" prop="address" label="操作"></el-table-column>
+          <el-table :data="tableData" border fit>
+            <el-table-column align="center" prop="title" label="路书标题" width="280px"></el-table-column>
+            <el-table-column align="center" prop="date" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" label="操作" width="180px">
+              <template>
+                <router-link to="/travels-public">
+                  <el-button size="mini" style="margin-right:10px;">编辑</el-button>
+                </router-link>
+                <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
+              </template>
+            </el-table-column>
           </el-table>
         </div>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogpass" width="30%" :before-close="handleClose">
+      <span>是否通过</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogpass = false">取 消</el-button>
+        <el-button type="primary" @click="dialogpass = false">确 定</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog :visible.sync="dialogdelete" width="30%" :before-close="handleClose">
+      <span>是否删除</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogdelete = false">取 消</el-button>
+        <el-button type="primary" @click="dialogdelete = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      tableData: [
+        {
+          date: "2016-05-02",
+          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
+          type: "审核中",
+          name: "美少女"
+        },
+        {
+          date: "2016-05-02",
+          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
+          type: "审核中",
+          name: "美少女"
+        },
+        {
+          date: "2016-05-02",
+          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
+          type: "审核中",
+          name: "美少女"
+        },
+        {
+          date: "2016-05-02",
+          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
+          type: "审核中",
+          name: "美少女"
+        }
+      ],
+
+      dialogpass: false,
+      dialogdelete: false
+    };
+  },
+  methods: {}
+};
+</script>
 <style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;

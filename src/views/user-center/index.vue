@@ -293,8 +293,7 @@ dl {
 }
 </style>
 <style>
-.el-table th,
-.el-table tr {
+.el-table th {
   background-color: #f0f9eb;
 }
 </style>

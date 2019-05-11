@@ -7,10 +7,10 @@
           <div class="activity-content1">
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >最新咨讯</div>
+            >最新资讯</div>
             <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >热门咨讯</div>
+            >热门资讯</div>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
               ></el-alert>
             </div>
             <div class="new-right2">
-              <i><2019-4-21 18:24</i>
+              <i>2019-4-21 18:24</i>
               <i class="el-icon-view" style="padding-left:20px">300</i>
             </div>
           </div>
@@ -133,7 +133,7 @@
         <div class="public-content">
           <el-row>
             <router-link to="/new">
-              <el-button class="public-button1" type="success">户外咨讯</el-button>
+              <el-button class="public-button1" type="success">户外资讯</el-button>
             </router-link>
             <router-link to="/knowledge">
               <el-button class="public-button2" type="success">户外知识</el-button>
@@ -146,7 +146,7 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >热门文章</div>
+          >精彩路线</div>
         </div>
         <div class="search-content">
           <div class="tr-b-rf-bottom">
