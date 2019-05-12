@@ -43,20 +43,16 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item label="出生年月">
-              <el-date-picker
-                type="date"
-                placeholder="选择日期"
-                style="width: 100%;"
-              ></el-date-picker>
+              <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
             </el-form-item>
             <el-form-item label="备注">
               <el-input placeholder="备注衣服尺码或到站时间（非必填）"></el-input>
             </el-form-item>
           </el-form>
         </div>
-        <div style="margin:10px 0px;display:flex;">
+        <!-- <div style="margin:10px 0px;display:flex;">
           <el-button type="success" icon="el-icon-zoom-in" plain>添加报名人</el-button>
-        </div>
+        </div>-->
         <div class="event_05">
           <el-checkbox-group>
             <el-checkbox label="美食/餐厅线上活动" name="type">
@@ -67,13 +63,8 @@
             </el-checkbox>
           </el-checkbox-group>
         </div>
-        <el-button
-          type="success"
-          style="    width: 95%;
-    margin: 20px 0;"
-          round
-          >立即报名</el-button
-        >
+        <el-button type="success" style="    width: 95%;
+    margin: 20px 0;" round>立即报名</el-button>
       </el-col>
       <el-col :span="8">
         <div class="a-j-rf">
@@ -86,7 +77,9 @@
             <ul>
               <li class="t1">活动费用</li>
               <li class="t2">￥1818.00</li>
-              <li class="t3"><span id="order_count">1</span>人</li>
+              <li class="t3">
+                <span id="order_count">1</span>人
+              </li>
             </ul>
           </div>
         </div>

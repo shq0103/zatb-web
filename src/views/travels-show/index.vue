@@ -20,28 +20,16 @@
       </div>
       <ul class="activity_text" style="display:flex;padding:0px;">
         <li>
-          <img
-            src="../../assets/写作者.png"
-            style="height:15px;margin:-3px 2px -2px 0;"
-          />美少女战士
+          <img src="../../assets/写作者.png" style="height:15px;margin:-3px 2px -2px 0;">美少女战士
         </li>
         <li>
-          <img
-            src="../../assets/路书时间.png"
-            style="height:16px;margin:-3px 3px -2px 0;"
-          />2019/5/5
+          <img src="../../assets/路书时间.png" style="height:16px;margin:-3px 3px -2px 0;">2019/5/5
         </li>
         <li>
-          <img
-            src="../../assets/咨讯浏览.png"
-            style="height:21px;margin:-3px 2px -5px 0;"
-          />223人浏览
+          <img src="../../assets/咨讯浏览.png" style="height:21px;margin:-3px 2px -5px 0;">223人浏览
         </li>
         <li>
-          <img
-            src="../../assets/路书评论.png"
-            style="height:15px;margin:-3px 2px -3px 0;"
-          />223人评论
+          <img src="../../assets/路书评论.png" style="height:15px;margin:-3px 2px -3px 0;">223人评论
         </li>
       </ul>
       <div class="a-i-content">
@@ -55,10 +43,8 @@
                 <el-row :gutter="20" style="margin-bottom:10px;">
                   <el-col :span="12">
                     <div class="grid-content bg-purple">
-                      <img
-                        src="../../assets/长度.png"
-                        style="height:20px;margin:-3px 5px -5px 0;"
-                      />总里程 <span>/</span>100公里
+                      <img src="../../assets/长度.png" style="height:20px;margin:-3px 5px -5px 0;">总里程
+                      <span>/</span>100公里
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
@@ -66,7 +52,8 @@
                       <img
                         src="../../assets/耗时.png"
                         style="height:19px;margin:-3px 5px -5px -50px;"
-                      />总耗时 <span>/</span>7小时
+                      >总耗时
+                      <span>/</span>7小时
                     </div>
                   </el-col>
                 </el-row>
@@ -77,15 +64,14 @@
                       <img
                         src="../../assets/海拔高度.png"
                         style="height:18px;margin:-3px 4px -5px 8px;"
-                      />平均海拔 <span>/</span>2000米
+                      >平均海拔
+                      <span>/</span>2000米
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
                     <div class="grid-content bg-purple">
-                      <img
-                        src="../../assets/配速.png"
-                        style="height:21px;margin:-3px 3px -5px -2px;"
-                      />平均配速 <span>/</span>2公里/小时
+                      <img src="../../assets/配速.png" style="height:21px;margin:-3px 3px -5px -2px;">平均配速
+                      <span>/</span>2公里/小时
                     </div>
                   </el-col>
                 </el-row>
@@ -93,9 +79,7 @@
               <div class="a-c-rf-bottom">
                 <el-divider>摘要</el-divider>
                 <div class="a-c-rf-b-content">
-                  <p>
-                    上一次爬大西山已经是一个月之前的事了，听说大西山的玫瑰花在5月底-6月初开放，于是再次回到了阔别一段时间的大西山。这次是抱着看玫瑰花的念头来的，因此走的比较慢，不过这次行程玫瑰花反倒不是重点了，因为其他野花开的比玫瑰花多得多。整条路线较晒，强度一般。个人认为，玫瑰花的最佳观赏区在阳台山主峰周边，不在本次所走区域。这次看到玫瑰花还未完全开放，估计要再等一星期。线路轨迹见http://www.foooooot.com/trip/915493/，涧沟村-妙儿洼段走错路勿参考，但是走这段路有一个小收获（稍后介绍）。下面先上轨迹截图，然后介绍详细行程。
-                  </p>
+                  <p>上一次爬大西山已经是一个月之前的事了，听说大西山的玫瑰花在5月底-6月初开放，于是再次回到了阔别一段时间的大西山。这次是抱着看玫瑰花的念头来的，因此走的比较慢，不过这次行程玫瑰花反倒不是重点了，因为其他野花开的比玫瑰花多得多。整条路线较晒，强度一般。个人认为，玫瑰花的最佳观赏区在阳台山主峰周边，不在本次所走区域。这次看到玫瑰花还未完全开放，估计要再等一星期。线路轨迹见http://www.foooooot.com/trip/915493/，涧沟村-妙儿洼段走错路勿参考，但是走这段路有一个小收获（稍后介绍）。下面先上轨迹截图，然后介绍详细行程。</p>
                 </div>
               </div>
             </div>
@@ -106,22 +90,65 @@
     <div class="activity_content">
       <el-row :gutter="20">
         <el-col :span="17">
-          <div class="a-c-lf">
-            <div class="a-c-lf-content">111</div>
+          <div class="a-c-lf-1">
+            <div class="a-c-lf-content">
+              <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                  <span>打卡点名称</span>
+                  <el-button
+                    style="float: right; padding: 1px 0"
+                    type="text"
+                    @click="dialogVisible = true"
+                  >
+                    <img src="../../assets/路书评论1.png" style="height:28px">
+                  </el-button>
+                  <el-button style="float: right; padding: 3px 3px" type="text">
+                    <img src="../../assets/路书点赞.png" style="height:26px">
+                  </el-button>
+                </div>
+                <div class="box-card-content">
+                  <el-carousel :interval="5000" arrow="always" height="450px">
+                    <el-carousel-item v-for="item in 4" :key="item">
+                      <img
+                        src="http://image.foooooot.com/footprint/2019/05/02/004733_2D650.jpg-.gallery"
+                      >
+                    </el-carousel-item>
+                  </el-carousel>
+                  <div class="new-right2">
+                    <i class="el-icon-place">纬度:25.9079359516, 经度:114.038064697</i>
+                    <i class="el-icon-chat-line-square" style="padding-left:20px">300</i>
+                  </div>
+                  <div>
+                    <span style="text-indent: 2.5em;">
+                      <p>风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。</p>
+                      <p>我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。</p>
+                    </span>
+                  </div>
+                </div>
+              </el-card>
+            </div>
           </div>
         </el-col>
         <el-col :span="7">
           <div class="a-c-rf">
             <div class="a-c-rf-3">
               <div class="a-c-rf-2-title">相关路书推荐</div>
-              <div>111</div>
+              <div class="a-c-rf-2-content">
+                <div class="a-c-1">
+                  <img
+                    src="http://image.foooooot.com/footprint/2019/05/02/004733_2D650.jpg-.gallery"
+                    style="width:280px"
+                  >
+                  <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert>
+                </div>
+              </div>
             </div>
           </div>
         </el-col>
       </el-row>
     </div>
     <div class="mMenu">
-      <Hamburger class="hamburger-container" @toggleClick="toggleClick" :is-active="isCollapse" />
+      <Hamburger class="hamburger-container" @toggleClick="toggleClick" :is-active="isCollapse"/>
       <!-- background-color背景颜色
       text-color文字颜色
       active-text-color选中颜色-->
@@ -157,6 +184,29 @@
         </el-menu-item>
       </el-menu>
     </div>
+
+    <el-dialog
+      title
+      :visible.sync="dialogVisible"
+      width="70%"
+      :before-close="handleClose"
+      class="el-title"
+    >
+      <div class="el-dialog-title">共2条评论</div>
+      <div class="el-dialog-content">1111111</div>
+      <div class="el-dialog-input">
+        <el-form ref="form" :model="form" label-width="80px" label-position="top">
+          <el-form-item label="评论">
+            <el-input type="textarea"></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -167,7 +217,8 @@ export default {
   },
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
+      dialogVisible: false
     };
   },
   methods: {
@@ -444,5 +495,33 @@ ul {
   top: 200px;
   right: 0;
   text-align: center;
+}
+.a-c-lf-content {
+  text-align: left;
+}
+.a-c-1 {
+  padding: 0px 10px;
+}
+.el-title {
+  text-align: left;
+}
+.el-dialog-title {
+  border-bottom: 1px dotted #75b628;
+  padding-bottom: 10px;
+}
+.el-dialog-input {
+  border-top: 1px dotted #75b628;
+  padding-top: 10px;
+}
+.el-dialog-content {
+  margin: 10px 0;
+}
+.new-right2 {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: #515151;
+  font-size: 13px;
 }
 </style>

@@ -16,27 +16,23 @@
         <h5>宝贝浏览次数</h5>
         <span>50</span>
       </div>
+
       <div class="user-info-index">
-        <h5>用户交易次数</h5>
-        <span>转卖5笔</span>
+        <h5>用户闲趣留言</h5>
+        <span>10人留言</span>
       </div>
-      <div class="user-info-index">
-        <h5>用户闲趣评价</h5>
-        <span>10人评价</span>
-      </div>
-      <div class="user-info-index">
-        <h5>用户闲趣好评率</h5>
-        <span>满意</span>
-      </div>
+
       <div class="user-info-more">
         <h5>举报该闲趣</h5>
       </div>
     </div>
     <div class="goods-intro">
       <div class="g-intro-lf">
-        <img
-          src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3224644570,2193767834&fm=179&app=42&f=JPEG?w=242&h=242"
-        >
+        <el-carousel height="350px" direction="vertical" :autoplay="false">
+          <el-carousel-item v-for="item in 3" :key="item">
+            <h3 class="medium">{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel>
       </div>
       <div class="g-intro-rf">
         <div class="g-intro-rf-info">
@@ -88,8 +84,8 @@
                 <li class="tabbar-1">
                   <a href="#position1;">介绍</a>
                 </li>
-                <li>
-                  <a href="#position2;">评论</a>
+                <li class="tabbar-2">
+                  <a href="#position2;">留言</a>
                 </li>
               </ul>
             </div>
@@ -272,7 +268,7 @@
 }
 .g-intro-lf {
   width: 60%;
-  margin: 0 15px 0 0;
+  padding: 0 20px;
 }
 .g-intro-rf {
   width: 40%;
@@ -523,6 +519,7 @@ ul {
   height: 54px;
   line-height: 52px;
 }
+
 .tabbar li {
   position: relative;
   float: left;
@@ -613,5 +610,20 @@ ul {
 }
 .a-c-rf-content p {
   font: 13px/1.5 tahoma, arial, 宋体;
+}
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>

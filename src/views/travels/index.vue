@@ -94,9 +94,9 @@
         </el-col>
         <el-col :span="16">
           <div class="travels-top-rf">
-            <el-carousel>
+            <el-carousel height="320px">
               <el-carousel-item v-for="item in 4" :key="item">
-                <img src="../../assets/1.jpg" />
+                <img src="../../assets/1.jpg" style="height:320px;">
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -109,14 +109,14 @@
           <div class="tr-b-lf">
             <div class="tr-b-rf-top">
               <div style="font-size:18px;font-weight:bold;padding:0 0px;">
-                <img class="hot" src="../../assets/我的点赞.png" />推荐路书
+                <img class="hot" src="../../assets/我的点赞.png">推荐路书
               </div>
             </div>
             <div class="tr-b-lf-bottom">
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;" />
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -128,22 +128,22 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
               </div>
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;" />
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -155,22 +155,22 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
               </div>
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;" />
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -182,22 +182,22 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
               </div>
               <div class="tr-b-rf-bottom">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;" />
+                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
@@ -209,16 +209,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
               </div>
             </div>
@@ -228,10 +228,10 @@
           <div class="tr-b-rf" style="margin:0 15px;">
             <div class="tr-b-rf-top">
               <div style="font-size:18px;font-weight:bold;padding:0 5px;">
-                <img class="hot" src="../../assets/hot.png" />最热路书
+                <img class="hot" src="../../assets/hot.png">最热路书
               </div>
               <div style="font-size:18px;font-weight:bold;padding:0 30px;">
-                <img class="hot" src="../../assets/new4.png" />最新路书
+                <img class="hot" src="../../assets/new4.png">最新路书
               </div>
               <div class="post-bottom-button">
                 <router-link to="/travels-public">
@@ -249,16 +249,16 @@
                       <img
                         src="../../assets/个人1.png"
                         style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                      />###
+                      >###
                     </i>
                     <img
                       src="../../assets/评论1.png"
                       style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                    />3700
+                    >3700
                     <img
                       src="../../assets/浏览.png"
                       style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                    />300
+                    >300
                   </div>
                   <div class="tr-b-rf-title">
                     <el-alert
@@ -272,17 +272,17 @@
                     <el-row :gutter="24">
                       <el-col :span="8">
                         <div class="tr-b-rf-img1">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                         </div>
                       </el-col>
                       <el-col :span="8">
                         <div class="tr-b-rf-img2">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                         </div>
                       </el-col>
                       <el-col :span="8">
                         <div class="tr-b-rf-img3">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                         </div>
                       </el-col>
                     </el-row>
@@ -295,16 +295,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
                 <div class="tr-b-rf-title">
                   <el-alert
@@ -318,17 +318,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -340,16 +340,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
                 <div class="tr-b-rf-title">
                   <el-alert
@@ -363,17 +363,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -385,16 +385,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
                 <div class="tr-b-rf-title">
                   <el-alert
@@ -408,17 +408,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -430,16 +430,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
                 <div class="tr-b-rf-title">
                   <el-alert
@@ -453,17 +453,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -475,16 +475,16 @@
                     <img
                       src="../../assets/个人1.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    />###
+                    >###
                   </i>
                   <img
                     src="../../assets/评论1.png"
                     style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  />3700
+                  >3700
                   <img
                     src="../../assets/浏览.png"
                     style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  />300
+                  >300
                 </div>
                 <div class="tr-b-rf-title">
                   <el-alert
@@ -498,17 +498,17 @@
                   <el-row :gutter="24">
                     <el-col :span="8">
                       <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                     <el-col :span="8">
                       <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;" />
+                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
                       </div>
                     </el-col>
                   </el-row>
@@ -516,12 +516,7 @@
               </div>
             </div>
             <div class="tr-b-rf-page">
-              <el-pagination
-                class="page-1"
-                background
-                layout="prev, pager, next"
-                :total="1000"
-              ></el-pagination>
+              <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
             </div>
           </div>
         </el-col>
