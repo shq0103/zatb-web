@@ -11,24 +11,35 @@
             <el-tabs value="first">
               <el-tab-pane name="first">
                 <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
-                  <img class="ac1" src="../../assets/卖.png"> 热门闲趣
+                  <img class="ac1" src="../../assets/activity.png"> 热门闲趣
                 </span>
 
                 <el-row :gutter="24" type="flex" justify="center">
-                  <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                    <el-card :body-style="{ padding: '0px' }">
-                      <img
-                        src="http://tubu100.com:8053/Files/At/20190129175037c0f3d5.jpg"
-                        class="image"
-                      >
-                      <div style="padding: 14px;">
-                        <span>好吃的汉堡</span>
-                        <div class="bottom clearfix">
-                          <time class="time">2019-04-29 21:36</time>
-                          <el-button type="text" class="button">操作按钮</el-button>
+                  <el-col :span="5" v-for="item in goodsList" :key="item.id">
+                    <router-link to="/activity">
+                      <el-card :body-style="{ padding: '0px' }">
+                        <img :src="item.image" class="image">
+                        <div class="activity-title">
+                          <span>{{item.name}}</span>
+                          <div class="bottom clearfix">
+                            <span class="t1">
+                              <img
+                                src="../../assets/时间.png"
+                                style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                              >
+                              {{item.date}}
+                            </span>
+                            <span class="t2">
+                              <img
+                                src="../../assets/小人头.png"
+                                style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                              >
+                              {{item.viewCount}}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </el-card>
+                      </el-card>
+                    </router-link>
                   </el-col>
                 </el-row>
               </el-tab-pane>
@@ -417,6 +428,48 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      goodsList: [
+        {
+          id: 0,
+          name: "A线： 惠州马鞍山",
+          date: "2019-10-10至2019-10-15",
+          viewCount: 100,
+          image:
+            "https://img.alicdn.com/bao/uploaded/i2/O1CN01j6Dvhb1x4Czcskbc9_!!0-fleamarket.jpg_728x728.jpg"
+        },
+        {
+          id: 1,
+          name: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
+          viewCount: 200,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg"
+        },
+        {
+          id: 2,
+          name: " B线：漫步山水间邂逅古堡访古村穿越十里",
+          viewCount: 1400,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg"
+        },
+        {
+          id: 3,
+          name: "川西环线约伴",
+          viewCount: 100,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg"
+        }
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .sell-public {
   -moz-box-orient: horizontal;
@@ -436,6 +489,11 @@
   margin-bottom: 15px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
+.image {
+  width: 340px;
+  height: 230px;
+}
+
 .line {
   width: 1px;
   height: 42px;
@@ -461,6 +519,37 @@
 .s-p-lf {
   display: flex;
   align-items: center;
+}
+.t1 {
+  width: 100%;
+  color: #999;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  font-size: 13px;
+  margin: 10px 0;
+}
+.t2 {
+  padding-left: 43px;
+  color: #999;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+}
+.activity-title {
+  padding: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ac1 {
+  height: 20px;
+  margin-bottom: -5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  /* margin-left: 10px; */
 }
 .icon {
   width: 56px;
@@ -603,5 +692,25 @@
   color: #fff;
   font-size: 14px;
   background: #75b628;
+}
+</style>
+<style>
+.el-tabs__active-bar {
+  background-color: #75b628;
+}
+.el-tabs__item.is-active {
+  color: #75b628;
+}
+.el-tabs__item:hover {
+  color: #75b628;
+}
+.el-tabs__nav-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
 }
 </style>

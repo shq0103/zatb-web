@@ -5,115 +5,28 @@
         <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >最新资讯</div>
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >热门资讯</div>
+            <div class="ac acactive">最新资讯</div>
+            <div class="ac">热门资讯</div>
           </div>
         </div>
       </div>
       <div class="activity-content">
-        <router-link to="/new-show">
-          <div class="activity-content2">
-            <div class="ac-content-left">
-              <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-            </div>
-            <div class="ac-content-right">
-              <div class="ac-content-right1">
-                <el-alert
-                  class="new-alert"
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="new-right2">
-                <i class="el-icon-time">2019-4-21 18:24</i>
-                <i class="el-icon-view" style="padding-left:20px">300</i>
+        <div class="activity-content2" v-for="item in newsList" :key="item.id">
+          <div class="ac-content-left">
+            <img width="100%" height="98%" :src="item.image">
+          </div>
+          <div class="ac-content-right">
+            <div class="ac-content-right1">
+              <div class="adiv">
+                <router-link to="/new-show">
+                  <p class="aname">{{item.title}}</p>
+                </router-link>
+                <p class="ap">{{item.contents}}</p>
               </div>
             </div>
-          </div>
-        </router-link>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
             <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i>2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                class="new-alert"
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="new-right2">
-              <i class="el-icon-time">2019-4-21 18:24</i>
-              <i class="el-icon-view" style="padding-left:20px">300</i>
+              <i class="el-icon-time">{{item.date}}</i>
+              <i class="el-icon-view" style="padding-left:20px">{{item.viewCount}}</i>
             </div>
           </div>
         </div>
@@ -142,21 +55,23 @@
         </div>
       </div>
       <div class="search-1">
-        <div class="search-title">
+        <div class="search-title1">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
           >精彩路线</div>
         </div>
-        <div class="search-content">
+        <div class="search-content" v-for="item in newList" :key="item.id">
           <div class="tr-b-rf-bottom">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
-                <img src="../../assets/timg.jpg" style="heigh:120px;width:300px;">
+                <img :src="item.image" style="heigh:120px;width:300px;">
               </div>
             </div>
             <div class="tr-b-rf-title">
-              <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+              <router-link to="/new-show">
+                <p class="aname1">{{item.title}}</p>
+              </router-link>
             </div>
 
             <!-- <div class="tr-b-rf-public">
@@ -176,45 +91,90 @@
               >300
             </div>-->
           </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div>
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      newsList: [
+        {
+          id: 0,
+          image: "http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          title: " 报告，我们已找到最佳亚展&嘉年华场地！",
+          contents:
+            "一年一度的亚洲户外展又要开始了,2019我们又搞了件大事！,展会同期推出“恣然派”户外嘉年华,拼场地、拼策划、拼创意、拼实力,说到底~~一场成功的展会&嘉年华必须要有~~强大的硬实力（场地）"
+        },
+        {
+          id: 1,
+          image:
+            "http://tubu100.com:8053/Files/Article/20181227150339846a66.jpg",
+          date: "2018-12-27  18:24",
+          viewCount: 300,
+          title:
+            "牧高笛与亚洲户外展正式签约，将全面亮相2019第十四届亚洲户外展！",
+          contents:
+            "12月13日，牧高笛（MobiGarden）正式报名参加2019第十四届亚洲户外用品展览会Asia Outdoor Trade Show（简称亚洲户外展或亚展），并于本月21日正式签约。牧高笛作为与亚洲户外展共同成长和相伴十三年的老朋友，即将于2019年6月27~30日南京国际展览中心（龙蟠路88号）携手迈进第十四个春秋！"
+        },
+        {
+          id: 2,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018120315430677a3bc.jpeg",
+          date: "2019-5-21 18:24",
+          viewCount: 100,
+          title: "2018全国徒步大会“双11”持杖行走全国联动日活动激情走起",
+          contents:
+            "2018全国徒步大会“双11”持杖行走全国联动日活动在11日举行，除在威海设置主会场外，分会场长春、张掖、嘉峪关、银川、绵阳、宁波、温州、武汉、海南海口、黔西共11个城市同时展开。作为中国登山协会今年新推出的联动日活动之一，本次活动旨在倡导科学健身理念，推动持杖行走运动。参加此次活动的徒步爱好者有10万余人。"
+        },
+        {
+          id: 3,
+          image:
+            "http://tubu100.com:8053/Files/Article/20180710173234d4beab.jpg",
+          date: "2018-07-10 17:32",
+          viewCount: 100,
+          title: " 2018全国徒步大会长春站活动盛大启幕",
+          contents:
+            "7月8日，2018全国徒步大会(长春站)活动在长春市伊通河畔盛大举行。本次活动由中国登山协会、长春市体育局、长春市体育总会、长春市伊通河管委会共同主办，长春市徒步登山运动协会、吉林日报报业集团东西南北杂志社共同承办，吉林省户外产业商会协办。"
+        },
+        {
+          id: 4,
+          image:
+            "http://tubu100.com:8053/Files/Article/201806300956213c5406.jpg",
+          date: "2019-6-21 18:24",
+          viewCount: 700,
+          title: "2018亚展首日：high翻的展会现场，精彩纷呈！",
+          contents:
+            "今年的亚洲户外展和亚洲自行车展启用了展馆4、5、6、7四个展厅，一共60000平方米的展览面积，共有来自国内外的587个品牌参展，现场人人人人，持续4天、一年一度的亚洲户外圈“狂欢节”就此嗨起来！ "
+        }
+      ],
+      newList: [
+        {
+          id: 0,
+          image:
+            "http://tubu100.com:8053/Files/Article/20180524152006491eff.jpg",
+          title: "2018全国徒步大会5•19联动日激情“走起”"
+        },
+        {
+          id: 1,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018052311445301f787.jpg",
+          title: "全国徒步大会定制款保险说明"
+        },
+        {
+          id: 2,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018050712260650cf42.jpg",
+          title: " 2018徒步中国•全国徒步大会百色“地心之旅”（乐业、凌云）站举办"
+        }
+      ]
+    };
+  }
+};
 </script>
 <style scoped>
 .index {
@@ -229,6 +189,7 @@ export default {};
   margin-right: 20px;
   background-color: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 }
 .index-right {
   width: 30%;
@@ -258,6 +219,13 @@ export default {};
   height: 30px;
   margin-top: 15px;
 }
+.search-title1 {
+  height: 30px;
+  margin-top: 15px;
+  border-bottom: 1px solid #dedbdb;
+  padding-bottom: 8px;
+}
+
 .activity-title {
   height: 30px;
   margin-top: 15px;
@@ -265,8 +233,7 @@ export default {};
 }
 
 .search-content {
-  padding: 0 12px 12px 12px;
-  border-top: 1px solid #dedbdb;
+  padding: 0 12px 0px 12px;
   margin-top: 8px;
 }
 .public-content {
@@ -300,12 +267,15 @@ export default {};
   display: flex;
 }
 .ac-content-left {
-  margin-right: 10px;
+  margin-right: 15px;
+  width: 35%;
 }
 .ac-content-right {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
+  padding: 5px 5px 0 5px;
+  justify-content: space-between;
 }
 .ac-content-right2 {
   padding-right: 45%;
@@ -372,11 +342,66 @@ export default {};
 .tr-b-rf-bottom {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
-
   padding: 0 10px 10px 10px;
 }
 .tr-b-rf-img {
   margin-top: 15px;
-  padding-right: 5px;
+  /* padding-right: 5px; */
 }
+.acactive {
+  color: #75b628;
+  border-bottom: 1px #75b628 solid;
+}
+.ac {
+  height: 26px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: -webkit-auto;
+  margin-left: 20px;
+}
+.adiv {
+  /* background-color: #f0f9eb;
+  color: #67c23a; */
+
+  text-align: left;
+}
+.ap {
+  /* color: #888; */
+  font-size: 14px;
+  margin: 10px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  line-height: 26px;
+
+  /* text-indent: 1.5em; */
+}
+.aname {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 18px;
+  /* color: #67c23a; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0px;
+}
+.aname1 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+a:hover {
+  color: #75b628;
+  text-decoration: underline;
+}
+a {
+  color: #000;
+}
+/* .tr-b-rf-bottom:last-child {
+  border: none;
+} */
 </style>

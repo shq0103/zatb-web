@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <el-dialog title="我的结伴报名状态" :visible.sync="dialogTableVisible">
+    <el-dialog title="我的结伴报名状态" :visible.sync="dialogTableVisible" width="70%">
       <el-table
         :data="gridData"
         stripe
@@ -35,10 +35,13 @@
         @current-change="handleCurrentChange"
         ref="singleTable"
       >
-        <el-table-column type="index" width="50"></el-table-column>
-        <el-table-column property="name" label="姓名" width="150"></el-table-column>
-        <el-table-column property="num" label="手机号" width="200"></el-table-column>
-        <el-table-column align="center" label="操作">
+        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column prop="id" label="序号" sortable width="50px"></el-table-column>
+        <el-table-column prop="name" label="用户名" :formatter="formatter"></el-table-column>
+        <el-table-column prop="truename" label="真实姓名" :formatter="formatter"></el-table-column>
+        <el-table-column prop="sex" label="性别" :formatter="formatter"></el-table-column>
+        <el-table-column prop="number" label="手机号" :formatter="formatter"></el-table-column>
+        <el-table-column label="操作">
           <template>
             <el-button size="mini" style="margin-right:10px;" @click="dialogpass  = true">通过</el-button>
             <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
@@ -94,16 +97,31 @@ export default {
       dialogdelete: false,
       gridData: [
         {
-          name: "何建钦",
-          num: "18078450229"
+          id: "1",
+          time: "2016-05-02",
+          name: "王小虎",
+          truename: "啦啦啦",
+          sex: "女",
+          number: "13338383388",
+          password: "admin"
         },
         {
-          name: "何建钦",
-          num: "18078450229"
+          id: "1",
+          time: "2016-05-02",
+          name: "王小虎",
+          truename: "啦啦啦",
+          sex: "女",
+          number: "13338383388",
+          password: "admin"
         },
         {
-          name: "何建钦",
-          num: "18078450229"
+          id: "1",
+          time: "2016-05-02",
+          name: "王小虎",
+          truename: "啦啦啦",
+          sex: "女",
+          number: "13338383388",
+          password: "admin"
         }
       ]
     };

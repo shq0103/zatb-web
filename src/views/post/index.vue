@@ -331,6 +331,7 @@
   /* display: flex; */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  padding: 0 15px;
 }
 .post-top-border0,
 .post-top-border1 {
@@ -339,10 +340,23 @@
 .el-row {
   padding: 20px 20px;
 }
-.post-top-border0,
-.post-top-border1,
-.post-top-border2 ul {
+.post-top-border0 ul {
+  padding: 0px 15px;
+}
+.post-top-border0 li {
+  font-size: 15px;
+  margin-bottom: 5px;
+  text-align: left;
+  list-style-position: inside;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-top-border1 ul {
+  padding: 0px 15px;
+}
+.post-top-border2 ul {
+  padding: 0px 15px;
 }
 .post-top-border0 h4 {
   background: url(../../assets/zxzt.png) 10px 0 no-repeat;
@@ -355,25 +369,23 @@
   -moz-transition: 400ms;
   text-align: left;
   text-indent: 2.5em;
-  margin-left: 10px;
+
   margin-top: 0px;
 }
 .post-top-border0 h4:hover {
   background: url("../../assets/zxzt.png") no-repeat scroll 10px -22px transparent;
   cursor: pointer;
 }
-.post-top-border ul li {
-  font-size: 13px;
-
+.post-top-border2 li {
+  font-size: 15px;
   margin-bottom: 5px;
-
+  text-align: left;
+  list-style-position: inside;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-wrap: normal;
 }
-.post-top-border1 ul {
-  overflow: hidden;
-}
+
 .post-top-border1 h4 {
   background: url(../../assets/zxhf.png) 10px 0 no-repeat;
   color: #5e5e5e;
@@ -385,7 +397,6 @@
   -moz-transition: 400ms;
   text-align: left;
   text-indent: 2.5em;
-  margin-left: 10px;
   margin-top: 0px;
 }
 .post-top-border1 h4:hover {
@@ -403,21 +414,21 @@
   -moz-transition: 400ms;
   text-align: left;
   text-indent: 2.5em;
-  margin-left: 10px;
+
   margin-top: 0px;
 }
 .post-top-border2 h4:hover {
   background: url("../../assets/rt.png") no-repeat scroll 10px -22px transparent;
   cursor: pointer;
 }
-.post-top-border1 ul li {
-  font-size: 13px;
-
+.post-top-border1 li {
+  font-size: 15px;
   margin-bottom: 5px;
-
+  text-align: left;
+  list-style-position: inside;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-wrap: normal;
 }
 .post-bottom {
   /* display: flex; */

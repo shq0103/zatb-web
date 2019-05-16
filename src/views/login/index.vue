@@ -1,5 +1,5 @@
 <template>
-  <div class="lowin lowin-green">
+  <div :style="{height:heigth+'px'}" class="lowin lowin-green">
     <div class="lowin-brand">
       <img src="../../assets/kodinger.jpg" alt="logo">
     </div>
@@ -104,8 +104,13 @@ export default {
       loginForm: {
         username: "",
         password: ""
-      }
+      },
+      heigth: 0
     };
+  },
+  beforeMount() {
+    this.heigth =
+      document.documentElement.clientHeight || document.body.clientHeight;
   },
   mounted() {
     Test.init({
@@ -195,7 +200,7 @@ export default {
   --color-semidark: rgba(68, 160, 179, 0.5);
 
   text-align: center;
-  margin: 60px 0 0 0;
+  /* margin: 60px 0 0 0; */
   font-family: "Segoe UI";
   font-size: 14px;
 }
@@ -218,7 +223,8 @@ export default {
   --color-dark: #9fdb5b;
   --color-semidark: #8bc34a;
   background: url(../../assets/login_bg.jpg);
-  padding: 20px 0;
+  padding: 60px 0;
+  background-repeat: round;
 }
 
 .lowin.lowin-purple {

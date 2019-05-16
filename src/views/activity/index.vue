@@ -5,15 +5,9 @@
         <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-            >热门活动</div>
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 30px;"
-            >最新活动</div>
-            <div
-              style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 30px;"
-            >官方活动</div>
+            <div class="ac acactive">热门活动</div>
+            <div class="ac">最新活动</div>
+            <div class="ac">官方活动</div>
             <!-- <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
             >自游行</div>-->
@@ -21,254 +15,59 @@
         </div>
       </div>
       <div class="activity-content">
-        <div class="activity-content2">
+        <div v-for="item in activityList" :key="item.id" class="activity-content2">
           <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+            <img width="100%" height="98%" :src="item.image">
           </div>
           <div class="ac-content-right">
             <router-link to="/activity-show">
               <div class="ac-content-right1">
-                <el-alert
-                  title="带辅助性文字介绍"
+                <!-- <el-alert
+                  :title="item.name"
                   type="success"
                   :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
+                  :description="item.explain"
+                ></el-alert>-->
+                <div class="adiv">
+                  <p class="aname">{{item.name}}</p>
+                  <p class="ap">{{item.explain}}</p>
+                </div>
               </div>
             </router-link>
             <div class="ac-content-right2">
-              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
+              <el-progress
+                :percentage="Math.round(item.signin/item.quota*100)"
+                :stroke-width="9"
+                color="#75b628"
+              ></el-progress>
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">AA</span>
+                <span style="color: #000;font-size: 14px;">{{item.price}}</span>
                 <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
               <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">桂林市</span>
+                <span style="color: #000;font-size: 14px;">{{item.destination}}</span>
                 <br>
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span style="color: #000;
-font-size: 14px;">2019-4-20</span>
+                <span style="color: #000;font-size: 14px;">{{item.date}}</span>
                 <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
             </div>
             <div class="ac-content-right4">
               <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+                <img class="touxiang" v-for="(img,index) in item.imgList" :key="index" :src="img">
               </div>
               <div class="ac-content-right4-2">
                 <span>报名:</span>
-                <span>13</span>
+                <span>{{item.signin}}</span>
                 <br>
                 <span>关注:</span>
-                <span>1300</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="ac-content-right2">
-              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
-            </div>
-            <div class="ac-content-right3">
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">AA</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动费用</span>
-              </div>
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">桂林市</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动地点</span>
-              </div>
-              <div class="ac-content-right3-2">
-                <span style="color: #000;
-font-size: 14px;">2019-4-20</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动时间</span>
-              </div>
-            </div>
-            <div class="ac-content-right4">
-              <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right4-2">
-                <span>报名:</span>
-                <span>13</span>
-                <br>
-                <span>关注:</span>
-                <span>1300</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="ac-content-right2">
-              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
-            </div>
-            <div class="ac-content-right3">
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">AA</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动费用</span>
-              </div>
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">桂林市</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动地点</span>
-              </div>
-              <div class="ac-content-right3-2">
-                <span style="color: #000;
-font-size: 14px;">2019-4-20</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动时间</span>
-              </div>
-            </div>
-            <div class="ac-content-right4">
-              <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right4-2">
-                <span>报名:</span>
-                <span>13</span>
-                <br>
-                <span>关注:</span>
-                <span>1300</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="ac-content-right2">
-              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
-            </div>
-            <div class="ac-content-right3">
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">AA</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动费用</span>
-              </div>
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">桂林市</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动地点</span>
-              </div>
-              <div class="ac-content-right3-2">
-                <span style="color: #000;
-font-size: 14px;">2019-4-20</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动时间</span>
-              </div>
-            </div>
-            <div class="ac-content-right4">
-              <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right4-2">
-                <span>报名:</span>
-                <span>13</span>
-                <br>
-                <span>关注:</span>
-                <span>1300</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="activity-content2">
-          <div class="ac-content-left">
-            <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-          </div>
-          <div class="ac-content-right">
-            <div class="ac-content-right1">
-              <el-alert
-                title="带辅助性文字介绍"
-                type="success"
-                :closable="false"
-                description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-              ></el-alert>
-            </div>
-            <div class="ac-content-right2">
-              <el-progress :percentage="80" :stroke-width="9" color="#75b628"></el-progress>
-            </div>
-            <div class="ac-content-right3">
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">AA</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动费用</span>
-              </div>
-              <div class="ac-content-right3-1">
-                <span style="color: #000;
-font-size: 14px;">桂林市</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动地点</span>
-              </div>
-              <div class="ac-content-right3-2">
-                <span style="color: #000;
-font-size: 14px;">2019-4-20</span>
-                <br>
-                <span style="font-size: 10px;color:#888;">活动时间</span>
-              </div>
-            </div>
-            <div class="ac-content-right4">
-              <div class="ac-content-right4-1">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right4-2">
-                <span>报名:</span>
-                <span>13</span>
-                <br>
-                <span>关注:</span>
-                <span>1300</span>
+                <span>{{item.viewCount}}</span>
               </div>
             </div>
           </div>
@@ -357,7 +156,162 @@ font-size: 14px;">2019-4-20</span>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      activityList: [
+        {
+          id: 0,
+          name: "A线： 惠州马鞍山",
+          date: "2019-10-10",
+          deadline: 0,
+          organiger: "string",
+          startPlace: "string",
+          theme: "string",
+          quota: 100,
+          signin: 20,
+          price: 100,
+          destination: "惠州马鞍山",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/01/97_340_230.jpg",
+          explain:
+            " 这里是驴友活动，非廉价旅行社，欢迎懂生活品味知浪漫情趣的驴友一起同行，户外活动有风险，报名需谨慎，本次活动不接受孕妇和12岁以下、65岁以上驴友参加。",
+          routing: "string",
+          costExplain: "string",
+          line: "string",
+          equip: "string",
+          moreInfo: "string",
+          imgList: [
+            "http://www.hw917.com/uc_server/data/avatar/000/00/54/88_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/78/15_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg"
+          ]
+        },
+        {
+          id: 1,
+          name: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
+          date: "2019-5-10",
+          deadline: 0,
+          organiger: "string",
+          startPlace: "string",
+          theme: "string",
+          quota: 100,
+          signin: 30,
+          price: 100,
+          destination: "桂林",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg",
+          explain:
+            "本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。本次活动全程无购物点和规定消费店，但途中为节约时间，不统一安排腐败请自备干粮。",
+          routing: "string",
+          costExplain: "string",
+          line: "string",
+          equip: "string",
+          moreInfo: "string",
+          imgList: [
+            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg"
+          ]
+        },
+        {
+          id: 2,
+          name: " B线：漫步山水间邂逅古堡访古村穿越十里",
+          date: "2019-5-15",
+          deadline: 0,
+          organiger: "string",
+          startPlace: "string",
+          theme: "string",
+          quota: 100,
+          signin: 50,
+          price: 100,
+          destination: "桂林",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg",
+          explain:
+            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
+          routing: "string",
+          costExplain: "string",
+          line: "string",
+          equip: "string",
+          moreInfo: "string",
+          imgList: [
+            "http://www.hw917.com/uc_server/data/avatar/000/00/68/01_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/01/00_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/01/08_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/78/15_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/00/41_avatar_small.jpg"
+          ]
+        },
+        {
+          id: 3,
+          name: "川西环线约伴",
+          date: "2019-6-1",
+          deadline: 0,
+          organiger: "string",
+          startPlace: "string",
+          theme: "string",
+          quota: 100,
+          signin: 80,
+          price: 100,
+          destination: "桂林",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg",
+          explain:
+            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
+          routing: "string",
+          costExplain: "string",
+          line: "string",
+          equip: "string",
+          moreInfo: "string",
+          imgList: [
+            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/00/16_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/02/62_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/76/84_avatar_small.jpg"
+          ]
+        },
+        {
+          id: 4,
+          name: "河源金银碗飞行基地玩滑翔伞活动约伴",
+          date: "2019-8-1",
+          deadline: 0,
+          organiger: "string",
+          startPlace: "string",
+          theme: "string",
+          quota: 100,
+          signin: 100,
+          price: 100,
+          destination: "桂林",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/03/99/82_340_230.jpg",
+          explain:
+            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
+          routing: "string",
+          costExplain: "string",
+          line: "string",
+          equip: "string",
+          moreInfo: "string",
+          imgList: [
+            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/00/16_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/02/62_avatar_small.jpg",
+            "http://www.hw917.com/uc_server/data/avatar/000/00/76/84_avatar_small.jpg"
+          ]
+        }
+      ]
+    };
+  }
+};
 </script>
 <style scoped>
 .index {
@@ -434,32 +388,33 @@ export default {};
   background-color: #75b628 !important;
 }
 .activity-content2 {
-  padding: 15px 15px 10px 15px;
+  padding: 15px 0px 10px 0px;
   border-bottom: 1px dotted #adadad;
   display: flex;
-  margin: 5px 20px 0 20px;
+  margin: 0px 20px 0 20px;
 }
 .activity-content1 {
   display: flex;
 }
 .ac-content-left {
-  margin-right: 5px;
+  margin-right: 15px;
+  width: 40%;
 }
 .ac-content-right {
-  width: 70%;
+  width: 58%;
   display: flex;
   flex-direction: column;
 }
 .ac-content-right2 {
   padding-right: 45%;
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 .ac-content-right3 {
   display: flex;
   padding-left: 10px;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .ac-content-right3-1 {
   padding-top: 10px;
@@ -495,5 +450,52 @@ export default {};
 }
 .el-pagination {
   margin: 10px 0 !important;
+}
+.touxiang {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+.aname {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0px;
+  /* color: #67c23a; */
+}
+.adiv {
+  /* background-color: #f0f9eb;
+  color: #67c23a; */
+  padding: 8px 10px;
+  text-align: left;
+}
+.ap {
+  /* color: #888; */
+  font-size: 12px;
+  margin: 10px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.ac {
+  height: 26px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: -webkit-auto;
+  margin-left: 20px;
+}
+.acactive {
+  color: #75b628;
+  border-bottom: 1px #75b628 solid;
+}
+a:hover {
+  color: #75b628;
+}
+a {
+  color: #000;
 }
 </style>

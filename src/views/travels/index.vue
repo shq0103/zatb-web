@@ -9,16 +9,7 @@
                 <el-popover ref="popover1" placement="right" width="200" trigger="hover">
                   <div>
                     <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li v-for="item in shortList" :key="item.id">{{item.title}}</li>
                     </ul>
                   </div>
                 </el-popover>
@@ -113,112 +104,33 @@
               </div>
             </div>
             <div class="tr-b-lf-bottom">
-              <div class="tr-b-rf-bottom">
+              <div class="tr-b-rf-bottom" v-for="item in newtravelsList" :key="item.id">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
+                    <img :src="item.image" style="width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
-                  <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                  <router-link to="/travels-show">
+                    <p class="aname1">{{item.title}}</p>
+                  </router-link>
                 </div>
 
                 <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
+                  <span :style="{ float: 'left' }">
                     <img
                       src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-img">
-                  <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
-                  </div>
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                </div>
-
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
+                      style="height: 15px; margin-right:3px;margin-bottom: -2px;"
+                    >
+                    {{item.userId}}
+                  </span>
+                  <img src="../../assets/评论1.png" style="height: 19px; margin-bottom: -3px;">
+                  {{item.commentCount}}
                   <img
                     src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-img">
-                  <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
-                  </div>
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                </div>
-
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-img">
-                  <div class="tr-b-rf-img1">
-                    <img src="../../assets/timg.jpg" style="heigh:138px;width:265px;">
-                  </div>
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                </div>
-
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
+                    style="height: 22px; margin-bottom: -6px;margin-left:3px;"
+                  >
+                  {{item.viewCount}}
                 </div>
               </div>
             </div>
@@ -243,277 +155,45 @@
             </div>
             <div class="tr-b-rf-bottom1">
               <router-link to="/travels-show">
-                <div class="tr-b-rf-bottom">
-                  <div class="tr-b-rf-public">
-                    <i :style="{ float: 'left' }">
-                      <img
-                        src="../../assets/个人1.png"
-                        style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                      >###
-                    </i>
-                    <img
-                      src="../../assets/评论1.png"
-                      style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                    >3700
-                    <img
-                      src="../../assets/浏览.png"
-                      style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                    >300
-                  </div>
+                <div class="tr-b-rf-bottom" v-for="item in travelsList" :key="item.id">
                   <div class="tr-b-rf-title">
-                    <el-alert
-                      title="带辅助性文字介绍"
-                      type="success"
-                      :closable="false"
-                      description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                    ></el-alert>
+                    <div class="adiv">
+                      <router-link to="/travels">
+                        <span class="aname">{{item.title}}</span>
+                      </router-link>
+                      <p class="ap">{{item.intro}}</p>
+                    </div>
                   </div>
                   <div class="tr-b-rf-img">
                     <el-row :gutter="24">
-                      <el-col :span="8">
+                      <el-col :span="8" v-for="(img,index) in item.imgList" :key="index">
                         <div class="tr-b-rf-img1">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                        </div>
-                      </el-col>
-                      <el-col :span="8">
-                        <div class="tr-b-rf-img2">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                        </div>
-                      </el-col>
-                      <el-col :span="8">
-                        <div class="tr-b-rf-img3">
-                          <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
+                          <img :src="img" style="width:240px;heigh:134px;">
                         </div>
                       </el-col>
                     </el-row>
                   </div>
+                  <div class="tr-b-rf-public">
+                    <span :style="{ float: 'left' }">
+                      <img
+                        src="../../assets/个人1.png"
+                        style="height: 15px; margin-right:3px;margin-bottom: -2px;"
+                      >
+                      {{item.userId}}
+                    </span>
+                    <img
+                      src="../../assets/评论1.png"
+                      style="height: 19px; margin-bottom: -3px;margin-right:3px;"
+                    >
+                    {{item.commentCount}}
+                    <img
+                      src="../../assets/浏览.png"
+                      style="height: 22px; margin-bottom: -6px;margin-left:5px;"
+                    >
+                    {{item.viewCount}}
+                  </div>
                 </div>
               </router-link>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-img">
-                  <el-row :gutter="24">
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                  </el-row>
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-img">
-                  <el-row :gutter="24">
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                  </el-row>
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-img">
-                  <el-row :gutter="24">
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                  </el-row>
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-img">
-                  <el-row :gutter="24">
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                  </el-row>
-                </div>
-              </div>
-              <div class="tr-b-rf-bottom">
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-                <div class="tr-b-rf-title">
-                  <el-alert
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-img">
-                  <el-row :gutter="24">
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img1">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img2">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                    <el-col :span="8">
-                      <div class="tr-b-rf-img3">
-                        <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                      </div>
-                    </el-col>
-                  </el-row>
-                </div>
-              </div>
             </div>
             <div class="tr-b-rf-page">
               <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
@@ -524,6 +204,138 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      travelsList: [
+        {
+          id: 0,
+          userId: "徒步用户01",
+          commentCount: 100,
+          viewCount: 300,
+          imgList: [
+            "http://tubu100.com:8053/Files/Note/20180314123503670d40.jpg",
+            "http://tubu100.com:8053/Files/Note/201803141235032226ce.jpg",
+            "http://tubu100.com:8053/Files/Note/2018031412350396a0cf.jpg"
+          ],
+          title: "不忘初心，砥砺前行--2017五大连池徒步大会",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 1,
+          userId: "徒步用户02",
+          commentCount: 200,
+          viewCount: 500,
+          imgList: [
+            "http://tubu100.com:8053/Files/Note/20180314151651e53998.jpg",
+            "http://tubu100.com:8053/Files/Note/201803141516513b114c.jpg",
+            "http://tubu100.com:8053/Files/Note/20180314151652b46635.jpg"
+          ],
+          title: "徒步中国·全国徒步大会张掖山丹站",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 2,
+          userId: "徒步用户03",
+          commentCount: 100,
+          viewCount: 300,
+          imgList: [
+            "http://tubu100.com:8053/Files/Note/201803141504499820e0.jpg",
+            "http://tubu100.com:8053/Files/Note/201803141504482d559f.jpg",
+            "http://tubu100.com:8053/Files/Note/20180314150448dae742.jpg"
+          ],
+          title: "贡嘎雪山徒步大会",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 3,
+          userId: "徒步用户04",
+          commentCount: 600,
+          viewCount: 700,
+          imgList: [
+            "http://tubu100.com:8053/Files/Note/20180822120951c03c14.jpg",
+            "http://tubu100.com:8053/Files/Note/2018082212095298c73e.jpg",
+            "http://tubu100.com:8053/Files/Note/201808221209524c75cd.jpg"
+          ],
+          title: "华夏行· 探秘天堂秘境 九色甘南之旅第二期",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 4,
+          userId: "徒步用户05",
+          commentCount: 100,
+          viewCount: 300,
+          imgList: [
+            "http://tubu100.com:8053/Files/Note/201806061629142089ee.jpg",
+            "http://tubu100.com:8053/Files/Note/20180606163011ffebc1.jpg",
+            "http://tubu100.com:8053/Files/Note/201806061630114a737e.jpg"
+          ],
+          title: "华夏行·探秘神农架徒步之旅",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        }
+      ],
+      newtravelsList: [
+        {
+          id: 0,
+          userId: "徒步用户01",
+          commentCount: 100,
+          viewCount: 200,
+          image: "http://tubu100.com:8053/Files/Note/20180507112403a15164.jpg",
+          title: "徒步中国·全国徒步大会宝泉崖上太行站"
+        },
+        {
+          id: 1,
+          userId: "徒步用户02",
+          commentCount: 200,
+          viewCount: 300,
+          image: "http://tubu100.com:8053/Files/Note/2018052415540863f4fe.png",
+          title: "华夏行·呼伦贝尔全国徒步大会"
+        },
+        {
+          id: 2,
+          userId: "徒步用户03",
+          commentCount: 100,
+          viewCount: 300,
+          image: "http://tubu100.com:8053/Files/Note/2018050712020638f437.jpg",
+          title: "徒步中国·全国徒步大会百色（乐业、凌云）站"
+        },
+        {
+          id: 3,
+          userId: "徒步用户04",
+          commentCount: 100,
+          viewCount: 300,
+          image: "http://tubu100.com:8053/Files/Note/20180314124115eb5987.jpg",
+          title: "徒步中国-全国徒步大会贵州兴义站活动图片集"
+        },
+        {
+          id: 4,
+          userId: "徒步用户05",
+          commentCount: 100,
+          viewCount: 300,
+          image: "http://tubu100.com:8053/Files/Note/20180314123503670d40.jpg",
+          title: "全国徒步大会百色德保、靖西站活动"
+        }
+      ],
+      shortList: [
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        },
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        }
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .travels-top-lf,
 travels-top-rf {
@@ -547,12 +359,16 @@ travels-top-rf {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .tr-b-rf-public {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 5px;
   text-align: right;
+  font-size: 15px;
+}
+.tr-b-rf-public a {
+  color: #000;
 }
 .tr-b-rf-bottom {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px dotted #ccc;
   margin-bottom: 10px;
 
   padding: 0 5px 10px 5px;
@@ -560,6 +376,9 @@ travels-top-rf {
 .tr-b-rf-img {
   margin-top: 15px;
   padding-right: 5px;
+}
+.tr-b-rf-title {
+  margin-top: 10px;
 }
 .tr-b-rf-top {
   display: flex;
@@ -608,5 +427,43 @@ tr-b-rf {
   padding: 10px;
   margin: 0 -10px;
   border-radius: 5px;
+}
+.adiv {
+  /* background-color: #f0f9eb;
+  color: #67c23a; */
+
+  text-align: left;
+}
+.ap {
+  font-size: 14px;
+  color: #666;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 21px;
+}
+.ac {
+  height: 26px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: -webkit-auto;
+  margin-left: 20px;
+}
+.aname1 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 10px 0 0 0;
+  text-align: left;
+}
+.aname1 a {
+  color: #31424e;
+}
+.adiv a {
+  font-size: 19px;
+  color: #31424e;
+  font-weight: bold;
 }
 </style>

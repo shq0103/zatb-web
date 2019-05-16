@@ -20,74 +20,114 @@
             </span>
 
             <el-row :gutter="24" type="flex" justify="center">
-              <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img
-                    src="http://tubu100.com:8053/Files/At/20190129175037c0f3d5.jpg"
-                    class="image"
-                  >
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">2019-04-29 21:36</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+              <el-col :span="5" v-for="item in activityList" :key="item.id">
+                <router-link to="/activity">
+                  <el-card :body-style="{ padding: '0px' }">
+                    <img :src="item.image" class="image">
+                    <div class="activity-title">
+                      <span>{{item.name}}</span>
+                      <div class="bottom clearfix">
+                        <span class="t1">
+                          <img
+                            src="../../assets/时间.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.date}}
+                        </span>
+                        <span class="t2">
+                          <img
+                            src="../../assets/小人头.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.viewCount}}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </el-card>
+                  </el-card>
+                </router-link>
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="官方活动" name="second">
             <el-row :gutter="24" type="flex" justify="center">
-              <el-col :span="5" v-for="(o, index) in 4" :key="o">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img
-                    src="http://tubu100.com:8053/Files/At/20190415164701d73e6d.jpg"
-                    class="image"
-                  >
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
-                    <div class="bottom clearfix">
-                      <time class="time">2019-04-29 21:36</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+              <el-col :span="5" v-for="item in activityList" :key="item.id">
+                <router-link to="/activity">
+                  <el-card :body-style="{ padding: '0px' }">
+                    <img :src="item.image" class="image">
+                    <div class="activity-title">
+                      <span>{{item.name}}</span>
+                      <div class="bottom clearfix">
+                        <span class="t1">
+                          <img
+                            src="../../assets/时间.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.date}}
+                        </span>
+                        <span class="t2">
+                          <img
+                            src="../../assets/小人头.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.viewCount}}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </el-card>
+                  </el-card>
+                </router-link>
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="最新上线" name="third">
             <el-row :gutter="24" type="flex" justify="center">
-              <el-col :span="5" v-for="(o, index) in 4" :key="o">
+              <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
-                  <img
-                    src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                    class="image"
-                  >
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
+                  <img :src="item.image" class="image">
+                  <div class="activity-title">
+                    <span>{{item.name}}</span>
                     <div class="bottom clearfix">
-                      <time class="time">2019-04-29 21:36</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+                      <span class="t1">
+                        <img
+                          src="../../assets/时间.png"
+                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                        >
+                        {{item.date}}
+                      </span>
+                      <span class="t2">
+                        <img
+                          src="../../assets/小人头.png"
+                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                        >
+                        {{item.viewCount}}
+                      </span>
                     </div>
                   </div>
                 </el-card>
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="自游行" name="fourth">
+          <el-tab-pane label="热门推荐" name="fourth">
             <el-row :gutter="24" type="flex" justify="center">
-              <el-col :span="5" v-for="(o, index) in 4" :key="o">
+              <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
-                  <img
-                    src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                    class="image"
-                  >
-                  <div style="padding: 14px;">
-                    <span>好吃的汉堡</span>
+                  <img :src="item.image" class="image">
+                  <div class="activity-title">
+                    <span>{{item.name}}</span>
                     <div class="bottom clearfix">
-                      <time class="time">2019-04-29 21:36</time>
-                      <el-button type="text" class="button">操作按钮</el-button>
+                      <span class="t1">
+                        <img
+                          src="../../assets/时间.png"
+                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                        >
+                        {{item.date}}
+                      </span>
+                      <span class="t2">
+                        <img
+                          src="../../assets/小人头.png"
+                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                        >
+                        {{item.viewCount}}
+                      </span>
                     </div>
                   </div>
                 </el-card>
@@ -162,162 +202,60 @@
                 </div>
               </div>
             </div>-->
-            <div class="activity-content2">
+            <div class="activity-content2" v-for="item in hottravelsList" :key="item.id">
               <div class="ac-content-left">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
+                <img :src="item.image">
               </div>
               <div class="ac-content-right">
                 <div class="ac-content-right1">
-                  <el-alert
+                  <!-- <el-alert
                     class="new-alert"
-                    title="带辅助性文字介绍"
+                    :title="item.title"
                     type="success"
                     :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
+                    :description="item.intro"
+                  ></el-alert>-->
+
+                  <div class="adiv">
+                    <router-link to="/travels">
+                      <span class="aname">{{item.title}}</span>
+                    </router-link>
+                    <p class="ap">{{item.intro}}</p>
+                  </div>
                 </div>
                 <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
+                  <span :style="{ float: 'left' }">
                     <img
-                      src="../../assets/个人1.png"
+                      src="../../assets/作者头像.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
+                    >
+                    {{item.userId}}
+                  </span>
                   <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
+                    src="../../assets/comment.png"
+                    style="height: 14px; margin-bottom: -2px;margin-right:3px;"
+                  >
+                  {{item.commentCount}}
                   <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-              </div>
-            </div>
-            <div class="activity-content2">
-              <div class="ac-content-left">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right">
-                <div class="ac-content-right1">
-                  <el-alert
-                    class="new-alert"
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
-                </div>
-              </div>
-            </div>
-            <div class="activity-content3">
-              <div class="ac-content-left">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="ac-content-right">
-                <div class="ac-content-right1">
-                  <el-alert
-                    class="new-alert"
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-                <div class="tr-b-rf-public">
-                  <i :style="{ float: 'left' }">
-                    <img
-                      src="../../assets/个人1.png"
-                      style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                    >###
-                  </i>
-                  <img
-                    src="../../assets/评论1.png"
-                    style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                  >3700
-                  <img
-                    src="../../assets/浏览.png"
-                    style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                  >300
+                    src="../../assets/咨讯浏览.png"
+                    style="height: 22px; margin-bottom: -6px;margin-right:3px;margin-left:3px;"
+                  >
+                  {{item.viewCount}}
                 </div>
               </div>
             </div>
           </div>
           <div class="tr-content-right">
             <ul class="slideshow">
-              <li>
+              <li v-for="item in newtravelsList" :key="item.id">
                 <i></i>
                 <div class="tip left">
-                  <span class="time">2019-02-17</span>
+                  <span class="time">{{item.publishTime}}</span>
                   <p class="bt">
-                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
+                    <router-link to="/travels">{{item.title}}</router-link>
                   </p>
                   <p class="aut">
-                    <router-link to="/foo">—作者：kelegai2008</router-link>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <i></i>
-                <div class="tip left">
-                  <span class="time">2019-02-17</span>
-                  <p class="bt">
-                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
-                  </p>
-                  <p class="aut">
-                    <router-link to="/foo">—作者：kelegai2008</router-link>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <i></i>
-                <div class="tip left">
-                  <span class="time">2019-02-17</span>
-                  <p class="bt">
-                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
-                  </p>
-                  <p class="aut">
-                    <router-link to="/foo">—作者：kelegai2008</router-link>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <i></i>
-                <div class="tip left">
-                  <span class="time">2019-02-17</span>
-                  <p class="bt">
-                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
-                  </p>
-                  <p class="aut">
-                    <router-link to="/foo">—作者：kelegai2008</router-link>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <i></i>
-                <div class="tip left">
-                  <span class="time">2019-02-17</span>
-                  <p class="bt">
-                    <router-link to="/foo">标题：（活动取消） B线4/21漫步山水间邂逅古堡访</router-link>
-                  </p>
-                  <p class="aut">
-                    <router-link to="/foo">—作者：kelegai2008</router-link>
+                    <router-link to="/travels">—作者：{{item.userId}}</router-link>
                   </p>
                 </div>
               </li>
@@ -345,104 +283,22 @@
         </div>
         <div class="p-content">
           <el-row :gutter="24">
-            <el-col :span="12">
+            <el-col :span="12" v-for="item in postList" :key="item.id">
               <div class="grid-content bg-purple">
                 <div class="p-c-1">
                   <div class="p-content-top">
                     <img
                       id="touxiangimg"
-                      src="http://avatar.8264.com/data/avatar/000/12/84/45_avatar_middle.jpg?ZB8R69?tempid=527"
+                      :src="item.image"
                       onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
                     >
                     <div class="p-content-top-info">
-                      <span>发布人：美少女</span>
-                      <a
-                        href="http://www.8264.com/wenda/35762.html"
-                        target="_blank"
-                      >新手请教，防潮垫时用传统的还是自充气的？</a>
+                      <span>发布人：{{item.userId}}</span>
+                      <router-link to="/post-show">{{item.title}}</router-link>
                     </div>
                   </div>
                   <div class="p-content-bottom">
-                    <div
-                      class="p-c-b-content"
-                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="12">
-              <div class="grid-content bg-purple">
-                <div class="p-c-1">
-                  <div class="p-content-top">
-                    <img
-                      id="touxiangimg"
-                      src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
-                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
-                    >
-                    <div class="p-content-top-info">
-                      <span>发布人：美少女</span>
-                      <a
-                        href="http://www.8264.com/wenda/35762.html"
-                        target="_blank"
-                      >新手请教，防潮垫时用传统的还是自充气的？</a>
-                    </div>
-                  </div>
-                  <div class="p-content-bottom">
-                    <div
-                      class="p-c-b-content"
-                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-          </el-row>
-          <el-row :gutter="24">
-            <el-col :span="12">
-              <div class="grid-content bg-purple">
-                <div class="p-c-1">
-                  <div class="p-content-top">
-                    <img
-                      id="touxiangimg"
-                      src="http://avatar.8264.com/data/avatar/034/24/36/11_avatar_middle.jpg?qCB02M?tempid=7787"
-                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
-                    >
-                    <div class="p-content-top-info">
-                      <span>发布人：美少女</span>
-                      <a
-                        href="http://www.8264.com/wenda/35762.html"
-                        target="_blank"
-                      >新手请教，防潮垫时用传统的还是自充气的？</a>
-                    </div>
-                  </div>
-                  <div class="p-content-bottom">
-                    <div
-                      class="p-c-b-content"
-                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
-                  </div>
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="12">
-              <div class="grid-content bg-purple">
-                <div class="p-c-1">
-                  <div class="p-content-top">
-                    <img
-                      id="touxiangimg"
-                      src="http://avatar.8264.com/data/avatar/034/60/39/98_avatar_middle.jpg?XBP1Pz?tempid=5603"
-                      onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
-                    >
-                    <div class="p-content-top-info">
-                      <span>发布人：美少女</span>
-                      <a
-                        href="http://www.8264.com/wenda/35762.html"
-                        target="_blank"
-                      >新手请教，防潮垫时用传统的还是自充气的？</a>
-                    </div>
-                  </div>
-                  <div class="p-content-bottom">
-                    <div
-                      class="p-c-b-content"
-                    >传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...</div>
+                    <div class="p-c-b-content">{{item.contents}}</div>
                   </div>
                 </div>
               </div>
@@ -487,7 +343,147 @@ export default {
         "3 低配太寒碜，各种需要加装，中配定价过高，又没啥特色",
         "4 然后各种机油门、经销商造反什么的幺蛾子。",
         "5 看五月销量，建议参考A4，打8折吧。",
-        "1 不是被郭德纲发现的，也不是一开始就收为徒弟。"
+        "6 不是被郭德纲发现的，也不是一开始就收为徒弟。",
+        "7 不是被郭德纲发现的，也不是一开始就收为徒弟。",
+        "8 不是被郭德纲发现的，也不是一开始就收为徒弟。",
+        "9 不是被郭德纲发现的，也不是一开始就收为徒弟。",
+        "10 不是被郭德纲发现的，也不是一开始就收为徒弟。"
+      ],
+      activityList: [
+        {
+          id: 0,
+          name: "A线： 惠州马鞍山",
+          date: "2019-10-10至2019-10-15",
+          viewCount: 100,
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/01/97_340_230.jpg"
+        },
+        {
+          id: 1,
+          name: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
+          viewCount: 200,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg"
+        },
+        {
+          id: 2,
+          name: " B线：漫步山水间邂逅古堡访古村穿越十里",
+          viewCount: 1400,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg"
+        },
+        {
+          id: 3,
+          name: "川西环线约伴",
+          viewCount: 100,
+          date: "2019-10-10至2019-10-15",
+          image:
+            "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg"
+        }
+      ],
+      hottravelsList: [
+        {
+          id: 0,
+          userId: "徒步用户01",
+          commentCount: 300,
+          viewCount: 2000,
+          image: "http://tubu100.com:8053/Files/Note/20180314115557280ef4.jpg",
+          title: "不忘初心，砥砺前行--2017五大连池徒步大会",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 1,
+          userId: "徒步用户02",
+          commentCount: 500,
+          viewCount: 1030,
+          image: "http://tubu100.com:8053/Files/Note/2018031415165195f847.jpg",
+          title: "2017徒步中国·全国徒步大会张掖山丹站",
+          intro:
+            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
+        },
+        {
+          id: 2,
+          userId: "徒步用户03",
+          commentCount: 300,
+          viewCount: 100,
+          image: "http://tubu100.com:8053/Files/Note/20180822120952a89a92.jpg",
+          title: " 2018华夏行· 探秘天堂秘境 九色甘南之旅第二期",
+          intro:
+            " 明月山，国家级风景名胜区、国家AAAA级旅游景区、国家森林公园、国家地质公园、国家自然遗产、中国温泉之乡，江西省新赣鄱十景之一-----明月山,位于中国优秀旅游城市宜春市城西南15公里处，规划面积104平方公里，属武功山东北端的山麓部分，是以奇峰险壑、温泉飞瀑、珍稀动植物和禅宗文化为主要特色，集生态游览、休闲度假、科普教育和宗教旅游为一体的山岳型风景名胜区 。"
+        }
+      ],
+      newtravelsList: [
+        {
+          id: 0,
+          userId: "徒步用户00",
+          title: "标题：（活动取消） B线4/21漫步山水间邂逅古堡访",
+          publishTime: "2019-10-10"
+        },
+        {
+          id: 1,
+          userId: "徒步用户01",
+          title: "不忘初心，砥砺前行--2017五大连池徒步大会",
+          publishTime: "2019-11-10"
+        },
+        {
+          id: 2,
+          userId: "徒步用户02",
+          title: " 2018徒步中国·全国徒步大会宝泉崖上太行站",
+          publishTime: "2019-12-10"
+        },
+        {
+          id: 3,
+          userId: "徒步用户03",
+          title: "徒步中国·全国徒步大会百色（乐业、凌云）站",
+          publishTime: "2019-12-12"
+        },
+        {
+          id: 4,
+          userId: "徒步用户04",
+          title: "华夏行·呼伦贝尔全国徒步大会",
+          publishTime: "2019-12-14"
+        }
+      ],
+      postList: [
+        {
+          id: 0,
+          image:
+            "http://avatar.8264.com/data/avatar/000/12/84/45_avatar_middle.jpg?ZB8R69?tempid=527",
+          userId: "徒步用户haha",
+          contents:
+            "传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...",
+          title: "新手请教，防潮垫时用传统的还是自充气的？"
+        },
+        {
+          id: 1,
+          image:
+            "http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411",
+          userId: "徒步用户xixi",
+          contents:
+            "央视网消息：如今的服装不仅款式多，功能性服装也火了起来，所谓功能性，就比如、吸湿、防水、速干、防细菌等等，听起来服装有了这些功能真是不错，但不久前上海市市场",
+          title: "这样的内衣、冲锋衣你敢穿？央视曝光那些可致癌功能性服装"
+        },
+        {
+          id: 2,
+          image:
+            "http://avatar.8264.com/data/avatar/034/24/36/11_avatar_middle.jpg?qCB02M?tempid=7787",
+          userId: "徒步用户hehe",
+          contents:
+            "可以先试干嘛不买？冷门也有好货，试穿试测是第一重要，其他都是狗屁!牌子再大有鸟用，照样不合脚的海了去我发现装备版对于东西合不合脚合不合...",
+          title: "问个常见的问题，鞋子臭了怎么办？"
+        },
+        {
+          id: 3,
+          image:
+            "http://avatar.8264.com/data/avatar/034/60/39/98_avatar_middle.jpg?XBP1Pz?tempid=5603",
+          userId: "徒步用户hoho",
+          contents:
+            "Wind2收到手才知道是Sample，——空间很大，高山帐，和我的SDTiros重复了Twinpeak也是收到后才知道是SalemanSampleMissingLink本来就是错买的...",
+          title: "大家都有几个帐篷？"
+        }
       ]
     };
   }
@@ -647,7 +643,7 @@ export default {
 .tr-content {
   display: flex;
 
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 15px;
   /* background-color: #f0f9eb; */
 }
@@ -769,6 +765,9 @@ export default {
   font-family: sans-serif;
   padding: 5px 10px;
 }
+/* .slideshow li:hover {
+  color: #75b628;
+} */
 .tip:after {
   content: "";
   position: absolute;
@@ -810,11 +809,16 @@ export default {
   margin: 0px;
   height: 20px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .bt a {
   font-size: 14px;
   color: #4c4b4b;
   font-weight: 500;
+}
+.bt a:hover {
+  font-weight: bold;
+  color: #75b628;
 }
 .aut {
   margin: 0px;
@@ -848,11 +852,14 @@ export default {
 }
 .ac-content-left img {
   height: 110px;
+  width: 170px;
 }
 .tr-b-rf-public {
   margin-top: 10px;
   margin-bottom: 5px;
   text-align: right;
+  font-size: 14px;
+  color: #919191;
 }
 .p-c-1 {
   margin: 20px 25px;
@@ -886,6 +893,9 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+/* .p-content-top-info a:hover {
+  box-shadow: 5px 5px 10px rgba(74, 174, 164, 0.6);
+} */
 .p-content-bottom {
   line-height: 22px;
   font-size: 14px;
@@ -910,8 +920,10 @@ export default {
 }
 .p-c-b-content {
   /* height: 66px; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .p-content-bottom::after {
   border-color: transparent transparent #eefaec transparent;
@@ -921,6 +933,68 @@ export default {
   content: "";
   left: 17px;
   position: absolute;
+}
+.t1 {
+  width: 100%;
+  color: #999;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  font-size: 13px;
+  margin: 10px 0;
+}
+.t2 {
+  padding-left: 37px;
+  color: #999;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+}
+.activity-title {
+  padding: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.adiv {
+  /* background-color: #f0f9eb;
+  color: #67c23a; */
+
+  text-align: left;
+}
+.ap {
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 21px;
+}
+.ac {
+  height: 26px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: -webkit-auto;
+  margin-left: 20px;
+}
+.adiv a {
+  font-size: 19px;
+  color: #31424e;
+  font-weight: bold;
+}
+.adiv a:hover {
+  text-decoration: underline;
+}
+.ac-content-right {
+  padding: 0 5px;
+}
+.image:hover {
+  background: #fff;
+  opacity: 0.5;
 }
 </style>
 
