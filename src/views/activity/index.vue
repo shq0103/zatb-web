@@ -162,7 +162,7 @@ export default {
       activityList: [
         {
           id: 0,
-          name: "A线： 惠州马鞍山",
+          name: "梨花顶山巅极地穿越",
           date: "2019-10-10",
           deadline: 0,
           organiger: "string",
