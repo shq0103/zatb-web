@@ -18,13 +18,14 @@
               </li>
             </ul>-->
             <div class="activity-content1">
-              <h2>第十三届平谷桃花节国际徒步大会即将隆重举行</h2>
+              <h2>{{showList.title}}</h2>
               <div class="title-intro">
-                <span>来源： 中国徒步网</span>
-                <span>作者： Admin</span>
-                <span>时间：2019-03-11 12:03:40</span>
+                <span>来源： {{showList.source}}</span>
+                <span>作者： {{showList.author}}</span>
+                <span>时间：{{showList.time}}</span>
                 <span>
-                  <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">223
+                  <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">
+                  {{showList.viewCount}}
                 </span>
               </div>
             </div>
@@ -82,14 +83,15 @@
           >点击排行</div>
         </div>
         <div class="search-content">
-          <div>
+          <div class="s-c-c">
             <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li v-for="(item,index) in clickList" :key="item.id">
+                <span
+                  class="num"
+                  :class="{top1:index===0,top2:index===1,top3:index===2}"
+                >{{item.id+1}}</span>
+                <router-link to="/knowledge-show">{{item.title}}</router-link>
+              </li>
             </ul>
           </div>
         </div>
@@ -112,7 +114,37 @@ export default {
         "foreColor",
         "emoticon",
         "image"
-      ]
+      ],
+      clickList: [
+        {
+          id: 0,
+          title: "户外运动，如何省钱、有效的入门及进阶？"
+        },
+        {
+          id: 1,
+          title: "攀登雪山，就必须了解这些基本知识！否则就是去找死"
+        },
+        {
+          id: 2,
+          title: "别再吃红景天了，应对高原反应的攻略在这里！"
+        },
+        {
+          id: 3,
+          title: "必看！在户外迷路和中暑怎么办？"
+        },
+        {
+          id: 4,
+          title: "野外生存时，学会走路很重要"
+        }
+      ],
+      showList: {
+        id: 0,
+        title: "第十三届平谷桃花节国际徒步大会即将隆重举行",
+        source: "中国徒步网",
+        author: "Admin",
+        time: "2019-03-11 12:03:40",
+        viewCount: "200"
+      }
     };
   }
 };
@@ -125,6 +157,17 @@ export default {
   width: 70%;
 
   margin-right: 20px;
+}
+.num {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background: #75b628;
+  margin-right: 12px;
 }
 .index-right {
   width: 30%;
@@ -208,6 +251,33 @@ export default {
   font-size: 20px;
   color: #454444;
   text-align: center;
+}
+.s-c-c li {
+  margin-top: 15px;
+  text-align: justify;
+  padding: 0 15px;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+}
+.s-c-c ul {
+  list-style: none;
+  padding: 0px;
+}
+.s-c-c a {
+  color: #000;
+}
+.s-c-c a:hover {
+  color: #75b628;
+}
+.top1 {
+  background-color: #ec5d55;
+}
+.top2 {
+  background-color: #ec8055;
+}
+.top3 {
+  background-color: #eeb954;
 }
 .ac-content-left {
   margin-right: 10px;

@@ -18,13 +18,14 @@
               </li>
             </ul>-->
             <div class="activity-content1">
-              <h2>第十三届平谷桃花节国际徒步大会即将隆重举行</h2>
+              <h2>{{showList.title}}</h2>
               <div class="title-intro">
-                <span>来源： 中国徒步网</span>
-                <span>作者： Admin</span>
-                <span>时间：2019-03-11 12:03:40</span>
+                <span>来源： {{showList.source}}</span>
+                <span>作者： {{showList.author}}</span>
+                <span>时间：{{showList.time}}</span>
                 <span>
-                  <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">223
+                  <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">
+                  {{showList.viewCount}}
                 </span>
               </div>
             </div>
@@ -33,7 +34,7 @@
         </div>
       </div>
       <div class="search-1">
-        <div class="search-title">
+        <div class="search-title1">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
@@ -65,7 +66,7 @@
         <div class="public-content">
           <el-row>
             <router-link to="/new">
-              <el-button class="public-button1" type="success">户外咨讯</el-button>
+              <el-button class="public-button1" type="success">户外</el-button>
             </router-link>
             <router-link to="/knowledge">
               <el-button class="public-button2" type="success">户外知识</el-button>
@@ -74,52 +75,41 @@
         </div>
       </div>
       <div class="search-1">
-        <div class="search-title">
+        <div class="search-title1">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
           >热门推荐</div>
         </div>
-        <div class="search-content">
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
+        <div class="search-content" v-for="(item,index) in newList" :key="item.id">
+          <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
+            <div class="tr-b-rf-img">
+              <div class="tr-b-rf-img1">
+                <img :src="item.image" style="heigh:120px;width:300px;">
+              </div>
             </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
+            <div class="tr-b-rf-title">
+              <router-link to="/new-show">
+                <p class="aname1">{{item.title}}</p>
+              </router-link>
             </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div class="search-content-1">
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
-          </div>
-          <div>
-            <div class="ac-content-right4-1">
-              <img src="http://tubu100.com:8053/Files/Article/20180508155847035c4a.jpg">
-            </div>
-            <div class="ac-content-right4-2-1">
-              <div>ddddddddd</div>
-            </div>
+
+            <!-- <div class="tr-b-rf-public">
+              <i :style="{float:'left'}">
+                <img
+                  src="../../assets/个人1.png"
+                  style="height: 16px; margin-right:3px;margin-bottom: -2px;"
+                >###
+              </i>
+              <img
+                src="../../assets/评论1.png"
+                style="height: 20px; margin-bottom: -3px;margin-right:3px;"
+              >3700
+              <img
+                src="../../assets/浏览.png"
+                style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
+              >300
+            </div>-->
           </div>
         </div>
       </div>
@@ -141,7 +131,35 @@ export default {
         "foreColor",
         "emoticon",
         "image"
-      ]
+      ],
+      newList: [
+        {
+          id: 0,
+          image:
+            "http://tubu100.com:8053/Files/Article/20180524152006491eff.jpg",
+          title: "2018全国徒步大会5•19联动日激情“走起”"
+        },
+        {
+          id: 1,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018052311445301f787.jpg",
+          title: "全国徒步大会定制款保险说明"
+        },
+        {
+          id: 2,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018050712260650cf42.jpg",
+          title: " 2018徒步中国•全国徒步大会百色“地心之旅”（乐业、凌云）站举办"
+        }
+      ],
+      showList: {
+        id: 0,
+        title: "第十三届平谷桃花节国际徒步大会即将隆重举行",
+        source: "中国徒步网",
+        author: "Admin",
+        time: "2019-03-11 12:03:40",
+        viewCount: "200"
+      }
     };
   }
 };
@@ -154,6 +172,12 @@ export default {
   width: 70%;
 
   margin-right: 20px;
+}
+.search-title1 {
+  height: 30px;
+  margin-top: 15px;
+  border-bottom: 1px solid #dedbdb;
+  padding-bottom: 8px;
 }
 .index-right {
   width: 30%;
@@ -170,6 +194,9 @@ export default {
 }
 .activity {
   margin: 0 40px;
+}
+.borderNone {
+  border: none !important;
 }
 .public-1 {
   border: 1px solid #dedbdb;
@@ -198,8 +225,7 @@ export default {
 }
 
 .search-content {
-  padding: 12px;
-  border-top: 1px solid #dedbdb;
+  padding: 0 12px 0px 12px;
   margin-top: 8px;
 }
 .public-content {
@@ -347,6 +373,22 @@ ul {
 }
 .el-form-item__content {
   margin: 0px !important;
+}
+.tr-b-rf-bottom {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 0 10px 10px 10px;
+}
+.aname1 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+.tr-b-rf-img {
+  margin-top: 15px;
+  /* padding-right: 5px; */
 }
 </style>
 <style>

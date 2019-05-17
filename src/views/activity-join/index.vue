@@ -3,7 +3,7 @@
     <el-row :gutter="24">
       <el-col :span="16">
         <div class="event_01">
-          <p>目前该赛程还有183个名额可报，请尽快完成预定。</p>
+          <p>目前该赛程还有 {{acPublic.quota-acPublic.signin}}个名额可报，请尽快完成预定。</p>
           <p>请填写真实有效的信息，请放心，您的个人信息其他参与者无法看到</p>
         </div>
         <div class="a-j-lf-title">
@@ -69,14 +69,14 @@
       <el-col :span="8">
         <div class="a-j-rf">
           <div class="event_right">
-            <p class="p1">2019徒步中国•环青海湖全国徒步大会</p>
-            <p class="p2">长线</p>
-            <p class="p2">余 183人</p>
-            <p class="p2">出发：桂林</p>
-            <p class="p2">2019年08月01日-2019年08月08日</p>
+            <p class="p1">{{acPublic.name}}</p>
+            <p class="p2">{{acPublic.theme}}</p>
+            <p class="p2">已报名{{acPublic.signin}}人</p>
+            <p class="p2">出发：{{acPublic.startPlace}}</p>
+            <p class="p2">{{acPublic.date}}</p>
             <ul>
               <li class="t1">活动费用</li>
-              <li class="t2">￥1818.00</li>
+              <li class="t2">￥{{acPublic.price}}</li>
               <li class="t3">
                 <span id="order_count">1</span>人
               </li>
@@ -87,6 +87,24 @@
     </el-row>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      acPublic: {
+        id: 0,
+        name: "梨花顶山巅极地穿越  ",
+        date: "2019年08月01日 ~ 2019年08月05日",
+        startPlace: "桂林",
+        price: 100,
+        theme: "长线",
+        quota: 200,
+        signin: 150
+      }
+    };
+  }
+};
+</script>
 <style scoped>
 .a-j-lf-content {
   background: #fff;

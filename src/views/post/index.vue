@@ -77,242 +77,38 @@
         </div>
       </div>
       <div class="post-bottom-content">
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc">
-          <el-col :span="12" style="border-right:2px dotted #ccc;">
+        <el-row :gutter="24" style="border-bottom:2px dotted #ccc;">
+          <el-col
+            :span="12"
+            style="border-right:2px dotted #ccc;margin:5px;///"
+            v-for="item in postList"
+            :key="item.id"
+          >
             <el-row :gutter="24">
               <el-col :span="4">
                 <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
+                  <img :src="item.image">
                 </div>
               </el-col>
               <el-col :span="20">
                 <div class="post-bottom-content-rf">
                   <router-link to="/post-show">
                     <div class="ac-content-right1">
-                      <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                      <el-alert
+                        class="new-alert"
+                        :title="item.title"
+                        type="success"
+                        :closable="false"
+                      ></el-alert>
                     </div>
                   </router-link>
                   <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="12">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc">
-          <el-col :span="12" style="border-right:2px dotted #ccc;">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="12">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc">
-          <el-col :span="12" style="border-right:2px dotted #ccc">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="12">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc">
-          <el-col :span="12" style="border-right:2px dotted #ccc;">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="12">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc">
-          <el-col :span="12" style="border-right:2px dotted #ccc">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
-                  </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="12">
-            <el-row :gutter="24">
-              <el-col :span="4">
-                <div class="post-bottom-content-lf">
-                  <img src="https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small">
-                </div>
-              </el-col>
-              <el-col :span="20">
-                <div class="post-bottom-content-rf">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                  <div class="new-right2">
-                    <i>
-                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                    </i>
-                    <i class="el-icon-time">2019-4-21 18:24</i>
-                    <i class="el-icon-view" style="padding-left:20px">300</i>
+                    <span style="font-size:13px;">
+                      <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">
+                      {{item.userId}}
+                    </span>
+                    <i class="el-icon-time">{{item.date}}</i>
+                    <i class="el-icon-view" style="padding-left:20px">{{item.viewCount}}</i>
                   </div>
                 </div>
               </el-col>
@@ -326,6 +122,52 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      postList: [
+        {
+          id: 0,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 1,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 2,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 3,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        }
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .post-top {
   /* display: flex; */
@@ -454,7 +296,7 @@
 .new-right2 {
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 15px;
 }
 .post-bottom-title {
