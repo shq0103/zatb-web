@@ -77,8 +77,11 @@
         <div class="search-content">
           <div class="s-c-c">
             <ul>
-              <li v-for="item in clickList" :key="item.id">
-                <span class="num">{{item.id+1}}</span>
+              <li v-for="(item,index) in clickList" :key="item.id">
+                <span
+                  class="num"
+                  :class="{top1:index===0,top2:index===1,top3:index===2}"
+                >{{item.id+1}}</span>
                 <router-link to="/knowledge-show">{{item.title}}</router-link>
               </li>
             </ul>
@@ -385,6 +388,7 @@ export default {
 }
 .know-c-b-lf:hover img {
   transform: scale(1.1);
+  cursor: pointer;
 }
 .know-c-b-lf {
   width: 30%;
@@ -453,5 +457,14 @@ export default {
   font-weight: bold;
   text-align: -webkit-auto;
   margin-left: 20px;
+}
+.top1 {
+  background-color: #ec5d55;
+}
+.top2 {
+  background-color: #ec8055;
+}
+.top3 {
+  background-color: #eeb954;
 }
 </style>

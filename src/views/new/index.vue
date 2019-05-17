@@ -61,8 +61,8 @@
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
           >精彩路线</div>
         </div>
-        <div class="search-content" v-for="item in newList" :key="item.id">
-          <div class="tr-b-rf-bottom">
+        <div class="search-content" v-for="(item,index) in newList" :key="item.id">
+          <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
                 <img :src="item.image" style="heigh:120px;width:300px;">
@@ -343,6 +343,9 @@ export default {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
   padding: 0 10px 10px 10px;
+}
+.borderNone {
+  border: none !important;
 }
 .tr-b-rf-img {
   margin-top: 15px;

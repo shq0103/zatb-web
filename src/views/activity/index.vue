@@ -43,7 +43,7 @@
             </div>
             <div class="ac-content-right3">
               <div class="ac-content-right3-1">
-                <span style="color: #000;font-size: 14px;">{{item.price}}</span>
+                <span style="color: #000;font-size: 14px;">{{item.price}}/人</span>
                 <br>
                 <span style="font-size: 10px;color:#888;">活动费用</span>
               </div>
@@ -101,12 +101,12 @@
               <el-date-picker type="date" placeholder="截止日期" style="width: 100%;"></el-date-picker>
               <!-- </el-col> -->
             </el-form-item>
-            <el-form-item label="活动区域">
+            <!-- <el-form-item label="活动区域">
               <el-select placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
               </el-select>
-            </el-form-item>
+            </el-form-item>-->
 
             <el-form-item label="活动强度">
               <el-select placeholder="请选择活动强度">

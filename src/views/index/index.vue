@@ -202,7 +202,12 @@
                 </div>
               </div>
             </div>-->
-            <div class="activity-content2" v-for="item in hottravelsList" :key="item.id">
+            <div
+              class="activity-content2"
+              v-for="(item,index) in hottravelsList"
+              :class="{'borderNone':index+1===hottravelsList.length}"
+              :key="item.id"
+            >
               <div class="ac-content-left">
                 <img :src="item.image">
               </div>
@@ -1016,6 +1021,9 @@ export default {
   width: 100%;
   height: 2px;
   background-color: #ccc;
+}
+.borderNone {
+  border: none !important;
 }
 </style>
 
