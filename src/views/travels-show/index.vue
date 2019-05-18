@@ -40,7 +40,7 @@
         <el-row :gutter="24">
           <el-col :span="13">
             <div class="a-c-lf">
-              <MapShow/>
+              <MapShow :point-list="myPointList" height="500px"/>
             </div>
           </el-col>
           <el-col :span="11">
@@ -267,6 +267,40 @@ export default {
           lon: 114.038064697,
           content: "",
           commentCount: 300
+        }
+      ],
+      myPointList: [
+        {
+          lng: 116.404,
+          lat: 39.915,
+          show: false,
+          text: "海琴小机灵鬼",
+          src:
+            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
+        },
+        {
+          lng: 116.405,
+          lat: 39.92,
+          show: false,
+          text: "海琴小仙女呀",
+          src:
+            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
+        },
+        {
+          lng: 116.423493,
+          lat: 39.907445,
+          show: false,
+          text: "海琴超漂亮呀",
+          src:
+            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
+        },
+        {
+          lng: 116.424493,
+          lat: 39.917445,
+          show: false,
+          text: "海琴美美哒",
+          src:
+            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
         }
       ]
     };
