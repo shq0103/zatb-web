@@ -492,26 +492,6 @@ export default {
   font-size: 14px;
   background: #75b628;
 }
-</style>
-<style>
-.el-tabs__active-bar {
-  background-color: #75b628;
-}
-.el-tabs__item.is-active {
-  color: #75b628;
-}
-.el-tabs__item:hover {
-  color: #75b628;
-}
-.el-tabs__nav-wrap::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #ccc;
-}
 .aname {
   font-weight: 700;
   font-size: 16px;
@@ -535,5 +515,25 @@ export default {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-align: center;
+}
+</style>
+<style>
+.el-tabs__active-bar {
+  background-color: #75b628;
+}
+.el-tabs__item.is-active {
+  color: #75b628;
+}
+.el-tabs__item:hover {
+  color: #75b628;
+}
+.el-tabs__nav-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
 }
 </style>

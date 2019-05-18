@@ -467,8 +467,6 @@ export default {
   /* color: #67c23a; */
 }
 .adiv {
-  /* background-color: #f0f9eb;
-  color: #67c23a; */
   padding: 8px 10px;
   text-align: left;
 }

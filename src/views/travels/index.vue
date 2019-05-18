@@ -435,9 +435,6 @@ tr-b-rf {
   border-radius: 5px;
 }
 .adiv {
-  /* background-color: #f0f9eb;
-  color: #67c23a; */
-
   text-align: left;
 }
 .ap {
@@ -470,6 +467,7 @@ tr-b-rf {
 .adiv a {
   font-size: 19px;
   color: #31424e;
+
   font-weight: bold;
 }
 </style>

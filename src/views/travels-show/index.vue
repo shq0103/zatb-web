@@ -10,26 +10,30 @@
       </li>
       <li>></li>
       <li>
-        <a href="/">.....</a>
+        <a href="/">{{travlesList.title}}</a>
       </li>
     </ul>
     <div class="activity_info">
       <div class="a-i-title">
-        <h3 class="activity_title">穿越林海雪原秘境 体验最地道的东北</h3>
-        <b class="activity_distance">长线</b>
+        <h3 class="activity_title">{{travlesList.title}}</h3>
+        <b class="activity_distance">{{travlesList.length}}</b>
       </div>
       <ul class="activity_text" style="display:flex;padding:0px;">
         <li>
-          <img src="../../assets/写作者.png" style="height:15px;margin:-3px 2px -2px 0;">美少女战士
+          <img src="../../assets/写作者.png" style="height:15px;margin:-3px 2px -2px 0;">
+          {{travlesList.userId}}
         </li>
         <li>
-          <img src="../../assets/路书时间.png" style="height:16px;margin:-3px 3px -2px 0;">2019/5/5
+          <img src="../../assets/路书时间.png" style="height:16px;margin:-3px 3px -2px 0;">
+          {{travlesList.time}}
         </li>
         <li>
-          <img src="../../assets/咨讯浏览.png" style="height:21px;margin:-3px 2px -5px 0;">223人浏览
+          <img src="../../assets/咨讯浏览.png" style="height:21px;margin:-3px 2px -5px 0;">
+          {{travlesList.viewCount}}人浏览
         </li>
         <li>
-          <img src="../../assets/路书评论.png" style="height:15px;margin:-3px 2px -3px 0;">223人评论
+          <img src="../../assets/路书评论.png" style="height:15px;margin:-3px 2px -3px 0;">
+          {{travlesList.commentCount}}人评论
         </li>
       </ul>
       <div class="a-i-content">
@@ -44,7 +48,8 @@
                   <el-col :span="12">
                     <div class="grid-content bg-purple">
                       <img src="../../assets/长度.png" style="height:20px;margin:-3px 5px -5px 0;">总里程
-                      <span>/</span>100公里
+                      <span>/</span>
+                      {{travlesList.distance}}公里
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
@@ -53,7 +58,8 @@
                         src="../../assets/耗时.png"
                         style="height:19px;margin:-3px 5px -5px -50px;"
                       >总耗时
-                      <span>/</span>7小时
+                      <span>/</span>
+                      {{travlesList.takeTime}}小时
                     </div>
                   </el-col>
                 </el-row>
@@ -65,13 +71,15 @@
                         src="../../assets/海拔高度.png"
                         style="height:18px;margin:-3px 4px -5px 8px;"
                       >平均海拔
-                      <span>/</span>2000米
+                      <span>/</span>
+                      {{travlesList.altitude}}米
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
                     <div class="grid-content bg-purple">
                       <img src="../../assets/配速.png" style="height:21px;margin:-3px 3px -5px -2px;">平均配速
-                      <span>/</span>2公里/小时
+                      <span>/</span>
+                      {{travlesList.speed}}公里/小时
                     </div>
                   </el-col>
                 </el-row>
@@ -79,7 +87,7 @@
               <div class="a-c-rf-bottom">
                 <el-divider>摘要</el-divider>
                 <div class="a-c-rf-b-content">
-                  <p>上一次爬大西山已经是一个月之前的事了，听说大西山的玫瑰花在5月底-6月初开放，于是再次回到了阔别一段时间的大西山。这次是抱着看玫瑰花的念头来的，因此走的比较慢，不过这次行程玫瑰花反倒不是重点了，因为其他野花开的比玫瑰花多得多。整条路线较晒，强度一般。个人认为，玫瑰花的最佳观赏区在阳台山主峰周边，不在本次所走区域。这次看到玫瑰花还未完全开放，估计要再等一星期。线路轨迹见http://www.foooooot.com/trip/915493/，涧沟村-妙儿洼段走错路勿参考，但是走这段路有一个小收获（稍后介绍）。下面先上轨迹截图，然后介绍详细行程。</p>
+                  <p>{{travlesList.intro}}</p>
                 </div>
               </div>
             </div>
@@ -91,10 +99,10 @@
       <el-row :gutter="20">
         <el-col :span="17">
           <div class="a-c-lf-1">
-            <div class="a-c-lf-content">
+            <div class="a-c-lf-content" v-for="item in pointList" :key="item.id">
               <el-card class="box-card">
                 <div slot="header" class="clearfix">
-                  <span>打卡点名称</span>
+                  <span>{{item.name}}</span>
                   <el-button
                     style="float: right; padding: 1px 0"
                     type="text"
@@ -115,13 +123,17 @@
                     </el-carousel-item>
                   </el-carousel>
                   <div class="new-right2">
-                    <i class="el-icon-place">纬度:25.9079359516, 经度:114.038064697</i>
-                    <i class="el-icon-chat-line-square" style="padding-left:20px">300</i>
+                    <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lon}}</i>
+                    <i
+                      class="el-icon-chat-line-square"
+                      style="padding-left:20px"
+                    >{{item.commentCount}}</i>
                   </div>
                   <div>
                     <span style="text-indent: 2.5em;">
-                      <p>风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。</p>
-                      <p>我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。</p>
+                      <p
+                        style="margin-top: 20px;line-height: 25px;text-align:justify;"
+                      >{{item.content}}</p>
                     </span>
                   </div>
                 </div>
@@ -218,7 +230,41 @@ export default {
   data() {
     return {
       isCollapse: false,
-      dialogVisible: false
+      dialogVisible: false,
+      travlesList: {
+        id: 0,
+        intro:
+          "风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。",
+        title: "穿越林海雪原秘境 体验最地道的东北",
+        altitude: 2000,
+        speed: 2,
+        distance: 100,
+        takeTime: 7,
+        time: "2019/5/5",
+        userId: "美少女战士",
+        length: "长线",
+        viewCount: 223,
+        commentCount: 223
+      },
+      pointList: [
+        {
+          id: 0,
+          name: "打卡点1",
+          lat: 25.9079359516,
+          lon: 114.038064697,
+          content:
+            "风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。",
+          commentCount: 300
+        },
+        {
+          id: 1,
+          name: "打卡点1",
+          lat: 25.9079359516,
+          lon: 114.038064697,
+          content: "",
+          commentCount: 300
+        }
+      ]
     };
   },
   methods: {
@@ -487,7 +533,7 @@ ul {
 }
 .a-c-rf-b-content p {
   text-indent: 2em;
-  text-align: justify0;
+  text-align: justify;
 }
 
 .mMenu {
@@ -498,6 +544,7 @@ ul {
 }
 .a-c-lf-content {
   text-align: left;
+  margin-bottom: 20px;
 }
 .a-c-1 {
   padding: 0px 10px;
@@ -517,7 +564,7 @@ ul {
   margin: 10px 0;
 }
 .new-right2 {
-  margin-top: 10px;
+  margin-top: 13px;
   display: flex;
   justify-content: space-between;
   font-size: 15px;

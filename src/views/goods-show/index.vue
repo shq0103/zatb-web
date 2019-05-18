@@ -40,33 +40,33 @@
       </div>
       <div class="g-intro-rf">
         <div class="g-intro-rf-info">
-          <h1 class="title">blooming flower登山杖</h1>
+          <h1 class="title">{{goodsList.title}}</h1>
           <ul class="price-info">
             <li class="price-block">
               <span class="para">转&nbsp;&nbsp;卖&nbsp;&nbsp;价：</span>
               <span class="price-big">
                 <b>¥</b>
-                <em>21.00</em>
+                <em>{{goodsList.sPrice}}</em>
               </span>
             </li>
             <li class="price-block">
               <span class="para">原 价：</span>
               <b>¥</b>
-              <span>98.00</span>
+              <span>{{goodsList.price}}</span>
             </li>
           </ul>
           <ul class="idle-info">
             <li>
               <span class="para">成 色：</span>
-              <i>八成新</i>
+              <i>{{goodsList.excent}}</i>
             </li>
             <li>
               <span class="para">所&nbsp;&nbsp;在&nbsp;&nbsp;地：</span>
-              <em>广西桂林 七星区</em>
+              <em>{{goodsList.place}}</em>
             </li>
             <li class="contact">
               <span class="para">联系方式：</span>
-              <em>100&nbsp;1000&nbsp;1000</em>
+              <em>{{goodsList.num}}</em>
             </li>
             <li class="contact">
               <span class="para">交易方式：</span>
@@ -86,10 +86,10 @@
             <div class="a-c-lf-title">
               <ul class="tabbar">
                 <li class="tabbar-1">
-                  <a href="#position1;">介绍</a>
+                  <a href="#position1">介绍</a>
                 </li>
                 <li class="tabbar-2">
-                  <a href="#position2;">留言</a>
+                  <a href="#position2" class="po-active">留言</a>
                 </li>
               </ul>
             </div>
@@ -102,7 +102,7 @@
                     </a>
                   </h3>
                 </div>
-                <div class="attr-content">22</div>
+                <div class="attr-content">{{goodsList.intro}}</div>
               </div>
               <div class="a-c-l-c-2">
                 <div class="attr-title">
@@ -113,17 +113,17 @@
                   </a>
                 </div>
                 <div class="attr-content">
-                  <div class="attr-content-info">33</div>
+                  <div class="attr-content-info">{{goodsList.comment}}</div>
                   <div class="attr-content-commend">
                     <el-form ref="form" label-width="80px">
                       <el-form-item label="进行点评">
                         <el-input type="textarea"></el-input>
                       </el-form-item>
                     </el-form>
-                    <div class="block">
+                    <!-- <div class="block">
                       <span class="demonstration">星级评价</span>
                       <el-rate v-model="value2" :colors="colors" show-text></el-rate>
-                    </div>
+                    </div>-->
                     <div class="block1">
                       <el-button type="success">提交评价</el-button>
                     </div>
@@ -137,68 +137,19 @@
           <div class="a-c-rf">
             <div class="a-c-rf-1">
               <div class="a-c-rf-2-title">卖家的其他闲趣</div>
-              <div class="a-c-rf-2-other">
-                <div class="a-c-rf-img">
-                  <img
-                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
-                  >
+              <div class="a-c-rf-2-other" v-for="item in otherList" :key="item.id">
+                <div class="a-c-rf-img" style="width:80px;height:80px;">
+                  <img :src="item.image">
                 </div>
                 <div class="a-c-rf-content">
                   <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
                   <p>
-                    <a
-                      href="//2.taobao.com/item.htm?id=593596487343"
-                      target="_blank"
-                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
+                    <a href="//2.taobao.com/item.htm?id=593596487343" target="_blank">{{item.title}}</a>
                   </p>
                   <p class="price-block">
                     <span class="price">
                       <b>¥</b>
-                      <em>35.00</em>
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div class="a-c-rf-2-other">
-                <div class="a-c-rf-img">
-                  <img
-                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
-                  >
-                </div>
-                <div class="a-c-rf-content">
-                  <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
-                  <p>
-                    <a
-                      href="//2.taobao.com/item.htm?id=593596487343"
-                      target="_blank"
-                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
-                  </p>
-                  <p class="price-block">
-                    <span class="price">
-                      <b>¥</b>
-                      <em>35.00</em>
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div class="a-c-rf-2-other">
-                <div class="a-c-rf-img">
-                  <img
-                    src="//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg"
-                  >
-                </div>
-                <div class="a-c-rf-content">
-                  <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
-                  <p>
-                    <a
-                      href="//2.taobao.com/item.htm?id=593596487343"
-                      target="_blank"
-                    >新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上</a>
-                  </p>
-                  <p class="price-block">
-                    <span class="price">
-                      <b>¥</b>
-                      <em>35.00</em>
+                      <em>{{item.price}}</em>
                     </span>
                   </p>
                 </div>
@@ -215,6 +166,54 @@ import PicZoom from "vue-piczoom";
 export default {
   components: {
     PicZoom
+  },
+  data() {
+    return {
+      goodsList: {
+        id: 0,
+        userId: "徒步用户01",
+        viewCount: 100,
+        commentCount: 20,
+        title: "blooming flower登山杖",
+        price: 21.0,
+        sPrice: 98.0,
+        excent: "八成新",
+        place: "广西桂林 七星区",
+        num: "13838383388",
+        intro: "11",
+        comment: "22"
+      },
+      otherList: [
+        {
+          id: 0,
+          image:
+            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
+          price: 35.0,
+          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+        },
+        {
+          id: 1,
+          image:
+            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
+          price: 35.0,
+          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+        },
+        {
+          id: 2,
+          image:
+            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
+          price: 35.0,
+          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+        },
+        {
+          id: 3,
+          image:
+            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
+          price: 35.0,
+          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+        }
+      ]
+    };
   }
 };
 </script>
@@ -560,6 +559,12 @@ ul {
   margin-bottom: -5px;
   margin-right: 5px;
 }
+
+.po-active:hover {
+  background-color: #fff;
+  border-top: 2px solid #75b628;
+  margin-left: 5px;
+}
 .attr-title h3 {
   text-shadow: 0 2px 0 rgba(98, 133, 161, 0.2);
   color: #7594ac;
@@ -640,3 +645,9 @@ ul {
   background-color: #d3dce6;
 }
 </style>
+<style>
+.mouse-cover {
+  background-color: unset !important;
+}
+</style>
+

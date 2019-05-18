@@ -5,32 +5,32 @@
         <div class="us-center-left-top1">
           <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
           <h3 style="font-size: 25px;
-color: #FFF;margin:5px 0px;">徒步用户</h3>
+color: #FFF;margin:5px 0px;">{{centerList.userId}}</h3>
           <b style="font-weight: normal;
-color: #FFF;">暂无所属俱乐部</b>
+color: #FFF;">{{centerList.place}}</b>
           <ul>
             <li>
-              <span>0</span>
+              <span>{{centerList.trCount}}</span>
               <p>路书</p>
             </li>
             <li>
-              <span>0</span>
+              <span>{{centerList.acCount}}</span>
               <p>活动</p>
             </li>
             <li>
-              <span>0</span>
+              <span>{{centerList.postCount}}</span>
               <p>帖子</p>
             </li>
             <li>
-              <span>0</span>
+              <span>{{centerList.goodsCount}}</span>
               <p>闲趣</p>
             </li>
             <li>
-              <span>0</span>
+              <span>{{centerList.pointCount}}</span>
               <p>关注</p>
             </li>
             <li>
-              <span>0</span>
+              <span>{{centerList.fans}}</span>
               <p>粉丝</p>
             </li>
           </ul>
@@ -147,7 +147,18 @@ export default {
   },
   data() {
     return {
-      actived: "usersign"
+      actived: "usersign",
+      centerList: {
+        id: 0,
+        userId: "徒步用户01",
+        trCount: 10,
+        acCount: 30,
+        postCount: 10,
+        goodsCount: 3,
+        pointCount: 4,
+        fans: 10,
+        place: "桂林"
+      }
     };
   },
   methods: {
