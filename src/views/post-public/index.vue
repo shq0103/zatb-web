@@ -35,8 +35,7 @@
               </el-col>
             </el-form-item>
             <el-form-item label="内容">
-              <el-input v-model="postForm.contents" type="textarea"></el-input>
-              <!-- <TextEditor v-model="postForm.contents" @on-change="change" :menu="commentMenu"/> -->
+              <QuillEditor @change="changeContent"/>
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发布帖子</el-button>
@@ -48,22 +47,15 @@
   </div>
 </template>
 <script>
-import TextEditor from "@/components/TextEditor";
+import QuillEditor from "@/components/QuillEditor";
 import { publishPost } from "@/api/login";
+
 export default {
   components: {
-    TextEditor
+    QuillEditor
   },
   data() {
     return {
-      commentMenu: [
-        "bold",
-        "fontSize",
-        "fontName",
-        "foreColor",
-        "emoticon",
-        "image"
-      ],
       postForm: {
         title: "",
         contents: "",
@@ -73,6 +65,7 @@ export default {
   },
   methods: {
     onSubmit: function() {
+      console.log(this.postForm);
       publishPost(this.postForm).then(resp => {
         if (resp.data.code === 0) {
           this.$message({
@@ -86,6 +79,9 @@ export default {
           });
         }
       });
+    },
+    changeContent: function(val) {
+      this.postForm.contents = val;
     }
   }
 };

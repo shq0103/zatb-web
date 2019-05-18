@@ -77,14 +77,18 @@
         </div>
       </div>
       <div class="post-bottom-content">
-        <el-row :gutter="24" style="border-bottom:2px dotted #ccc;">
+        <el-row :gutter="40">
           <el-col
             :span="12"
-            style="border-right:2px dotted #ccc;margin:5px;///"
-            v-for="item in postList"
+            v-for="(item,index) in postList"
             :key="item.id"
+            style="padding: 0px;margin-bottom: 20px;border-bottom:2px dotted #ccc;"
           >
-            <el-row :gutter="24">
+            <el-row
+              :gutter="20"
+              :class="{borderNone:index%2==1}"
+              style="margin-bottom: 20px;border-right:2px dotted #ccc;"
+            >
               <el-col :span="4">
                 <div class="post-bottom-content-lf">
                   <img :src="item.image">
@@ -103,7 +107,7 @@
                     </div>
                   </router-link>
                   <div class="new-right2">
-                    <span style="font-size:13px;">
+                    <span style="font-size:13px;float: left;">
                       <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">
                       {{item.userId}}
                     </span>
@@ -156,6 +160,42 @@ export default {
         },
         {
           id: 3,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 4,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 5,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 6,
+          image:
+            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
+          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+          date: "2019-4-21 18:24",
+          viewCount: 100,
+          userId: "徒步用户01"
+        },
+        {
+          id: 7,
           image:
             "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
           title: "“花田赏景•绿色生态”徒步大会照片征集啦",
@@ -295,8 +335,7 @@ export default {
 }
 .new-right2 {
   margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
+  text-align: right;
   font-size: 15px;
 }
 .post-bottom-title {
@@ -367,11 +406,13 @@ export default {
 .el-icon-edit-outline {
   padding-right: 5px;
 }
-.el-row {
+/* .el-row {
   margin: 0 !important;
-  padding: 20px 0px !important;
-}
+} */
 .el-col-6 {
   padding: 0 5px !important;
+}
+.borderNone {
+  border-right: none !important;
 }
 </style>

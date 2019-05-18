@@ -46,7 +46,7 @@
             <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
             <el-form-item>
               <!-- <el-input type="textarea"></el-input> -->
-              <TextEditor :menu="commentMenu"/>
+              <QuillEditor/>
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="onSubmit">发表</el-button>
@@ -100,10 +100,10 @@
   </div>
 </template>
 <script>
-import TextEditor from "@/components/TextEditor";
+import QuillEditor from "@/components/QuillEditor";
 export default {
   components: {
-    TextEditor
+    QuillEditor
   },
   data() {
     return {

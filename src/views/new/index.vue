@@ -65,7 +65,7 @@
           <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
-                <img :src="item.image" style="heigh:120px;width:300px;">
+                <img :src="item.image" style="heigh:100%;width: 85%;">
               </div>
             </div>
             <div class="tr-b-rf-title">
@@ -404,7 +404,9 @@ a:hover {
 a {
   color: #000;
 }
-/* .tr-b-rf-bottom:last-child {
-  border: none;
-} */
+.tr-b-rf-img1 {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
 </style>
