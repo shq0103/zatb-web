@@ -59,4 +59,7 @@ body {
 a {
   text-decoration: none;
 }
+a:visited {
+  color: #000000;
+}
 </style>

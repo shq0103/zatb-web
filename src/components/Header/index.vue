@@ -23,7 +23,7 @@
     </el-menu>
 
     <el-input
-      :style="{ width: '250px' }"
+      :style="{ width: '250px',marginLeft:'10px'}"
       placeholder="搜索目的地/活动"
       class="input-with-select"
       size="medium"

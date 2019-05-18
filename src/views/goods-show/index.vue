@@ -30,7 +30,11 @@
       <div class="g-intro-lf">
         <el-carousel height="350px" direction="vertical" :autoplay="false">
           <el-carousel-item v-for="item in 3" :key="item">
-            <h3 class="medium">{{ item }}</h3>
+            <!-- <h3 class="medium">{{ item }}</h3> -->
+            <pic-zoom
+              url="http://c1.zdb.io/files/recommend/2017/06/08/0/0438a7dd7cc698304dad0d5756004d0d.jpg"
+              :scale="3"
+            ></pic-zoom>
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -206,6 +210,15 @@
     </div>
   </div>
 </template>
+<script>
+import PicZoom from "vue-piczoom";
+export default {
+  components: {
+    PicZoom
+  }
+};
+</script>
+
 <style scoped>
 .user-info {
   flex-direction: row;

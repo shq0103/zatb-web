@@ -67,7 +67,7 @@
         <div class="public-content">
           <el-row>
             <router-link to="/new">
-              <el-button class="public-button1" type="success">户外咨讯</el-button>
+              <el-button class="public-button1" type="success">徒步新闻</el-button>
             </router-link>
             <router-link to="/knowledge">
               <el-button class="public-button2" type="success">户外知识</el-button>

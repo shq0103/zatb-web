@@ -19,17 +19,7 @@
                 <el-popover ref="popover2" placement="right" width="200" trigger="hover">
                   <div>
                     <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li v-for="item in middleList" :key="item.id">{{item.title}}</li>
                     </ul>
                   </div>
                 </el-popover>
@@ -39,15 +29,7 @@
                 <el-popover ref="popover3" placement="right" width="200" trigger="hover">
                   <div>
                     <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li v-for="item in longList" :key="item.id">{{item.title}}</li>
                     </ul>
                   </div>
                 </el-popover>
@@ -57,16 +39,7 @@
                 <el-popover ref="popover4" placement="right" width="200" trigger="hover">
                   <div>
                     <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li v-for="item in allList" :key="item.id">{{item.title}}</li>
                     </ul>
                   </div>
                 </el-popover>
@@ -87,7 +60,10 @@
           <div class="travels-top-rf">
             <el-carousel height="320px">
               <el-carousel-item v-for="item in 4" :key="item">
-                <img src="../../assets/1.jpg" style="height:320px;">
+                <img
+                  src="http://tubu100.com:8053/Files/Banner/20180507121244bbc0ed.jpg"
+                  style="height:320px;"
+                >
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -323,6 +299,36 @@ export default {
         }
       ],
       shortList: [
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        },
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        }
+      ],
+      middleList: [
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        },
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        }
+      ],
+      longList: [
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        },
+        {
+          id: 0,
+          title: "全国徒步大会百色德保、靖西站活动"
+        }
+      ],
+      allList: [
         {
           id: 0,
           title: "全国徒步大会百色德保、靖西站活动"

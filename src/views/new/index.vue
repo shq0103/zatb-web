@@ -46,7 +46,7 @@
         <div class="public-content">
           <el-row>
             <router-link to="/new">
-              <el-button class="public-button1" type="success">户外资讯</el-button>
+              <el-button class="public-button1" type="success">徒步新闻</el-button>
             </router-link>
             <router-link to="/knowledge">
               <el-button class="public-button2" type="success">户外知识</el-button>
@@ -65,7 +65,7 @@
           <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
-                <img :src="item.image" style="heigh:100%;width: 85%;">
+                <img :src="item.image" style="width: 95%;height:100%;">
               </div>
             </div>
             <div class="tr-b-rf-title">
@@ -405,7 +405,7 @@ a {
   color: #000;
 }
 .tr-b-rf-img1 {
-  height: 250px;
+  height: 180px;
   overflow: hidden;
   position: relative;
 }

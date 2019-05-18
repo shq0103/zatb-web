@@ -11,7 +11,7 @@
         </li>
         <li>></li>
         <li>
-          <a href="/">.....</a>
+          <a href="/">{{mainpost.title}}</a>
         </li>
       </ul>
 
@@ -21,7 +21,9 @@
             <router-link to="/post-public">
               <el-button type="success" icon="el-icon-edit">发新帖</el-button>
             </router-link>
-            <el-button type="success" icon="el-icon-s-order" style="margin-left:10px;">回复</el-button>
+            <a href="#position">
+              <el-button type="success" icon="el-icon-s-order" style="margin-left:10px;">评论</el-button>
+            </a>
           </el-row>
           <el-pagination
             @size-change="handleSizeChange"
@@ -40,36 +42,32 @@
               <div class="p-c-c-f-lf-1">
                 <div class="p-c-c-lf-title">
                   <span class="xg1">查看:</span>
-                  <span class="xi1">11929</span>
+                  <span class="xi1">{{mainpost.viewCount}}</span>
                   <span class="pipe">|</span>
                   <span class="xg1">回复:</span>
-                  <span class="xi1">17</span>
+                  <span class="xi1">{{mainpost.commentCount}}</span>
                 </div>
                 <div class="p-c-c-lf-img">
-                  <img
-                    src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
-                  >
+                  <img :src="mainpost.image">
                 </div>
                 <div class="p-c-c-lf-name">
-                  <ul>
-                    <li class="li-name">
-                      <router-link to="/user-info">
-                        <img src="../../assets/个人头像.png">美少女
-                      </router-link>
-                    </li>
-
-                    <li class="li-other">发帖：120</li>
-                    <li class="li-other">来自：桂林</li>
-                  </ul>
+                  <div class="p-name">
+                    <router-link to="/user-info">
+                      <img src="../../assets/个人头像.png">
+                      {{mainpost.userId}}
+                    </router-link>
+                  </div>
+                  <div class="p-info">
+                    <p>发帖：{{mainpost.postCount}}</p>
+                    <p>来自：{{mainpost.place}}</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="p-c-c-f-rf">
               <div class="p-c-c-f-rf-1">
                 <div class="p-c-c-rf-title">
-                  <h1 class="ts">
-                    <span id="thread_subject">回眸这些时日</span>
-                  </h1>
+                  <h1 class="ts">{{mainpost.title}}</h1>
                   <span class="xg1">
                     <a
                       href="forum.php?mod=viewthread&amp;tid=980&amp;fromuid=4780"
@@ -77,22 +75,16 @@
                       title="您的朋友访问此链接后，您将获得相应的积分奖励"
                     >[复制链接]</a>
                   </span>
-                  <div class="jump">
+                  <!-- <div class="jump">
                     <span class="zi" style="font-size:13px;">到</span>
                     <span class="zi" style="font-size:13px;">第</span>
-                    <el-input
-                      v-model="input"
-                      s
-                      ize="mini"
-                      class="jump-input"
-                      style="padding:0 5px;"
-                    ></el-input>
+                    <el-input v-model="input" size="mini" class="jump-input" style="padding:0 5px;"></el-input>
                     <span class="zi" style="font-size:13px;">楼</span>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="p-c-c-rf-other">
                   <img src="../../assets/楼主.png">
-                  <span class="p-r-other-1">发表于 2019-5-2 17:55</span>
+                  <span class="p-r-other-1">发表于 {{mainpost.date}}</span>
                   <a
                     href="http://bbs.8264.com/thread-5542549-1-1.html"
                     class="lc_bs_no"
@@ -114,7 +106,7 @@
                     >倒序浏览</a>
                   </span>
                 </div>
-                <div class="p-c-c-rf-content"></div>
+                <div class="p-c-c-rf-content">{{mainpost.contents}}</div>
                 <div class="p-c-c-rf-bottom">
                   <img src="../../assets/回复.png">
                   <a
@@ -130,32 +122,35 @@
             </div>
           </div>
           <div style="clear:both"></div>
-          <div class="p-c-c-second">
+          <div
+            class="p-c-c-second"
+            v-for="item in postList"
+            :key="item.id"
+            :class="{borderNone:index+1===postList.length}"
+          >
             <div class="p-c-c-f-lf">
               <div class="p-c-c-f-lf-2">
                 <div class="p-c-c-lf-img">
-                  <img
-                    src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
-                  >
+                  <img :src="item.image">
                 </div>
                 <div class="p-c-c-lf-name">
-                  <ul>
-                    <li class="li-name">
-                      <a href="#" target="_blank" class="xw1">
-                        <img src="../../assets/个人头像.png">美少男
-                      </a>
-                    </li>
-
-                    <li class="li-other">发帖：120</li>
-                    <li class="li-other">来自：桂林</li>
-                  </ul>
+                  <div class="p-name">
+                    <router-link to="/user-info">
+                      <img src="../../assets/个人头像.png">
+                      {{item.userId}}
+                    </router-link>
+                  </div>
+                  <div class="p-info">
+                    <p>发帖：{{item.postCount}}</p>
+                    <p>来自：{{item.place}}</p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="p-c-c-f-rf">
               <div class="p-c-c-f-rf-2">
                 <div class="p-c-c-rf-other">
-                  <span class="p-r-other-1">发表于 2019-5-2 17:55</span>
+                  <span class="p-r-other-1">发表于 {{item.date}}</span>
                   <a
                     href="http://bbs.8264.com/thread-5542549-1-1.html"
                     class="lc_bs_no"
@@ -177,7 +172,7 @@
                     >倒序浏览</a>
                   </span>
                 </div>
-                <div class="p-c-c-rf-content"></div>
+                <div class="p-c-c-rf-content">{{item.contents}}</div>
                 <div class="p-c-c-rf-bottom">
                   <img src="../../assets/回复.png">
                   <a
@@ -198,7 +193,6 @@
             <router-link to="/post-public">
               <el-button type="success" icon="el-icon-edit">发新帖</el-button>
             </router-link>
-            <el-button type="success" icon="el-icon-s-order" style="margin-left:10px;">回复</el-button>
           </el-row>
           <el-pagination
             @size-change="handleSizeChange"
@@ -210,39 +204,45 @@
             class="page"
           ></el-pagination>
         </div>
-        <div class="p-c-reply">
-          <div class="p-c-c-f-lf">
-            <div class="p-c-c-f-lf-2">
-              <div class="p-c-c-lf-img">
-                <img
-                  src="http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411"
-                >
+        <a name="position">
+          <div class="p-c-reply">
+            <div class="p-c-c-f-lf">
+              <div class="p-c-c-f-lf-2">
+                <div class="p-c-c-lf-img">
+                  <img :src="replyUser.image">
+                </div>
+                <div class="p-name">
+                  <router-link to="/user-center">
+                    <img src="../../assets/个人头像.png">
+                    {{replyUser.userId}}
+                  </router-link>
+                </div>
+              </div>
+            </div>
+            <div class="p-c-c-f-rf">
+              <div class="p-c-c-f-rf-3">
+                <el-form ref="form" :model="form">
+                  <el-form-item>
+                    <!-- <el-input type="textarea"></el-input> -->
+                    <QuillEditor :menu="commentMenu"/>
+                  </el-form-item>
+                  <el-form-item>
+                    <el-button type="success" @click="onSubmit">发表回复</el-button>
+                  </el-form-item>
+                </el-form>
               </div>
             </div>
           </div>
-          <div class="p-c-c-f-rf">
-            <div class="p-c-c-f-rf-3">
-              <el-form ref="form" :model="form">
-                <el-form-item>
-                  <!-- <el-input type="textarea"></el-input> -->
-                  <TextEditor :menu="commentMenu"/>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="success" @click="onSubmit">发表回复</el-button>
-                </el-form-item>
-              </el-form>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
 </template>
 <script>
-import TextEditor from "@/components/TextEditor";
+import QuillEditor from "@/components/QuillEditor";
 export default {
   components: {
-    TextEditor
+    QuillEditor
   },
   data() {
     return {
@@ -253,7 +253,45 @@ export default {
         "foreColor",
         "emoticon",
         "image"
-      ]
+      ],
+      mainpost: {
+        id: 0,
+        title: "“花田赏景•绿色生态”徒步大会照片征集啦",
+        viewCount: 10000,
+        commentCount: 20,
+        date: "2019-5-2 17:55",
+        userId: "徒步用户01",
+        postCount: "20",
+        place: "桂林",
+        image:
+          "http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411",
+        contents: "111"
+      },
+      postList: [
+        {
+          id: 0,
+          userId: "徒步用户02",
+          postCount: 10,
+          place: "南宁",
+          date: "2019-5-3 17:55",
+          image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif",
+          contents: "22222"
+        },
+        {
+          id: 1,
+          userId: "徒步用户05",
+          postCount: 10,
+          place: "深圳",
+          date: "2019-5-3 17:55",
+          image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif",
+          contents: "33333"
+        }
+      ],
+      replyUser: {
+        id: 0,
+        userId: "徒步用户03",
+        image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif"
+      }
     };
   }
 };
@@ -278,6 +316,9 @@ ul {
   list-style-type: none;
   padding-left: 80px;
 }
+.borderNone {
+  border: none !important;
+}
 .p-c-public {
   display: flex;
   margin: 15px 0;
@@ -286,6 +327,14 @@ ul {
   border: solid 1px #f1f1f1;
   background: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+}
+.p-info p {
+  line-height: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+.p-name {
+  margin: 15px 0;
 }
 .page {
   position: absolute;
@@ -326,11 +375,8 @@ ul {
   font-size: 13px;
   margin: 25px 0 20px 0;
 }
-.li-name {
-  padding: 0 0 10px 0;
-  text-align: left;
-}
-.li-name img {
+
+.p-name img {
   height: 25px;
   margin-bottom: -6px;
   margin-right: 2px;
@@ -341,7 +387,13 @@ ul {
   padding: 0 0 5px 0;
   color: #7b7b7b;
 }
-.li-name a:link,
+/* .li-name a:link,
+a:visited,
+a:active {
+  color: #7b7b7b;
+  text-decoration: none;
+} */
+.p-name a:link,
 a:visited,
 a:active {
   color: #7b7b7b;
@@ -357,6 +409,7 @@ a:active {
   font: 700 24px "Microsoft Yahei", "Hei", Tahoma, "SimHei", sans-serif;
   line-height: normal;
   margin: 0px;
+  text-align: left;
 }
 .jump {
   display: flex;
@@ -431,6 +484,8 @@ em {
 }
 .p-c-c-rf-content {
   min-height: 300px;
+  padding: 20px 10px;
+  text-align: justify;
 }
 .p-c-c-rf-bottom img {
   height: 25px;
