@@ -39,7 +39,9 @@
       <div class="a-i-content">
         <el-row :gutter="24">
           <el-col :span="13">
-            <div class="a-c-lf">111</div>
+            <div class="a-c-lf">
+              <MapShow/>
+            </div>
           </el-col>
           <el-col :span="11">
             <div class="a-c-rf-1">
@@ -223,9 +225,11 @@
 </template>
 <script>
 import Hamburger from "./Hamburger.vue";
+import MapShow from "@/components/BdmapT/index.vue";
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    MapShow
   },
   data() {
     return {

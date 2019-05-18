@@ -1,7 +1,7 @@
 <template>
   <div class="user-secure">
     <div class="public-bottom">
-      <el-tabs value="first">
+      <el-tabs @tab-click="refreshCode" v-model="tabName">
         <el-tab-pane label="更改登录密码" name="first">
           <div class="ac-public-content">
             <div class="ac-public-form1">
@@ -33,7 +33,7 @@
                         <el-input></el-input>
                       </ElCol>
                       <ElCol :span="12">
-                        <div @click="refreshCode">
+                        <div v-if="tabName=='first'" @click="refreshCode">
                           <Identify :identify-code="identifyCode"/>
                         </div>
                       </ElCol>
@@ -66,7 +66,7 @@
                         <el-input></el-input>
                       </ElCol>
                       <ElCol :span="12">
-                        <div @click="refreshCode">
+                        <div v-if="tabName!=='first'" @click="refreshCode">
                           <Identify :identify-code="identifyCode"/>
                         </div>
                       </ElCol>
@@ -94,7 +94,8 @@ export default {
   data() {
     return {
       identifyCodes: "1234567890",
-      identifyCode: ""
+      identifyCode: "",
+      tabName: "first"
     };
   },
   mounted() {
