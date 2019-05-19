@@ -40,7 +40,7 @@
         <el-row :gutter="24">
           <el-col :span="13">
             <div class="a-c-lf">
-              <MapShow :point-list="myPointList" height="500px"/>
+              <MapShow :point-list="myPointList" height="350px"/>
             </div>
           </el-col>
           <el-col :span="11">
@@ -101,9 +101,9 @@
       <el-row :gutter="20">
         <el-col :span="17">
           <div class="a-c-lf-1">
-            <div class="a-c-lf-content" v-for="item in pointList" :key="item.id">
+            <div class="a-c-lf-content" v-for="(item,index) in pointList" :key="item.id">
               <el-card class="box-card">
-                <div slot="header" class="clearfix">
+                <div :id="`p${index}`" slot="header" class="clearfix">
                   <span>{{item.name}}</span>
                   <el-button
                     style="float: right; padding: 1px 0"
@@ -147,13 +147,18 @@
           <div class="a-c-rf">
             <div class="a-c-rf-3">
               <div class="a-c-rf-2-title">相关路书推荐</div>
-              <div class="a-c-rf-2-content">
-                <div class="a-c-1">
-                  <img
-                    src="http://image.foooooot.com/footprint/2019/05/02/004733_2D650.jpg-.gallery"
-                    style="width:280px"
-                  >
-                  <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert>
+              <div class="a-c-rf-2-content" v-for="(item,index) in newList" :key="item.id">
+                <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
+                  <div class="tr-b-rf-img">
+                    <div class="tr-b-rf-img1">
+                      <img :src="item.image" style="width: 95%;height:100%;">
+                    </div>
+                  </div>
+                  <div class="tr-b-rf-title">
+                    <router-link to="/new-show">
+                      <p class="aname1">{{item.title}}</p>
+                    </router-link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -169,32 +174,15 @@
       <el-menu
         default-active="2"
         class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
         :collapse="isCollapse"
+        @select="selectItem"
       >
-        <el-menu-item index="1">
+        <el-menu-item :index="`#p${index}`" v-for="(item,index) in pointList" :key="item.id">
           <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="5">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
+          <span slot="title">{{item.name}}</span>
         </el-menu-item>
       </el-menu>
     </div>
@@ -250,6 +238,26 @@ export default {
         viewCount: 223,
         commentCount: 223
       },
+      newList: [
+        {
+          id: 0,
+          image:
+            "http://tubu100.com:8053/Files/Article/20180524152006491eff.jpg",
+          title: "2018全国徒步大会5•19联动日激情“走起”"
+        },
+        {
+          id: 1,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018052311445301f787.jpg",
+          title: "全国徒步大会定制款保险说明"
+        },
+        {
+          id: 2,
+          image:
+            "http://tubu100.com:8053/Files/Article/2018050712260650cf42.jpg",
+          title: " 2018徒步中国•全国徒步大会百色“地心之旅”（乐业、凌云）站举办"
+        }
+      ],
       pointList: [
         {
           id: 0,
@@ -262,7 +270,15 @@ export default {
         },
         {
           id: 1,
-          name: "打卡点1",
+          name: "打卡点2",
+          lat: 25.9079359516,
+          lon: 114.038064697,
+          content: "",
+          commentCount: 300
+        },
+        {
+          id: 2,
+          name: "打卡点3",
           lat: 25.9079359516,
           lon: 114.038064697,
           content: "",
@@ -308,6 +324,11 @@ export default {
   methods: {
     toggleClick: function() {
       this.isCollapse = !this.isCollapse;
+    },
+    selectItem: function(index) {
+      document.querySelector(index).scrollIntoView({
+        behavior: "smooth"
+      });
     }
   }
 };
@@ -373,6 +394,30 @@ ul {
   color: #999;
   display: flex;
 }
+.aname1 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+.tr-b-rf-img1 {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+.tr-b-rf-img {
+  margin-top: 15px;
+  /* padding-right: 5px; */
+}
+.borderNone {
+  border: none !important;
+}
+.tr-b-rf-bottom {
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 10px;
+  padding: 0 10px 10px 10px;
+}
 .activity_text li {
   padding-right: 25px;
 }
@@ -425,6 +470,7 @@ ul {
   background: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   padding: 20px 25px;
+  min-height: 310px;
 }
 .activity_content {
   margin: 30px 0px;
@@ -435,9 +481,9 @@ ul {
   font-size: 18px;
   color: #75b628;
   text-align: left;
-  margin: 10px 10px;
-  border-bottom: 1px dotted #ccc;
-  padding-bottom: 10px;
+  margin: 10px 0px;
+  border-bottom: 1px solid #ccc;
+  padding: 0 10px 10px 10px;
 }
 .a-c-rf-2-title1 {
   height: 28px;
@@ -483,6 +529,16 @@ ul {
   border: 1px solid #fff;
   margin: 0 10px;
 }
+a:hover {
+  color: #75b628;
+  text-decoration: underline;
+}
+/* .mMenu a:visited {
+  color: #fff;
+}
+.mMenu a:active {
+  color: #ffd04b;
+} */
 .post-bottom-content-rf ul {
   padding: 0;
   text-align: left;
@@ -557,6 +613,7 @@ ul {
   border: 1px dotted #ccc;
   font-size: 15px;
   color: #515151;
+  line-height: 25px;
 }
 .a-c-rf-top span {
   color: #75b628;

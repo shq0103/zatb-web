@@ -73,23 +73,6 @@
                 <p class="aname1">{{item.title}}</p>
               </router-link>
             </div>
-
-            <!-- <div class="tr-b-rf-public">
-              <i :style="{float:'left'}">
-                <img
-                  src="../../assets/个人1.png"
-                  style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                >###
-              </i>
-              <img
-                src="../../assets/评论1.png"
-                style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-              >3700
-              <img
-                src="../../assets/浏览.png"
-                style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-              >300
-            </div>-->
           </div>
         </div>
       </div>

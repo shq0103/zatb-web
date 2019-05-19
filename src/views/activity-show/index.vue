@@ -73,22 +73,22 @@
             <div class="a-c-lf-title">
               <ul class="tabbar">
                 <li class="tabbar-1">
-                  <a href="#position1">行程安排</a>
+                  <a @click="selectItem('#position1')">行程安排</a>
                 </li>
                 <li>
-                  <a href="#position2" class="po-active">费用说明</a>
+                  <a @click="selectItem('#position2')" class="po-active">费用说明</a>
                 </li>
                 <li>
-                  <a href="#position3" class="po-active">线路描述</a>
+                  <a @click="selectItem('#position3')" class="po-active">线路描述</a>
                 </li>
                 <!-- <li>
                   <a href="javascript:void(0);">目的地地图</a>
                 </li>-->
                 <li>
-                  <a href="#position4" class="po-active">装备要求</a>
+                  <a @click="selectItem('#position4')" class="po-active">装备要求</a>
                 </li>
                 <li>
-                  <a href="#position5" class="po-active">更多介绍</a>
+                  <a @click="selectItem('#position5')" class="po-active">更多介绍</a>
                 </li>
               </ul>
             </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="attr-content">{{acPublic.costExplain}}</div>
               </div>
-              <div class="a-c-l-c-1">
+              <div id="position3" class="a-c-l-c-1">
                 <div class="attr-title">
                   <a name="position3">
                     <h3>
@@ -130,7 +130,7 @@
                 <div class="attr-content">44</div>
               </div>-->
               <div class="a-c-l-c-1">
-                <div class="attr-title">
+                <div id="position4" class="attr-title">
                   <a name="position4">
                     <h3>
                       <img src="../../assets/装备.png" class="icon-intro">装备要求
@@ -140,7 +140,7 @@
                 <div class="attr-content">{{acPublic.equip}}</div>
               </div>
               <div class="a-c-l-c-2">
-                <div class="attr-title">
+                <div id="position5" class="attr-title">
                   <a name="position5">
                     <h3>
                       <img src="../../assets/更多.png" class="icon-intro">更多介绍
@@ -290,6 +290,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    selectItem: function(index) {
+      document.querySelector(index).scrollIntoView({
+        behavior: "smooth"
+      });
+    }
   }
 };
 </script>
