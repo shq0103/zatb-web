@@ -281,7 +281,7 @@
             <router-link to="/travels">
               <el-button type="text" class="more-link">
                 更多
-                <i class="el-icon-plus el-icon--right"></i>
+                <i class="el-icon-d-arrow-right"></i>
               </el-button>
             </router-link>
           </div>
@@ -318,9 +318,9 @@
           </div>
           <div class="p-more">
             <router-link to="/knowledge">
-              <el-button type="text">
+              <el-button type="text" class="more-link">
                 更多
-                <i class="el-icon-plus el-icon--right"></i>
+                <i class="el-icon-d-arrow-right"></i>
               </el-button>
             </router-link>
           </div>
@@ -334,8 +334,23 @@
           <vue-seamless-scroll :data="listData" :class-option="{step:0.5}" class="seamless-warp">
             <ul class="item">
               <li v-for="(item,index) in listData" :key="index">
-                <span class="title" v-text="item.title"></span>
-                <span class="date" v-text="item.date"></span>
+                <router-link to="/knowledge">
+                  <el-tooltip
+                    class="item"
+                    effect="light"
+                    :content="item.title"
+                    placement="bottom-start"
+                  >
+                    <span class="title">
+                      <img
+                        src="../../assets/mknow.png"
+                        style="height:20px;margin-bottom:-4px;margin-right:2px;"
+                      >
+                      {{item.title}}
+                    </span>
+                  </el-tooltip>
+                </router-link>
+                <span class="date">[{{item.date}}]</span>
               </li>
             </ul>
           </vue-seamless-scroll>
@@ -543,10 +558,25 @@ export default {
 <style scoped>
 .title:hover {
   cursor: pointer;
+  color: #75b628;
+  text-decoration: underline;
+}
+
+.title {
+  width: 250px;
+  font-size: 15px;
+  /* height: 25px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
 }
 .date {
   float: right;
   margin-right: 10px;
+  color: #bbb;
+  font-size: 13px;
+  padding-top: 2px;
 }
 ul {
   margin: 0px;
@@ -558,6 +588,15 @@ li {
 .seamless-warp {
   height: 371px;
   overflow: hidden;
+}
+.seamless-warp li {
+  /* background: url(../images/li.png) left center no-repeat; */
+  border-bottom: 1px dotted #ccc;
+  padding: 10px 0 8px 0;
+  list-style: none;
+}
+.item {
+  padding: 0 15px !important;
 }
 .lunbo {
   height: 100%;
@@ -762,6 +801,9 @@ li {
 .p-more {
   margin-left: auto;
   padding-right: 10px;
+}
+.more-link:hover {
+  color: #b2c42b;
 }
 .router-link-active .more-link {
   color: #fff;

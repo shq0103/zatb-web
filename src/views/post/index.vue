@@ -627,6 +627,9 @@ export default {
   border-radius: 5px;
   color: #75b628;
 }
+.aname1:hover {
+  cursor: pointer;
+}
 .post-bottom-title-rt {
   background: url(../../assets/rt.png) 10px 0 no-repeat;
   color: #5e5e5e;
@@ -666,6 +669,9 @@ export default {
   position: absolute;
   right: 100px;
   margin-top: -5px;
+}
+a:hover {
+  cursor: pointer;
 }
 .el-icon-edit-outline {
   padding-right: 5px;

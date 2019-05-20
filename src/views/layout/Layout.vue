@@ -45,7 +45,8 @@ export default {
 </script>
 <style scoped>
 .loginbg {
-  background: url(../../assets/login_bg.jpg) no-repeat center top;
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558333922306&di=e9d4d7945daeb3082e061cf9e162bee3&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180903%2Fa4b762483e8e4a4cbe335c8f8cad270b.jpeg)
+    no-repeat center left;
   background-size: cover;
 }
 </style>

@@ -44,11 +44,11 @@ export default {
   background-color: #f2f3f4;
 }
 .tabClass {
-  width: 380px;
+  width: 450px;
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: -180px;
+  margin-top: -150px;
   margin-left: -220px;
   z-index: 1;
 }

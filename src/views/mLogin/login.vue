@@ -146,7 +146,7 @@ export default {
 };
 </script>
 <style>
-.loginForm {
+/* .loginForm {
   width: 350px;
-}
+} */
 </style>

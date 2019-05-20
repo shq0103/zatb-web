@@ -34,7 +34,7 @@
               </div>
               <div class="more">
                 <router-link to="/knowledge-show">
-                  <el-button type="text" style="color:#75b628">
+                  <el-button type="text" class="more-link">
                     更多
                     <i class="el-icon-d-arrow-right"></i>
                   </el-button>
@@ -235,6 +235,12 @@ export default {
   padding: 5px;
   border-top: 1px solid #dedbdb;
   margin-top: 8px;
+}
+.more-link:hover {
+  color: #75b628;
+}
+.more-link {
+  color: #919191;
 }
 .public-content {
   padding: 25px 0;
