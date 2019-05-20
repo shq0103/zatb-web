@@ -28,15 +28,26 @@
     </div>
     <div class="goods-intro">
       <div class="g-intro-lf">
-        <el-carousel height="350px" direction="vertical" :autoplay="false">
-          <el-carousel-item v-for="item in 3" :key="item">
-            <!-- <h3 class="medium">{{ item }}</h3> -->
-            <pic-zoom
-              url="http://c1.zdb.io/files/recommend/2017/06/08/0/0438a7dd7cc698304dad0d5756004d0d.jpg"
-              :scale="3"
-            ></pic-zoom>
-          </el-carousel-item>
-        </el-carousel>
+        <pic-zoom
+          :style="{width: 'fit-content',height: 'fit-content',margin:'0 auto' }"
+          :url="picList[liActIndex]"
+          :scale="3"
+        ></pic-zoom>
+
+        <vue-seamless-scroll :class-option="optionSwitch" class="seamless-warp3">
+          <span slot="left-switch" class="left-arrow"></span>
+          <span slot="right-switch" class="right-arrow"></span>
+          <ul class="item" :style="{width:`${8*150}px`}">
+            <li
+              v-for="(item,index) in picList"
+              @click="selectImg(index)"
+              :class="{liactivite:liActIndex===index}"
+              :key="index"
+            >
+              <el-image style="width: 120px; height: 120px" :src="item" :fit="fit"></el-image>
+            </li>
+          </ul>
+        </vue-seamless-scroll>
       </div>
       <div class="g-intro-rf">
         <div class="g-intro-rf-info">
@@ -163,6 +174,9 @@
 </template>
 <script>
 import PicZoom from "vue-piczoom";
+import Vue from "vue";
+import scroll from "vue-seamless-scroll";
+Vue.use(scroll);
 export default {
   components: {
     PicZoom
@@ -212,13 +226,93 @@ export default {
           price: 35.0,
           title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
         }
+      ],
+      liActIndex: 0,
+      picList: [
+        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
+        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg"
       ]
     };
+  },
+  computed: {
+    optionSwitch() {
+      return {
+        autoPlay: false,
+        switchSingleStep: 150
+      };
+    }
+  },
+  methods: {
+    selectImg: function(index) {
+      this.liActIndex = index;
+    }
   }
 };
 </script>
 
 <style scoped>
+.liactivite {
+  border: #75b628 solid 2px;
+}
+.left-arrow,
+.right-arrow {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #75b628;
+  cursor: pointer;
+}
+.left-arrow::before,
+.right-arrow::before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  left: 15px;
+  border: 2px solid #fff;
+}
+.left-arrow::before {
+  border-right: 0;
+  border-bottom: 0;
+  transform: rotate(-45deg);
+}
+.right-arrow::before {
+  border-left: 0;
+  border-top: 0;
+  left: 9px;
+  transform: rotate(-45deg);
+}
+.item {
+  padding: 0;
+  margin: 0;
+}
+.item li {
+  float: left;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  line-height: 120px;
+  text-align: center;
+  font-size: 30px;
+  padding: 3px;
+}
+.seamless-warp3 {
+  overflow: hidden;
+  height: 146px;
+  width: 588px;
+  margin: 0 auto;
+}
 .user-info {
   flex-direction: row;
   display: flex;

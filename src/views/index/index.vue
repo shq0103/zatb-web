@@ -326,11 +326,19 @@
           </div>
         </div>
         <div class="s-content">
-          <div class="news_box">
+          <!-- <div class="news_box">
             <div class="inner-container">
               <p class="text" v-for="(text, index) in arr" :key="index">{{ text }}</p>
             </div>
-          </div>
+          </div>-->
+          <vue-seamless-scroll :data="listData" :class-option="{step:0.5}" class="seamless-warp">
+            <ul class="item">
+              <li v-for="(item,index) in listData" :key="index">
+                <span class="title" v-text="item.title"></span>
+                <span class="date" v-text="item.date"></span>
+              </li>
+            </ul>
+          </vue-seamless-scroll>
         </div>
       </div>
     </div>
@@ -338,21 +346,59 @@
 </template>
 
 <script>
+import Vue from "vue";
+import scroll from "vue-seamless-scroll";
+Vue.use(scroll);
 export default {
   data() {
     return {
       imgList: ["../../assets/logo.png", "../../assets/logo1.png"],
-      arr: [
-        "1 不是被郭德纲发现的，也不是一开始就收为徒弟。",
-        "2 现在雅阁这个状态像极了新A4L上市那段日子。",
-        "3 低配太寒碜，各种需要加装，中配定价过高，又没啥特色",
-        "4 然后各种机油门、经销商造反什么的幺蛾子。",
-        "5 看五月销量，建议参考A4，打8折吧。",
-        "6 不是被郭德纲发现的，也不是一开始就收为徒弟。",
-        "7 不是被郭德纲发现的，也不是一开始就收为徒弟。",
-        "8 不是被郭德纲发现的，也不是一开始就收为徒弟。",
-        "9 不是被郭德纲发现的，也不是一开始就收为徒弟。",
-        "10 不是被郭德纲发现的，也不是一开始就收为徒弟。"
+      listData: [
+        {
+          title: "2019曼谷新玩法打卡：湄南河上看落日，享受香槟和泰国料理",
+          date: "2019-05-19"
+        },
+        {
+          title: "每5分钟售出1000支的草本牙膏，安雅（Anya）进军中国市场",
+          date: "2019-05-17"
+        },
+        {
+          title: "5·19中国旅游日 | “1+15+81+N”文旅惠民系列活动成就美好生活",
+          date: "2019-05-17"
+        },
+        {
+          title: "惠州乡村振兴崭露头角，秋长谷里成5月热门",
+          date: "2019-05-16"
+        },
+        {
+          title:
+            "万豪酒店携手西班牙轻奢珠宝品牌TOUS桃丝熊，为宾客打造美味趣致体验",
+          date: "2019-04-16"
+        },
+        {
+          title: "秀水扬帆 碧波争流 首届“可人酒店杯”Zest 帆船赛启航千岛湖",
+          date: "2019-04-15"
+        },
+        {
+          title: "维珍航空首批A350-1000客机树立行业新标杆",
+          date: "2019-04-16"
+        },
+        {
+          title: "世茂Hello Kitty主题馆春季限定商品来袭，手快有，手慢无！",
+          date: "2019-04-10"
+        },
+        {
+          title: "“畅游宁波，遇见海丝”名校采风活动启幕",
+          date: "2019-03-20"
+        },
+        {
+          title: "沙8鸣鼓点将，汉能汉包赋能沙友踏征程",
+          date: "2019-02-22"
+        },
+        {
+          title: "博华太平洋抢占美国塞班岛先机，创造“远洋奇迹”",
+          date: "2019-02-02"
+        }
       ],
       activityList: [
         {
@@ -495,6 +541,24 @@ export default {
 };
 </script>
 <style scoped>
+.title:hover {
+  cursor: pointer;
+}
+.date {
+  float: right;
+  margin-right: 10px;
+}
+ul {
+  margin: 0px;
+  text-align: left;
+}
+li {
+  padding: 5px 0;
+}
+.seamless-warp {
+  height: 371px;
+  overflow: hidden;
+}
 .lunbo {
   height: 100%;
   width: 100%;

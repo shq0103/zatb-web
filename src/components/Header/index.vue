@@ -31,7 +31,7 @@
       <el-button slot="append" icon="el-icon-search"></el-button>
     </el-input>
 
-    <router-link v-if="!isLogin" to="/login">
+    <router-link v-if="!isLogin" :to="{ path: 'mLogin', query: { isLogin: 1 }}">
       <el-button
         :style="{ margin: '0 0 0 50px', color: '#333' }"
         type="text"
@@ -39,7 +39,7 @@
       >登录</el-button>
     </router-link>
     <div v-if="!isLogin" class="border">|</div>
-    <router-link v-if="!isLogin" to="/login">
+    <router-link v-if="!isLogin" :to="{ path: 'mLogin', query: { isLogin: 0 }}">
       <el-button :style="{ color: '#333' }" type="text">注册</el-button>
     </router-link>
     <router-link v-if="isLogin" to="/user-center">

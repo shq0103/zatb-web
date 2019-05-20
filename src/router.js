@@ -125,6 +125,11 @@ export default new Router({
           path: "activity-join",
           name: "activity-join",
           component: () => import("./views/activity-join/index.vue")
+        },
+        {
+          path: "mLogin",
+          name: "mLogin",
+          component: () => import("./views/mLogin/index.vue")
         }
       ]
     },
