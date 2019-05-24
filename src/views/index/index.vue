@@ -1,10 +1,19 @@
 <template>
   <div class="index">
     <div class="picture">
-      <span class="demonstration"></span>
       <el-carousel height="420px">
         <el-carousel-item v-for="item in 4" :key="item">
-          <img class="lunbo" src="../../assets/首页1.jpg">
+          <div class="ih-item">
+            <a href="#">
+              <div class="img">
+                <img src="../../assets/首页1.jpg" alt="img">
+              </div>//图片
+              <div class="info">
+                <h3>这里是新闻标题简要介绍一下吗</h3>
+              </div>
+            </a>
+          </div>
+          <!-- <img class="lunbo" src="../../assets/首页1.jpg"> -->
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -349,8 +358,8 @@
                       {{item.title}}
                     </span>
                   </el-tooltip>
+                  <span class="date">[{{item.date}}]</span>
                 </router-link>
-                <span class="date">[{{item.date}}]</span>
               </li>
             </ul>
           </vue-seamless-scroll>
@@ -563,7 +572,7 @@ export default {
 }
 
 .title {
-  width: 250px;
+  width: 240px;
   font-size: 15px;
   /* height: 25px; */
   overflow: hidden;
@@ -573,7 +582,7 @@ export default {
 }
 .date {
   float: right;
-  margin-right: 10px;
+  margin-right: 5px;
   color: #bbb;
   font-size: 13px;
   padding-top: 2px;
@@ -581,6 +590,8 @@ export default {
 ul {
   margin: 0px;
   text-align: left;
+  padding: 0;
+  padding-left: 5px;
 }
 li {
   padding: 5px 0;
@@ -594,6 +605,9 @@ li {
   border-bottom: 1px dotted #ccc;
   padding: 10px 0 8px 0;
   list-style: none;
+}
+.seamless-warp a {
+  width: 100%;
 }
 .item {
   padding: 0 15px !important;
@@ -1130,6 +1144,42 @@ li {
 }
 .borderNone {
   border: none !important;
+}
+/*鼠标触发标题*/
+.ih-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* width: 120px;
+  height: 120px; */
+}
+
+.ih-item .img img {
+  position: relative;
+  /* width: 220px;
+  height: 220px; */
+  max-width: 100%;
+}
+
+.ih-item .info {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  -webkit-backface-visibility: hidden; /* 隐藏旋转元素的背面*/
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.6); /*后面这个0.6是指的背景的透明度*/
+  opacity: 0;
+  -webkit-transition: all 0.35s ease-in-out; /*规定提示信息怎样出现ease-in-out以慢速度开始和结束*/
+  -moz-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+.ih-item .info h3 {
+  color: #fff;
+}
+
+.ih-item a:hover .info {
+  opacity: 1; /*有opacity有0变成1*/
 }
 </style>
 

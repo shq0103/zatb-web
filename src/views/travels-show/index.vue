@@ -38,12 +38,12 @@
       </ul>
       <div class="a-i-content">
         <el-row :gutter="24">
-          <el-col :span="13">
+          <el-col :span="14">
             <div class="a-c-lf">
               <MapShow :point-list="myPointList" height="350px"/>
             </div>
           </el-col>
-          <el-col :span="11">
+          <el-col :span="10">
             <div class="a-c-rf-1">
               <div class="a-c-rf-top">
                 <el-row :gutter="20" style="margin-bottom:10px;">
