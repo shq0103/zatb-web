@@ -5,8 +5,16 @@
         <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div class="ac acactive">最新资讯</div>
-            <div class="ac">热门资讯</div>
+            <div
+              @click="changeOrder('date')"
+              :class="{acactive:query.orderBy=='date'}"
+              class="ac"
+            >最新资讯</div>
+            <div
+              class="ac"
+              @click="changeOrder('viewCount')"
+              :class="{acactive:query.orderBy=='viewCount'}"
+            >热门资讯</div>
           </div>
         </div>
       </div>
@@ -32,7 +40,16 @@
         </div>
       </div>
       <div class="page">
-        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+        <el-pagination
+          class="page-1"
+          background
+          layout="prev, pager, next"
+          :total="total"
+          :page-size="query.pageSize"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage3"
+        ></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -80,6 +97,7 @@
   </div>
 </template>
 <script>
+import { getList } from "@/api/news.js";
 export default {
   data() {
     return {
@@ -154,8 +172,42 @@ export default {
             "http://tubu100.com:8053/Files/Article/2018050712260650cf42.jpg",
           title: " 2018徒步中国•全国徒步大会百色“地心之旅”（乐业、凌云）站举办"
         }
-      ]
+      ],
+      query: {
+        page: 1,
+        pageSize: 5,
+        type: null,
+        orderBy: "date"
+      }
     };
+  },
+  created() {
+    this.getNewsList();
+  },
+  methods: {
+    changeOrder(value) {
+      this.query.orderBy = value;
+      this.getNewsList();
+    },
+    getNewsList() {
+      getList(this.query).then(resp => {
+        this.newsList = resp.data.data;
+        this.total = resp.data.total;
+        console.log(this.newsList);
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getNewsList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getNewsList();
+    },
+    currentPage3(currentPage) {
+      this.query.page = curPage;
+      this.getNewsList();
+    }
   }
 };
 </script>

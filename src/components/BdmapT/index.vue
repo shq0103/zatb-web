@@ -22,6 +22,7 @@
       :key="index"
       :position="point"
       @click="infoWindowOpen(index)"
+      animation="BMAP_ANIMATION_BOUNCE"
     >
       <bm-info-window
         :show="point.show"

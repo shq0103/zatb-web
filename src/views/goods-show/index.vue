@@ -739,9 +739,4 @@ ul {
   background-color: #d3dce6;
 }
 </style>
-<style>
-.mouse-cover {
-  background-color: unset !important;
-}
-</style>
 
