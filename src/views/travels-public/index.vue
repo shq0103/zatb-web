@@ -5,7 +5,13 @@
         <div class="edit">
           <div class="edit_01">
             <el-form-item>
-              <input class="edit_name" type="text" placeholder="请填写路书标题" maxlength="50">
+              <input
+                class="edit_name"
+                v-model="form.title"
+                type="text"
+                placeholder="请填写路书标题"
+                maxlength="50"
+              >
             </el-form-item>
           </div>
           <div class="edit_02">
@@ -13,17 +19,17 @@
           </div>
           <div class="select">
             <el-form-item>
-              <el-select v-model="value" filterable placeholder="请选择" class="select_list">
+              <el-select v-model="form.length" filterable placeholder="请选择" class="select_list">
                 <!-- <el-option
               v-for="item in options"
               :key="item.value"
               :label="item.label"
               :value="item.value"
                 ></el-option>-->
-                <el-option label="全部" value="beijing"></el-option>
-                <el-option label="短线" value="beijing"></el-option>
-                <el-option label="中线" value="beijing"></el-option>
-                <el-option label="长线" value="shanghai"></el-option>
+                <el-option label="全部" value="全部"></el-option>
+                <el-option label="短线" value="短线"></el-option>
+                <el-option label="中线" value="中线"></el-option>
+                <el-option label="长线" value="长线"></el-option>
               </el-select>
 
               <el-button
@@ -38,38 +44,84 @@
           </div>
           <el-form-item>
             <el-col :span="11">
-              <el-input placeholder="请输入平均海拔" prefix-icon="el-icon-stopwatch"></el-input>
+              <el-input
+                v-model="form.altitude"
+                placeholder="请输入平均海拔（单位：米）"
+                type="number"
+                prefix-icon="el-icon-stopwatch"
+              ></el-input>
             </el-col>
             <el-col class="line" :span="2">-</el-col>
             <el-col :span="11">
-              <el-input placeholder="请输入平均配速" prefix-icon="el-icon-timer"></el-input>
+              <el-input
+                v-model="form.speed"
+                type="number"
+                placeholder="请输入平均配速（单位：公里/小时）"
+                prefix-icon="el-icon-timer"
+              ></el-input>
             </el-col>
           </el-form-item>
           <el-form-item>
             <el-col :span="11">
-              <el-input placeholder="请输入总里程" prefix-icon="el-icon-map-location"></el-input>
+              <el-input
+                v-model="form.distance"
+                placeholder="请输入总里程（单位：公里）"
+                prefix-icon="el-icon-map-location"
+                type="number"
+              ></el-input>
             </el-col>
             <el-col class="line" :span="2">-</el-col>
             <el-col :span="11">
-              <el-input placeholder="请输入总时间" prefix-icon="el-icon-time"></el-input>
+              <el-input
+                v-model="form.takeTime"
+                type="number"
+                placeholder="请输入总时间（单位：小时）"
+                prefix-icon="el-icon-time"
+              ></el-input>
             </el-col>
           </el-form-item>
           <div class="content">
             <el-form-item>
-              <el-input type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
+              <el-input v-model="form.intro" type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
             </el-form-item>
           </div>
-
-          <el-button type="success" round style="float: left;">保存草稿</el-button>
-          <el-button type="success" round style="float: left;">预览路书</el-button>
-          <el-button type="success" round style="float: right;">创建路书</el-button>
+          <div class="edit_02">
+            <span class="select_text">打卡点列表</span>
+          </div>
+          <draggable :set-data="setData" :list="form.travelPlaces" group="article" class="dragArea">
+            <div
+              v-for="(element,index) in form.travelPlaces"
+              :key="index"
+              class="list-complete-item"
+            >
+              <div class="list-complete-item-handle">{{ element.title }}</div>
+              <div style="position:absolute;right:0px;">
+                <span
+                  style="float: right ;margin-top: -20px;margin-right:5px;"
+                  @click="deleteTravelPlace(index)"
+                >
+                  <i style="color:#ff4949" class="el-icon-delete"/>
+                </span>
+              </div>
+            </div>
+          </draggable>
+          <div v-if="form.travelPlaces.length==0">
+            <span class="select_text">暂无数据，请添加打卡点内容。</span>
+          </div>
+          <el-row style="margin-top:20px">
+            <el-col :span="24">
+              <el-button type="success" round style="float: left;">保存草稿</el-button>
+              <el-button type="success" round style="float: left;">预览路书</el-button>
+              <el-button type="success" round style="float: right;">创建路书</el-button>
+            </el-col>
+          </el-row>
         </div>
         <el-dialog top="50px" :visible.sync="dialogFormVisible" width="80%">
-          <AddAddress/>
-          <div slot="footer" class="dialog-footer">
+          <AddAddress @cancel="dialogFormVisible = false" @confirm="addTravelPlace"/>
+          <!-- <div slot="footer" class="dialog-footer">
             <el-button @click="dialogFormVisible = false" type="success" plain>取 消</el-button>
             <el-button type="success" @click="dialogFormVisible = false">确 定</el-button>
-          </div>
+          </div>-->
         </el-dialog>
       </el-form>
     </div>
@@ -77,14 +129,44 @@
 </template>
 <script>
 import AddAddress from "@/components/AddAddress/index.vue";
+import draggable from "vuedraggable";
 export default {
   components: {
-    AddAddress
+    AddAddress,
+    draggable
   },
   data() {
     return {
-      dialogFormVisible: false
+      dialogFormVisible: false,
+      form: {
+        title: "",
+        intro: "",
+        altitude: "",
+        speed: "",
+        distance: "",
+        takeTime: "",
+        length: "",
+        travelPlaces: []
+      }
     };
+  },
+  methods: {
+    addTravelPlace: function(travelPlace) {
+      this.form.travelPlaces.push(travelPlace);
+      this.dialogFormVisible = false;
+      this.$message({
+        type: "success",
+        message: "添加打卡点成功！"
+      });
+    },
+    deleteTravelPlace: function(index) {
+      this.form.travelPlaces.splice(index, 1);
+    },
+    setData(dataTransfer) {
+      // to avoid Firefox bug
+      // Detail see : https://github.com/RubaXa/Sortable/issues/1012
+      dataTransfer.setData("Text", "");
+    }
   }
 };
 </script>
@@ -143,5 +225,30 @@ export default {
   float: right;
   /* background-color: #75b628;
   color: #fff; */
+}
+
+.list-complete-item {
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  padding: 5px 12px;
+  margin-top: 4px;
+  border: 1px solid #bfcbd9;
+  transition: all 1s;
+}
+
+.list-complete-item-handle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 50px;
+}
+
+.list-complete-item.sortable-chosen {
+  background: #4ab7bd;
+}
+
+.list-complete-item.sortable-ghost {
+  background: #75b628;
 }
 </style>

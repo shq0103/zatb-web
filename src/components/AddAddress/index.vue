@@ -4,13 +4,19 @@
       <el-form ref="form" label-position="top" label-width="80px">
         <div class="edit_01">
           <el-form-item>
-            <input class="edit_name" type="text" placeholder="请填写打卡点标题" maxlength="50">
+            <input
+              class="edit_name"
+              v-model="travelPlace.title"
+              type="text"
+              placeholder="请填写打卡点标题"
+              maxlength="50"
+            >
           </el-form-item>
         </div>
         <div class="edit_02">
           <span class="select_text">选择打卡的地点</span>
           <el-form-item style="margin:10px 0px;">
-            <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="input2"></el-input>
+            <el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input>
           </el-form-item>
           <Bdmap/>
         </div>
@@ -21,8 +27,8 @@
         <div class="img">
           <el-upload
             class="upload-demo"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :on-preview="handlePreview"
+            action="/api/File/UploadImg"
+            :on-success="uploadSuccess"
             :on-remove="handleRemove"
             :file-list="fileList"
             list-type="picture"
@@ -35,24 +41,54 @@
           <span class="select_text">请输入打卡点概述</span>
         </div>
         <el-form-item>
-          <TextEditor :menu="commentMenu"/>
+          <QuillEditor :menu="commentMenu"/>
+        </el-form-item>
+        <el-form-item>
+          <el-button @click="cancel" type="success" plain>取 消</el-button>
+          <el-button type="success" @click="confirm">确 定</el-button>
         </el-form-item>
       </el-form>
     </div>
   </div>
 </template>
 <script>
-import TextEditor from "@/components/TextEditor";
 import Bdmap from "@/components/Bdmap";
+import QuillEditor from "@/components/QuillEditor";
 export default {
   components: {
-    TextEditor,
+    QuillEditor,
     Bdmap
   },
   data() {
     return {
-      commentMenu: ["bold", "fontSize", "fontName", "foreColor", "emoticon"]
+      commentMenu: [
+        "bold",
+        "fontSize",
+        "fontName",
+        "foreColor",
+        "emoticon",
+        "image"
+      ],
+      travelPlace: {
+        name: "",
+        lat: null,
+        lon: null,
+        contents: "",
+        imgList: []
+      }
     };
+  },
+  methods: {
+    cancel: function() {
+      this.$emit("cancel");
+    },
+    confirm: function() {
+      let copyTravelPlace = Object.assign({}, this.travelPlace);
+      this.$emit("confirm", copyTravelPlace);
+    },
+    uploadSuccess: function(response, file, fileList) {
+      this.travelPlace.imgList.push(response.data);
+    }
   }
 };
 </script>
