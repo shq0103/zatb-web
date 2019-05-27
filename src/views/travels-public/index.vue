@@ -1,10 +1,10 @@
 <template>
   <div class="travels-public">
     <div class="travel_02">
-      <el-form ref="form" label-position="top" :model="form" label-width="80px">
+      <el-form ref="form" label-position="top" :model="form" label-width="80px" :rules="rules">
         <div class="edit">
           <div class="edit_01">
-            <el-form-item>
+            <el-form-item prop="title">
               <input
                 class="edit_name"
                 v-model="form.title"
@@ -18,7 +18,7 @@
             <span class="select_text">选择参与的等级</span>
           </div>
           <div class="select">
-            <el-form-item>
+            <el-form-item prop="length">
               <el-select v-model="form.length" filterable placeholder="请选择" class="select_list">
                 <!-- <el-option
               v-for="item in options"
@@ -81,7 +81,7 @@
             </el-col>
           </el-form-item>
           <div class="content">
-            <el-form-item>
+            <el-form-item prop="intro">
               <el-input v-model="form.intro" type="textarea" placeholder="请填写路书概述" rows="10"></el-input>
             </el-form-item>
           </div>
@@ -112,7 +112,7 @@
             <el-col :span="24">
               <el-button type="success" round style="float: left;">保存草稿</el-button>
               <el-button type="success" round style="float: left;">预览路书</el-button>
-              <el-button type="success" round style="float: right;">创建路书</el-button>
+              <el-button type="success" round style="float: right;" @click="submitForm('form')">创建路书</el-button>
             </el-col>
           </el-row>
         </div>
@@ -147,6 +147,16 @@ export default {
         takeTime: "",
         length: "",
         travelPlaces: []
+      },
+      rules: {
+        title: [
+          { required: true, message: "请输入路书名称", trigger: "blur" },
+          { max: 20, message: "不能超过20字符", trigger: "blur" }
+        ],
+        length: [
+          { required: true, message: "请选择参与等级", trigger: "change" }
+        ],
+        intro: [{ required: true, message: "请填写路书概述", trigger: "blur" }]
       }
     };
   },
@@ -166,6 +176,16 @@ export default {
       // to avoid Firefox bug
       // Detail see : https://github.com/RubaXa/Sortable/issues/1012
       dataTransfer.setData("Text", "");
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          alert("发布成功!");
+        } else {
+          console.log("发布失败!!");
+          return false;
+        }
+      });
     }
   }
 };

@@ -38,18 +38,19 @@
   </el-card>
 </template>
 <script>
-import { Signin } from "@/api/login";
+import { Signin, GetUserName } from "@/api/login";
 export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入用户名"));
       } else {
-        GetUserName({ username: value }).then(resp => {
-          if (resp.message === null) {
+        let username = value;
+        GetUserName(username).then(resp => {
+          if (resp.data.message === null) {
             callback();
           } else {
-            callback(new Error(resp.message));
+            callback(new Error(resp.data.message));
           }
         });
       }
@@ -80,7 +81,8 @@ export default {
       },
       rules: {
         username: [
-          { validator: validateUsername, trigger: ["blur", "change"] }
+          { validator: validateUsername, trigger: ["blur", "change"] },
+          { min: 3, message: "用户名至少为3字符", trigger: ["blur", "change"] }
         ],
         mail: [{ validator: validateMail, trigger: ["blur", "change"] }],
         password: [
@@ -89,7 +91,7 @@ export default {
             message: "请输入登录密码",
             trigger: ["blur", "change"]
           },
-          { min: 8, message: "密码长度6位以上", trigger: ["blur", "change"] },
+          { min: 6, message: "密码长度6位以上", trigger: ["blur", "change"] },
           { validator: validatePassword, trigger: ["blur", "change"] }
         ]
       },
@@ -101,19 +103,25 @@ export default {
       this.$refs.signupForm.validate(valid => {
         if (valid) {
           this.loading = true;
-          Signin(this.signinForm).then(resp => {
-            if (resp.data.code === 0) {
-              this.$message({
-                message: resp.data.message,
-                type: "success"
-              });
-            } else {
-              this.$message({
-                message: resp.data.message,
-                type: "error"
-              });
-            }
-          });
+          Signin(this.signupForm)
+            .then(resp => {
+              if (resp.data.code === 0) {
+                this.$message({
+                  message: resp.data.message,
+                  type: "success"
+                });
+                this.$emit("signupSuccess", this.signupForm);
+              } else {
+                this.$message({
+                  message: resp.data.message,
+                  type: "error"
+                });
+              }
+              this.loading = false;
+            })
+            .catch(reason => {
+              this.loading = false;
+            });
         }
       });
     }

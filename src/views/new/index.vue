@@ -418,7 +418,7 @@ export default {
 .aname {
   font-weight: 700;
   font-size: 20px;
-  line-height: 18px;
+  line-height: 22px;
   /* color: #67c23a; */
   overflow: hidden;
   text-overflow: ellipsis;

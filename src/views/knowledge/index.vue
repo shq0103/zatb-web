@@ -5,10 +5,10 @@
         <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div class="ac acactive">全部知识</div>
-            <div class="ac">户外技巧</div>
-            <div class="ac">户外常识</div>
-            <div class="ac">户外装备</div>
+            <div @click="changeType(5)" :class="{acactive:query.type==5}" class="ac">全部知识</div>
+            <div @click="changeType(2)" :class="{acactive:query.type==2}" class="ac">户外技巧</div>
+            <div @click="changeType(3)" :class="{acactive:query.type==3}" class="ac">户外常识</div>
+            <div @click="changeType(4)" :class="{acactive:query.type==4}" class="ac">户外装备</div>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="know-c-t-rf">
               <h2>{{item.title}}</h2>
-              <p>作者：{{item.userId}} | 来源于： {{item.source}}</p>
+              <p>作者：{{item.author}} | 来源于： {{item.source}}</p>
             </div>
           </div>
           <div class="know-content-bottom">
@@ -45,7 +45,16 @@
         </div>
       </div>
       <div class="page">
-        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+        <el-pagination
+          class="page-1"
+          background
+          layout="prev, pager, next"
+          :total="total"
+          :page-size="query.pageSize"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage3"
+        ></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -92,6 +101,7 @@
   </div>
 </template>
 <script>
+import { getList } from "@/api/knows.js";
 export default {
   data() {
     return {
@@ -101,7 +111,7 @@ export default {
           date: "04",
           time: "10",
           title: "冬季户外徒步穿越的注意事项",
-          userId: "Admin",
+          author: "Admin",
           source: "互联网",
           contents:
             "徒步登山是锻炼身体、增强体质的的运动之一，但是因为冬季气温极低，且路面状况不及其他季节，所以冬季在户外徒步的时候要更加小心。今天就为大家详细介绍冬季户外运动的15个注意事项和冬季徒步登山的必备装备清单： 一、 冬季户外徒步登山注意事项 二、冬季徒步登山必备装备清单",
@@ -113,7 +123,7 @@ export default {
           date: "05",
           time: "12",
           title: "登山防冲坠的基本注意事项",
-          userId: "Admin",
+          author: "Admin",
           source: "互联网",
           contents:
             "冲坠是攀登过程中不可避免的。支点碎裂了，手脚滑脱了，筋疲力尽了，都会导致脱落。我们有必要找到正确的方式来演练脱落，从而学会如何保证冲坠时的安全，这一点很重要。认知并且接受。不管是有意练习或是其它情况 ...",
@@ -125,7 +135,7 @@ export default {
           date: "06",
           time: "10",
           title: "戈壁徒步，掌握这些要领，还怕走不下来？",
-          userId: "Admin",
+          author: "Admin",
           source: "互联网",
           contents:
             "有人说，其实戈壁徒步，就是一场关乎精神的心路之旅。行走大漠，追寻心路不仅需要一个人坚毅的精神、不弃的信念、过人的耐力，更重要的还有健康的体魄、徒步的技巧、专业安全的保障。但是，还是会有戈友问：百公里戈壁徒步，我真的能走下来吗？有了以上所述的，还有一点也至关重要，那就是徒步之前适当的锻炼。毕竟，不积跬步，无以至千里。",
@@ -137,7 +147,7 @@ export default {
           date: "04",
           time: "10",
           title: "氧气在高海拔攀登中的作用和危险",
-          userId: "Admin",
+          author: "Admin",
           source: "互联网",
           contents:
             "壹、氧气在高海拔攀登前的作用在高海拔攀登中，由于空气稀薄带来的缺氧，会造成人体各项技能的全面下降，是对攀登者危害最大的因素之一。",
@@ -149,7 +159,7 @@ export default {
           date: "04",
           time: "10",
           title: "夏日清凉越野跑，可别忽略这六个细节！",
-          userId: "Admin",
+          author: "Admin",
           source: "互联网",
           contents:
             "天气逐渐变热，在河边进行越野跑既可锻炼身体又可欣赏野外自然风光、躲避高温。相比冬季越野跑，夏季越野跑看起来更为轻松，但也有不少注意事项。下面为你送上夏季清凉越野跑安全指南。一、注意防蛇夏季，是蛇的活跃时节。蛇喜欢出现在水边和能晒到太阳的乱石堆上，因此在河边越野跑时，需要留意乱石堆、草丛，以免被蛇咬伤。如不幸遇到蛇，也不要惊慌，静待其离开。",
@@ -178,8 +188,55 @@ export default {
           id: 4,
           title: "野外生存时，学会走路很重要"
         }
-      ]
+      ],
+      query: {
+        page: 1,
+        pageSize: 5,
+        type: 5,
+        orderBy: null
+      },
+      clickQuery: {
+        page: 1,
+        pageSize: 10,
+        type: null,
+        orderBy: "viewCount"
+      }
     };
+  },
+  created() {
+    this.getNewsList();
+    this.getListOrderby();
+  },
+  methods: {
+    changeType(value) {
+      this.query.type = value;
+      this.getNewsList();
+    },
+    getNewsList() {
+      getList(this.query).then(resp => {
+        this.knowledgeList = resp.data.data;
+        this.total = resp.data.total;
+        console.log(this.newsList);
+      });
+    },
+    getListOrderby() {
+      getList(this.clickQuery).then(resp => {
+        this.clickList = resp.data.data;
+        this.total = resp.data.total;
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getNewsList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getNewsList();
+    },
+    currentPage3(currentPage) {
+      this.query.page = curPage;
+      this.getNewsList();
+    }
   }
 };
 </script>
@@ -364,6 +421,7 @@ export default {
   text-align: left;
 }
 .know-c-t-rf h2 {
+  text-align: left;
   margin: 0px;
   font-size: 20px;
   color: #75b628;

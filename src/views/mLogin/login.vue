@@ -1,10 +1,10 @@
 <template>
   <el-card class="box-card loginForm">
-    <el-form :model="signinForm" :rules="rules" ref="signinForm">
+    <el-form :model="loginForm" :rules="rules" ref="loginForm">
       <el-form-item prop="username">
         <el-input
           prefix-icon="el-icon-user-solid"
-          v-model="signinForm.username"
+          v-model="loginForm.username"
           placeholder="请输入用户名"
           autocomplete="off"
           clearable
@@ -12,7 +12,7 @@
       </el-form-item>
       <el-form-item prop="password">
         <el-input
-          v-model="signinForm.password"
+          v-model="loginForm.password"
           prefix-icon="el-icon-lock"
           type="password"
           placeholder="请输入密码"
@@ -30,9 +30,10 @@
 <script>
 import { Signin, Auth } from "@/api/login";
 export default {
+  props: ["username"],
   data() {
     return {
-      signinForm: {
+      loginForm: {
         password: "",
         username: ""
       },
@@ -54,57 +55,8 @@ export default {
   },
 
   methods: {
-    userSign: function() {
-      if (this.signinForm.username === "") {
-        this.$message({
-          message: "用户名不能为空",
-          type: "error"
-        });
-        return;
-      }
-      if (this.signinForm.password === "") {
-        this.$message({
-          message: "密码不能为空",
-          type: "error"
-        });
-        return;
-      }
-      if (this.signinForm.mail === "") {
-        this.$message({
-          message: "邮箱不能为空",
-          type: "error"
-        });
-        return;
-      }
-      Signin(this.signinForm).then(resp => {
-        if (resp.data.code === 0) {
-          this.$message({
-            message: resp.data.message,
-            type: "success"
-          });
-        } else {
-          this.$message({
-            message: resp.data.message,
-            type: "error"
-          });
-        }
-      });
-    },
     userLogin: function() {
-      if (this.loginForm.username === "") {
-        this.$message({
-          message: "用户名不能为空",
-          type: "error"
-        });
-        return;
-      }
-      if (this.loginForm.password === "") {
-        this.$message({
-          message: "密码不能为空",
-          type: "error"
-        });
-        return;
-      }
+      this.loading = true;
       Auth(this.loginForm).then(resp => {
         if (resp.data.code === 0) {
           this.$message({
@@ -113,16 +65,18 @@ export default {
           });
           localStorage.setItem("token", resp.data.data.token);
           this.$router.push("/index");
+          this.loading = false;
         } else {
           this.$message({
             message: resp.data.message,
             type: "error"
           });
+          this.loading = false;
         }
       });
     },
     userSignin() {
-      this.$refs.signinForm.validate(valid => {
+      this.$refs.loginForm.validate(valid => {
         if (valid) {
           Auth(this.loginForm).then(resp => {
             if (resp.data.code === 0) {
@@ -141,6 +95,13 @@ export default {
           });
         }
       });
+    }
+  },
+  watch: {
+    username: {
+      handler: function(val, oldval) {
+        this.loginForm.username = val;
+      }
     }
   }
 };

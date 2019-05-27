@@ -1,12 +1,18 @@
 <template>
   <div class="addaddress">
     <div class="add">
-      <el-form ref="form" label-position="top" label-width="80px">
+      <el-form
+        ref=" travelPlace"
+        label-position="top"
+        label-width="80px"
+        :rules="rules"
+        :model=" travelPlace"
+      >
         <div class="edit_01">
-          <el-form-item>
+          <el-form-item prop="name">
             <input
               class="edit_name"
-              v-model="travelPlace.title"
+              v-model="travelPlace.name"
               type="text"
               placeholder="请填写打卡点标题"
               maxlength="50"
@@ -40,12 +46,12 @@
         <div class="edit_02">
           <span class="select_text">请输入打卡点概述</span>
         </div>
-        <el-form-item>
+        <el-form-item prop="contents">
           <QuillEditor :menu="commentMenu"/>
         </el-form-item>
         <el-form-item>
           <el-button @click="cancel" type="success" plain>取 消</el-button>
-          <el-button type="success" @click="confirm">确 定</el-button>
+          <el-button type="success" @click="submitForm(' travelPlace')">确 定</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -75,6 +81,15 @@ export default {
         lon: null,
         contents: "",
         imgList: []
+      },
+      rules: {
+        name: [
+          { required: true, message: "请输入打卡点名称", trigger: "blur" },
+          { max: 20, message: "长度不超过20字符", trigger: "blur" }
+        ],
+        contents: [
+          { required: true, message: "请填写打卡点内容", trigger: "blur" }
+        ]
       }
     };
   },
@@ -88,6 +103,16 @@ export default {
     },
     uploadSuccess: function(response, file, fileList) {
       this.travelPlace.imgList.push(response.data);
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          alert("添加成功!");
+        } else {
+          console.log("添加失败!");
+          return false;
+        }
+      });
     }
   }
 };

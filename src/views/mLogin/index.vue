@@ -2,10 +2,10 @@
   <div :style="{height:heigth+'px'}">
     <el-tabs type="border-card" class="tabClass" v-model="tabName">
       <el-tab-pane label="登陆" name="first">
-        <Login/>
+        <Login :username="username"/>
       </el-tab-pane>
       <el-tab-pane label="注册" name="second">
-        <Signup/>
+        <Signup @signupSuccess="signupSuccess"/>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -22,15 +22,24 @@ export default {
   data() {
     return {
       heigth: 0,
-      tabName: "first"
+      tabName: "first",
+      username: ""
     };
+  },
+  methods: {
+    signupSuccess: function(data) {
+      console.log(data);
+      this.tabName = "first";
+      this.username = data.username;
+    }
   },
   beforeMount() {
     this.heigth =
       document.documentElement.clientHeight || document.body.clientHeight;
     console.log(this.heigth);
     this.heigth -= 95;
-    if (this.$route.query["isLogin"] === "1") {
+    console.log(this.$route.query);
+    if (this.$route.query["isLogin"] === 1) {
       this.tabName = "first";
     } else {
       this.tabName = "second";
