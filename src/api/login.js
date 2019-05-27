@@ -24,6 +24,14 @@ export function Signin(data) {
   });
 }
 
+export function GetUserName(username) {
+  return request({
+    url: "/api/Auth/getUserName",
+    method: "get",
+    params: { username }
+  });
+}
+
 export function logout() {
   return request({
     url: "/login/logout",
