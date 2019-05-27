@@ -19,17 +19,10 @@
           </div>
           <div class="select">
             <el-form-item prop="length">
-              <el-select v-model="form.length" filterable placeholder="请选择" class="select_list">
-                <!-- <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-                ></el-option>-->
-                <el-option label="全部" value="全部"></el-option>
-                <el-option label="短线" value="短线"></el-option>
-                <el-option label="中线" value="中线"></el-option>
-                <el-option label="长线" value="长线"></el-option>
+              <el-select v-model="form.length" placeholder="请选择" class="select_list">
+                <el-option label="短线" :value="1"></el-option>
+                <el-option label="中线" :value="2"></el-option>
+                <el-option label="长线" :value="3"></el-option>
               </el-select>
 
               <el-button
@@ -124,10 +117,6 @@
           width="80%"
         >
           <AddAddress @cancel="dialogFormVisible = false" @confirm="addTravelPlace"/>
-          <!-- <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisible = false" type="success" plain>取 消</el-button>
-            <el-button type="success" @click="dialogFormVisible = false">确 定</el-button>
-          </div>-->
         </el-dialog>
       </el-form>
     </div>
@@ -136,6 +125,7 @@
 <script>
 import AddAddress from "@/components/AddAddress/index.vue";
 import draggable from "vuedraggable";
+import { postTravelBook } from "@/api/travels.js";
 export default {
   components: {
     AddAddress,
@@ -174,6 +164,7 @@ export default {
         type: "success",
         message: "添加打卡点成功！"
       });
+      console.log(this.form);
     },
     deleteTravelPlace: function(index) {
       this.form.travelPlaces.splice(index, 1);
@@ -186,7 +177,12 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          postTravelBook(this.form).then(resp => {});
+          postTravelBook(this.form).then(resp => {
+            this.$message({
+              type: "success",
+              message: "新增成功！"
+            });
+          });
         } else {
           console.log("发布失败!!");
           return false;

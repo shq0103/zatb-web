@@ -120,7 +120,7 @@ export default {
       travelPlace: {
         name: "",
         lat: null,
-        lon: null,
+        lng: null,
         contents: "aaaa",
         imgList: []
       },
@@ -175,7 +175,7 @@ export default {
     },
     chosenPoint(point) {
       this.travelPlace.lat = point.lat;
-      this.travelPlace.lon = point.lon;
+      this.travelPlace.lng = point.lng;
     }
   }
 };
