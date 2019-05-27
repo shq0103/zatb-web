@@ -53,7 +53,6 @@
           :page-size="query.pageSize"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page.sync="currentPage3"
         ></el-pagination>
       </div>
     </div>
@@ -102,6 +101,7 @@
 </template>
 <script>
 import { getList } from "@/api/knows.js";
+
 export default {
   data() {
     return {
@@ -214,15 +214,15 @@ export default {
     },
     getNewsList() {
       getList(this.query).then(resp => {
-        this.knowledgeList = resp.data.data;
-        this.total = resp.data.total;
+        this.knowledgeList = resp.data;
+        this.total = resp.total;
         console.log(this.newsList);
       });
     },
     getListOrderby() {
       getList(this.clickQuery).then(resp => {
-        this.clickList = resp.data.data;
-        this.total = resp.data.total;
+        this.clickList = resp.data;
+        this.total = resp.total;
       });
     },
     handleSizeChange(pageSize) {
@@ -230,10 +230,6 @@ export default {
       this.getNewsList();
     },
     handleCurrentChange(curPage) {
-      this.query.page = curPage;
-      this.getNewsList();
-    },
-    currentPage3(currentPage) {
       this.query.page = curPage;
       this.getNewsList();
     }

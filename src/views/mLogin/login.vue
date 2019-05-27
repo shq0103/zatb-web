@@ -55,40 +55,20 @@ export default {
   },
 
   methods: {
-    userLogin: function() {
-      this.loading = true;
-      Auth(this.loginForm).then(resp => {
-        if (resp.data.code === 0) {
-          this.$message({
-            message: resp.data.message,
-            type: "success"
-          });
-          localStorage.setItem("token", resp.data.data.token);
-          this.$router.push("/index");
-          this.loading = false;
-        } else {
-          this.$message({
-            message: resp.data.message,
-            type: "error"
-          });
-          this.loading = false;
-        }
-      });
-    },
     userSignin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           Auth(this.loginForm).then(resp => {
-            if (resp.data.code === 0) {
+            if (resp.code === 0) {
               this.$message({
-                message: resp.data.message,
+                message: resp.message,
                 type: "success"
               });
-              localStorage.setItem("token", resp.data.data.token);
+              localStorage.setItem("token", resp.data.token);
               this.$router.push("/index");
             } else {
               this.$message({
-                message: resp.data.message,
+                message: resp.message,
                 type: "error"
               });
             }

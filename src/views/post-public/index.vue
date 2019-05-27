@@ -67,14 +67,14 @@ export default {
     onSubmit: function() {
       console.log(this.postForm);
       publishPost(this.postForm).then(resp => {
-        if (resp.data.code === 0) {
+        if (resp.code === 0) {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "success"
           });
         } else {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "error"
           });
         }

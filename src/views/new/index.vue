@@ -21,7 +21,7 @@
       <div class="activity-content">
         <div class="activity-content2" v-for="item in newsList" :key="item.id">
           <div class="ac-content-left">
-            <img width="100%" height="98%" :src="item.image">
+            <img width="100%" height="98%" :src="`/image${item.imgList[0]}`">
           </div>
           <div class="ac-content-right">
             <div class="ac-content-right1">
@@ -29,11 +29,11 @@
                 <router-link to="/new-show">
                   <p class="aname">{{item.title}}</p>
                 </router-link>
-                <p class="ap">{{item.contents}}</p>
+                <p class="ap">{{item.contents|htmlToStr}}</p>
               </div>
             </div>
             <div class="new-right2">
-              <i class="el-icon-time">{{item.date}}</i>
+              <i class="el-icon-time">{{item.date|timeFilter}}</i>
               <i class="el-icon-view" style="padding-left:20px">{{item.viewCount}}</i>
             </div>
           </div>
@@ -48,7 +48,6 @@
           :page-size="query.pageSize"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page.sync="currentPage3"
         ></el-pagination>
       </div>
     </div>
@@ -101,6 +100,7 @@ import { getList } from "@/api/news.js";
 export default {
   data() {
     return {
+      total: 0,
       newsList: [
         {
           id: 0,
@@ -186,13 +186,14 @@ export default {
   },
   methods: {
     changeOrder(value) {
+      this.query.page = 1;
       this.query.orderBy = value;
       this.getNewsList();
     },
     getNewsList() {
       getList(this.query).then(resp => {
-        this.newsList = resp.data.data;
-        this.total = resp.data.total;
+        this.newsList = resp.data;
+        this.total = resp.total;
         console.log(this.newsList);
       });
     },
@@ -201,10 +202,6 @@ export default {
       this.getNewsList();
     },
     handleCurrentChange(curPage) {
-      this.query.page = curPage;
-      this.getNewsList();
-    },
-    currentPage3(currentPage) {
       this.query.page = curPage;
       this.getNewsList();
     }

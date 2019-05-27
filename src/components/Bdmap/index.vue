@@ -11,8 +11,8 @@
       :map-click="false"
     >
       <bm-marker
-        v-if="point"
-        :position="point"
+        v-if="myPoint"
+        :position="myPoint"
         :dragging="true"
         animation="BMAP_ANIMATION_BOUNCE"
         @dragend="dragendDone"
@@ -38,21 +38,24 @@
 <script>
 export default {
   props: {
-    point: null
+    point: {
+      default: null
+    }
   },
   data() {
     return {
-      keyword: ""
+      keyword: "",
+      myPoint: this.point
     };
   },
   methods: {
     dblClickMap: function({ point }) {
-      this.point = point;
+      this.myPoint = point;
       this.keyword = "";
       this.$emit("chosenPoint", point);
     },
     dragendDone: function({ point }) {
-      this.point = point;
+      this.myPoint = point;
       this.keyword = "";
       this.$emit("chosenPoint", point);
     }

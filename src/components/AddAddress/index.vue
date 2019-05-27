@@ -21,17 +21,17 @@
         </div>
         <div class="edit_02">
           <span class="select_text">选择打卡的地点</span>
-          <el-form-item style="margin:10px 0px;">
+          <!-- <el-form-item style="margin:10px 0px;">
             <el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input>
-          </el-form-item>
-          <Bdmap/>
+          </el-form-item>-->
+          <Bdmap style="margin:10px 0px;" @chosenPoint="chosenPoint"/>
         </div>
         <div class="map"></div>
         <div class="edit_02">
           <span class="select_text">选择打卡点美图</span>
         </div>
         <div class="img">
-          <el-upload
+          <!-- <el-upload
             class="upload-demo"
             action="/api/File/UploadImg"
             :on-success="uploadSuccess"
@@ -41,13 +41,24 @@
           >
             <el-button size="small" type="primary">点击上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+          </el-upload>-->
+          <!-- :on-preview="handlePictureCardPreview" -->
+          <el-upload
+            ref="uploadImg"
+            action="/api/File/UploadImg"
+            :headers="{Authorization:`Bearer ${token}`}"
+            :on-remove="handleRemove"
+            :on-success="uploadSuccess"
+            list-type="picture-card"
+          >
+            <i class="el-icon-plus"></i>
           </el-upload>
         </div>
         <div class="edit_02">
           <span class="select_text">请输入打卡点概述</span>
         </div>
         <el-form-item prop="contents">
-          <QuillEditor :menu="commentMenu"/>
+          <quill-editor v-model="travelPlace.contents" :options="editorOption"></quill-editor>
         </el-form-item>
         <el-form-item>
           <el-button @click="cancel" type="success" plain>取 消</el-button>
@@ -55,18 +66,49 @@
         </el-form-item>
       </el-form>
     </div>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt>
+    </el-dialog>
   </div>
 </template>
 <script>
 import Bdmap from "@/components/Bdmap";
-import QuillEditor from "@/components/QuillEditor";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
 export default {
   components: {
-    QuillEditor,
+    quillEditor,
     Bdmap
   },
   data() {
     return {
+      editorOption: {
+        modules: {
+          toolbar: [
+            [{ size: ["small", false, "large"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            [{ header: 1 }, { header: 2 }],
+            ["bold", "italic"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"]
+          ],
+          history: {
+            delay: 1000,
+            maxStack: 50,
+            userOnly: false
+          },
+          imageDrop: true
+        }
+      },
       commentMenu: [
         "bold",
         "fontSize",
@@ -79,7 +121,7 @@ export default {
         name: "",
         lat: null,
         lon: null,
-        contents: "",
+        contents: "aaaa",
         imgList: []
       },
       rules: {
@@ -90,16 +132,32 @@ export default {
         contents: [
           { required: true, message: "请填写打卡点内容", trigger: "blur" }
         ]
-      }
+      },
+      token: "asdsad",
+      dialogVisible: false,
+      dialogImageUrl: "",
+      tempList: []
     };
+  },
+  created() {
+    this.token = localStorage.getItem("token");
   },
   methods: {
     cancel: function() {
       this.$emit("cancel");
     },
-    confirm: function() {
-      let copyTravelPlace = Object.assign({}, this.travelPlace);
-      this.$emit("confirm", copyTravelPlace);
+
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
+    },
+    changeContents(contents) {
+      this.travelPlace.contents = contents;
+    },
+    handleRemove(file, fileList) {
+      this.travelPlace.imgList = this.travelPlace.imgList.filter(item => {
+        item !== file.response.data;
+      });
     },
     uploadSuccess: function(response, file, fileList) {
       this.travelPlace.imgList.push(response.data);
@@ -107,12 +165,17 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("添加成功!");
+          let copyTravelPlace = Object.assign({}, this.travelPlace);
+          this.$emit("confirm", copyTravelPlace);
         } else {
           console.log("添加失败!");
           return false;
         }
       });
+    },
+    chosenPoint(point) {
+      this.travelPlace.lat = point.lat;
+      this.travelPlace.lon = point.lon;
     }
   }
 };

@@ -17,10 +17,7 @@ import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
 import VueQuillEditor, { Quill } from "vue-quill-editor";
 import { ImageDrop } from "quill-image-drop-module";
-import { watch } from "fs";
-// import ImageResize from "quill-image-resize-module";
 Quill.register("modules/imageDrop", ImageDrop);
-// Quill.register("modules/imageResize", ImageResize);
 
 export default {
   components: {

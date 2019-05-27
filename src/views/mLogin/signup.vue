@@ -47,10 +47,10 @@ export default {
       } else {
         let username = value;
         GetUserName(username).then(resp => {
-          if (resp.data.message === null) {
+          if (resp.message === null) {
             callback();
           } else {
-            callback(new Error(resp.data.message));
+            callback(new Error(resp.message));
           }
         });
       }
@@ -105,15 +105,15 @@ export default {
           this.loading = true;
           Signin(this.signupForm)
             .then(resp => {
-              if (resp.data.code === 0) {
+              if (resp.code === 0) {
                 this.$message({
-                  message: resp.data.message,
+                  message: resp.message,
                   type: "success"
                 });
                 this.$emit("signupSuccess", this.signupForm);
               } else {
                 this.$message({
-                  message: resp.data.message,
+                  message: resp.message,
                   type: "error"
                 });
               }

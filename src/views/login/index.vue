@@ -142,14 +142,14 @@ export default {
         return;
       }
       Signin(this.signinForm).then(resp => {
-        if (resp.data.code === 0) {
+        if (resp.code === 0) {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "success"
           });
         } else {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "error"
           });
         }
@@ -171,16 +171,16 @@ export default {
         return;
       }
       Auth(this.loginForm).then(resp => {
-        if (resp.data.code === 0) {
+        if (resp.code === 0) {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "success"
           });
-          localStorage.setItem("token", resp.data.data.token);
+          localStorage.setItem("token", resp.token);
           this.$router.push("/index");
         } else {
           this.$message({
-            message: resp.data.message,
+            message: resp.message,
             type: "error"
           });
         }

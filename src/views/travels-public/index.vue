@@ -94,7 +94,7 @@
               :key="index"
               class="list-complete-item"
             >
-              <div class="list-complete-item-handle">{{ element.title }}</div>
+              <div class="list-complete-item-handle">{{ element.name }}</div>
               <div style="position:absolute;right:0px;">
                 <span
                   style="float: right ;margin-top: -20px;margin-right:5px;"
@@ -116,7 +116,13 @@
             </el-col>
           </el-row>
         </div>
-        <el-dialog top="50px" :visible.sync="dialogFormVisible" width="80%">
+        <el-dialog
+          :show-close="false"
+          :before-close="()=>false"
+          top="50px"
+          :visible.sync="dialogFormVisible"
+          width="80%"
+        >
           <AddAddress @cancel="dialogFormVisible = false" @confirm="addTravelPlace"/>
           <!-- <div slot="footer" class="dialog-footer">
             <el-button @click="dialogFormVisible = false" type="success" plain>取 消</el-button>
@@ -180,7 +186,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("发布成功!");
+          postTravelBook(this.form).then(resp => {});
         } else {
           console.log("发布失败!!");
           return false;
