@@ -40,7 +40,7 @@
         <el-row :gutter="24">
           <el-col :span="14">
             <div class="a-c-lf">
-              <MapShow :point-list="myPointList" height="350px"/>
+              <MapShow v-if="myPointList.length>0" :point-list="myPointList" height="350px"/>
             </div>
           </el-col>
           <el-col :span="10">
@@ -117,11 +117,9 @@
                   </el-button>
                 </div>
                 <div class="box-card-content">
-                  <el-carousel :interval="5000" arrow="always" height="450px">
-                    <el-carousel-item v-for="item in 4" :key="item">
-                      <img
-                        src="http://image.foooooot.com/footprint/2019/05/02/004733_2D650.jpg-.gallery"
-                      >
+                  <el-carousel :interval="5000" arrow="always">
+                    <el-carousel-item v-for="(el,elindex) in item.imgList" :key="elindex">
+                      <img :src="`/image${el}`">
                     </el-carousel-item>
                   </el-carousel>
                   <div class="new-right2">
@@ -202,7 +200,7 @@
       <div class="el-dialog-title">共2条评论</div>
       <div class="el-dialog-content">1111111</div>
       <div class="el-dialog-input">
-        <el-form ref="form" :model="form" label-width="80px" label-position="top">
+        <el-form ref="form" label-width="80px" label-position="top">
           <el-form-item label="评论">
             <el-input type="textarea"></el-input>
           </el-form-item>
@@ -229,21 +227,6 @@ export default {
     return {
       isCollapse: false,
       dialogVisible: false,
-      travels: {
-        id: 0,
-        intro:
-          "风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。",
-        title: "穿越林海雪原秘境 体验最地道的东北",
-        altitude: 2000,
-        speed: 2,
-        distance: 100,
-        takeTime: 7,
-        time: "2019/5/5",
-        userId: "美少女战士",
-        length: "长线",
-        viewCount: 223,
-        commentCount: 223
-      },
       newList: [
         {
           id: 0,
@@ -291,40 +274,7 @@ export default {
           commentCount: 300
         }
       ],
-      myPointList: [
-        {
-          lng: 116.404,
-          lat: 39.915,
-          show: false,
-          text: "海琴小机灵鬼",
-          src:
-            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
-        },
-        {
-          lng: 116.405,
-          lat: 39.92,
-          show: false,
-          text: "海琴小仙女呀",
-          src:
-            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
-        },
-        {
-          lng: 116.423493,
-          lat: 39.907445,
-          show: false,
-          text: "海琴超漂亮呀",
-          src:
-            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
-        },
-        {
-          lng: 116.424493,
-          lat: 39.917445,
-          show: false,
-          text: "海琴美美哒",
-          src:
-            "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
-        }
-      ],
+      myPointList: [],
       id: 0,
       travels: {}
     };
@@ -334,6 +284,15 @@ export default {
     getTravelsDetail(this.id).then(resp => {
       this.travels = resp.data;
       console.log(this.travels);
+      this.travels.travelPlaces.forEach(item => {
+        this.myPointList.push({
+          lng: item.lng,
+          lat: item.lat,
+          show: false,
+          text: item.name,
+          src: `/image${item.imgList[0]}`
+        });
+      });
     });
   },
   methods: {
@@ -344,7 +303,8 @@ export default {
       document.querySelector(index).scrollIntoView({
         behavior: "smooth"
       });
-    }
+    },
+    handleClose() {}
   }
 };
 </script>
