@@ -127,7 +127,7 @@ export default {
       rules: {
         name: [
           { required: true, message: "请输入打卡点名称", trigger: "blur" },
-          { max: 20, message: "长度不超过20字符", trigger: "blur" }
+          { max: 50, message: "长度不超过50字符", trigger: "blur" }
         ],
         contents: [
           { required: true, message: "请填写打卡点内容", trigger: "blur" }

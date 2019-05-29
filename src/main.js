@@ -8,7 +8,7 @@ import BackTop from "@mlqt/vue-back-top";
 
 import BaiduMap from "vue-baidu-map";
 
-import { timeFilter, htmlToStr } from "@/utils/index.js";
+import { timeFilter, htmlToStr, timeWithoutMin } from "@/utils/index.js";
 
 Vue.use(BaiduMap, {
   /* Visit http://lbsyun.baidu.com/apiconsole/key for details about app key. */
@@ -17,6 +17,8 @@ Vue.use(BaiduMap, {
 
 Vue.filter("timeFilter", timeFilter);
 Vue.filter("htmlToStr", htmlToStr);
+
+Vue.filter("timeWithoutMin", timeWithoutMin);
 
 Vue.config.productionTip = false;
 Vue.use(BackTop);

@@ -4,33 +4,22 @@
       <div class="public-1">
         <div class="activity">
           <div class="activity-title">
-            <!-- <ul class="activity_top">
-              <li class="activity">
-                <a href="/">首页</a>
-              </li>
-              <li>></li>
-              <li>
-                <a href="/">活动</a>
-              </li>
-              <li>></li>
-              <li>
-                <a href="/">.....</a>
-              </li>
-            </ul>-->
             <div class="activity-content1">
-              <h2>{{showList.title}}</h2>
+              <h2>{{knowledges.title}}</h2>
               <div class="title-intro">
-                <span>来源： {{showList.source}}</span>
-                <span>作者： {{showList.author}}</span>
-                <span>时间：{{showList.time}}</span>
+                <span>来源： {{knowledges.source}}</span>
+                <span>作者： {{knowledges.author}}</span>
+                <span>时间：{{knowledges.date|timeFilter}}</span>
                 <span>
                   <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">
-                  {{showList.viewCount}}
+                  {{knowledges.viewCount}}
                 </span>
               </div>
             </div>
           </div>
-          <div class></div>
+          <div class>
+            <div style="margin:10px 0 30px 0;" v-html="knowledges.contents"></div>
+          </div>
         </div>
       </div>
       <div class="search-1">
@@ -89,7 +78,7 @@
                 <span
                   class="num"
                   :class="{top1:index===0,top2:index===1,top3:index===2}"
-                >{{item.id+1}}</span>
+                >{{index+1}}</span>
                 <router-link to="/knowledge-show">{{item.title}}</router-link>
               </li>
             </ul>
@@ -101,6 +90,8 @@
 </template>
 <script>
 import QuillEditor from "@/components/QuillEditor";
+import { getNewsDetail } from "@/api/news.js";
+import { getList } from "@/api/knows.js";
 export default {
   components: {
     QuillEditor
@@ -137,15 +128,39 @@ export default {
           title: "野外生存时，学会走路很重要"
         }
       ],
-      showList: {
+      knowledges: {
         id: 0,
         title: "第十三届平谷桃花节国际徒步大会即将隆重举行",
         source: "中国徒步网",
         author: "Admin",
         time: "2019-03-11 12:03:40",
         viewCount: "200"
+      },
+      id: 0,
+      knowledges: {},
+      clickQuery: {
+        page: 1,
+        pageSize: 10,
+        type: 5,
+        orderBy: "viewCount"
       }
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getNewsDetail(this.id).then(resp => {
+      this.knowledges = resp.data;
+      console.log(this.news);
+    });
+    this.getListOrderby();
+  },
+  methods: {
+    getListOrderby() {
+      getList(this.clickQuery).then(resp => {
+        this.clickList = resp.data;
+        this.total = resp.total;
+      });
+    }
   }
 };
 </script>
@@ -381,5 +396,9 @@ export default {
 }
 .activity_top li:nth-child(2n) {
   padding: 0 10px;
+}
+.showHtml img {
+  width: 100% !important;
+  height: 100%;
 }
 </style>

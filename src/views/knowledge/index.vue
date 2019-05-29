@@ -26,14 +26,14 @@
           </div>
           <div class="know-content-bottom">
             <div class="know-c-b-lf">
-              <img :src="item.image">
+              <img :src="`/image${item.imgList[0]}`">
             </div>
             <div class="know-c-b-rf">
               <div>
-                <p>{{item.contents}}</p>
+                <p>{{item.contents|htmlToStr}}</p>
               </div>
               <div class="more">
-                <router-link to="/knowledge-show">
+                <router-link :to="`/knowledge-show/${item.id}`">
                   <el-button type="text" class="more-link">
                     更多
                     <i class="el-icon-d-arrow-right"></i>
@@ -51,6 +51,7 @@
           layout="prev, pager, next"
           :total="total"
           :page-size="query.pageSize"
+          :current-page="query.page"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
         ></el-pagination>
@@ -89,8 +90,8 @@
                 <span
                   class="num"
                   :class="{top1:index===0,top2:index===1,top3:index===2}"
-                >{{item.id+1}}</span>
-                <router-link to="/knowledge-show">{{item.title}}</router-link>
+                >{{index+1}}</span>
+                <router-link :to="`/knowledge-show/${item.id}`">{{item.title}}</router-link>
               </li>
             </ul>
           </div>
@@ -105,6 +106,7 @@ import { getList } from "@/api/knows.js";
 export default {
   data() {
     return {
+      total: 0,
       knowledgeList: [
         {
           id: 0,
@@ -198,7 +200,7 @@ export default {
       clickQuery: {
         page: 1,
         pageSize: 10,
-        type: null,
+        type: 5,
         orderBy: "viewCount"
       }
     };
@@ -429,6 +431,9 @@ export default {
 
 .know-c-t-rf {
   margin-left: 30px;
+}
+.ac:hover {
+  cursor: pointer;
 }
 .know-content-top {
   display: flex;

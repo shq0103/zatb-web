@@ -4,33 +4,20 @@
       <div class="public-1">
         <div class="activity">
           <div class="activity-title">
-            <!-- <ul class="activity_top">
-              <li class="activity">
-                <a href="/">首页</a>
-              </li>
-              <li>></li>
-              <li>
-                <a href="/">活动</a>
-              </li>
-              <li>></li>
-              <li>
-                <a href="/">.....</a>
-              </li>
-            </ul>-->
             <div class="activity-content1">
-              <h2>{{showList.title}}</h2>
+              <h2>{{news.title}}</h2>
               <div class="title-intro">
-                <span>来源： {{showList.source}}</span>
-                <span>作者： {{showList.author}}</span>
-                <span>时间：{{showList.time}}</span>
+                <span>来源： {{news.source}}</span>
+                <span>作者： {{news.author}}</span>
+                <span>时间：{{news.date|timeFilter}}</span>
                 <span>
                   <img src="../../assets/咨讯浏览.png" style="height:20px;margin:0 2px -5px 0;">
-                  {{showList.viewCount}}
+                  {{news.viewCount}}
                 </span>
               </div>
             </div>
           </div>
-          <div class></div>
+          <div style="margin:10px 0 30px 0;" v-html="news.contents"></div>
         </div>
       </div>
       <div class="search-1">
@@ -79,17 +66,20 @@
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
-          >热门推荐</div>
+          >精彩路线</div>
         </div>
         <div class="search-content" v-for="(item,index) in newList" :key="item.id">
           <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
-                <img :src="item.image" style="width:95%;height:100%;">
+                <img
+                  :src="`/image${item.travelPlaces[0].imgList[0]}`"
+                  style="width:95%;height:100%;"
+                >
               </div>
             </div>
             <div class="tr-b-rf-title">
-              <router-link to="/new-show">
+              <router-link :to="`/travels-show/${item.id}`">
                 <p class="aname1">{{item.title}}</p>
               </router-link>
             </div>
@@ -118,6 +108,8 @@
 </template>
 <script>
 import QuillEditor from "@/components/QuillEditor";
+import { getNewsDetail } from "@/api/news.js";
+import { getGoodList } from "@/api/travels.js";
 export default {
   components: {
     QuillEditor
@@ -152,15 +144,38 @@ export default {
           title: " 2018徒步中国•全国徒步大会百色“地心之旅”（乐业、凌云）站举办"
         }
       ],
-      showList: {
+      news: {
         id: 0,
         title: "第十三届平谷桃花节国际徒步大会即将隆重举行",
         source: "中国徒步网",
         author: "Admin",
         time: "2019-03-11 12:03:40",
         viewCount: "200"
+      },
+      id: 0,
+      news: {},
+      commendQuery: {
+        page: 1,
+        pageSize: 4,
+        orderBy: "star"
       }
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getNewsDetail(this.id).then(resp => {
+      this.news = resp.data;
+      console.log(this.news);
+    });
+    this.getListOrderby();
+  },
+  methods: {
+    getListOrderby() {
+      getGoodList(this.commendQuery).then(resp => {
+        this.newList = resp.data;
+        this.total = resp.total;
+      });
+    }
   }
 };
 </script>
@@ -193,7 +208,7 @@ export default {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
 }
 .activity {
-  margin: 0 40px;
+  margin: 10px 40px;
 }
 .borderNone {
   border: none !important;
@@ -211,6 +226,13 @@ export default {
   background-color: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
   min-height: 800px;
+}
+a:hover {
+  color: #75b628;
+  text-decoration: underline;
+}
+a {
+  color: #000;
 }
 .public-2 {
   border: 1px solid #dedbdb;

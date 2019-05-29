@@ -87,12 +87,12 @@ export default new Router({
           component: () => import("./views/activity-show/index.vue")
         },
         {
-          path: "new-show",
+          path: "new-show/:id",
           name: "new-show",
           component: () => import("./views/new-show/index.vue")
         },
         {
-          path: "knowledge-show",
+          path: "knowledge-show/:id",
           name: "knowledge-show",
           component: () => import("./views/knowledge-show/index.vue")
         },
@@ -117,7 +117,7 @@ export default new Router({
           component: () => import("./views/post-public/index.vue")
         },
         {
-          path: "travels-show",
+          path: "travels-show/:id",
           name: "travels-show",
           component: () => import("./views/travels-show/index.vue")
         },

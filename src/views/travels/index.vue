@@ -83,11 +83,11 @@
               <div class="tr-b-rf-bottom" v-for="item in newtravelsList" :key="item.id">
                 <div class="tr-b-rf-img">
                   <div class="tr-b-rf-img1">
-                    <img :src="item.image" style="width:265px;">
+                    <img :src="`/image${item.travelPlaces[0].imgList[0]}`" style="width:265px;">
                   </div>
                 </div>
                 <div class="tr-b-rf-title">
-                  <router-link to="/travels-show">
+                  <router-link :to="`/travels-show/${item.id}`">
                     <p class="aname1">{{item.title}}</p>
                   </router-link>
                 </div>
@@ -115,10 +115,18 @@
         <el-col :span="17">
           <div class="tr-b-rf" style="margin:0 15px;">
             <div class="tr-b-rf-top">
-              <div style="font-size:18px;font-weight:bold;padding:0 5px;">
+              <div
+                @click="changeOrder('viewCount')"
+                :class="{acactive:query.orderBy=='viewCount'}"
+                style="font-size:18px;font-weight:bold;padding:0 5px;cursor: pointer;"
+              >
                 <img class="hot" src="../../assets/hot.png">最热路书
               </div>
-              <div style="font-size:18px;font-weight:bold;padding:0 30px;">
+              <div
+                @click="changeOrder('publishTime')"
+                :class="{acactive:query.orderBy=='publishTime'}"
+                style="font-size:18px;font-weight:bold;padding:0 30px;cursor: pointer;"
+              >
                 <img class="hot" src="../../assets/new4.png">最新路书
               </div>
               <div class="post-bottom-button">
@@ -130,49 +138,59 @@
               </div>
             </div>
             <div class="tr-b-rf-bottom1">
-              <router-link to="/travels-show">
-                <div class="tr-b-rf-bottom" v-for="item in travelsList" :key="item.id">
-                  <div class="tr-b-rf-title">
-                    <div class="adiv">
-                      <router-link to="/travels">
-                        <span class="aname">{{item.title}}</span>
-                      </router-link>
-                      <p class="ap">{{item.intro}}</p>
-                    </div>
-                  </div>
-                  <div class="tr-b-rf-img">
-                    <el-row :gutter="24">
-                      <el-col :span="8" v-for="(img,index) in item.imgList" :key="index">
-                        <div class="tr-b-rf-img1">
-                          <img :src="img" style="width:240px;heigh:134px;">
-                        </div>
-                      </el-col>
-                    </el-row>
-                  </div>
-                  <div class="tr-b-rf-public">
-                    <span :style="{ float: 'left' }">
-                      <img
-                        src="../../assets/个人1.png"
-                        style="height: 15px; margin-right:3px;margin-bottom: -2px;"
-                      >
-                      {{item.userId}}
-                    </span>
-                    <img
-                      src="../../assets/评论1.png"
-                      style="height: 19px; margin-bottom: -3px;margin-right:3px;"
-                    >
-                    {{item.commentCount}}
-                    <img
-                      src="../../assets/浏览.png"
-                      style="height: 22px; margin-bottom: -6px;margin-left:5px;"
-                    >
-                    {{item.viewCount}}
+              <div class="tr-b-rf-bottom" v-for="item in travelsList" :key="item.id">
+                <div class="tr-b-rf-title">
+                  <div class="adiv">
+                    <router-link :to="`/travels-show/${item.id}`">
+                      <span class="aname">{{item.title}}</span>
+                    </router-link>
+                    <p class="ap">{{item.intro}}</p>
                   </div>
                 </div>
-              </router-link>
+                <div class="tr-b-rf-img">
+                  <el-row :gutter="24">
+                    <el-col :span="8" v-for="(travelPlace,index) in item.travelPlaces" :key="index">
+                      <div class="tr-b-rf-img1" v-if="index<3">
+                        <img
+                          :src="`/image${travelPlace.imgList[0]}`"
+                          style="width: 240px;height: 135px;"
+                        >
+                      </div>
+                    </el-col>
+                  </el-row>
+                </div>
+                <div class="tr-b-rf-public">
+                  <span :style="{ float: 'left' }">
+                    <img
+                      src="../../assets/个人1.png"
+                      style="height: 15px; margin-right:3px;margin-bottom: -2px;"
+                    >
+                    {{item.userId}}
+                  </span>
+                  <img
+                    src="../../assets/评论1.png"
+                    style="height: 19px; margin-bottom: -3px;margin-right:3px;"
+                  >
+                  {{item.commentCount}}
+                  <img
+                    src="../../assets/浏览.png"
+                    style="height: 22px; margin-bottom: -6px;margin-left:5px;"
+                  >
+                  {{item.viewCount}}
+                </div>
+              </div>
             </div>
             <div class="tr-b-rf-page">
-              <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+              <el-pagination
+                class="page-1"
+                background
+                layout="prev, pager, next"
+                :total="total"
+                :page-size="query.pageSize"
+                :current-page="query.page"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+              ></el-pagination>
             </div>
           </div>
         </el-col>
@@ -181,9 +199,11 @@
   </div>
 </template>
 <script>
+import { getList } from "@/api/travels.js";
 export default {
   data() {
     return {
+      total: 0,
       travelsList: [
         {
           id: 0,
@@ -337,8 +357,49 @@ export default {
           id: 0,
           title: "全国徒步大会百色德保、靖西站活动"
         }
-      ]
+      ],
+      query: {
+        page: 1,
+        pageSize: 5,
+        orderBy: "viewCount"
+      },
+      commendQuery: {
+        page: 1,
+        pageSize: 6,
+        orderBy: "star"
+      }
     };
+  },
+  created() {
+    this.getTravelsList();
+    this.getListOrderby();
+  },
+  methods: {
+    changeOrder(value) {
+      this.query.page = 1;
+      this.query.orderBy = value;
+      this.getTravelsList();
+    },
+    getTravelsList() {
+      getList(this.query).then(resp => {
+        this.travelsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getListOrderby() {
+      getList(this.commendQuery).then(resp => {
+        this.newtravelsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getTravelsList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getTravelsList();
+    }
   }
 };
 </script>
@@ -391,11 +452,19 @@ travels-top-rf {
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
 }
+.acactive {
+  color: #a64834;
+  cursor: pointer;
+}
 .hot {
   height: 20px;
   margin-bottom: -3px;
   margin-right: 5px;
   /* margin-left: 10px; */
+}
+.aname:hover {
+  text-decoration: underline;
+  color: #75b628;
 }
 .post-bottom-button {
   position: absolute;

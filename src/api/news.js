@@ -6,3 +6,10 @@ export function getList(query) {
     params: query
   });
 }
+
+export function getNewsDetail(id) {
+  return request({
+    url: `/api/Newspaper/${id}`,
+    method: "get"
+  });
+}

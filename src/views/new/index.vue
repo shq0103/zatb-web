@@ -9,12 +9,12 @@
               @click="changeOrder('date')"
               :class="{acactive:query.orderBy=='date'}"
               class="ac"
-            >最新资讯</div>
+            >最新新闻</div>
             <div
               class="ac"
               @click="changeOrder('viewCount')"
               :class="{acactive:query.orderBy=='viewCount'}"
-            >热门资讯</div>
+            >热门新闻</div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
           <div class="ac-content-right">
             <div class="ac-content-right1">
               <div class="adiv">
-                <router-link to="/new-show">
+                <router-link :to="`/new-show/${item.id}`">
                   <p class="aname">{{item.title}}</p>
                 </router-link>
                 <p class="ap">{{item.contents|htmlToStr}}</p>
@@ -45,6 +45,7 @@
           background
           layout="prev, pager, next"
           :total="total"
+          :current-page="query.page"
           :page-size="query.pageSize"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
@@ -81,11 +82,14 @@
           <div class="tr-b-rf-bottom" :class="{borderNone:index+1===newList.length}">
             <div class="tr-b-rf-img">
               <div class="tr-b-rf-img1">
-                <img :src="item.image" style="width: 95%;height:100%;">
+                <img
+                  :src="`/image${item.travelPlaces[0].imgList[0]}`"
+                  style="width: 95%;height:100%;"
+                >
               </div>
             </div>
             <div class="tr-b-rf-title">
-              <router-link to="/new-show">
+              <router-link :to="`/travels-show/${item.id}`">
                 <p class="aname1">{{item.title}}</p>
               </router-link>
             </div>
@@ -97,6 +101,7 @@
 </template>
 <script>
 import { getList } from "@/api/news.js";
+import { getGoodList } from "@/api/travels.js";
 export default {
   data() {
     return {
@@ -176,13 +181,19 @@ export default {
       query: {
         page: 1,
         pageSize: 5,
-        type: null,
+        type: 1,
         orderBy: "date"
+      },
+      commendQuery: {
+        page: 1,
+        pageSize: 4,
+        orderBy: "star"
       }
     };
   },
   created() {
     this.getNewsList();
+    this.getListOrderby();
   },
   methods: {
     changeOrder(value) {
@@ -195,6 +206,12 @@ export default {
         this.newsList = resp.data;
         this.total = resp.total;
         console.log(this.newsList);
+      });
+    },
+    getListOrderby() {
+      getGoodList(this.commendQuery).then(resp => {
+        this.newList = resp.data;
+        this.total = resp.total;
       });
     },
     handleSizeChange(pageSize) {
@@ -393,6 +410,9 @@ export default {
   font-weight: bold;
   text-align: -webkit-auto;
   margin-left: 20px;
+}
+.ac:hover {
+  cursor: pointer;
 }
 .adiv {
   /* background-color: #f0f9eb;

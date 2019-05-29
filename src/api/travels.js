@@ -7,3 +7,23 @@ export function postTravelBook(data) {
     data
   });
 }
+export function getList(query) {
+  return request({
+    url: "/api/TravelBook",
+    method: "get",
+    params: query
+  });
+}
+export function getGoodList(query) {
+  return request({
+    url: "/api/TravelBook",
+    method: "get",
+    params: query
+  });
+}
+export function getTravelsDetail(id) {
+  return request({
+    url: `/api/TravelBook/${id}`,
+    method: "get"
+  });
+}

@@ -152,7 +152,10 @@ export default {
         length: [
           { required: true, message: "请选择参与等级", trigger: "change" }
         ],
-        intro: [{ required: true, message: "请填写路书概述", trigger: "blur" }]
+        intro: [
+          { required: true, message: "请填写路书概述", trigger: "blur" },
+          { max: 150, message: "不能超过150字符", trigger: "blur" }
+        ]
       }
     };
   },

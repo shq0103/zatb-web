@@ -10,30 +10,30 @@
       </li>
       <li>></li>
       <li>
-        <a href="/">{{travlesList.title}}</a>
+        <a href="/">{{travels.title}}</a>
       </li>
     </ul>
     <div class="activity_info">
       <div class="a-i-title">
-        <h3 class="activity_title">{{travlesList.title}}</h3>
-        <b class="activity_distance">{{travlesList.length}}</b>
+        <h3 class="activity_title">{{travels.title}}</h3>
+        <b class="activity_distance">{{travels.length}}</b>
       </div>
       <ul class="activity_text" style="display:flex;padding:0px;">
         <li>
           <img src="../../assets/写作者.png" style="height:15px;margin:-3px 2px -2px 0;">
-          {{travlesList.userId}}
+          {{travels.nickname}}
         </li>
         <li>
           <img src="../../assets/路书时间.png" style="height:16px;margin:-3px 3px -2px 0;">
-          {{travlesList.time}}
+          {{travels.publishTime|timeFilter}}
         </li>
         <li>
           <img src="../../assets/咨讯浏览.png" style="height:21px;margin:-3px 2px -5px 0;">
-          {{travlesList.viewCount}}人浏览
+          {{travels.viewCount}}人浏览
         </li>
         <li>
           <img src="../../assets/路书评论.png" style="height:15px;margin:-3px 2px -3px 0;">
-          {{travlesList.commentCount}}人评论
+          {{travels.commentCount}}人评论
         </li>
       </ul>
       <div class="a-i-content">
@@ -51,7 +51,7 @@
                     <div class="grid-content bg-purple">
                       <img src="../../assets/长度.png" style="height:20px;margin:-3px 5px -5px 0;">总里程
                       <span>/</span>
-                      {{travlesList.distance}}公里
+                      {{travels.distance}}公里
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
@@ -61,7 +61,7 @@
                         style="height:19px;margin:-3px 5px -5px -50px;"
                       >总耗时
                       <span>/</span>
-                      {{travlesList.takeTime}}小时
+                      {{travels.takeTime}}小时
                     </div>
                   </el-col>
                 </el-row>
@@ -74,14 +74,14 @@
                         style="height:18px;margin:-3px 4px -5px 8px;"
                       >平均海拔
                       <span>/</span>
-                      {{travlesList.altitude}}米
+                      {{travels.altitude}}米
                     </div>
                   </el-col>
                   <el-col :span="12" style="padding-left:0px;">
                     <div class="grid-content bg-purple">
                       <img src="../../assets/配速.png" style="height:21px;margin:-3px 3px -5px -2px;">平均配速
                       <span>/</span>
-                      {{travlesList.speed}}公里/小时
+                      {{travels.speed}}公里/小时
                     </div>
                   </el-col>
                 </el-row>
@@ -89,7 +89,7 @@
               <div class="a-c-rf-bottom">
                 <el-divider>摘要</el-divider>
                 <div class="a-c-rf-b-content">
-                  <p>{{travlesList.intro}}</p>
+                  <p>{{travels.intro}}</p>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@
       <el-row :gutter="20">
         <el-col :span="17">
           <div class="a-c-lf-1">
-            <div class="a-c-lf-content" v-for="(item,index) in pointList" :key="item.id">
+            <div class="a-c-lf-content" v-for="(item,index) in travels.travelPlaces" :key="item.id">
               <el-card class="box-card">
                 <div :id="`p${index}`" slot="header" class="clearfix">
                   <span>{{item.name}}</span>
@@ -125,7 +125,7 @@
                     </el-carousel-item>
                   </el-carousel>
                   <div class="new-right2">
-                    <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lon}}</i>
+                    <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lng}}</i>
                     <i
                       class="el-icon-chat-line-square"
                       style="padding-left:20px"
@@ -135,7 +135,8 @@
                     <span style="text-indent: 2.5em;">
                       <p
                         style="margin-top: 20px;line-height: 25px;text-align:justify;"
-                      >{{item.content}}</p>
+                        v-html="item.contents"
+                      ></p>
                     </span>
                   </div>
                 </div>
@@ -180,7 +181,11 @@
         :collapse="isCollapse"
         @select="selectItem"
       >
-        <el-menu-item :index="`#p${index}`" v-for="(item,index) in pointList" :key="item.id">
+        <el-menu-item
+          :index="`#p${index}`"
+          v-for="(item,index) in travels.travelPlaces"
+          :key="item.id"
+        >
           <i class="el-icon-location"></i>
           <span slot="title">{{item.name}}</span>
         </el-menu-item>
@@ -214,6 +219,7 @@
 <script>
 import Hamburger from "./Hamburger.vue";
 import MapShow from "@/components/BdmapT/index.vue";
+import { getTravelsDetail } from "@/api/travels.js";
 export default {
   components: {
     Hamburger,
@@ -223,7 +229,7 @@ export default {
     return {
       isCollapse: false,
       dialogVisible: false,
-      travlesList: {
+      travels: {
         id: 0,
         intro:
           "风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。",
@@ -264,7 +270,7 @@ export default {
           name: "打卡点1",
           lat: 25.9079359516,
           lon: 114.038064697,
-          content:
+          contents:
             "风肆意地吹起我的裙摆，带我去寻找。人生不过一场黄粱梦，在频繁的美丽与曲折的悲欢之后，悠然醒转，新炊却犹未熟。我知道，在我的生命里，有一种执着地等待，挫折会来，也会过去，热泪会流下来，也会收起，没有什么可以让我气馁的，因为，我有着长长的一生，而你，你一定会来。",
           commentCount: 300
         },
@@ -273,7 +279,7 @@ export default {
           name: "打卡点2",
           lat: 25.9079359516,
           lon: 114.038064697,
-          content: "",
+          contents: "",
           commentCount: 300
         },
         {
@@ -281,7 +287,7 @@ export default {
           name: "打卡点3",
           lat: 25.9079359516,
           lon: 114.038064697,
-          content: "",
+          contents: "",
           commentCount: 300
         }
       ],
@@ -318,8 +324,17 @@ export default {
           src:
             "http://img02.tooopen.com/images/20160120/tooopen_sy_155012438679.jpg"
         }
-      ]
+      ],
+      id: 0,
+      travels: {}
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getTravelsDetail(this.id).then(resp => {
+      this.travels = resp.data;
+      console.log(this.travels);
+    });
   },
   methods: {
     toggleClick: function() {

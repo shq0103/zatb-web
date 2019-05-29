@@ -175,6 +175,7 @@
                   size="small"
                   plain
                   icon="el-icon-arrow-up"
+                  @click="changePage(-1)"
                 ></el-button>
                 <el-button
                   :style="{ marginTop: '15px' }"
@@ -182,6 +183,7 @@
                   size="small"
                   plain
                   icon="el-icon-arrow-down"
+                  @click="changePage(1)"
                 ></el-button>
               </el-row>
             </div>
@@ -189,28 +191,6 @@
         </div>
         <div class="tr-content">
           <div class="tr-content-left">
-            <!-- <div class="tr-content-left-1">
-              <div class="tr-content-left-img">
-                <img src="http://tubu100.com:8053/Files/Note/201803141241153bd9ce.jpg">
-              </div>
-              <div class="tr-content-left-content">
-                <div class="tr-content-left-content1">
-                  <el-alert
-                    class="new-alert"
-                    title="带辅助性文字介绍"
-                    type="success"
-                    :closable="false"
-                    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                  ></el-alert>
-                </div>
-
-                <div class="tr-content-left-content2">
-                  <i class="el-icon-location">ddd</i>
-                  <i class="tr-author">ddd</i>
-                  <i class="el-icon-view">ddd</i>
-                </div>
-              </div>
-            </div>-->
             <div
               class="activity-content2"
               v-for="(item,index) in hottravelsList"
@@ -218,20 +198,12 @@
               :key="item.id"
             >
               <div class="ac-content-left">
-                <img :src="item.image">
+                <img :src="`/image${item.travelPlaces[0].imgList[0]}`">
               </div>
               <div class="ac-content-right">
                 <div class="ac-content-right1">
-                  <!-- <el-alert
-                    class="new-alert"
-                    :title="item.title"
-                    type="success"
-                    :closable="false"
-                    :description="item.intro"
-                  ></el-alert>-->
-
                   <div class="adiv">
-                    <router-link to="/travels">
+                    <router-link :to="`/travels-show/${item.id}`">
                       <span class="aname">{{item.title}}</span>
                     </router-link>
                     <p class="ap">{{item.intro}}</p>
@@ -264,12 +236,12 @@
               <li v-for="item in newtravelsList" :key="item.id">
                 <i></i>
                 <div class="tip left">
-                  <span class="time">{{item.publishTime}}</span>
+                  <span class="time">{{item.publishTime|timeFilter}}</span>
                   <p class="bt">
-                    <router-link to="/travels">{{item.title}}</router-link>
+                    <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
                   </p>
                   <p class="aut">
-                    <router-link to="/travels">—作者：{{item.userId}}</router-link>
+                    <router-link :to="`/travels-show/${item.id}`">—作者：{{item.userId}}</router-link>
                   </p>
                 </div>
               </li>
@@ -335,15 +307,10 @@
           </div>
         </div>
         <div class="s-content">
-          <!-- <div class="news_box">
-            <div class="inner-container">
-              <p class="text" v-for="(text, index) in arr" :key="index">{{ text }}</p>
-            </div>
-          </div>-->
           <vue-seamless-scroll :data="listData" :class-option="{step:0.5}" class="seamless-warp">
             <ul class="item">
               <li v-for="(item,index) in listData" :key="index">
-                <router-link to="/knowledge">
+                <router-link :to="`/knowledge-show/${item.id}`">
                   <el-tooltip
                     class="item"
                     effect="light"
@@ -358,7 +325,7 @@
                       {{item.title}}
                     </span>
                   </el-tooltip>
-                  <span class="date">[{{item.date}}]</span>
+                  <span class="date">[{{item.date|timeWithoutMin}}]</span>
                 </router-link>
               </li>
             </ul>
@@ -372,11 +339,26 @@
 <script>
 import Vue from "vue";
 import scroll from "vue-seamless-scroll";
+import { getList } from "@/api/travels.js";
+import { getKnowledgeList } from "@/api/knows.js";
 Vue.use(scroll);
 export default {
   data() {
     return {
+      total: 0,
+      total1: 0,
       imgList: ["../../assets/logo.png", "../../assets/logo1.png"],
+      query: {
+        page: 1,
+        pageSize: 3,
+        orderBy: "viewCount"
+      },
+      commendQuery: {
+        page: 1,
+        pageSize: 5,
+        orderBy: "publishTime"
+      },
+      Knowledgequery: { page: 1, pageSize: 10, type: 5, orderBy: null },
       listData: [
         {
           title: "2019曼谷新玩法打卡：湄南河上看落日，享受香槟和泰国料理",
@@ -561,6 +543,45 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.getTravelsList();
+    this.getListOrderby();
+    this.getNewsList();
+  },
+  methods: {
+    getTravelsList() {
+      getList(this.query).then(resp => {
+        this.hottravelsList = resp.data;
+      });
+    },
+    getListOrderby() {
+      getList(this.commendQuery).then(resp => {
+        this.newtravelsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getNewsList() {
+      getKnowledgeList(this.Knowledgequery).then(resp => {
+        this.listData = resp.data;
+        this.total1 = resp.total;
+      });
+    },
+    changePage(change) {
+      this.commendQuery.page += change;
+      if (this.commendQuery.page == 0) {
+        this.commendQuery.page = 1;
+      }
+      if (
+        this.commendQuery.page >
+        Math.ceil(this.total / this.commendQuery.pageSize)
+      ) {
+        this.commendQuery.page = Math.ceil(
+          this.total / this.commendQuery.pageSize
+        );
+      }
+      this.getListOrderby();
+    }
   }
 };
 </script>
@@ -971,6 +992,9 @@ li {
 
   display: flex;
   margin: 5px 20px 0 5px;
+}
+.s-content a {
+  color: #000;
 }
 .ac-content-left {
   margin-right: 10px;
