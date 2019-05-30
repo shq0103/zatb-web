@@ -82,7 +82,7 @@ export default new Router({
           component: () => import("./views/goods/index.vue")
         },
         {
-          path: "activity-show",
+          path: "activity-show/:id",
           name: "activity-show",
           component: () => import("./views/activity-show/index.vue")
         },

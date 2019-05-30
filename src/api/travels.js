@@ -7,6 +7,7 @@ export function postTravelBook(data) {
     data
   });
 }
+
 export function getList(query) {
   return request({
     url: "/api/TravelBook",

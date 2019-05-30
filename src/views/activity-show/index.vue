@@ -16,7 +16,7 @@
     <div class="activity_info">
       <div class="a-i-title">
         <h3 class="activity_title">{{acPublic.name}}</h3>
-        <b class="activity_distance">{{acPublic.theme}}</b>
+        <!-- <b class="activity_distance">{{acPublic.theme}}</b> -->
       </div>
       <p class="activity_text">
         <img src="../../assets/咨讯浏览.png" style="height:20px;margin:-3px 2px -5px 0;">
@@ -25,14 +25,14 @@
       <div class="a-i-content">
         <div class="a-i-c-lf">
           <img :src="acPublic.image">
-          <label>{{acPublic.theme}}系列</label>
+          <label>{{acPublic.theme|lineFilter}}系列</label>
           <b class="stat_01">报名中</b>
         </div>
         <div class="a-i-c-rf">
           <div class="a-i-c-rf-text">
             <p>
               <img src="../../assets/时间.png" style="height:20px;margin:-3px 15px -5px 0;">
-              活动时间：{{acPublic.date}}
+              活动时间：{{acPublic.startDate|dateFilter}}-{{acPublic.endDate|dateFilter}}
             </p>
             <p>
               <img src="../../assets/感叹号.png" style="height:20px;margin:-3px 15px -5px 0;">
@@ -198,6 +198,7 @@
   </div>
 </template>
 <script>
+import { getAcDetail, getAcJionList } from "@/api/activity.js";
 export default {
   data() {
     return {
@@ -290,6 +291,15 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getAcDetail(this.id).then(resp => {
+      this.acPublic = resp.data;
+    });
+    getAcJionList(this.id).then(resp => {
+      this.acSigninList = resp.data;
+    });
   },
   methods: {
     selectItem: function(index) {
@@ -569,7 +579,7 @@ ul {
   padding-bottom: 20px;
 }
 .attr-content {
-  min-height: 300px;
+  min-height: 100px;
   text-align: justify;
   text-indent: 2em;
   line-height: 30px;

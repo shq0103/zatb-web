@@ -5,9 +5,21 @@
         <div class="activity-title">
           <div style="background-color:#009a61; width:2px; float:left; height:26px;"></div>
           <div class="activity-content1">
-            <div class="ac acactive">热门活动</div>
-            <div class="ac">最新活动</div>
-            <div class="ac">官方活动</div>
+            <div
+              @click="changeOrder('viewCount')"
+              :class="{acactive:query.orderBy=='viewCount'}"
+              class="ac"
+            >热门活动</div>
+            <div
+              @click="changeOrder('publishTime')"
+              :class="{acactive:query.orderBy=='publishTime'}"
+              class="ac"
+            >最新活动</div>
+            <div
+              @click="changeUser('admin')"
+              :class="{acactive:query.username=='admin'}"
+              class="ac"
+            >官方活动</div>
             <!-- <div
               style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
             >自游行</div>-->
@@ -20,14 +32,8 @@
             <img width="100%" height="98%" :src="item.image">
           </div>
           <div class="ac-content-right">
-            <router-link to="/activity-show">
+            <router-link :to="`/activity-show/${item.id}`">
               <div class="ac-content-right1">
-                <!-- <el-alert
-                  :title="item.name"
-                  type="success"
-                  :closable="false"
-                  :description="item.explain"
-                ></el-alert>-->
                 <div class="adiv">
                   <p class="aname">{{item.name}}</p>
                   <p class="ap">{{item.explain}}</p>
@@ -53,7 +59,9 @@
                 <span style="font-size: 10px;color:#888;">活动地点</span>
               </div>
               <div class="ac-content-right3-2">
-                <span style="color: #000;font-size: 14px;">{{item.date}}</span>
+                <span
+                  style="color: #000;font-size: 14px;"
+                >{{item.startDate|dateFilter}}-{{item.endDate|dateFilter}}</span>
                 <br>
                 <span style="font-size: 10px;color:#888;">活动时间</span>
               </div>
@@ -63,7 +71,7 @@
                 <img class="touxiang" v-for="(img,index) in item.imgList" :key="index" :src="img">
               </div>
               <div class="ac-content-right4-2">
-                <span>报名:</span>
+                <span>报名:{{item.signin}}</span>
                 <span>{{item.signin}}</span>
                 <br>
                 <span>关注:</span>
@@ -74,7 +82,16 @@
         </div>
       </div>
       <div class="page">
-        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+        <el-pagination
+          class="page-1"
+          background
+          layout="prev, pager, next"
+          :total="total"
+          :current-page="query.page"
+          :page-size="query.pageSize"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
       </div>
     </div>
     <div class="index-right">
@@ -90,44 +107,30 @@
             <el-form-item label="活动名称">
               <el-input placeholder="关键字查找"></el-input>
             </el-form-item>
+            <el-form-item label="活动领队">
+              <el-input placeholder="领队名字查找"></el-input>
+            </el-form-item>
             <el-form-item label="活动时间">
               <!-- <el-col :span="11"> -->
-              <el-date-picker type="date" placeholder="开始日期" style="width: 100%;padding-right:0px;"></el-date-picker>
-              <!-- </el-col> -->
-              <!-- <el-col class="line" :span="2">-</el-col> -->
-              <!-- <el-col :span="11"> -->
+              <el-date-picker
+                type="datetime"
+                placeholder="开始日期"
+                style="width: 100%;padding-right:0px;"
+              ></el-date-picker>
             </el-form-item>
             <el-form-item>
-              <el-date-picker type="date" placeholder="截止日期" style="width: 100%;"></el-date-picker>
-              <!-- </el-col> -->
+              <el-date-picker type="datetime" placeholder="截止日期" style="width: 100%;"></el-date-picker>
             </el-form-item>
-            <!-- <el-form-item label="活动区域">
-              <el-select placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>-->
 
             <el-form-item label="活动强度">
-              <el-select placeholder="请选择活动强度">
-                <el-option label="强度一" value="短线"></el-option>
-                <el-option label="强度二" value="中线"></el-option>
-                <el-option label="强度三" value="长线"></el-option>
+              <el-select placeholder="请选择活动强度" style="width:100%">
+                <el-option label="短线" value="短线"></el-option>
+                <el-option label="中线" value="中线"></el-option>
+                <el-option label="长线" value="长线"></el-option>
+                <el-option label="其他" value="其他"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="活动领队">
-              <el-select placeholder="请选择活动领队">
-                <el-option label="强度一" value="短线"></el-option>
-                <el-option label="强度二" value="中线"></el-option>
-                <el-option label="强度三" value="长线"></el-option>
-              </el-select>
-            </el-form-item>
-            <!-- <el-form-item label="特殊资源">
-              <el-radio-group>
-                <el-radio label="线上品牌商赞助"></el-radio>
-                <el-radio label="线下场地免费"></el-radio>
-              </el-radio-group>
-            </el-form-item>-->
+
             <el-form-item>
               <el-button type="success">搜索</el-button>
               <el-button type="success" plain>重置</el-button>
@@ -156,9 +159,22 @@
   </div>
 </template>
 <script>
+import { getAcList } from "@/api/activity.js";
 export default {
   data() {
     return {
+      query: {
+        page: 1,
+        pageSize: 10,
+        status: null,
+        keyword: null,
+        user: null,
+        theme: null,
+        startDate: null,
+        endDate: null,
+        orderBy: "viewCount"
+      },
+      total: 0,
       activityList: [
         {
           id: 0,
@@ -310,6 +326,35 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.getActivityList();
+  },
+  methods: {
+    changeOrder(value) {
+      this.query.page = 1;
+      this.query.orderBy = value;
+      this.getActivityList();
+    },
+    changeUser(user) {
+      this.query.page = 1;
+      this.query.username = user;
+      this.getActivityList();
+    },
+    getActivityList() {
+      getAcList(this.query).then(resp => {
+        this.activityList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getActivityList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getActivityList();
+    }
   }
 };
 </script>
@@ -485,6 +530,9 @@ export default {
   font-weight: bold;
   text-align: -webkit-auto;
   margin-left: 20px;
+}
+.ac:hover {
+  cursor: pointer;
 }
 .acactive {
   color: #75b628;
