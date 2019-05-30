@@ -10,9 +10,9 @@
             </router-link>
           </div>
           <el-table :data="tableData" border fit>
-            <el-table-column align="center" prop="title" label="路书标题" width="280px"></el-table-column>
-            <el-table-column align="center" prop="date" label="创建时间"></el-table-column>
-            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" prop="title" label="路书标题" width="300px"></el-table-column>
+            <el-table-column align="center" prop="publishTime|timeFilter" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="status" label="状态"></el-table-column>
             <el-table-column align="center" label="操作" width="180px">
               <template>
                 <router-link to="/travels-public">
@@ -22,6 +22,15 @@
               </template>
             </el-table-column>
           </el-table>
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page.sync="query.page"
+            :page-size="query.pageSize"
+            layout="total, prev, pager, next"
+            :total="total"
+            style="background-color:#fff!important;"
+          ></el-pagination>
         </div>
       </div>
     </div>
@@ -42,41 +51,46 @@
   </div>
 </template>
 <script>
+import { getTBList } from "@/api/travels.js";
 export default {
   data() {
     return {
+      total: 0,
       tableData: [
         {
-          date: "2016-05-02",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          type: "审核中",
-          name: "美少女"
-        },
-        {
-          date: "2016-05-02",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          type: "审核中",
-          name: "美少女"
-        },
-        {
-          date: "2016-05-02",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          type: "审核中",
-          name: "美少女"
-        },
-        {
-          date: "2016-05-02",
+          publishTime: "2016-05-02",
           title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
           type: "审核中",
           name: "美少女"
         }
       ],
-
+      query: {
+        page: 1,
+        pageSize: 10
+      },
       dialogpass: false,
       dialogdelete: false
     };
   },
-  methods: {}
+  created() {
+    this.getTravelsBookList();
+  },
+  methods: {
+    getTravelsBookList() {
+      getTBList(this.query).then(resp => {
+        this.tableData = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getTravelsBookList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getTravelsBookList();
+    }
+  }
 };
 </script>
 <style scoped>

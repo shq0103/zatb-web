@@ -22,9 +22,11 @@ export function getGoodList(query) {
     params: query
   });
 }
-export function getTravelsDetail(id) {
+
+export function getTBList(query) {
   return request({
-    url: `/api/TravelBook/${id}`,
-    method: "get"
+    url: "/api/TravelBook/user",
+    method: "get",
+    params: query
   });
 }

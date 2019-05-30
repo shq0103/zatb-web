@@ -32,11 +32,11 @@
           <div class="a-i-c-rf-text">
             <p>
               <img src="../../assets/时间.png" style="height:20px;margin:-3px 15px -5px 0;">
-              活动时间：{{acPublic.startDate|dateFilter}}-{{acPublic.endDate|dateFilter}}
+              活动时间：{{acPublic.startDate|dateFilter}} ~ {{acPublic.endDate|dateFilter}}
             </p>
             <p>
               <img src="../../assets/感叹号.png" style="height:20px;margin:-3px 15px -5px 0;">
-              报名截止日期：{{acPublic.deadline}}
+              报名截止日期：{{acPublic.deadline|dateFilter}}
             </p>
             <p>
               <img src="../../assets/出发地.png" style="height:20px;margin:-3px 15px -2px 0;">
@@ -101,7 +101,7 @@
                     </a>
                   </h3>
                 </div>
-                <div class="attr-content">{{acPublic.routing}}</div>
+                <div class="attr-content" v-html="acPublic.routing"></div>
               </div>
               <div class="a-c-l-c-1">
                 <div id="position2" class="attr-title">
@@ -111,7 +111,7 @@
                     </h3>
                   </a>
                 </div>
-                <div class="attr-content">{{acPublic.costExplain}}</div>
+                <div class="attr-content" v-html="acPublic.costExplain"></div>
               </div>
               <div id="position3" class="a-c-l-c-1">
                 <div class="attr-title">
@@ -121,14 +121,9 @@
                     </h3>
                   </a>
                 </div>
-                <div class="attr-content">{{acPublic.line}}</div>
+                <div class="attr-content" v-html="acPublic.line"></div>
               </div>
-              <!-- <div class="a-c-l-c-1">
-                <div class="attr-title">
-                  <h3><img src="../../assets/地图.png" class="icon-intro" />目的地地图</h3>
-                </div>
-                <div class="attr-content">44</div>
-              </div>-->
+
               <div class="a-c-l-c-1">
                 <div id="position4" class="attr-title">
                   <a name="position4">
@@ -137,7 +132,7 @@
                     </h3>
                   </a>
                 </div>
-                <div class="attr-content">{{acPublic.equip}}</div>
+                <div class="attr-content" v-html="acPublic.equip"></div>
               </div>
               <div class="a-c-l-c-2">
                 <div id="position5" class="attr-title">
@@ -147,7 +142,7 @@
                     </h3>
                   </a>
                 </div>
-                <div class="attr-content">{{acPublic.moreInfo}}</div>
+                <div class="attr-content" v-html="acPublic.moreInfo"></div>
               </div>
             </div>
           </div>

@@ -10,43 +10,39 @@
           <h3>报名人</h3>
         </div>
         <div class="a-j-lf-content">
-          <el-form ref="form" label-width="80px">
+          <el-form :model="form" :rules="rules" ref="form" label-width="80px">
             <div style="padding-bottom: 45px;">
-              <i class="num">1</i>
-              <span class="empty_icon" onclick="EnterModal.Reset(this)">清空</span>
+              <!-- <i class="num">1</i> -->
+              <el-buttom type="text" class="empty_icon" @click="resetForm('form')">清空</el-buttom>
             </div>
-            <el-form-item label="真实姓名">
-              <el-input></el-input>
+            <el-form-item label="真实姓名" prop="name">
+              <el-input placeholder="请填写真实姓名" v-model="form.name"></el-input>
             </el-form-item>
-            <el-form-item label="证件类型">
-              <el-col :span="8">
-                <el-select placeholder="请选择证件类型">
-                  <el-option label="身份证" value="shanghai"></el-option>
-                  <el-option label="护照" value="beijing"></el-option>
-                </el-select>
-              </el-col>
-              <el-col class="line" :span="1">-</el-col>
-              <el-col :span="15" style="padding-right: 0px; ">
-                <el-input></el-input>
-              </el-col>
+            <el-form-item label="证件号" prop="idcard">
+              <el-input placeholder="请填写证件号码" v-model="form.idcard"></el-input>
             </el-form-item>
-            <el-form-item label="手机号码">
-              <el-input></el-input>
+            <el-form-item label="手机号码" prop="number">
+              <el-input placeholder="请填写手机号码" v-model="form.idcard"></el-input>
             </el-form-item>
-            <el-form-item label="紧急联系">
-              <el-input></el-input>
+            <el-form-item label="紧急联系" prop="urgentNum">
+              <el-input placeholder="请填写紧急联系号码" v-model="form.urgentNum"></el-input>
             </el-form-item>
-            <el-form-item label="性别">
+            <el-form-item label="性别" prop="sex">
               <el-radio-group>
-                <el-radio label="男"></el-radio>
-                <el-radio label="女"></el-radio>
+                <el-radio v-model="form.sex" :label="1" border>男</el-radio>
+                <el-radio v-model="form.sex" :label="0" border>女</el-radio>
               </el-radio-group>
             </el-form-item>
-            <el-form-item label="出生年月">
-              <el-date-picker type="date" placeholder="选择日期" style="width: 100%;"></el-date-picker>
+            <el-form-item label="出生年月" prop="birth">
+              <el-date-picker
+                type="date"
+                placeholder="选择日期"
+                style="width: 100%;"
+                v-model="form.birth"
+              ></el-date-picker>
             </el-form-item>
-            <el-form-item label="备注">
-              <el-input placeholder="备注衣服尺码或到站时间（非必填）"></el-input>
+            <el-form-item label="备注" prop="remark">
+              <el-input placeholder="备注衣服尺码或到站时间（非必填）" v-model="form.remark"></el-input>
             </el-form-item>
           </el-form>
         </div>
@@ -63,8 +59,8 @@
             </el-checkbox>
           </el-checkbox-group>
         </div>
-        <el-button type="success" style="    width: 95%;
-    margin: 20px 0;" round>立即报名</el-button>
+
+        <el-button type="success" style="width: 95%;margin: 20px 0;" round @click="submitForm">立即报名</el-button>
       </el-col>
       <el-col :span="8">
         <div class="a-j-rf">
@@ -88,6 +84,7 @@
   </div>
 </template>
 <script>
+import { joinActivity, getAcDetail } from "@/api/activity.js";
 export default {
   data() {
     return {
@@ -100,8 +97,68 @@ export default {
         theme: "长线",
         quota: 200,
         signin: 150
+      },
+      form: {
+        id: 0,
+        activityId: 0,
+        userId: 0,
+        status: 0,
+        name: "",
+        idcard: "",
+        number: "",
+        urgentNum: "",
+        sex: 0,
+        birth: 0,
+        remark: ""
+      },
+      rules: {
+        name: [{ required: true, message: "请输入真实姓名", trigger: "blur" }],
+        idcard: [{ required: true, message: "请输入证件号", trigger: "blur" }],
+        sex: [{ required: true, message: "请输入性别", trigger: "blur" }],
+        birth: [{ required: true, message: "请输入出生年月", trigger: "blur" }],
+        urgentNum: [
+          { required: true, message: "请输入紧急联系人手机号", trigger: "blur" }
+        ],
+        number: [{ required: true, message: "请输入手机号", trigger: "blur" }],
+        remark: [{ required: true, message: "请输入活动说明", trigger: "blur" }]
       }
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getAcDetail(this.id).then(resp => {
+      this.acPublic = resp.data;
+    });
+  },
+  methods: {
+    submitForm() {
+      // this.postForm.display_time = parseInt(this.display_time / 1000);
+      this.form.birth = new Date(this.form.startDate).getTime();
+
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.loading = true;
+          joinActivity(this.form).then(resp => {
+            if (resp.code === 0) {
+              this.$notify({
+                title: "成功",
+                message: "报名活动成功",
+                type: "success",
+                duration: 2000
+              });
+            }
+            this.$refs.from.resetFields();
+          });
+          this.loading = false;
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
   }
 };
 </script>

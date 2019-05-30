@@ -27,3 +27,10 @@ export function publicActivity(data) {
     data
   });
 }
+export function joinActivity(data) {
+  return request({
+    url: "/api/ActivityJion",
+    method: "post",
+    data
+  });
+}
