@@ -51,10 +51,10 @@
             </el-form-item>
             <el-form-item label="活动程度" prop="theme">
               <el-select placeholder="请选择活动程度" style="width: 100%!important;" v-model="form.theme">
-                <el-option label="短线" value="shanghai"></el-option>
-                <el-option label="中线" value="beijing"></el-option>
-                <el-option label="长线" value="beijing"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
+                <el-option label="短线" :value="1"></el-option>
+                <el-option label="中线" :value="2"></el-option>
+                <el-option label="长线" :value="3"></el-option>
+                <el-option label="其他" :value="4"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="活动要求">
@@ -192,9 +192,9 @@ export default {
       showForm: true,
       form: {
         name: "",
-        startDate: 0,
-        endDate: 0,
-        deadline: 0,
+        startDate: "",
+        endDate: "",
+        deadline: "",
         status: 0,
         startPlace: "",
         theme: 0,

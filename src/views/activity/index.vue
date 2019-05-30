@@ -17,7 +17,7 @@
             >最新活动</div>
             <div
               @click="changeUser('admin')"
-              :class="{acactive:query.username=='admin'}"
+              :class="{acactive:query.user=='admin'}"
               class="ac"
             >官方活动</div>
             <!-- <div
@@ -29,7 +29,7 @@
       <div class="activity-content">
         <div v-for="item in activityList" :key="item.id" class="activity-content2">
           <div class="ac-content-left">
-            <img width="100%" height="98%" :src="item.image">
+            <img width="100%" height="98%" :src="`/image/${item.image}`">
           </div>
           <div class="ac-content-right">
             <router-link :to="`/activity-show/${item.id}`">
@@ -103,36 +103,42 @@
           >搜索活动</div>
         </div>
         <div class="search-content">
-          <el-form ref="form" label-width="80px">
+          <el-form :model="query" ref="form" label-width="80px">
             <el-form-item label="活动名称">
-              <el-input placeholder="关键字查找"></el-input>
+              <el-input v-model="query.keyword" placeholder="关键字查找"></el-input>
             </el-form-item>
             <el-form-item label="活动领队">
-              <el-input placeholder="领队名字查找"></el-input>
+              <el-input v-model="query.user" placeholder="领队名字查找"></el-input>
             </el-form-item>
             <el-form-item label="活动时间">
               <!-- <el-col :span="11"> -->
               <el-date-picker
+                v-model="query.startDate"
                 type="datetime"
                 placeholder="开始日期"
                 style="width: 100%;padding-right:0px;"
               ></el-date-picker>
             </el-form-item>
             <el-form-item>
-              <el-date-picker type="datetime" placeholder="截止日期" style="width: 100%;"></el-date-picker>
+              <el-date-picker
+                v-model="query.endDate"
+                type="datetime"
+                placeholder="截止日期"
+                style="width: 100%;"
+              ></el-date-picker>
             </el-form-item>
 
             <el-form-item label="活动强度">
-              <el-select placeholder="请选择活动强度" style="width:100%">
-                <el-option label="短线" value="短线"></el-option>
-                <el-option label="中线" value="中线"></el-option>
-                <el-option label="长线" value="长线"></el-option>
-                <el-option label="其他" value="其他"></el-option>
+              <el-select v-model="query.theme" placeholder="请选择活动强度" style="width:100%">
+                <el-option label="短线" :value="1"></el-option>
+                <el-option label="中线" :value="2"></el-option>
+                <el-option label="长线" :value="3"></el-option>
+                <el-option label="其他" :value="4"></el-option>
               </el-select>
             </el-form-item>
 
             <el-form-item>
-              <el-button type="success">搜索</el-button>
+              <el-button type="success" @click="searchSS">搜索</el-button>
               <el-button type="success" plain>重置</el-button>
             </el-form-item>
           </el-form>
@@ -160,6 +166,17 @@
 </template>
 <script>
 import { getAcList } from "@/api/activity.js";
+const defQuery = {
+  page: 1,
+  pageSize: 10,
+  status: null,
+  keyword: "",
+  user: null,
+  theme: null,
+  startDate: null,
+  endDate: null,
+  orderBy: "viewCount"
+};
 export default {
   data() {
     return {
@@ -167,7 +184,7 @@ export default {
         page: 1,
         pageSize: 5,
         status: null,
-        keyword: null,
+        keyword: "",
         user: null,
         theme: null,
         startDate: null,
@@ -175,156 +192,7 @@ export default {
         orderBy: "viewCount"
       },
       total: 0,
-      activityList: [
-        {
-          id: 0,
-          name: "梨花顶山巅极地穿越",
-          date: "2019-10-10",
-          deadline: 0,
-          organiger: "string",
-          startPlace: "string",
-          theme: "string",
-          quota: 100,
-          signin: 20,
-          price: 100,
-          destination: "惠州马鞍山",
-          viewCount: 100,
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/01/97_340_230.jpg",
-          explain:
-            " 这里是驴友活动，非廉价旅行社，欢迎懂生活品味知浪漫情趣的驴友一起同行，户外活动有风险，报名需谨慎，本次活动不接受孕妇和12岁以下、65岁以上驴友参加。",
-          routing: "string",
-          costExplain: "string",
-          line: "string",
-          equip: "string",
-          moreInfo: "string",
-          imgList: [
-            "http://www.hw917.com/uc_server/data/avatar/000/00/54/88_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/78/15_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg"
-          ]
-        },
-        {
-          id: 1,
-          name: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
-          date: "2019-5-10",
-          deadline: 0,
-          organiger: "string",
-          startPlace: "string",
-          theme: "string",
-          quota: 100,
-          signin: 30,
-          price: 100,
-          destination: "桂林",
-          viewCount: 100,
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg",
-          explain:
-            "本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。本次活动全程无购物点和规定消费店，但途中为节约时间，不统一安排腐败请自备干粮。",
-          routing: "string",
-          costExplain: "string",
-          line: "string",
-          equip: "string",
-          moreInfo: "string",
-          imgList: [
-            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg"
-          ]
-        },
-        {
-          id: 2,
-          name: " B线：漫步山水间邂逅古堡访古村穿越十里",
-          date: "2019-5-15",
-          deadline: 0,
-          organiger: "string",
-          startPlace: "string",
-          theme: "string",
-          quota: 100,
-          signin: 50,
-          price: 100,
-          destination: "桂林",
-          viewCount: 100,
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg",
-          explain:
-            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
-          routing: "string",
-          costExplain: "string",
-          line: "string",
-          equip: "string",
-          moreInfo: "string",
-          imgList: [
-            "http://www.hw917.com/uc_server/data/avatar/000/00/68/01_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/01/00_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/01/08_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/78/15_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/00/41_avatar_small.jpg"
-          ]
-        },
-        {
-          id: 3,
-          name: "川西环线约伴",
-          date: "2019-6-1",
-          deadline: 0,
-          organiger: "string",
-          startPlace: "string",
-          theme: "string",
-          quota: 100,
-          signin: 80,
-          price: 100,
-          destination: "桂林",
-          viewCount: 100,
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg",
-          explain:
-            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
-          routing: "string",
-          costExplain: "string",
-          line: "string",
-          equip: "string",
-          moreInfo: "string",
-          imgList: [
-            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/00/16_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/02/62_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/76/84_avatar_small.jpg"
-          ]
-        },
-        {
-          id: 4,
-          name: "河源金银碗飞行基地玩滑翔伞活动约伴",
-          date: "2019-8-1",
-          deadline: 0,
-          organiger: "string",
-          startPlace: "string",
-          theme: "string",
-          quota: 100,
-          signin: 100,
-          price: 100,
-          destination: "桂林",
-          viewCount: 100,
-          image:
-            "http://www.hw917.com/data/attachment/image/000/03/99/82_340_230.jpg",
-          explain:
-            "户外活动有风险，本次活动不接受小孩（10岁以下）和老人（65岁以上）报名。本次活动为非营利性AA制自由约伴活动，无保姆式服务。更无空姐式礼仪。",
-          routing: "string",
-          costExplain: "string",
-          line: "string",
-          equip: "string",
-          moreInfo: "string",
-          imgList: [
-            "http://www.hw917.com/uc_server/data/avatar/000/00/27/47_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/02/00_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/17/35_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/00/16_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/02/62_avatar_small.jpg",
-            "http://www.hw917.com/uc_server/data/avatar/000/00/76/84_avatar_small.jpg"
-          ]
-        }
-      ]
+      activityList: []
     };
   },
   created() {
@@ -334,11 +202,13 @@ export default {
     changeOrder(value) {
       this.query.page = 1;
       this.query.orderBy = value;
+      this.query.user = null;
       this.getActivityList();
     },
     changeUser(user) {
       this.query.page = 1;
-      this.query.username = user;
+      this.query.user = user;
+      this.query.orderBy = null;
       this.getActivityList();
     },
     getActivityList() {
@@ -353,6 +223,9 @@ export default {
     },
     handleCurrentChange(curPage) {
       this.query.page = curPage;
+      this.getActivityList();
+    },
+    searchSS() {
       this.getActivityList();
     }
   }
