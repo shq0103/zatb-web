@@ -23,6 +23,13 @@ export function getGoodList(query) {
   });
 }
 
+export function getTravelsDetail(id) {
+  return request({
+    url: `/api/TravelBook/${id}`,
+    method: "get"
+  });
+}
+
 export function getTBList(query) {
   return request({
     url: "/api/TravelBook/user",

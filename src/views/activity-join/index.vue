@@ -22,7 +22,7 @@
               <el-input placeholder="请填写证件号码" v-model="form.idcard"></el-input>
             </el-form-item>
             <el-form-item label="手机号码" prop="number">
-              <el-input placeholder="请填写手机号码" v-model="form.idcard"></el-input>
+              <el-input placeholder="请填写手机号码" v-model="form.number"></el-input>
             </el-form-item>
             <el-form-item label="紧急联系" prop="urgentNum">
               <el-input placeholder="请填写紧急联系号码" v-model="form.urgentNum"></el-input>
