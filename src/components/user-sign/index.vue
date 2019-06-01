@@ -11,7 +11,7 @@
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }" fit>
             <el-table-column align="center" prop="title" label="活动名称" width="280px"></el-table-column>
-            <el-table-column align="center" prop="name" label="参加人"></el-table-column>
+            <!-- <el-table-column align="center" prop="name" label="参加人"></el-table-column> -->
             <el-table-column align="center" prop="type" label="状态"></el-table-column>
             <el-table-column align="center" label="操作" width="180px">
               <template>

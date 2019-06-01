@@ -16,8 +16,8 @@
         <div class="know-content-top-content2" v-for="item in knowledgeList" :key="item.id">
           <div class="know-content-top">
             <div class="know-c-t-lf">
-              <h2>{{item.date}}月</h2>
-              <p>{{item.time}}</p>
+              <h2>{{item.date|monthFilter}}月</h2>
+              <p>{{item.time|datetimeFilter}}</p>
             </div>
             <div class="know-c-t-rf">
               <h2>{{item.title}}</h2>

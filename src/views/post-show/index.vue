@@ -238,12 +238,14 @@
 </template>
 <script>
 import QuillEditor from "@/components/QuillEditor";
+import { getPostList } from "@/api/post.js";
 export default {
   components: {
     QuillEditor
   },
   data() {
     return {
+      query: { page: 1, pageSize: 1, type: "", orderBy: "" },
       commentMenu: [
         "bold",
         "fontSize",
@@ -291,6 +293,18 @@ export default {
         image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif"
       }
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    this.getList();
+  },
+  methods: {
+    getList() {
+      getPostList(this.query).then(resp => {
+        this.mainpost = resp.data;
+        this.total = resp.total;
+      });
+    }
   }
 };
 </script>

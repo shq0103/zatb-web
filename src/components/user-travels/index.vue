@@ -11,7 +11,11 @@
           </div>
           <el-table :data="tableData" border fit>
             <el-table-column align="center" prop="title" label="路书标题" width="300px"></el-table-column>
-            <el-table-column align="center" prop="publishTime|timeFilter" label="创建时间"></el-table-column>
+            <el-table-column align="center" label="创建时间">
+              <template slot-scope="scope">
+                <span>{{scope.row.publishTime|timeFilter}}</span>
+              </template>
+            </el-table-column>
             <el-table-column align="center" prop="status" label="状态"></el-table-column>
             <el-table-column align="center" label="操作" width="180px">
               <template>

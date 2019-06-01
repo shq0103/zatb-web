@@ -20,7 +20,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date}})</p>
+                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -35,7 +35,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date}})</p>
+                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -52,7 +52,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date}})</p>
+                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -79,8 +79,16 @@
             </el-dropdown-menu>
           </el-dropdown>
         </div>
-        <div class="post-bottom-title-zxzt">最新</div>
-        <div class="post-bottom-title-rt">热帖</div>
+        <div
+          class="post-bottom-title-zxzt"
+          @click="changeOrder('date')"
+          :class="{phover:query.orderBy=='date'}"
+        >最新</div>
+        <div
+          class="post-bottom-title-rt"
+          @click="changeOrder('viewCount')"
+          :class="{prthover:query.orderBy=='viewCount'}"
+        >热帖</div>
         <div class="post-bottom-button">
           <router-link to="/post-public">
             <el-button type="success" plain size="small">
@@ -109,15 +117,9 @@
               </el-col>
               <el-col :span="20">
                 <div class="post-bottom-content-rf">
-                  <router-link to="/post-show">
+                  <router-link :to="`/post-show/${item.id}`">
                     <div class="ac-content-right1">
-                      <!-- <el-alert
-                        class="new-alert"
-                        :title="item.title"
-                        type="success"
-                        :closable="false"
-                      ></el-alert>-->
-                      <router-link to="/post-show">
+                      <router-link :to="`/post-show/${item.id}`">
                         <p class="aname1">{{item.title}}</p>
                       </router-link>
                     </div>
@@ -127,7 +129,7 @@
                       <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">
                       {{item.userId}}
                     </span>
-                    <i class="el-icon-time">{{item.date}}</i>
+                    <i class="el-icon-time">{{item.date|timeWithoutMin}}</i>
                     <i class="el-icon-view" style="padding-left:20px">{{item.viewCount}}</i>
                   </div>
                 </div>
@@ -143,9 +145,14 @@
   </div>
 </template>
 <script>
+import { getPostList } from "@/api/post.js";
 export default {
   data() {
     return {
+      query: { page: 1, pageSize: 5, type: 1, orderBy: "" },
+      newtheme: { page: 1, pageSize: 9, type: "", orderBy: "date" },
+      newreply: { page: 1, pageSize: 9, type: "", orderBy: "replyDate" },
+      hottheme: { page: 1, pageSize: 9, type: "", orderBy: "viewCount" },
       postList: [
         {
           id: 0,
@@ -444,6 +451,40 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.getList();
+    this.getNewthemeList();
+    this.getReplyList();
+    this.getHotList();
+  },
+  methods: {
+    getList() {
+      getPostList(this.query).then(resp => {
+        this.postList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getNewthemeList() {
+      getPostList(this.newreply).then(resp => {
+        this.newthemeList = resp.data;
+      });
+    },
+    getReplyList() {
+      getPostList(this.newtheme).then(resp => {
+        this.newreplyList = resp.data;
+      });
+    },
+    getHotList() {
+      getPostList(this.hottheme).then(resp => {
+        this.hotList = resp.data;
+      });
+    },
+    changeOrder(value) {
+      this.query.page = 1;
+      this.query.orderBy = value;
+      this.getList();
+    }
   }
 };
 </script>
@@ -601,7 +642,7 @@ export default {
 .post-bottom-content {
   margin: 0 15px;
 }
-.post-bottom-title-zxzt:hover {
+.phover {
   background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;
   cursor: pointer;
   color: #75b628;
@@ -641,7 +682,7 @@ export default {
   -moz-transition: 400ms;
   text-indent: 2.5em;
 }
-.post-bottom-title-rt:hover {
+.prthover {
   background: url("../../assets/rt.png") no-repeat scroll 10px -22px transparent;
   cursor: pointer;
   color: #75b628;

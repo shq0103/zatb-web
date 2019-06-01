@@ -18,9 +18,6 @@
       </el-carousel>
     </div>
     <div class="activity">
-      <!-- <div id="act">
-        <h3>活动</h3>
-      </div>-->
       <div>
         <el-tabs value="first">
           <el-tab-pane name="first">
@@ -32,7 +29,7 @@
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <router-link to="/activity">
                   <el-card :body-style="{ padding: '0px' }">
-                    <img :src="item.image" class="image">
+                    <img :src="item.image" class="image" style="width:310px;height:230px;">
                     <div class="activity-title">
                       <span>{{item.name}}</span>
                       <div class="bottom clearfix">
@@ -259,7 +256,7 @@
             论坛
           </div>
           <div class="p-more">
-            <router-link to="/travels">
+            <router-link to="/post">
               <el-button type="text" class="more-link">
                 更多
                 <i class="el-icon-d-arrow-right"></i>
@@ -341,12 +338,16 @@ import Vue from "vue";
 import scroll from "vue-seamless-scroll";
 import { getList } from "@/api/travels.js";
 import { getKnowledgeList } from "@/api/knows.js";
+import { getPostList } from "@/api/post.js";
+import { getAcList } from "@/api/activity.js";
 Vue.use(scroll);
 export default {
   data() {
     return {
       total: 0,
       total1: 0,
+      posttotal: 0,
+      actotal: 0,
       imgList: ["../../assets/logo.png", "../../assets/logo1.png"],
       query: {
         page: 1,
@@ -359,6 +360,13 @@ export default {
         orderBy: "publishTime"
       },
       Knowledgequery: { page: 1, pageSize: 10, type: 5, orderBy: null },
+      postquery: { page: 1, pageSize: 4, type: null, orderBy: "date" },
+      Activityquery: {
+        page: 1,
+        pageSize: 4,
+        status: 1,
+        orderBy: ""
+      },
       listData: [
         {
           title: "2019曼谷新玩法打卡：湄南河上看落日，享受香槟和泰国料理",
@@ -548,6 +556,8 @@ export default {
     this.getTravelsList();
     this.getListOrderby();
     this.getNewsList();
+    this.getpostList();
+    this.getActivityList();
   },
   methods: {
     getTravelsList() {
@@ -561,10 +571,22 @@ export default {
         this.total = resp.total;
       });
     },
+    getActivityList() {
+      getAcList(this.Activityquery).then(resp => {
+        this.activityList = resp.data;
+        this.actotal = resp.actotal;
+      });
+    },
     getNewsList() {
       getKnowledgeList(this.Knowledgequery).then(resp => {
         this.listData = resp.data;
         this.total1 = resp.total;
+      });
+    },
+    getpostList() {
+      getPostList(this.postquery).then(resp => {
+        this.postList = resp.data;
+        this.posttotal = resp.total;
       });
     },
     changePage(change) {

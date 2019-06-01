@@ -13,7 +13,7 @@
           <el-form :model="form" :rules="rules" ref="form" label-width="80px">
             <div style="padding-bottom: 45px;">
               <!-- <i class="num">1</i> -->
-              <el-buttom type="text" class="empty_icon" @click="resetForm('form')">清空</el-buttom>
+              <el-button type="text" class="empty_icon" @click="resetForm('form')">清空</el-button>
             </div>
             <el-form-item label="真实姓名" prop="name">
               <el-input placeholder="请填写真实姓名" v-model="form.name"></el-input>
@@ -28,9 +28,9 @@
               <el-input placeholder="请填写紧急联系号码" v-model="form.urgentNum"></el-input>
             </el-form-item>
             <el-form-item label="性别" prop="sex">
-              <el-radio-group>
-                <el-radio v-model="form.sex" :label="1" border>男</el-radio>
-                <el-radio v-model="form.sex" :label="0" border>女</el-radio>
+              <el-radio-group v-model="form.sex">
+                <el-radio :label="1" border>男</el-radio>
+                <el-radio :label="0" border>女</el-radio>
               </el-radio-group>
             </el-form-item>
             <el-form-item label="出生年月" prop="birth">
@@ -51,7 +51,7 @@
         </div>-->
         <div class="event_05">
           <el-checkbox-group>
-            <el-checkbox label="美食/餐厅线上活动" name="type">
+            <el-checkbox v-model="checked">
               我已阅读并同意相关
               <!-- <input id="agree_bm" type="checkbox" class="checkbox">我已阅读并同意相关 -->
               <a href="http://www.tubu100.com/mianze.docx" target="_blank">免责声明</a>、
@@ -88,6 +88,7 @@ import { joinActivity, getAcDetail } from "@/api/activity.js";
 export default {
   data() {
     return {
+      checked: "",
       acPublic: {
         id: 0,
         name: "梨花顶山巅极地穿越  ",
@@ -107,7 +108,7 @@ export default {
         idcard: "",
         number: "",
         urgentNum: "",
-        sex: 0,
+        sex: null,
         birth: 0,
         remark: ""
       },
@@ -119,21 +120,20 @@ export default {
         urgentNum: [
           { required: true, message: "请输入紧急联系人手机号", trigger: "blur" }
         ],
-        number: [{ required: true, message: "请输入手机号", trigger: "blur" }],
-        remark: [{ required: true, message: "请输入活动说明", trigger: "blur" }]
+        number: [{ required: true, message: "请输入手机号", trigger: "blur" }]
       }
     };
   },
   created() {
-    this.id = this.$route.params.id;
-    getAcDetail(this.id).then(resp => {
+    this.form.activityId = this.$route.params.id;
+    getAcDetail(parseInt(this.form.activityId)).then(resp => {
       this.acPublic = resp.data;
     });
   },
   methods: {
     submitForm() {
       // this.postForm.display_time = parseInt(this.display_time / 1000);
-      this.form.birth = new Date(this.form.startDate).getTime();
+      this.form.birth = new Date(this.form.birth).getTime();
 
       this.$refs.form.validate(valid => {
         if (valid) {

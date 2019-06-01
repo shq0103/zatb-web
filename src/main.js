@@ -8,7 +8,14 @@ import BackTop from "@mlqt/vue-back-top";
 
 import BaiduMap from "vue-baidu-map";
 
-import { timeFilter, htmlToStr, timeWithoutMin, dateFilter } from "@/utils/index.js";
+import {
+  timeFilter,
+  htmlToStr,
+  timeWithoutMin,
+  dateFilter,
+  monthFilter,
+  datetimeFilter
+} from "@/utils/index.js";
 
 Vue.use(BaiduMap, {
   /* Visit http://lbsyun.baidu.com/apiconsole/key for details about app key. */
@@ -20,6 +27,8 @@ Vue.filter("htmlToStr", htmlToStr);
 
 Vue.filter("timeWithoutMin", timeWithoutMin);
 Vue.filter("dateFilter", dateFilter);
+Vue.filter("monthFilter", monthFilter);
+Vue.filter("datetimeFilter", datetimeFilter);
 
 Vue.filter("lineFilter", value => {
   switch (value) {

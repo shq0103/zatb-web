@@ -7,13 +7,13 @@
         <div class="ac-public-form2">
           <el-form ref="form" label-width="80px" :model="form" :rules="rules">
             <el-form-item label="活动名称" prop="name">
-              <el-input v-model="form.name"></el-input>
+              <el-input placeholder="选择输入活动名称" v-model="form.name"></el-input>
             </el-form-item>
             <el-form-item label="活动地点" prop="startPlace">
-              <el-input v-model="form.startPlace"></el-input>
+              <el-input placeholder="请输入活动目的地" v-model="form.startPlace"></el-input>
             </el-form-item>
             <el-form-item label="集合地点" prop="destination">
-              <el-input v-model="form.destination"></el-input>
+              <el-input placeholder="请输入活动出发地" v-model="form.destination"></el-input>
             </el-form-item>
             <el-form-item label="活动时间" prop="startPlace">
               <el-col :span="11">
@@ -120,7 +120,7 @@
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <QuillEditor :menu="commentMenu" v-model="form.routing"/>
+              <quill-editor :menu="commentMenu" v-model="form.routing"/>
             </div>
           </div>
           <div class="ac-content1">
@@ -132,7 +132,7 @@
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <QuillEditor :menu="commentMenu" v-model="form.costExplain"/>
+              <quill-editor :menu="commentMenu" v-model="form.costExplain"/>
             </div>
           </div>
           <div class="ac-content1">
@@ -144,7 +144,7 @@
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <QuillEditor :menu="commentMenu" v-model="form.line"/>
+              <quill-editor :menu="commentMenu" v-model="form.line"/>
             </div>
           </div>
           <div class="ac-content1">
@@ -156,7 +156,7 @@
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <QuillEditor :menu="commentMenu" v-model="form.equip"/>
+              <quill-editor :menu="commentMenu" v-model="form.equip"/>
             </div>
           </div>
           <div class="ac-content1">
@@ -169,7 +169,7 @@
               </h3>
             </div>
             <div class="ac-c-wrap">
-              <QuillEditor :menu="commentMenu" v-model="form.moreInfo"/>
+              <quill-editor :menu="commentMenu" v-model="form.moreInfo"/>
             </div>
           </div>
           <div class="ac-content2">
@@ -181,11 +181,18 @@
   </div>
 </template>
 <script>
-import QuillEditor from "@/components/QuillEditor";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
 import { publicActivity } from "@/api/activity.js";
 export default {
   components: {
-    QuillEditor
+    quillEditor
   },
   data() {
     return {
@@ -197,9 +204,9 @@ export default {
         deadline: "",
         status: 0,
         startPlace: "",
-        theme: 0,
-        quota: 0,
-        price: 0,
+        theme: null,
+        quota: null,
+        price: null,
         destination: "",
         viewCount: 0,
         image: "",
@@ -213,13 +220,13 @@ export default {
       rules: {
         name: [
           { required: true, message: "请输入活动名称", trigger: "blur" },
-          { max: 20, message: "长度不超过20字符", trigger: "blur" }
+          { max: 50, message: "长度不超过50字符", trigger: "blur" }
         ],
         destination: [
-          { required: true, message: "请输入活动目的地", trigger: "blur" }
+          { required: true, message: "请输入活动集合地", trigger: "blur" }
         ],
         startPlace: [
-          { required: true, message: "请输入活动集合地", trigger: "blur" }
+          { required: true, message: "请输入活动目的地", trigger: "blur" }
         ],
         startDate: [
           { required: true, message: "请输入活动开始时间", trigger: "blur" }

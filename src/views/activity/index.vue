@@ -169,7 +169,7 @@ import { getAcList } from "@/api/activity.js";
 const defQuery = {
   page: 1,
   pageSize: 10,
-  status: null,
+  status: 1,
   keyword: "",
   user: null,
   theme: null,

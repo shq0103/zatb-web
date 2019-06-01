@@ -60,7 +60,7 @@ export default new Router({
           component: () => import("./views/travels-public/index.vue")
         },
         {
-          path: "post-show",
+          path: "post-show/:id",
           name: "post-show",
 
           component: () => import("./views/post-show/index.vue")
@@ -97,7 +97,7 @@ export default new Router({
           component: () => import("./views/knowledge-show/index.vue")
         },
         {
-          path: "goods-show",
+          path: "goods-show/:id",
           name: "goods-show",
           component: () => import("./views/goods-show/index.vue")
         },
@@ -122,7 +122,7 @@ export default new Router({
           component: () => import("./views/travels-show/index.vue")
         },
         {
-          path: "activity-join",
+          path: "activity-join/:id",
           name: "activity-join",
           component: () => import("./views/activity-join/index.vue")
         },

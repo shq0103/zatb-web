@@ -18,7 +18,11 @@
                   <el-col :span="5" v-for="item in goodsList" :key="item.id">
                     <router-link to="/activity">
                       <el-card :body-style="{ padding: '0px' }">
-                        <img :src="item.image" class="image">
+                        <img
+                          :src="`/image${item.imgList[0]}`"
+                          class="image"
+                          style="width:285px;height:230px;"
+                        >
                         <div class="activity-title">
                           <span>{{item.name}}</span>
                           <div class="bottom clearfix">
@@ -27,7 +31,7 @@
                                 src="../../assets/时间.png"
                                 style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                               >
-                              {{item.date}}
+                              {{item.time|timeFilter}}
                             </span>
                             <span class="t2">
                               <img
@@ -68,16 +72,33 @@
     <div class="goods-introduction">
       <div class="post-bottom">
         <div class="post-bottom-title">
-          <div class="post-bottom-title-all">服饰</div>
-          <div class="post-bottom-title-zxzt">装备</div>
-          <div class="post-bottom-title-rt">其他</div>
+          <div
+            class="post-bottom-title-all"
+            @click="changeOrder(1)"
+            :class="{acactive:query.orderBy=='date'}"
+          >服饰</div>
+          <div
+            class="post-bottom-title-zxzt"
+            @click="changeOrder(2)"
+            :class="{acactive:query.orderBy=='date'}"
+          >装备</div>
+          <div
+            class="post-bottom-title-rt"
+            @click="changeOrder(3)"
+            :class="{acactive:query.orderBy=='date'}"
+          >其他</div>
         </div>
         <div class="g-i-middle">
           <el-row :gutter="24">
-            <el-col :span="6" style="margin-bottom:35px" v-for="item in goodsList1" :key="item.id">
+            <el-col
+              :span="6"
+              style="margin-bottom:35px"
+              v-for="item in allGoodsList"
+              :key="item.id"
+            >
               <div class="g-i-m-1">
                 <div class="g-i-m-img">
-                  <img :src="item.image" style="width:271px;height:158px;">
+                  <img :src="`/image${item.imgList[0]}`" style="width:271px;height:158px;">
                 </div>
                 <div class="g-i-m-content">
                   <!-- <el-alert
@@ -87,8 +108,8 @@
                     :closable="false"
                   ></el-alert>-->
                   <div class="adiv">
-                    <p class="aname">{{item.title}}</p>
-                    <p class="ap">{{item.contents}}</p>
+                    <p class="aname">{{item.name}}</p>
+                    <p class="ap">{{item.introduction}}</p>
                   </div>
                 </div>
                 <div class="g-i-m-user">
@@ -99,7 +120,7 @@
                     </p>
                     <p style="padding-left:20px;margin:0 0 15px 0;font-size:15px;">
                       <img src="../../assets/钱.png" style="height: 18px; margin-bottom: -3px;">
-                      {{item.price}}
+                      {{item.sPrice}}
                     </p>
                   </div>
                 </div>
@@ -111,21 +132,32 @@
           </el-row>
         </div>
         <div class="page">
-          <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+          <el-pagination
+            class="page"
+            background
+            layout="prev, pager, next"
+            :total="total"
+            :current-page="query.page"
+            :page-size="query.pageSize"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          ></el-pagination>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { getGoodsList } from "@/api/goods.js";
 export default {
   data() {
     return {
+      total: 0,
       goodsList: [
         {
           id: 0,
           name: "A线： 惠州马鞍山",
-          date: "2019-10-10至2019-10-15",
+          time: "2019-10-10至2019-10-15",
           viewCount: 100,
           image:
             "https://img.alicdn.com/bao/uploaded/i2/O1CN01j6Dvhb1x4Czcskbc9_!!0-fleamarket.jpg_728x728.jpg"
@@ -155,117 +187,62 @@ export default {
             "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg"
         }
       ],
-      goodsList1: [
+      allGoodsList: [
         {
           id: 0,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
+          name: "户外冲锋衣",
+          introduction: "买回来没用过，九成新，有意私聊",
           userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 1,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 2,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 3,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 4,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 5,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 6,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 7,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 8,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 9,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 10,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
-          image:
-            "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
-        },
-        {
-          id: 11,
-          title: "户外冲锋衣",
-          contents: "买回来没用过，九成新，有意私聊",
-          userId: "徒步用户01",
-          price: 100,
+          sPrice: 100,
           image:
             "http://tubu100.com:8053/Files/SProduct/201807031257122c7f8e.jpg"
         }
-      ]
+      ],
+      query: {
+        page: 1,
+        pageSize: 5,
+        type: null,
+        orderBy: "",
+        keyword: ""
+      },
+      commendQuery: {
+        page: 1,
+        pageSize: 4,
+        orderBy: "viewCount",
+        keyword: ""
+      }
     };
+  },
+  created() {
+    this.getList();
+    this.getListOrderby();
+  },
+  methods: {
+    changeOrder(value) {
+      this.query.page = 1;
+      this.query.type = value;
+      this.getList();
+    },
+    getList() {
+      getGoodsList(this.query).then(resp => {
+        this.allGoodsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getListOrderby() {
+      getGoodsList(this.commendQuery).then(resp => {
+        this.goodsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getNewsList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getNewsList();
+    }
   }
 };
 </script>

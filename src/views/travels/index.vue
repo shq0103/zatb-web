@@ -367,6 +367,11 @@ export default {
         page: 1,
         pageSize: 6,
         orderBy: "star"
+      },
+      TopQuery: {
+        page: 1,
+        pageSize: 10,
+        orderBy: ""
       }
     };
   },
@@ -389,6 +394,12 @@ export default {
     getListOrderby() {
       getList(this.commendQuery).then(resp => {
         this.newtravelsList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getTopList() {
+      getList(this.TopQuery).then(resp => {
+        this.shortList = resp.data;
         this.total = resp.total;
       });
     },

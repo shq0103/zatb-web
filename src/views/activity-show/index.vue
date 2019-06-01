@@ -60,7 +60,7 @@
               费用：{{acPublic.price}}
             </p>
           </div>
-          <router-link to="/activity-join">
+          <router-link :to="'/activity-join/'+id">
             <el-button type="success" round>我要报名</el-button>
           </router-link>
         </div>
@@ -154,15 +154,15 @@
               <div class="a-c-rf-2-title1">已参加：{{acPublic.signin}}人</div>
               <div class="a-c-rf-2-content">
                 <el-row :gutter="24">
-                  <el-col :span="12" v-for="item in acSigninList" :key="item.id">
+                  <el-col :span="12" v-for="item in acPublic.joinList" :key="item.id">
                     <div class="a-c-rf-2-people">
                       <div class="post-bottom-content-lf">
-                        <img :src="item.image">
+                        <img :src="`/image${item.avatar}`">
                       </div>
 
                       <div class="post-bottom-content-rf">
                         <ul>
-                          <li>{{item.userId}}</li>
+                          <li>{{item.nickname}}</li>
                         </ul>
                       </div>
                     </div>
@@ -284,16 +284,14 @@ export default {
           image: "http://tubu100.com:8053/Files/At/20190507162755a93b39.jpg",
           date: "2019年04月15日"
         }
-      ]
+      ],
+      id: ""
     };
   },
   created() {
     this.id = this.$route.params.id;
     getAcDetail(this.id).then(resp => {
       this.acPublic = resp.data;
-    });
-    getAcJionList(this.id).then(resp => {
-      this.acSigninList = resp.data;
     });
   },
   methods: {

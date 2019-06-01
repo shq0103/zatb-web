@@ -11,6 +11,12 @@ export function timeWithoutMin(value) {
 export function dateFilter(value) {
   return moment(value - 8 * 3600 * 1000).format("YYYY/MM/DD");
 }
+export function monthFilter(value) {
+  return moment(value - 8 * 3600 * 1000).format("MM");
+}
+export function datetimeFilter(value) {
+  return moment(value - 8 * 3600 * 1000).format("DD");
+}
 export function htmlToStr(value) {
   value = value.replace(/(\n)/g, "");
   value = value.replace(/(\t)/g, "");

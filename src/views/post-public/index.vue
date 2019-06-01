@@ -9,36 +9,31 @@
       </div>
       <div class="p-p-content">
         <div class="p-p-form">
-          <el-form label-position="top">
+          <el-form label-position="top" ref="form" :model="form" :rules="rules">
             <el-form-item>
               <el-col :span="6">
-                <el-form-item>
-                  <el-select v-model="postForm.type" placeholder="选择分类信息">
-                    <el-option label="户外问答" value="户外问答"></el-option>
-                    <el-option label="装备问答" value="装备问答"></el-option>
-                    <el-option label="路线问答" value="路线问答"></el-option>
-                    <el-option label="旅途风光" value="旅途风光"></el-option>
-                    <el-option label="其他" value="其他"></el-option>
+                <el-form-item prop="type">
+                  <el-select v-model="form.type" placeholder="选择分类信息">
+                    <el-option label="户外问答" value="1"></el-option>
+                    <el-option label="装备问答" value="2"></el-option>
+                    <el-option label="路线问答" value="3"></el-option>
+                    <el-option label="旅途风光" value="4"></el-option>
+                    <el-option label="其他" value="5"></el-option>
                   </el-select>
                 </el-form-item>
               </el-col>
               <el-col :span="2" style="height:10px"></el-col>
               <el-col :span="16">
-                <el-form-item>
-                  <el-input
-                    v-model="postForm.title"
-                    :contents="postForm.contents"
-                    placeholder="请输入标题"
-                    style="width:100%;"
-                  ></el-input>
+                <el-form-item prop="title">
+                  <el-input v-model="form.title" placeholder="请输入标题" style="width:100%;"></el-input>
                 </el-form-item>
               </el-col>
             </el-form-item>
             <el-form-item label="内容">
-              <QuillEditor @change="changeContent"/>
+              <QuillEditor @change="changeContent" v-model="form.contents"/>
             </el-form-item>
             <el-form-item>
-              <el-button type="success" @click="onSubmit">发布帖子</el-button>
+              <el-button type="success" @click="submitForm">发布帖子</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -49,6 +44,7 @@
 <script>
 import QuillEditor from "@/components/QuillEditor";
 import { publishPost } from "@/api/login";
+import { publicPost } from "@/api/post.js";
 
 export default {
   components: {
@@ -60,23 +56,55 @@ export default {
         title: "",
         contents: "",
         type: ""
+      },
+      form: {
+        id: 0,
+        userId: 0,
+        title: "",
+        contents: "",
+        date: 0,
+        type: "",
+        viewCount: 0,
+        replyDate: 0
+      },
+      rules: {
+        title: [
+          { required: true, message: "请输入帖子名称", trigger: "blur" },
+          { max: 20, message: "长度不超过20字符", trigger: "blur" }
+        ],
+        type: [{ required: true, message: "请选择帖子类型", trigger: "blur" }],
+        contents: [
+          { required: true, message: "请选择帖子内容", trigger: "blur" }
+        ]
       }
     };
   },
   methods: {
-    onSubmit: function() {
-      console.log(this.postForm);
-      publishPost(this.postForm).then(resp => {
-        if (resp.code === 0) {
-          this.$message({
-            message: resp.message,
-            type: "success"
+    submitForm() {
+      // this.postForm.display_time = parseInt(this.display_time / 1000);
+      console.log(this.form);
+      // this.form.startDate = new Date(this.form.startDate).getTime();
+      // this.form.endDate = new Date(this.form.endDate).getTime();
+      // this.form.deadline = new Date(this.form.deadline).getTime();
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.loading = true;
+          publicPost(this.form).then(resp => {
+            if (resp.code === 0) {
+              this.$notify({
+                title: "成功",
+                message: "发布帖子成功",
+                type: "success",
+                duration: 2000
+              });
+            }
+            this.$refs.from.resetFields();
+            // this.$refs.uploadImg.clearFiles();
           });
+          this.loading = false;
         } else {
-          this.$message({
-            message: resp.message,
-            type: "error"
-          });
+          console.log("error submit!!");
+          return false;
         }
       });
     },
