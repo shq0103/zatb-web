@@ -1119,7 +1119,7 @@ li {
   margin: 10px 0;
 }
 .t2 {
-  padding-left: 37px;
+  padding-left: 59px;
   color: #999;
   box-sizing: border-box;
   position: relative;

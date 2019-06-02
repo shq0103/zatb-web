@@ -16,7 +16,7 @@
 
                 <el-row :gutter="24" type="flex" justify="center">
                   <el-col :span="5" v-for="item in goodsList" :key="item.id">
-                    <router-link to="/activity">
+                    <router-link :to="`/goods-show/${item.id}`">
                       <el-card :body-style="{ padding: '0px' }">
                         <img
                           :src="`/image${item.imgList[0]}`"
@@ -125,7 +125,7 @@
                   </div>
                 </div>
                 <div class="show-more">
-                  <router-link to="/goods-show">更多>></router-link>
+                  <router-link :to="`/goods-show/${item.id}`">更多>></router-link>
                 </div>
               </div>
             </el-col>

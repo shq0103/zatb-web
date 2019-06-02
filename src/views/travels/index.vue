@@ -59,11 +59,12 @@
         <el-col :span="16">
           <div class="travels-top-rf">
             <el-carousel height="320px">
-              <el-carousel-item v-for="item in 4" :key="item">
-                <img
-                  src="http://tubu100.com:8053/Files/Banner/20180507121244bbc0ed.jpg"
-                  style="height:320px;"
-                >
+              <el-carousel-item
+                v-for="item in imageList"
+                :key="item"
+                style="width:790px!important;height:320px;"
+              >
+                <img :src="item" style="width:100%;height:100%;">
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -204,6 +205,12 @@ export default {
   data() {
     return {
       total: 0,
+      imageList: [
+        "http://tubu100.com:8053/Files/Note/20180314115557280ef4.jpg",
+        "http://tubu100.com:8053/Files/Note/20180314144547ce0870.jpg",
+        "http://tubu100.com:8053/Files/Note/201901031127223216ec.jpg",
+        "http://tubu100.com:8053/Files/Note/20180507112403a1bf06.jpg"
+      ],
       travelsList: [
         {
           id: 0,

@@ -25,3 +25,10 @@ export function deleteGoods(id) {
     method: "delete"
   });
 }
+
+export function getGoodsDetail(id) {
+  return request({
+    url: `/api/Goods/${id}`,
+    method: "get"
+  });
+}

@@ -9,17 +9,17 @@
           >
         </div>
         <div class="user-info-name">
-          <a href="#" target="_blank">钢铁侠</a>
+          <a href="#" target="_blank">{{goods.userId}}</a>
         </div>
       </div>
       <div class="user-info-index">
         <h5>宝贝浏览次数</h5>
-        <span>50</span>
+        <span>{{goods.viewCount}}</span>
       </div>
 
       <div class="user-info-index">
         <h5>用户闲趣留言</h5>
-        <span>10人留言</span>
+        <span>{{}}人留言</span>
       </div>
 
       <div class="user-info-more">
@@ -29,7 +29,7 @@
     <div class="goods-intro">
       <div class="g-intro-lf">
         <pic-zoom
-          :style="{width: 'fit-content',height: 'fit-content',margin:'0 auto' }"
+          :style="{width: '300px',height: '300px',margin:'0 auto' }"
           :url="picList[liActIndex]"
           :scale="3"
         ></pic-zoom>
@@ -44,40 +44,40 @@
               :class="{liactivite:liActIndex===index}"
               :key="index"
             >
-              <el-image style="width: 120px; height: 120px" :src="item" :fit="fit"></el-image>
+              <el-image style="width: 70px; height: 70px" :src="item" :fit="fit"></el-image>
             </li>
           </ul>
         </vue-seamless-scroll>
       </div>
       <div class="g-intro-rf">
         <div class="g-intro-rf-info">
-          <h1 class="title">{{goodsList.title}}</h1>
+          <h1 class="title">{{goods.name}}</h1>
           <ul class="price-info">
             <li class="price-block">
               <span class="para">转&nbsp;&nbsp;卖&nbsp;&nbsp;价：</span>
               <span class="price-big">
                 <b>¥</b>
-                <em>{{goodsList.sPrice}}</em>
+                <em>{{goods.sPrice}}</em>
               </span>
             </li>
             <li class="price-block">
               <span class="para">原 价：</span>
               <b>¥</b>
-              <span>{{goodsList.price}}</span>
+              <span>{{goods.price}}</span>
             </li>
           </ul>
           <ul class="idle-info">
             <li>
               <span class="para">成 色：</span>
-              <i>{{goodsList.excent}}</i>
+              <i>{{goods.extent|extentFilter}}</i>
             </li>
             <li>
               <span class="para">所&nbsp;&nbsp;在&nbsp;&nbsp;地：</span>
-              <em>{{goodsList.place}}</em>
+              <em>{{goods.place}}</em>
             </li>
             <li class="contact">
               <span class="para">联系方式：</span>
-              <em>{{goodsList.num}}</em>
+              <em>{{goods.num}}</em>
             </li>
             <li class="contact">
               <span class="para">交易方式：</span>
@@ -113,7 +113,7 @@
                     </a>
                   </h3>
                 </div>
-                <div class="attr-content">{{goodsList.intro}}</div>
+                <div class="attr-content">{{goods.introduction}}</div>
               </div>
               <div class="a-c-l-c-2">
                 <div class="attr-title">
@@ -124,7 +124,7 @@
                   </a>
                 </div>
                 <div class="attr-content">
-                  <div class="attr-content-info">{{goodsList.comment}}</div>
+                  <div class="attr-content-info">{{goods.comment}}</div>
                   <div class="attr-content-commend">
                     <el-form ref="form" label-width="80px">
                       <el-form-item label="进行点评">
@@ -150,12 +150,15 @@
               <div class="a-c-rf-2-title">卖家的其他闲趣</div>
               <div class="a-c-rf-2-other" v-for="item in otherList" :key="item.id">
                 <div class="a-c-rf-img" style="width:80px;height:80px;">
-                  <img :src="item.image">
+                  <img :src="item.image" style="width:80px;height:80px;">
                 </div>
                 <div class="a-c-rf-content">
                   <!-- <el-alert title="不可关闭的 alert" type="success" :closable="false"></el-alert> -->
                   <p>
-                    <a href="//2.taobao.com/item.htm?id=593596487343" target="_blank">{{item.title}}</a>
+                    <a
+                      href="http://www.8264.com/zhuangbei-2075985-1.html"
+                      target="_blank"
+                    >{{item.title}}</a>
                   </p>
                   <p class="price-block">
                     <span class="price">
@@ -176,10 +179,47 @@
 import PicZoom from "vue-piczoom";
 import Vue from "vue";
 import scroll from "vue-seamless-scroll";
+import { getGoodsDetail } from "@/api/goods.js";
 Vue.use(scroll);
 export default {
   components: {
     PicZoom
+  },
+  filters: {
+    extentFilter: function(value) {
+      switch (value) {
+        case 100:
+          return "全新";
+        case 95:
+          return "九五成新";
+        case 90:
+          return "九成新";
+        case 80:
+          return "八成新";
+        case 70:
+          return "七成新及以下";
+        default:
+          return "";
+      }
+    },
+    typeFilter(type) {
+      return calendarTypeKeyValue[type];
+    },
+    timeFormatter(cellValue) {
+      return moment(cellValue - 8 * 3600 * 1000).format("YYYY/MM/DD");
+    },
+    ActivityTypeFilter: function(value) {
+      switch (value) {
+        case 0:
+          return "未审核";
+        case 1:
+          return "已通过";
+        case 2:
+          return "未通过";
+        default:
+          return "";
+      }
+    }
   },
   data() {
     return {
@@ -208,23 +248,24 @@ export default {
         {
           id: 1,
           image:
-            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
-          price: 35.0,
-          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+            "http://image1.8264.com/plugin/201905/29/1741084unl3nqpu9hsw93z.jpg!t3w322h0",
+          price: 90.0,
+          title:
+            "超轻铝合金避震四节T型弯柄登山杖手杖户外徒步旅游用品滑雪杖… 9成新以上"
         },
         {
           id: 2,
           image:
-            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
-          price: 35.0,
-          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+            "http://image1.8264.com/plugin/201905/06/141942lryam2e5t5vmmmk3.jpg!t3w322h0",
+          price: 120.0,
+          title: "电小二户外电源500 "
         },
         {
           id: 3,
           image:
-            "//img.alicdn.com/bao/uploaded/i2/3248366378/TB2sRo_m4uTBuNkHFNRXXc9qpXa_!!3248366378.jpg_80x80.jpg",
-          price: 35.0,
-          title: "新生儿童摄影道具宝宝满月百天写真拍照影楼创意服装… 9成新以上"
+            "http://image1.8264.com/plugin/201408/25/1517426d66lkizmqeredj6.png!t3w322h0",
+          price: 300.0,
+          title: "shehe极星户外新款男士运动皮肤风衣 "
         }
       ],
       liActIndex: 0,
@@ -239,8 +280,16 @@ export default {
         "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
         "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
         "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg"
-      ]
+      ],
+      goods: {}
     };
+  },
+  created() {
+    this.id = this.$route.params.id;
+    getGoodsDetail(this.id).then(resp => {
+      this.goods = resp.data;
+    });
+    this.getListOrderby();
   },
   computed: {
     optionSwitch() {
@@ -261,6 +310,8 @@ export default {
 <style scoped>
 .liactivite {
   border: #75b628 solid 2px;
+  height: 70px !important;
+  width: 70px !important;
 }
 .left-arrow,
 .right-arrow {
