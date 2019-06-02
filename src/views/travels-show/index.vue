@@ -117,11 +117,15 @@
                   </el-button>
                 </div>
                 <div class="box-card-content">
-                  <el-carousel :interval="5000" arrow="always">
+                  <!-- <el-carousel :interval="5000" arrow="always">
                     <el-carousel-item v-for="(el,elindex) in item.imgList" :key="elindex">
                       <img :src="`/image${el}`" preview="0" preview-text="描述文字">
                     </el-carousel-item>
-                  </el-carousel>
+                  </el-carousel>-->
+                  <viewer :images="item.imgList">
+                    <img v-for="(el,elindex) in item.imgList" :src="`/image${el}`" :key="elindex">
+                  </viewer>
+
                   <div class="new-right2">
                     <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lng}}</i>
                     <i
@@ -215,13 +219,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import Hamburger from "./Hamburger.vue";
 import MapShow from "@/components/BdmapT/index.vue";
 import { getTravelsDetail } from "@/api/travels.js";
-import preview from "vue-photo-preview";
-import "vue-photo-preview/dist/skin.css";
-Vue.use(preview);
+import "viewerjs/dist/viewer.css";
+import Viewer from "v-viewer";
+import Vue from "vue";
+Vue.use(Viewer);
 export default {
   components: {
     Hamburger,
