@@ -30,7 +30,7 @@
               </el-col>
             </el-form-item>
             <el-form-item label="内容">
-              <QuillEditor @change="changeContent" v-model="form.contents"/>
+              <quillEditor height="100px" v-model="form.contents" :options="editorOption"/>
             </el-form-item>
             <el-form-item>
               <el-button type="success" @click="submitForm">发布帖子</el-button>
@@ -42,16 +42,44 @@
   </div>
 </template>
 <script>
-import QuillEditor from "@/components/QuillEditor";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
 import { publishPost } from "@/api/login";
 import { publicPost } from "@/api/post.js";
 
 export default {
   components: {
-    QuillEditor
+    quillEditor
   },
   data() {
     return {
+      editorOption: {
+        modules: {
+          toolbar: [
+            [{ size: ["small", false, "large"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            [{ header: 1 }, { header: 2 }],
+            ["bold", "italic"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"]
+          ],
+          history: {
+            delay: 1000,
+            maxStack: 50,
+            userOnly: false
+          },
+          imageDrop: true
+        }
+      },
       postForm: {
         title: "",
         contents: "",
@@ -100,6 +128,7 @@ export default {
             }
             this.$refs.from.resetFields();
             // this.$refs.uploadImg.clearFiles();
+            this.$router.push("/post");
           });
           this.loading = false;
         } else {
@@ -107,9 +136,6 @@ export default {
           return false;
         }
       });
-    },
-    changeContent: function(val) {
-      this.postForm.contents = val;
     }
   }
 };

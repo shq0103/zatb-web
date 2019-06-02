@@ -13,3 +13,26 @@ export function getPostList(query) {
     params: query
   });
 }
+
+export function getPostDetail(id) {
+  return request({
+    url: `/api/Post/${id}`,
+    method: "get"
+  });
+}
+
+export function postComment(data) {
+  return request({
+    url: "/api/Comment",
+    method: "post",
+    data
+  });
+}
+
+export function getCommentList(query) {
+  return request({
+    url: "/api/Comment",
+    method: "get",
+    params: query
+  });
+}

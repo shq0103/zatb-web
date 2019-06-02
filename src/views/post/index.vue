@@ -127,7 +127,7 @@
                   <div class="new-right2">
                     <span style="font-size:13px;float: left;">
                       <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">
-                      {{item.userId}}
+                      {{item.nickname}}
                     </span>
                     <i class="el-icon-time">{{item.date|timeWithoutMin}}</i>
                     <i class="el-icon-view" style="padding-left:20px">{{item.viewCount}}</i>
@@ -149,7 +149,7 @@ import { getPostList } from "@/api/post.js";
 export default {
   data() {
     return {
-      query: { page: 1, pageSize: 5, type: 1, orderBy: "" },
+      query: { page: 1, pageSize: 5, type: null, orderBy: "" },
       newtheme: { page: 1, pageSize: 9, type: "", orderBy: "date" },
       newreply: { page: 1, pageSize: 9, type: "", orderBy: "replyDate" },
       hottheme: { page: 1, pageSize: 9, type: "", orderBy: "viewCount" },

@@ -29,7 +29,7 @@
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <router-link to="/activity">
                   <el-card :body-style="{ padding: '0px' }">
-                    <img :src="item.image" class="image" style="width:310px;height:230px;">
+                    <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
                     <div class="activity-title">
                       <span>{{item.name}}</span>
                       <div class="bottom clearfix">

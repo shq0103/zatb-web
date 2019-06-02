@@ -63,3 +63,11 @@ a:visited {
   color: #000000;
 }
 </style>
+
+<style>
+.quill-editor:not(.bubble) .ql-container,
+.quill-editor:not(.bubble) .ql-container .ql-editor {
+  height: 15rem;
+  padding-bottom: 1rem;
+}
+</style>

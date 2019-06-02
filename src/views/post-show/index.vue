@@ -26,11 +26,10 @@
             </a>
           </el-row>
           <el-pagination
-            @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :page-size="1"
+            :page-size="query.pageSize"
             layout="prev, pager, next, jumper"
-            :total="10"
+            :total="total"
             class="page"
           ></el-pagination>
         </div>
@@ -44,10 +43,10 @@
                   <span class="xi1">{{mainpost.viewCount}}</span>
                   <span class="pipe">|</span>
                   <span class="xg1">回复:</span>
-                  <span class="xi1">{{mainpost.commentCount}}</span>
+                  <span class="xi1">{{total}}</span>
                 </div>
                 <div class="p-c-c-lf-img">
-                  <img :src="mainpost.image">
+                  <img :src="`/image/${mainpost.avatar}`">
                 </div>
                 <div class="p-c-c-lf-name">
                   <div class="p-name">
@@ -69,7 +68,7 @@
                   <h1 class="ts">{{mainpost.title}}</h1>
                   <span class="xg1">
                     <a
-                      href="forum.php?mod=viewthread&amp;tid=980&amp;fromuid=4780"
+                      href="#"
                       onclick="return copyThreadUrl(this, '徒步网')"
                       title="您的朋友访问此链接后，您将获得相应的积分奖励"
                     >[复制链接]</a>
@@ -83,17 +82,15 @@
                 </div>
                 <div class="p-c-c-rf-other">
                   <img src="../../assets/楼主.png">
-                  <span class="p-r-other-1">发表于 {{mainpost.date}}</span>
+                  <span class="p-r-other-1">发表于 {{mainpost.date|timeFilter}}</span>
                   <a
                     href="http://bbs.8264.com/thread-5542549-1-1.html"
                     class="lc_bs_no"
                     title="复制本帖链接"
                     id="postnum89095341"
                     onclick="setCopy(this.href, '帖子地址已经复制到剪贴板');return false;"
-                  >
-                    <em>1</em>楼
-                  </a>
-                  <span class="tzgn">
+                  ></a>
+                  <!-- <span class="tzgn">
                     <a
                       href="http://bbs.8264.com/forum-viewthread-tid-5542549-page-1-authorid-40118894.html"
                       rel="nofollow"
@@ -103,19 +100,13 @@
                       href="http://bbs.8264.com/forum-viewthread-tid-5542549-extra-page%3D1-ordertype-1.html"
                       rel="nofollow"
                     >倒序浏览</a>
-                  </span>
+                  </span>-->
                 </div>
-                <div class="p-c-c-rf-content">{{mainpost.contents}}</div>
+                <div class="p-c-c-rf-content" v-html="mainpost.contents"></div>
                 <div class="p-c-c-rf-bottom">
                   <img src="../../assets/回复.png">
-                  <a
-                    class="hficon1"
-                    href="forum.php?mod=post&amp;action=reply&amp;fid=12&amp;tid=5542549&amp;repquote=89096069&amp;extra=page%3D1&amp;way=reply&amp;page=1"
-                  >回复</a>
-                  <a
-                    class="hficon2"
-                    href="forum.php?mod=post&amp;action=reply&amp;fid=12&amp;tid=5542549&amp;repquote=89096069&amp;extra=page%3D1&amp;way=reply&amp;page=1"
-                  >举报</a>
+                  <a class="hficon1" href="#">回复</a>
+                  <a class="hficon2" href="#">举报</a>
                 </div>
               </div>
             </div>
@@ -123,24 +114,23 @@
           <div style="clear:both"></div>
           <div
             class="p-c-c-second"
-            v-for="item in postList"
+            v-for="(item,index) in comList"
             :key="item.id"
-            :class="{borderNone:index+1===postList.length}"
+            :class="{borderNone:index+1===comList.length}"
           >
             <div class="p-c-c-f-lf">
               <div class="p-c-c-f-lf-2">
                 <div class="p-c-c-lf-img">
-                  <img :src="item.image">
+                  <img :src="`/image${item.avatar}`">
                 </div>
                 <div class="p-c-c-lf-name">
                   <div class="p-name">
                     <router-link to="/user-info">
                       <img src="../../assets/个人头像.png">
-                      {{item.userId}}
+                      {{item.nickname}}
                     </router-link>
                   </div>
                   <div class="p-info">
-                    <p>发帖：{{item.postCount}}</p>
                     <p>来自：{{item.place}}</p>
                   </div>
                 </div>
@@ -149,7 +139,7 @@
             <div class="p-c-c-f-rf">
               <div class="p-c-c-f-rf-2">
                 <div class="p-c-c-rf-other">
-                  <span class="p-r-other-1">发表于 {{item.date}}</span>
+                  <span class="p-r-other-1">发表于 {{item.time|timeFilter}}</span>
                   <a
                     href="http://bbs.8264.com/thread-5542549-1-1.html"
                     class="lc_bs_no"
@@ -157,9 +147,9 @@
                     id="postnum89095341"
                     onclick="setCopy(this.href, '帖子地址已经复制到剪贴板');return false;"
                   >
-                    <em>2</em>楼
+                    <em>{{getIndex(index)}}</em>楼
                   </a>
-                  <span class="tzgn">
+                  <!-- <span class="tzgn">
                     <a
                       href="http://bbs.8264.com/forum-viewthread-tid-5542549-page-1-authorid-40118894.html"
                       rel="nofollow"
@@ -169,19 +159,13 @@
                       href="http://bbs.8264.com/forum-viewthread-tid-5542549-extra-page%3D1-ordertype-1.html"
                       rel="nofollow"
                     >倒序浏览</a>
-                  </span>
+                  </span>-->
                 </div>
-                <div class="p-c-c-rf-content">{{item.contents}}</div>
+                <div class="p-c-c-rf-content" v-html="item.contents"></div>
                 <div class="p-c-c-rf-bottom">
                   <img src="../../assets/回复.png">
-                  <a
-                    class="hficon1"
-                    href="forum.php?mod=post&amp;action=reply&amp;fid=12&amp;tid=5542549&amp;repquote=89096069&amp;extra=page%3D1&amp;way=reply&amp;page=1"
-                  >回复</a>
-                  <a
-                    class="hficon2"
-                    href="forum.php?mod=post&amp;action=reply&amp;fid=12&amp;tid=5542549&amp;repquote=89096069&amp;extra=page%3D1&amp;way=reply&amp;page=1"
-                  >举报</a>
+                  <a class="hficon1" href="#">回复</a>
+                  <a class="hficon2" href="#">举报</a>
                 </div>
               </div>
             </div>
@@ -194,11 +178,10 @@
             </router-link>
           </el-row>
           <el-pagination
-            @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :page-size="1"
+            :page-size="query.pageSize"
             layout="prev, pager, next, jumper"
-            :total="10"
+            :total="total"
             class="page"
           ></el-pagination>
         </div>
@@ -212,17 +195,17 @@
                 <div class="p-name">
                   <router-link to="/user-center">
                     <img src="../../assets/个人头像.png">
-                    {{replyUser.userId}}
+                    Test1234
                   </router-link>
                 </div>
               </div>
             </div>
             <div class="p-c-c-f-rf">
               <div class="p-c-c-f-rf-3">
-                <el-form ref="form" :model="form">
+                <el-form ref="form" :model="comForm">
                   <el-form-item>
                     <!-- <el-input type="textarea"></el-input> -->
-                    <QuillEditor :menu="commentMenu"/>
+                    <quillEditor height="100px" v-model="comForm.contents" :options="editorOption"/>
                   </el-form-item>
                   <el-form-item>
                     <el-button type="success" @click="onSubmit">发表回复</el-button>
@@ -237,73 +220,109 @@
   </div>
 </template>
 <script>
-import QuillEditor from "@/components/QuillEditor";
-import { getPostList } from "@/api/post.js";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
+import { getPostDetail, postComment, getCommentList } from "@/api/post.js";
 export default {
   components: {
-    QuillEditor
+    quillEditor
   },
   data() {
     return {
       query: { page: 1, pageSize: 1, type: "", orderBy: "" },
-      commentMenu: [
-        "bold",
-        "fontSize",
-        "fontName",
-        "foreColor",
-        "emoticon",
-        "image"
-      ],
-      mainpost: {
-        id: 0,
-        title: "“花田赏景•绿色生态”徒步大会照片征集啦",
-        viewCount: 10000,
-        commentCount: 20,
-        date: "2019-5-2 17:55",
-        userId: "徒步用户01",
-        postCount: "20",
-        place: "桂林",
-        image:
-          "http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411",
-        contents: "111"
-      },
-      postList: [
-        {
-          id: 0,
-          userId: "徒步用户02",
-          postCount: 10,
-          place: "南宁",
-          date: "2019-5-3 17:55",
-          image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif",
-          contents: "22222"
-        },
-        {
-          id: 1,
-          userId: "徒步用户05",
-          postCount: 10,
-          place: "深圳",
-          date: "2019-5-3 17:55",
-          image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif",
-          contents: "33333"
+      editorOption: {
+        modules: {
+          toolbar: [
+            [{ size: ["small", false, "large"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            [{ header: 1 }, { header: 2 }],
+            ["bold", "italic"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"]
+          ],
+          history: {
+            delay: 1000,
+            maxStack: 50,
+            userOnly: false
+          },
+          imageDrop: true
         }
-      ],
+      },
+      mainpost: {},
       replyUser: {
         id: 0,
         userId: "徒步用户03",
         image: "https://www.tubu123.com/uc_server/images/noavatar_middle.gif"
+      },
+      id: 0,
+      query: {
+        page: 1,
+        pageSize: 10,
+        toId: 0,
+        type: 2
+      },
+      comList: [],
+      total: 0,
+      comForm: {
+        id: 0,
+        userId: 0,
+        toId: 0,
+        replyTo: 0,
+        contents: "",
+        type: 2,
+        time: 0
       }
     };
   },
   created() {
     this.id = this.$route.params.id;
-    this.getList();
+    this.comForm.toId = this.id;
+    this.query.toId = this.id;
+    getPostDetail(this.id).then(resp => {
+      this.mainpost = resp.data;
+    });
+    this.getComList();
   },
   methods: {
-    getList() {
-      getPostList(this.query).then(resp => {
-        this.mainpost = resp.data;
+    getComList() {
+      getCommentList(this.query).then(resp => {
+        this.comList = resp.data;
         this.total = resp.total;
       });
+    },
+    handleCurrentChange(cP) {
+      this.query.page = cP;
+      this.getPostDetail;
+    },
+    onSubmit() {
+      if (!localStorage.getItem("token")) {
+        this.$message({
+          type: "warning",
+          message: "请先登录!"
+        });
+        return;
+      } else {
+        postComment(this.comForm).then(resp => {
+          this.$message({
+            type: "success",
+            message: "评论成功！"
+          });
+          this.getComList();
+          this.comForm.contents = "";
+        });
+      }
+    },
+    getIndex(index) {
+      return (this.query.page - 1) * this.query.pageSize + index + 1;
     }
   }
 };
@@ -528,5 +547,12 @@ em {
   display: flex;
   background-color: #fff;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+}
+</style>
+<style>
+.quill-editor:not(.bubble) .ql-container,
+.quill-editor:not(.bubble) .ql-container .ql-editor {
+  height: 15rem;
+  padding-bottom: 1rem;
 }
 </style>
