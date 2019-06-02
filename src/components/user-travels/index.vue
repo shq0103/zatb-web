@@ -23,9 +23,12 @@
             </el-table-column>
             <el-table-column align="center" label="操作" width="180px">
               <template slot-scope="scope">
-                <router-link to="/travels-public">
-                  <el-button size="mini" style="margin-right:10px;">编辑</el-button>
-                </router-link>
+                <el-button
+                  size="mini"
+                  @click="handleEdit(scope.row.id)"
+                  style="margin-right:10px;"
+                >编辑</el-button>
+
                 <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
               </template>
             </el-table-column>
@@ -122,6 +125,9 @@ export default {
             duration: 2000
           });
         });
+    },
+    handleEdit(id) {
+      this.$router.push(`/travels-edit/${id}`);
     }
   }
 };

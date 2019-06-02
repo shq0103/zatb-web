@@ -90,6 +90,12 @@
               <div class="list-complete-item-handle">{{ element.name }}</div>
               <div style="position:absolute;right:0px;">
                 <span
+                  style="float: right ;margin-top: -20px;margin-right:30px;"
+                  @click="editTravelPlace(index)"
+                >
+                  <i style="color:#67c23a" class="el-icon-edit-outline"/>
+                </span>
+                <span
                   style="float: right ;margin-top: -20px;margin-right:5px;"
                   @click="deleteTravelPlace(index)"
                 >
@@ -103,9 +109,22 @@
           </div>
           <el-row style="margin-top:20px">
             <el-col :span="24">
-              <el-button type="success" round style="float: left;">保存草稿</el-button>
+              <!-- <el-button type="success" round style="float: left;">保存草稿</el-button> -->
               <el-button type="success" round style="float: left;">预览路书</el-button>
-              <el-button type="success" round style="float: right;" @click="submitForm('form')">创建路书</el-button>
+              <el-button
+                type="success"
+                v-if="!isEdit"
+                round
+                style="float: right;"
+                @click="submitForm('form')"
+              >创建路书</el-button>
+              <el-button
+                type="success"
+                v-if="isEdit"
+                round
+                style="float: right;"
+                @click="submitForm('form')"
+              >保存路书</el-button>
             </el-col>
           </el-row>
         </div>
@@ -116,7 +135,12 @@
           :visible.sync="dialogFormVisible"
           width="80%"
         >
-          <AddAddress @cancel="dialogFormVisible = false" @confirm="addTravelPlace"/>
+          <AddAddress
+            :is-edit="isEdit"
+            :deafult-data="travelPlace"
+            @cancel="dialogFormVisible = false"
+            @confirm="addTravelPlace"
+          />
         </el-dialog>
       </el-form>
     </div>
@@ -125,11 +149,22 @@
 <script>
 import AddAddress from "@/components/AddAddress/index.vue";
 import draggable from "vuedraggable";
-import { postTravelBook } from "@/api/travels.js";
+import {
+  postTravelBook,
+  getTravelsDetail,
+  putTravelBook
+} from "@/api/travels.js";
+import { eventBus } from "@/utils/eventBus";
 export default {
   components: {
     AddAddress,
     draggable
+  },
+  props: {
+    isEdit: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -156,8 +191,19 @@ export default {
           { required: true, message: "请填写路书概述", trigger: "blur" },
           { max: 150, message: "不能超过150字符", trigger: "blur" }
         ]
-      }
+      },
+      travelPlace: null
     };
+  },
+  created() {
+    if (this.isEdit) {
+      const id = this.$route.params && this.$route.params.id;
+      getTravelsDetail(id).then(resp => {
+        Object.assign(this.form, resp.data);
+        delete this.form.nickname;
+        delete this.form.username;
+      });
+    }
   },
   methods: {
     addTravelPlace: function(travelPlace) {
@@ -172,6 +218,11 @@ export default {
     deleteTravelPlace: function(index) {
       this.form.travelPlaces.splice(index, 1);
     },
+    editTravelPlace(index) {
+      this.travelPlace = this.form.travelPlaces[index];
+      this.dialogFormVisible = true;
+      eventBus.$emit("editTP", this.travelPlace);
+    },
     setData(dataTransfer) {
       // to avoid Firefox bug
       // Detail see : https://github.com/RubaXa/Sortable/issues/1012
@@ -180,12 +231,21 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          postTravelBook(this.form).then(resp => {
-            this.$message({
-              type: "success",
-              message: "新增成功！"
+          if (this.isEdit) {
+            putTravelBook(this.form).then(resp => {
+              this.$message({
+                type: "success",
+                message: "保存成功！"
+              });
             });
-          });
+          } else {
+            postTravelBook(this.form).then(resp => {
+              this.$message({
+                type: "success",
+                message: "新增成功！"
+              });
+            });
+          }
         } else {
           console.log("发布失败!!");
           return false;

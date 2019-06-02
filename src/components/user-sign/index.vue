@@ -42,7 +42,7 @@
   </div>
 </template>
 <script>
-import { getuserJionList, deleteActivity } from "@/api/travels.js";
+import { getuserJionList, deleteActivity } from "@/api/activity.js";
 export default {
   data() {
     return {

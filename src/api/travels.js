@@ -8,6 +8,14 @@ export function postTravelBook(data) {
   });
 }
 
+export function putTravelBook(data) {
+  return request({
+    url: "/api/TravelBook",
+    method: "put",
+    data
+  });
+}
+
 export function getList(query) {
   return request({
     url: "/api/TravelBook",

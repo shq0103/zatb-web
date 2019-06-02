@@ -13,12 +13,12 @@
               <el-form-item label="修改头像" prop="avatar">
                 <el-upload
                   class="avatar-uploader"
-                  action="https://jsonplaceholder.typicode.com/posts/"
+                  action="/api/File/UploadImg?type=5"
                   :show-file-list="false"
+                  :headers="{Authorization:`Bearer ${token}`}"
                   :on-success="handleAvatarSuccess"
-                  :before-upload="beforeAvatarUpload"
                 >
-                  <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                  <img v-if="form.avatar" :src="`/image${form.avatar}`" class="avatar">
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
               </el-form-item>
@@ -74,22 +74,23 @@ export default {
     return {
       form: {
         id: 0,
-        username: "string",
-        password: "string",
-        nickname: "string",
-        role: "string",
-        avatar: "string",
-        birthday: 0,
-        gender: 0,
-        trueName: "string",
-        idCard: "string",
-        phone: "string",
-        mail: "string",
-        intro: "string",
-        place: "string",
+        username: "",
+        password: "",
+        nickname: "",
+        role: "",
+        avatar: "",
+        birthday: null,
+        gender: null,
+        trueName: "",
+        idCard: "",
+        phone: "",
+        mail: "",
+        intro: "",
+        place: "",
         lastTime: 0,
         status: 0
       },
+      token: "",
       rules: {
         idCard: [
           { required: true, message: "请填写身份证", trigger: "blur,change" },
@@ -116,6 +117,7 @@ export default {
     };
   },
   created() {
+    this.token = localStorage.getItem("token");
     getUserDetail(1111).then(resp => {
       Object.assign(this.form, resp.data);
     });
@@ -142,6 +144,9 @@ export default {
           });
         }
       });
+    },
+    handleAvatarSuccess(resp) {
+      this.form.avatar = resp.data;
     }
   }
 };

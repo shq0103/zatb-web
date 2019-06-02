@@ -24,7 +24,7 @@
           <!-- <el-form-item style="margin:10px 0px;">
             <el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input>
           </el-form-item>-->
-          <Bdmap style="margin:10px 0px;" @chosenPoint="chosenPoint"/>
+          <Bdmap :point="deafultPoint" style="margin:10px 0px;" @chosenPoint="chosenPoint"/>
         </div>
         <div class="map"></div>
         <div class="edit_02">
@@ -50,6 +50,7 @@
             :on-remove="handleRemove"
             :on-success="uploadSuccess"
             list-type="picture-card"
+            :file-list="tempList"
           >
             <i class="el-icon-plus"></i>
           </el-upload>
@@ -81,11 +82,20 @@ import { quillEditor } from "vue-quill-editor";
 import VueQuillEditor, { Quill } from "vue-quill-editor";
 import { ImageDrop } from "quill-image-drop-module";
 Quill.register("modules/imageDrop", ImageDrop);
+import { eventBus } from "@/utils/eventBus";
 export default {
   components: {
     quillEditor,
     Bdmap
   },
+  props: {
+    isEdit: {
+      type: Boolean,
+      default: false
+    },
+    deafultData: {}
+  },
+
   data() {
     return {
       editorOption: {
@@ -121,7 +131,7 @@ export default {
         name: "",
         lat: null,
         lng: null,
-        contents: "aaaa",
+        contents: "",
         imgList: []
       },
       rules: {
@@ -136,11 +146,13 @@ export default {
       token: "asdsad",
       dialogVisible: false,
       dialogImageUrl: "",
-      tempList: []
+      tempList: [],
+      deafultPoint: {}
     };
   },
   created() {
     this.token = localStorage.getItem("token");
+    this.prepareEdit();
   },
   methods: {
     cancel: function() {
@@ -176,6 +188,24 @@ export default {
     chosenPoint(point) {
       this.travelPlace.lat = point.lat;
       this.travelPlace.lng = point.lng;
+    },
+    prepareEdit() {
+      if (this.isEdit) {
+        Object.assign(this.travelPlace, this.deafultData);
+        this.tempList = [];
+        this.travelPlace.imgList.forEach(item => {
+          this.tempList.push({ name: item, url: `/image${item}` });
+        });
+        this.deafultPoint = {
+          lat: this.travelPlace.lat,
+          lng: this.travelPlace.lng
+        };
+      }
+    }
+  },
+  watch: {
+    deafultData() {
+      this.prepareEdit();
     }
   }
 };

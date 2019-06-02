@@ -60,6 +60,11 @@ export default new Router({
           component: () => import("./views/travels-public/index.vue")
         },
         {
+          path: "travels-edit/:id",
+          name: "travels-edit",
+          component: () => import("./views/travels-public/edit.vue")
+        },
+        {
           path: "post-show/:id",
           name: "post-show",
 

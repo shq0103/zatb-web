@@ -6,7 +6,7 @@
       @dblclick="dblClickMap"
       :scroll-wheel-zoom="true"
       :double-click-zoom="false"
-      :center="'桂林'"
+      :center="myPoint"
       :zoom="15"
       :map-click="false"
     >
@@ -39,7 +39,10 @@
 export default {
   props: {
     point: {
-      default: null
+      default: {
+        lat: 25.273566,
+        lng: 110.290195
+      }
     }
   },
   data() {
@@ -58,6 +61,11 @@ export default {
       this.myPoint = point;
       this.keyword = "";
       this.$emit("chosenPoint", point);
+    }
+  },
+  watch: {
+    point(newV) {
+      this.myPoint = newV;
     }
   }
 };

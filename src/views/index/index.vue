@@ -29,7 +29,11 @@
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <router-link to="/activity">
                   <el-card :body-style="{ padding: '0px' }">
-                    <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
+                    <img
+                      :src="`/image${item.image}`"
+                      class="image"
+                      style="width:310px;height:230px;"
+                    >
                     <div class="activity-title">
                       <span>{{item.name}}</span>
                       <div class="bottom clearfix">
@@ -38,7 +42,7 @@
                             src="../../assets/时间.png"
                             style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                           >
-                          {{item.date}}
+                          {{item.publishTime|timeFilter}}
                         </span>
                         <span class="t2">
                           <img
@@ -212,7 +216,7 @@
                       src="../../assets/作者头像.png"
                       style="height: 16px; margin-right:3px;margin-bottom: -2px;"
                     >
-                    {{item.userId}}
+                    {{item.username}}
                   </span>
                   <img
                     src="../../assets/comment.png"
@@ -238,7 +242,7 @@
                     <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
                   </p>
                   <p class="aut">
-                    <router-link :to="`/travels-show/${item.id}`">—作者：{{item.userId}}</router-link>
+                    <router-link :to="`/travels-show/${item.id}`">—作者：{{item.username}}</router-link>
                   </p>
                 </div>
               </li>
@@ -272,16 +276,16 @@
                   <div class="p-content-top">
                     <img
                       id="touxiangimg"
-                      :src="item.image"
+                      :src="`/image${item.avatar}`"
                       onerror="this.onerror=null;this.src='http://ucenter.8264.com/images/noavatar_middle.gif'"
                     >
                     <div class="p-content-top-info">
-                      <span>发布人：{{item.userId}}</span>
+                      <span>发布人：{{item.username}}</span>
                       <router-link to="/post-show">{{item.title}}</router-link>
                     </div>
                   </div>
                   <div class="p-content-bottom">
-                    <div class="p-c-b-content">{{item.contents}}</div>
+                    <div class="p-c-b-content">{{item.contents|htmlToStr}}</div>
                   </div>
                 </div>
               </div>
