@@ -154,7 +154,7 @@ import {
   getTravelsDetail,
   putTravelBook
 } from "@/api/travels.js";
-import { eventBus } from "@/utils/eventBus";
+
 export default {
   components: {
     AddAddress,
@@ -221,7 +221,6 @@ export default {
     editTravelPlace(index) {
       this.travelPlace = this.form.travelPlaces[index];
       this.dialogFormVisible = true;
-      eventBus.$emit("editTP", this.travelPlace);
     },
     setData(dataTransfer) {
       // to avoid Firefox bug

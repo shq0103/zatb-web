@@ -58,6 +58,7 @@
 <script>
 import { Auth } from "@/api/login";
 import { Message } from "element-ui";
+import { eventBus } from "@/utils/eventBus";
 export default {
   data() {
     return {
@@ -75,6 +76,9 @@ export default {
       },
       isLogin: localStorage.getItem("token") ? true : false
     };
+  },
+  created() {
+    eventBus.$on("loginSuccess", this.loginSuccess);
   },
   methods: {
     clickMenuItem(key) {
@@ -100,6 +104,10 @@ export default {
     logout() {
       localStorage.removeItem("token");
       this.isLogin = false;
+      this.$router.push("/index");
+    },
+    loginSuccess(){
+      this.isLogin=true;
     }
   }
 };

@@ -82,7 +82,6 @@ import { quillEditor } from "vue-quill-editor";
 import VueQuillEditor, { Quill } from "vue-quill-editor";
 import { ImageDrop } from "quill-image-drop-module";
 Quill.register("modules/imageDrop", ImageDrop);
-import { eventBus } from "@/utils/eventBus";
 export default {
   components: {
     quillEditor,

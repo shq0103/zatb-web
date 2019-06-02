@@ -29,6 +29,7 @@
 </template>
 <script>
 import { Signin, Auth } from "@/api/login";
+import { eventBus } from "@/utils/eventBus";
 export default {
   props: ["username"],
   data() {
@@ -66,6 +67,7 @@ export default {
               });
               localStorage.setItem("token", resp.data.token);
               this.$router.push("/index");
+              eventBus.$emit("loginSuccess");
             } else {
               this.$message({
                 message: resp.message,
