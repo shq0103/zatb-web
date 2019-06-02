@@ -139,7 +139,7 @@
 
             <el-form-item>
               <el-button type="success" @click="searchSS">搜索</el-button>
-              <el-button type="success" plain>重置</el-button>
+              <el-button type="success" @click="resetSS" plain>重置</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -187,8 +187,8 @@ export default {
         keyword: "",
         user: null,
         theme: null,
-        startDate: null,
-        endDate: null,
+        startDate: "",
+        endDate: "",
         orderBy: "viewCount"
       },
       total: 0,
@@ -226,6 +226,22 @@ export default {
       this.getActivityList();
     },
     searchSS() {
+      this.query.startDate = new Date(this.query.startDate).getTime();
+      this.query.endDate = new Date(this.query.endDate).getTime();
+      this.getActivityList();
+    },
+    resetSS() {
+      Object.assign(this.query, {
+        page: 1,
+        pageSize: 5,
+        status: null,
+        keyword: "",
+        user: null,
+        theme: null,
+        startDate: "",
+        endDate: "",
+        orderBy: "viewCount"
+      });
       this.getActivityList();
     }
   }
