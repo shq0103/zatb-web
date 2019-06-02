@@ -119,7 +119,7 @@
                 <div class="box-card-content">
                   <el-carousel :interval="5000" arrow="always">
                     <el-carousel-item v-for="(el,elindex) in item.imgList" :key="elindex">
-                      <img :src="`/image${el}`">
+                      <img :src="`/image${el}`" preview="0" preview-text="描述文字">
                     </el-carousel-item>
                   </el-carousel>
                   <div class="new-right2">
@@ -215,9 +215,13 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
 import Hamburger from "./Hamburger.vue";
 import MapShow from "@/components/BdmapT/index.vue";
 import { getTravelsDetail } from "@/api/travels.js";
+import preview from "vue-photo-preview";
+import "vue-photo-preview/dist/skin.css";
+Vue.use(preview);
 export default {
   components: {
     Hamburger,
