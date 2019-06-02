@@ -10,9 +10,17 @@
             </router-link>
           </div>
           <el-table :data="tableData" border fit stripe>
-            <el-table-column align="center" prop="title" label="活动名称" width="260px"></el-table-column>
-            <el-table-column align="center" prop="date" label="发布时间"></el-table-column>
-            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" prop="name" label="活动名称" width="260px"></el-table-column>
+            <el-table-column align="center" label="发布时间">
+              <template slot-scope="scope">
+                <span>{{scope.row.publishTime|timeFilter}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column align="center" label="状态">
+              <template slot-scope="scope">
+                <span>{{scope.row.status|typeFilter}}</span>
+              </template>
+            </el-table-column>
             <el-table-column align="center" label="操作" width="240px">
               <template>
                 <router-link to="/activity-public">
@@ -36,7 +44,7 @@
         ref="singleTable"
       >
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="id" label="序号" sortable width="50px"></el-table-column>
+        <el-table-column type="index" :index="index" label="序号" sortable width="50px"></el-table-column>
         <el-table-column prop="name" label="用户名" :formatter="formatter"></el-table-column>
         <el-table-column prop="truename" label="真实姓名" :formatter="formatter"></el-table-column>
         <el-table-column prop="sex" label="性别" :formatter="formatter"></el-table-column>
@@ -66,7 +74,26 @@
   </div>
 </template>
 <script>
+import {
+  getuserpublicList,
+  deleteActivity,
+  getJoinList
+} from "@/api/activity.js";
 export default {
+  filters: {
+    typeFilter: function(value) {
+      switch (value) {
+        case 0:
+          return "待审核";
+        case 1:
+          return "已通过";
+        case 2:
+          return "未通过";
+        default:
+          return "";
+      }
+    }
+  },
   data() {
     return {
       tableData: [
@@ -91,6 +118,9 @@ export default {
           type: "审核中"
         }
       ],
+      total: 0,
+      jointotal: 0,
+      query: { page: 1, pageSize: 10 },
       currentRow: null,
       dialogTableVisible: false,
       dialogpass: false,
@@ -123,12 +153,36 @@ export default {
           number: "13338383388",
           password: "admin"
         }
-      ]
+      ],
+      joinquery: { page: 1, pageSize: 10, activityId: 0 }
     };
   },
+  created() {
+    this.getpublicList();
+    this.query.activityId = this.$route.params && this.$route.params.id;
+    this.getjoinList();
+  },
+
   methods: {
     handleCurrentChange(val) {
       this.currentRow = val;
+    },
+    getpublicList() {
+      getuserpublicList(this.query).then(resp => {
+        this.tableData = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getjoinList() {
+      this.listLoading = true;
+      getJoinList(this.joinquery).then(resp => {
+        this.gridData = resp.data;
+        this.jointotal = resp.jointotal;
+        this.listLoading = false;
+      });
+    },
+    index(val) {
+      return (this.joinquery.page - 1) * this.joinquery.pageSize + val + 1;
     }
   }
 };

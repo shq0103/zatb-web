@@ -34,3 +34,32 @@ export function joinActivity(data) {
     data
   });
 }
+
+export function getuserJionList(query) {
+  return request({
+    url: "/api/Activity/user",
+    method: "get",
+    params: query
+  });
+}
+export function getuserpublicList(query) {
+  return request({
+    url: "/api/Activity/user",
+    method: "get",
+    params: query
+  });
+}
+export function deleteActivity(data) {
+  return request({
+    url: "/api/Activity",
+    method: "delete",
+    data
+  });
+}
+export function getJoinList(query) {
+  return request({
+    url: "/api/ActivityJion",
+    method: "get",
+    params: query
+  });
+}

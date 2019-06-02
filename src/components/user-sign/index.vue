@@ -42,6 +42,7 @@
   </div>
 </template>
 <script>
+import { getuserJionList, deleteActivity } from "@/api/travels.js";
 export default {
   data() {
     return {
@@ -71,12 +72,22 @@ export default {
           name: "美少女"
         }
       ],
-
+      query: { page: 1, pageSize: 10 },
       dialogpass: false,
       dialogdelete: false
     };
   },
-  methods: {}
+  created() {
+    this.getuserList();
+  },
+  methods: {
+    getuserList() {
+      getuserJionList(this.query).then(resp => {
+        this.tableData = resp.data;
+        this.total = resp.total;
+      });
+    }
+  }
 };
 </script>
 <style scoped>

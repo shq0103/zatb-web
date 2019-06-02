@@ -10,40 +10,49 @@
             </router-link>
           </div>
           <el-table :data="tableData" border fit>
-            <el-table-column align="center" prop="title" label="闲趣标题" width="280px"></el-table-column>
-            <el-table-column align="center" prop="selltype" label="闲趣类型"></el-table-column>
-            <el-table-column align="center" prop="date" label="创建时间"></el-table-column>
-            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" prop="name" label="闲趣标题" width="280px"></el-table-column>
+            <el-table-column align="center" label="闲趣类型">
+              <template slot-scope="scope">
+                <span>{{scope.row.type|typeFilter}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column align="center" label="创建时间">
+              <template slot-scope="scope">
+                <span>{{scope.row.time|timeFilter}}</span>
+              </template>
+            </el-table-column>
+            <!-- <el-table-column align="center" prop="type" label="状态"></el-table-column> -->
             <el-table-column align="center" label="操作" width="180px">
-              <template>
+              <template slot-scope="scope">
                 <router-link to="/goods-public">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
                 </router-link>
-                <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
+                <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
         </div>
       </div>
     </div>
-    <el-dialog :visible.sync="dialogpass" width="30%" :before-close="handleClose">
-      <span>是否通过</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogpass = false">取 消</el-button>
-        <el-button type="primary" @click="dialogpass = false">确 定</el-button>
-      </span>
-    </el-dialog>
-    <el-dialog :visible.sync="dialogdelete" width="30%" :before-close="handleClose">
-      <span>是否删除</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogdelete = false">取 消</el-button>
-        <el-button type="primary" @click="dialogdelete = false">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 <script>
+import { getUserGoods, deleteGoods } from "@/api/goods.js";
 export default {
+  filters: {
+    typeFilter: function(value) {
+      switch (value) {
+        case 1:
+          return "服装";
+        case 2:
+          return "装备";
+        case 3:
+          return "其他";
+        default:
+          return "";
+      }
+    }
+  },
   data() {
     return {
       tableData: [
@@ -81,7 +90,42 @@ export default {
       dialogdelete: false
     };
   },
-  methods: {}
+  created() {
+    this.getUgoodsList();
+  },
+  methods: {
+    getUgoodsList() {
+      getUserGoods().then(resp => {
+        this.tableData = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleDelete(id) {
+      this.$confirm("此操作将永久删除改项, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          deleteGoods(id).then(resp => {
+            this.$notify({
+              title: "成功",
+              message: "删除成功",
+              type: "success",
+              duration: 2000
+            });
+            this.getUgoodsList();
+          });
+        })
+        .catch(() => {
+          this.$notify({
+            message: "已取消删除",
+            type: "info",
+            duration: 2000
+          });
+        });
+    }
+  }
 };
 </script>
 <style scoped>
@@ -108,6 +152,9 @@ export default {
 .ac-h3 h3 {
   margin: auto;
   font-size: 16px;
+}
+.ac-h3 a {
+  color: #fff;
 }
 .ac-h3 span {
   position: absolute;

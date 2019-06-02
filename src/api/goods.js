@@ -13,3 +13,15 @@ export function getGoodsList(query) {
     params: query
   });
 }
+export function getUserGoods() {
+  return request({
+    url: "/api/Goods/user",
+    method: "get"
+  });
+}
+export function deleteGoods(id) {
+  return request({
+    url: `/api/Goods/${id}`,
+    method: "delete"
+  });
+}

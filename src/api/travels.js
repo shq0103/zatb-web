@@ -37,3 +37,10 @@ export function getTBList(query) {
     params: query
   });
 }
+export function deleteTravels(data) {
+  return request({
+    url: "/api/TravelBook",
+    method: "delete",
+    data
+  });
+}
