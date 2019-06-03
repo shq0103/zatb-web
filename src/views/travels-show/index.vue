@@ -108,11 +108,15 @@
                   <el-button
                     style="float: right; padding: 1px 0"
                     type="text"
-                    @click="dialogVisible = true"
+                    @click="commentPoint(item.id)"
                   >
                     <img src="../../assets/路书评论1.png" style="height:28px">
                   </el-button>
-                  <el-button style="float: right; padding: 3px 3px" type="text">
+                  <el-button
+                    @click="dianzan(item.id)"
+                    style="float: right; padding: 3px 3px"
+                    type="text"
+                  >
                     <img src="../../assets/路书点赞.png" style="height:26px">
                   </el-button>
                 </div>
@@ -207,19 +211,41 @@
       :before-close="handleClose"
       class="el-title"
     >
-      <div class="el-dialog-title">共2条评论</div>
-      <div class="el-dialog-content">1111111</div>
+      <div class="el-dialog-title">共{{total}}条评论</div>
+      <div class="el-dialog-content">
+        <div
+          class="user-commemt"
+          v-for="(item,index) in commList"
+          :key="item.id"
+          :class="{borderNone:index+1===commList.length}"
+        >
+          <el-row :gutter="20">
+            <el-col :span="4">
+              <div class="grid-content-lf">
+                <img :src="`/image${item.avatar}`">
+                <span>{{item.nickname}}</span>
+              </div>
+            </el-col>
+            <el-col :span="20">
+              <div class="grid-content-rf">
+                <p v-html="item.contents" style="text-align:left;"></p>
+                <span>发表于 {{item.time|timeFilter}}</span>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
       <div class="el-dialog-input">
-        <el-form ref="form" label-width="80px" label-position="top">
-          <el-form-item label="评论">
-            <el-input type="textarea"></el-input>
+        <el-form ref="form" :model="form" :rules="rule" label-width="80px" label-position="top">
+          <el-form-item label="评论" prop="contents">
+            <el-input v-model="form.contents" type="textarea"></el-input>
           </el-form-item>
         </el-form>
       </div>
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        <el-button type="primary" @click="publicComm">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -228,6 +254,7 @@
 import Hamburger from "./Hamburger.vue";
 import MapShow from "@/components/BdmapT/index.vue";
 import { getTravelsDetail } from "@/api/travels.js";
+import { postComment, getCommentList } from "@/api/post.js";
 import "viewerjs/dist/viewer.css";
 import Viewer from "v-viewer";
 import Vue from "vue";
@@ -305,7 +332,29 @@ export default {
       ],
       myPointList: [],
       id: 0,
-      travels: {}
+      travels: {},
+      form: {
+        id: 0,
+        userId: 0,
+        toId: 0,
+        replyTo: 0,
+        contents: "",
+        type: 1,
+        time: 0
+      },
+      rule: {
+        contents: [
+          { required: true, message: "评论内容不能为空", trigger: "change" }
+        ]
+      },
+      queryComm: {
+        page: 1,
+        pageSize: 2,
+        toId: 0,
+        type: 1
+      },
+      commList: [],
+      total: 0
     };
   },
   created() {
@@ -333,12 +382,72 @@ export default {
         behavior: "smooth"
       });
     },
-    handleClose() {}
+    handleClose() {},
+    dianzan(id) {
+      this.$message({
+        type: "success",
+        message: "点赞成功！"
+      });
+    },
+    commentPoint(id) {
+      this.queryComm.toId = id;
+      getCommentList(this.queryComm).then(resp => {
+        this.commList = resp.data;
+        this.total = resp.total;
+      });
+      this.dialogVisible = true;
+      this.form.toId = id;
+    },
+    publicComm() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          postComment(this.form).then(resp => {
+            if (resp.code === 0) {
+              this.$message({
+                type: "success",
+                message: "发表成功！"
+              });
+              this.dialogVisible = false;
+            } else {
+              this.$message({
+                type: "success",
+                message: resp.data
+              });
+            }
+          });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    }
   }
 };
 </script>
 
 <style scoped>
+.user-commemt {
+  border-bottom: #99a9bf 1px dotted;
+  padding-bottom: 15px;
+  margin: 10px 0;
+}
+.grid-content-lf {
+  display: flex;
+  flex-direction: column;
+}
+.grid-content-lf img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin: 0 0 5px 20px;
+}
+.grid-content-rf span {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  font-size: 13px;
+}
 .hamburger-container {
   line-height: 46px;
   height: 100%;
