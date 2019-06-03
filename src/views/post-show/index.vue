@@ -31,6 +31,7 @@
             layout="prev, pager, next, jumper"
             :total="total"
             class="page"
+            background
           ></el-pagination>
         </div>
 

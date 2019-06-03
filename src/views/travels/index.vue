@@ -6,40 +6,48 @@
           <div class="travels-top-lf">
             <ul>
               <li>
-                <el-popover ref="popover1" placement="right" width="200" trigger="hover">
+                <el-popover ref="popover1" placement="right" width="300" trigger="hover">
                   <div>
-                    <ul>
-                      <li v-for="item in shortList" :key="item.id">{{item.title}}</li>
+                    <ul style="line-height:25px;">
+                      <li v-for="item in shortList" :key="item.id">
+                        <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
+                      </li>
                     </ul>
                   </div>
                 </el-popover>
                 <el-button v-popover:popover1 class="tr-t-lf-button">短线精选TOP10</el-button>
               </li>
               <li>
-                <el-popover ref="popover2" placement="right" width="200" trigger="hover">
+                <el-popover ref="popover2" placement="right" width="300" trigger="hover">
                   <div>
-                    <ul>
-                      <li v-for="item in middleList" :key="item.id">{{item.title}}</li>
+                    <ul style="line-height:25px;">
+                      <li v-for="item in middleList" :key="item.id">
+                        <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
+                      </li>
                     </ul>
                   </div>
                 </el-popover>
                 <el-button v-popover:popover2 class="tr-t-lf-button">中线精选TOP10</el-button>
               </li>
               <li>
-                <el-popover ref="popover3" placement="right" width="200" trigger="hover">
+                <el-popover ref="popover3" placement="right" width="300" trigger="hover">
                   <div>
-                    <ul>
-                      <li v-for="item in longList" :key="item.id">{{item.title}}</li>
+                    <ul style="line-height:25px;">
+                      <li v-for="item in longList" :key="item.id">
+                        <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
+                      </li>
                     </ul>
                   </div>
                 </el-popover>
                 <el-button v-popover:popover3 class="tr-t-lf-button">长线精选TOP10</el-button>
               </li>
               <li>
-                <el-popover ref="popover4" placement="right" width="200" trigger="hover">
+                <el-popover ref="popover4" placement="right" width="300" trigger="hover">
                   <div>
-                    <ul>
-                      <li v-for="item in allList" :key="item.id">{{item.title}}</li>
+                    <ul style="line-height:25px;">
+                      <li v-for="item in allList" :key="item.id">
+                        <router-link :to="`/travels-show/${item.id}`">{{item.title}}</router-link>
+                      </li>
                     </ul>
                   </div>
                 </el-popover>
@@ -49,8 +57,10 @@
                 <el-input
                   class="tr-t-lf-input"
                   size="medium"
-                  placeholder="输入想去的地方，如：尧山"
+                  v-model="query.keyword"
+                  placeholder="输入想查询的信息"
                   prefix-icon="el-icon-search"
+                  @change="handleFilter"
                 ></el-input>
               </li>
             </ul>
@@ -101,8 +111,8 @@
                     >
                     {{item.userId}}
                   </span>
-                  <img src="../../assets/评论1.png" style="height: 19px; margin-bottom: -3px;">
-                  {{item.commentCount}}
+                  <img src="../../assets/点赞-1.png" style="height: 19px; margin-bottom: -3px;">
+                  {{item.star}}
                   <img
                     src="../../assets/浏览.png"
                     style="height: 22px; margin-bottom: -6px;margin-left:3px;"
@@ -377,10 +387,31 @@ export default {
         orderBy: "star",
         status: 1
       },
-      TopQuery: {
+      TopshortQuery: {
         page: 1,
         pageSize: 10,
-        orderBy: "",
+        orderBy: "viewCount",
+        status: 1,
+        length: 1
+      },
+      TopmiddleQuery: {
+        page: 1,
+        pageSize: 10,
+        orderBy: "viewCount",
+        status: 1,
+        length: 2
+      },
+      ToplongQuery: {
+        page: 1,
+        pageSize: 10,
+        orderBy: "viewCount",
+        status: 1,
+        length: 3
+      },
+      TopallQuery: {
+        page: 1,
+        pageSize: 10,
+        orderBy: "viewCount",
         status: 1
       }
     };
@@ -388,6 +419,10 @@ export default {
   created() {
     this.getTravelsList();
     this.getListOrderby();
+    this.getTopshortList();
+    this.getTopmiddleList();
+    this.getToplongList();
+    this.getTopallList();
   },
   methods: {
     changeOrder(value) {
@@ -407,11 +442,33 @@ export default {
         this.total = resp.total;
       });
     },
-    getTopList() {
-      getList(this.TopQuery).then(resp => {
+    getTopshortList() {
+      getList(this.TopshortQuery).then(resp => {
         this.shortList = resp.data;
         this.total = resp.total;
       });
+    },
+    getTopmiddleList() {
+      getList(this.TopmiddleQuery).then(resp => {
+        this.middleList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getToplongList() {
+      getList(this.ToplongQuery).then(resp => {
+        this.longList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    getTopallList() {
+      getList(this.TopallQuery).then(resp => {
+        this.allList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleFilter() {
+      this.query.page = 1;
+      this.getTravelsList();
     },
     handleSizeChange(pageSize) {
       this.query.pageSize = pageSize;
@@ -445,6 +502,9 @@ travels-top-rf {
   background-color: #fff;
   padding: 15px 15px 0 15px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+}
+a {
+  color: #000;
 }
 .tr-b-rf-public {
   margin-top: 5px;

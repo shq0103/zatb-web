@@ -36,3 +36,17 @@ export function getCommentList(query) {
     params: query
   });
 }
+export function getUserpost(query) {
+  return request({
+    url: "/api/Post/user",
+    method: "get",
+    params: query
+  });
+}
+export function deletePost(data) {
+  return request({
+    url: "/api/Post",
+    method: "delete",
+    data
+  });
+}

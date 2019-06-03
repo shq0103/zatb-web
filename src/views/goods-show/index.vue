@@ -9,7 +9,7 @@
           >
         </div>
         <div class="user-info-name">
-          <a href="#" target="_blank">{{goods.userId}}</a>
+          <a href="#" target="_blank">{{goods.username}}</a>
         </div>
       </div>
       <div class="user-info-index">
@@ -44,7 +44,7 @@
               :class="{liactivite:liActIndex===index}"
               :key="index"
             >
-              <el-image style="width: 70px; height: 70px" :src="`/image${item}`" :fit="fit"></el-image>
+              <el-image style="width: 70px; height: 70px" :src="`/image${item}`"></el-image>
             </li>
           </ul>
         </vue-seamless-scroll>
@@ -124,11 +124,33 @@
                   </a>
                 </div>
                 <div class="attr-content">
-                  <div class="attr-content-info">{{goods.comment}}</div>
+                  <div class="attr-content-info">
+                    <div
+                      class="user-commemt"
+                      v-for="(item,index) in comList"
+                      :key="item.id"
+                      :class="{borderNone:index+1===comList.length}"
+                    >
+                      <el-row :gutter="20">
+                        <el-col :span="4">
+                          <div class="grid-content-lf">
+                            <img :src="`/image${item.avatar}`">
+                            <span>{{item.nickname}}</span>
+                          </div>
+                        </el-col>
+                        <el-col :span="20">
+                          <div class="grid-content-rf">
+                            <p v-html="item.contents" style="text-align:left;"></p>
+                            <span>发表于 {{item.time|timeFilter}}</span>
+                          </div>
+                        </el-col>
+                      </el-row>
+                    </div>
+                  </div>
                   <div class="attr-content-commend">
                     <el-form ref="form" label-width="80px">
-                      <el-form-item label="进行点评">
-                        <el-input type="textarea"></el-input>
+                      <el-form-item label="进行点评" model="comForm">
+                        <el-input type="textarea" v-model="comForm.contents"></el-input>
                       </el-form-item>
                     </el-form>
                     <!-- <div class="block">
@@ -136,7 +158,7 @@
                       <el-rate v-model="value2" :colors="colors" show-text></el-rate>
                     </div>-->
                     <div class="block1">
-                      <el-button type="success">提交评价</el-button>
+                      <el-button type="success" @click="onSubmit">提交评价</el-button>
                     </div>
                   </div>
                 </div>
@@ -179,7 +201,8 @@
 import PicZoom from "vue-piczoom";
 import Vue from "vue";
 import scroll from "vue-seamless-scroll";
-import { getGoodsDetail } from "@/api/goods.js";
+import { getGoodsDetail, goodsComment, getCommentList } from "@/api/goods.js";
+
 Vue.use(scroll);
 export default {
   components: {
@@ -223,6 +246,18 @@ export default {
   },
   data() {
     return {
+      picList: [],
+      comList: [],
+      total: 0,
+      comForm: {
+        id: 0,
+        userId: 0,
+        toId: 0,
+        replyTo: 0,
+        contents: "",
+        type: 4,
+        time: 0
+      },
       goodsList: {
         id: 0,
         userId: "徒步用户01",
@@ -236,6 +271,12 @@ export default {
         num: "13838383388",
         intro: "11",
         comment: "22"
+      },
+      query: {
+        page: 1,
+        pageSize: 10,
+        toId: 0,
+        type: 4
       },
       otherList: [
         {
@@ -269,18 +310,7 @@ export default {
         }
       ],
       liActIndex: 0,
-      picList: [
-        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i2/O1CN01tXpiaR1SmP5jvnS2G_!!0-fleamarket.jpg_728x728.jpg",
-        "https://img.alicdn.com/bao/uploaded/i7/TB1hZHDHVXXXXaIXVXXizIb8VXX_033306.jpg_728x728.jpg"
-      ],
+
       goods: {}
     };
   },
@@ -290,7 +320,10 @@ export default {
       this.goods = resp.data;
       this.picList = this.goods.imgList;
     });
-    this.getListOrderby();
+    this.comForm.toId = this.id;
+    this.query.toId = this.id;
+
+    this.getComList();
   },
   computed: {
     optionSwitch() {
@@ -303,6 +336,30 @@ export default {
   methods: {
     selectImg: function(index) {
       this.liActIndex = index;
+    },
+    getComList() {
+      getCommentList(this.query).then(resp => {
+        this.comList = resp.data;
+        this.total = resp.total;
+      });
+    },
+    onSubmit() {
+      if (!localStorage.getItem("token")) {
+        this.$message({
+          type: "warning",
+          message: "请先登录!"
+        });
+        return;
+      } else {
+        goodsComment(this.comForm).then(resp => {
+          this.$message({
+            type: "success",
+            message: "评论成功！"
+          });
+          this.getComList();
+          this.comForm.contents = "";
+        });
+      }
     }
   }
 };
@@ -323,6 +380,11 @@ export default {
   border-radius: 50%;
   background-color: #75b628;
   cursor: pointer;
+}
+.user-commemt {
+  border-bottom: #99a9bf 1px dotted;
+  padding-bottom: 15px;
+  margin: 10px 0;
 }
 .left-arrow::before,
 .right-arrow::before {
@@ -677,7 +739,23 @@ ul {
   height: 54px;
   line-height: 52px;
 }
-
+.grid-content-lf {
+  display: flex;
+  flex-direction: column;
+}
+.grid-content-lf img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin: 0 0 5px 20px;
+}
+.grid-content-rf span {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  font-size: 13px;
+}
 .tabbar li {
   position: relative;
   float: left;
@@ -730,6 +808,8 @@ ul {
 }
 .attr-content-info {
   min-height: 300px;
+
+  border-bottom: #99a9bf 1px solid;
 }
 .block {
   display: flex;
@@ -740,7 +820,10 @@ ul {
   font-size: 14px;
 }
 .attr-content-commend {
-  margin: 15px 0;
+  margin: 25px 0 15px 0;
+}
+.borderNone {
+  border: none !important;
 }
 .a-c-rf-2-other {
   display: flex;

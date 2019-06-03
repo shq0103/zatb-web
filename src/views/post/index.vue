@@ -4,12 +4,8 @@
       <el-row :gutter="24">
         <el-col :span="6">
           <el-carousel height="250px">
-            <el-carousel-item v-for="item in 3" :key="item">
-              <img
-                class="lunbo"
-                src="https://www.tubu123.com/data/attachment/forum/201803/07/132550kjje3b4heoz1919b.jpg"
-                style="height:250px;width=289px;"
-              >
+            <el-carousel-item v-for="item in imageList" :key="item">
+              <img class="lunbo" :src="item" style="height:250px;width=289px;">
             </el-carousel-item>
           </el-carousel>
         </el-col>
@@ -17,14 +13,16 @@
           <h4>最新主题</h4>
           <ul>
             <li v-for="item in newthemeList" :key="item.id">
-              <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
-                <div class="popover">
-                  <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
-                  <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
-                </div>
-                <span slot="reference">{{item.title}}</span>
-              </el-popover>
+              <router-link :to="`/post-show/${item.id}`">
+                <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
+                  <div class="popover">
+                    <h5>标题：{{item.title}}</h5>
+                    <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
+                    <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
+                  </div>
+                  <span slot="reference">{{item.title}}</span>
+                </el-popover>
+              </router-link>
             </li>
           </ul>
         </el-col>
@@ -32,14 +30,16 @@
           <h4>最新回复</h4>
           <ul>
             <li v-for="item in newreplyList" :key="item.id">
-              <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
-                <div class="popover">
-                  <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
-                  <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
-                </div>
-                <span slot="reference">{{item.title}}</span>
-              </el-popover>
+              <router-link :to="`/post-show/${item.id}`">
+                <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
+                  <div class="popover">
+                    <h5>标题：{{item.title}}</h5>
+                    <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
+                    <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
+                  </div>
+                  <span slot="reference">{{item.title}}</span>
+                </el-popover>
+              </router-link>
             </li>
           </ul>
         </el-col>
@@ -49,14 +49,16 @@
           </h4>
           <ul>
             <li v-for="item in hotList" :key="item.id">
-              <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
-                <div class="popover">
-                  <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
-                  <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
-                </div>
-                <span slot="reference">{{item.title}}</span>
-              </el-popover>
+              <router-link :to="`/post-show/${item.id}`">
+                <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
+                  <div class="popover">
+                    <h5>标题：{{item.title}}</h5>
+                    <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
+                    <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
+                  </div>
+                  <span slot="reference">{{item.title}}</span>
+                </el-popover>
+              </router-link>
             </li>
           </ul>
         </el-col>
@@ -112,7 +114,7 @@
             >
               <el-col :span="4">
                 <div class="post-bottom-content-lf">
-                  <img :src="item.image">
+                  <img :src="`/image${item.avatar}`">
                 </div>
               </el-col>
               <el-col :span="20">
@@ -158,10 +160,15 @@ import { getPostList } from "@/api/post.js";
 export default {
   data() {
     return {
-      query: { page: 1, pageSize: 5, type: null, orderBy: "" },
+      query: { page: 1, pageSize: 6, type: null, orderBy: "" },
       newtheme: { page: 1, pageSize: 9, type: "", orderBy: "date" },
       newreply: { page: 1, pageSize: 9, type: "", orderBy: "replyDate" },
       hottheme: { page: 1, pageSize: 9, type: "", orderBy: "viewCount" },
+      imageList: [
+        "https://www.tubu123.com/data/attachment/forum/201803/07/132550kjje3b4heoz1919b.jpg",
+        "http://tubu100.com:8053/Files/At/20190507162755a93b39.jpg",
+        "https://www.tubu123.com/data/attachment/forum/201805/28/172511xz3h3sfhr343zz2x.jpg"
+      ],
       postList: [
         {
           id: 0,
@@ -171,139 +178,12 @@ export default {
           date: "2019-4-21 18:24",
           viewCount: 100,
           userId: "徒步用户01"
-        },
-        {
-          id: 1,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/44/61_avatar_small.jpg",
-          title: "天地禅·敦煌行丨一生要去一次的地方",
-          date: "2019-4-21 18:24",
-          viewCount: 100,
-          userId: "徒步用户02"
-        },
-        {
-          id: 2,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/45/53_avatar_small.jpg",
-          title: "【兜峰户外】 尼泊尔安娜普尔娜大本营ABC 轻装徒步",
-          date: "2019-4-23 18:24",
-          viewCount: 100,
-          userId: "徒步用户03"
-        },
-        {
-          id: 3,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/44/52_avatar_small.jpg",
-          title: "哈巴雪山，人生的第一座雪山",
-          date: "2019-4-25 18:24",
-          viewCount: 300,
-          userId: "徒步用户04"
-        },
-        {
-          id: 4,
-          image:
-            "https://www.tubu123.com/uc_server/avatar.php?uid=1&size=small",
-          title: "“花田赏景•绿色生态”徒步大会照片征集啦",
-          date: "2019-4-21 18:24",
-          viewCount: 100,
-          userId: "徒步用户05"
-        },
-        {
-          id: 5,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/44/61_avatar_small.jpg",
-          title: "天地禅·敦煌行丨一生要去一次的地方",
-          date: "2019-4-21 18:24",
-          viewCount: 100,
-          userId: "徒步用户06"
-        },
-        {
-          id: 6,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/45/53_avatar_small.jpg",
-          title: "【兜峰户外】 尼泊尔安娜普尔娜大本营ABC 轻装徒步",
-          date: "2019-4-23 18:24",
-          viewCount: 100,
-          userId: "徒步用户07"
-        },
-        {
-          id: 7,
-          image:
-            "https://www.tubu123.com/uc_server/data/avatar/000/00/44/52_avatar_small.jpg",
-          title: "哈巴雪山，人生的第一座雪山",
-          date: "2019-4-25 18:24",
-          viewCount: 300,
-          userId: "徒步用户08"
         }
       ],
       newthemeList: [
         {
           id: 0,
           title: "户外徒步女神苏莹：走的越远，离自己就越近",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 1,
-          title: "天津周边6条最酷徒步线路，就不爱走寻常路！一起约起来吧！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 2,
-          title: "找时间约起来，走走这5条线路，看看沿途风景感受北京的美丽！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 3,
-          title: "身未动，心已远，去往新疆.....",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 4,
-          title: "湖南张家界十大徒步路线等你来行！行在脚下，乐在途中！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 5,
-          title: "徒步，不一样的旅行，不一样的体验",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 6,
-          title: "广州最经典的徒步路线汇总，斯丽德户外带你畅游羊城！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 7,
-          title: "上海，其实是一座适合行走的城市，走起来！上海7条经典徒步路线",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 8,
-          title: "2018南京亚洲户外展，斯丽德的精彩时刻！",
           userId: "徒步用户01",
           date: "2019-5-18",
           viewCount: "200",
@@ -318,141 +198,12 @@ export default {
           date: "2019-5-18",
           viewCount: "200",
           commentCount: "10"
-        },
-        {
-          id: 1,
-          title: "回眸这些时日",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 2,
-          title:
-            "[ABC] 尼泊尔 喜马拉雅 鱼尾峰 安娜普尔纳登山大本营—徒步世界第十高峰 ",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 3,
-          title: "身未动，心已远，去往新疆.....",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 4,
-          title: "湖南张家界十大徒步路线等你来行！行在脚下，乐在途中！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 5,
-          title: "徒步，不一样的旅行，不一样的体验",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 6,
-          title: "广州最经典的徒步路线汇总，斯丽德户外带你畅游羊城！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 7,
-          title: "上海，其实是一座适合行走的城市，走起来！上海7条经典徒步路线",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 8,
-          title: "2018南京亚洲户外展，斯丽德的精彩时刻！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
         }
       ],
       hotList: [
         {
           id: 0,
           title: "户外徒步女神苏莹：走的越远，离自己就越近",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 1,
-          title: "天津周边6条最酷徒步线路，就不爱走寻常路！一起约起来吧！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 2,
-          title: "找时间约起来，走走这5条线路，看看沿途风景感受北京的美丽！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 3,
-          title: "身未动，心已远，去往新疆.....",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 4,
-          title: "湖南张家界十大徒步路线等你来行！行在脚下，乐在途中！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 5,
-          title: "徒步，不一样的旅行，不一样的体验",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 6,
-          title: "广州最经典的徒步路线汇总，斯丽德户外带你畅游羊城！",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 7,
-          title: "上海，其实是一座适合行走的城市，走起来！上海7条经典徒步路线",
-          userId: "徒步用户01",
-          date: "2019-5-18",
-          viewCount: "200",
-          commentCount: "10"
-        },
-        {
-          id: 8,
-          title: "2018南京亚洲户外展，斯丽德的精彩时刻！",
           userId: "徒步用户01",
           date: "2019-5-18",
           viewCount: "200",
@@ -620,7 +371,8 @@ export default {
   background-color: #fff;
 }
 .post-bottom-content-lf img {
-  height: 70px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: 1px solid #fff;
 }
@@ -658,6 +410,9 @@ export default {
 }
 .post-bottom-content {
   margin: 0 15px;
+}
+a {
+  color: #000;
 }
 .phover {
   background: url("../../assets/zxhf.png") no-repeat scroll 10px -22px transparent;

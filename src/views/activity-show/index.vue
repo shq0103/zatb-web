@@ -49,7 +49,7 @@
 
             <p>
               <img src="../../assets/小人头.png" style="height:20px;margin:-3px 15px -2px 0;">
-              发起人：{{acPublic.userId}}
+              发起人：{{acPublic.username}}
             </p>
             <p>
               <img src="../../assets/限制.png" style="height:20px;margin:-3px 15px -2px 0;">

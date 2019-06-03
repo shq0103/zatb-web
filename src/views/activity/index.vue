@@ -71,7 +71,7 @@
                 <img class="touxiang" v-for="(img,index) in item.imgList" :key="index" :src="img">
               </div>
               <div class="ac-content-right4-2">
-                <span>报名:{{item.signin}}</span>
+                <span>报名:</span>
                 <span>{{item.signin}}</span>
                 <br>
                 <span>关注:</span>
@@ -157,7 +157,6 @@
             <router-link to="/activity-public">
               <el-button class="public-button1" type="success">发布线上活动</el-button>
             </router-link>
-            <!-- <el-button class="public-button2" type="success">发布线下活动</el-button> -->
           </el-row>
         </div>
       </div>
@@ -183,7 +182,7 @@ export default {
       query: {
         page: 1,
         pageSize: 5,
-        status: null,
+        status: 1,
         keyword: "",
         user: null,
         theme: null,

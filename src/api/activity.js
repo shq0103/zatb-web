@@ -37,7 +37,7 @@ export function joinActivity(data) {
 
 export function getuserJionList(query) {
   return request({
-    url: "/api/Activity/user",
+    url: "/api/ActivityJion",
     method: "get",
     params: query
   });
@@ -61,5 +61,18 @@ export function getJoinList(query) {
     url: "/api/ActivityJion",
     method: "get",
     params: query
+  });
+}
+export function validUser(id, status) {
+  return request({
+    url: "/api/ActivityJion",
+    method: "put",
+    params: { id, status }
+  });
+}
+export function deleteUser(id) {
+  return request({
+    url: `/api/ActivityJion/${id}`,
+    method: "delete"
   });
 }

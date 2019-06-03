@@ -11,14 +11,18 @@
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }">
             <el-table-column align="center" prop="title" label="帖子标题"></el-table-column>
-            <el-table-column align="center" prop="date" label="创建时间"></el-table-column>
-            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" label="创建时间">
+              <template slot-scope="scope">
+                <span>{{scope.row.date|timeFilter}}</span>
+              </template>
+            </el-table-column>
+            <!-- <el-table-column align="center" prop="type" label="状态"></el-table-column> -->
             <el-table-column align="center" label="操作" width="180px">
-              <template>
+              <template slot-scope="scope">
                 <router-link to="/post-public">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
                 </router-link>
-                <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
+                <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -42,6 +46,7 @@
   </div>
 </template>
 <script>
+import { getUserpost, deletePost } from "@/api/post.js";
 export default {
   data() {
     return {
@@ -71,12 +76,48 @@ export default {
           name: "美少女"
         }
       ],
-
+      query: { page: 1, pageSize: 10, type: null, orderBy: null },
+      total: 0,
       dialogpass: false,
       dialogdelete: false
     };
   },
-  methods: {}
+  created() {
+    this.getPostList();
+  },
+  methods: {
+    getPostList() {
+      getUserpost(this.query).then(resp => {
+        this.tableData = resp.data;
+        this.total = resp.total;
+      });
+    },
+    handleDelete(id) {
+      this.$confirm("此操作将永久删除改项, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          deletePost(id).then(resp => {
+            this.$notify({
+              title: "成功",
+              message: "删除成功",
+              type: "success",
+              duration: 2000
+            });
+            this.getPostList();
+          });
+        })
+        .catch(() => {
+          this.$notify({
+            message: "已取消删除",
+            type: "info",
+            duration: 2000
+          });
+        });
+    }
+  }
 };
 </script>
 <style scoped>

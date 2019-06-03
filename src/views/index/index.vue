@@ -4,9 +4,9 @@
       <el-carousel height="420px">
         <el-carousel-item v-for="item in imageList" :key="item" style="width:1199px;">
           <div class="ih-item">
-            <a href="http://www.tubu100.com/Activity/Detail/1070">
+            <a href="#">
               <div class="img">
-                <img :src="item" alt="img">
+                <img width="100%" height="100%" :src="item" alt="img">
               </div>
               <div class="info">
                 <h3>华夏行•慕士塔格登山徒步大会</h3>
@@ -27,7 +27,7 @@
 
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
-                <router-link to="/activity">
+                <router-link :to="`/activity-show/${item.id}`">
                   <el-card :body-style="{ padding: '0px' }">
                     <img
                       :src="`/image${item.image}`"
@@ -61,7 +61,7 @@
           <el-tab-pane label="官方活动" name="admin">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
-                <router-link to="/activity">
+                <router-link :to="`/activity-show/${item.id}`">
                   <el-card :body-style="{ padding: '0px' }">
                     <img
                       :src="`/image${item.image}`"
@@ -95,56 +95,68 @@
           <el-tab-pane label="最新上线" name="publishTime">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
-                  <div class="activity-title">
-                    <span>{{item.name}}</span>
-                    <div class="bottom clearfix">
-                      <span class="t1">
-                        <img
-                          src="../../assets/时间.png"
-                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
-                        >
-                        {{item.publishTime|timeFilter}}
-                      </span>
-                      <span class="t2">
-                        <img
-                          src="../../assets/小人头.png"
-                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
-                        >
-                        {{item.username}}
-                      </span>
+                <router-link :to="`/activity-show/${item.id}`">
+                  <el-card :body-style="{ padding: '0px' }">
+                    <img
+                      :src="`/image${item.image}`"
+                      class="image"
+                      style="width:310px;height:230px;"
+                    >
+                    <div class="activity-title">
+                      <span>{{item.name}}</span>
+                      <div class="bottom clearfix">
+                        <span class="t1">
+                          <img
+                            src="../../assets/时间.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.publishTime|timeFilter}}
+                        </span>
+                        <span class="t2">
+                          <img
+                            src="../../assets/小人头.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.username}}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </el-card>
+                  </el-card>
+                </router-link>
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="热门推荐" name="viewCount">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
-                  <div class="activity-title">
-                    <span>{{item.name}}</span>
-                    <div class="bottom clearfix">
-                      <span class="t1">
-                        <img
-                          src="../../assets/时间.png"
-                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
-                        >
-                        {{item.publishTime|timeFilter}}
-                      </span>
-                      <span class="t2">
-                        <img
-                          src="../../assets/小人头.png"
-                          style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
-                        >
-                        {{item.username}}
-                      </span>
+                <router-link :to="`/activity-show/${item.id}`">
+                  <el-card :body-style="{ padding: '0px' }">
+                    <img
+                      :src="`/image${item.image}`"
+                      class="image"
+                      style="width:310px;height:230px;"
+                    >
+                    <div class="activity-title">
+                      <span>{{item.name}}</span>
+                      <div class="bottom clearfix">
+                        <span class="t1">
+                          <img
+                            src="../../assets/时间.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.publishTime|timeFilter}}
+                        </span>
+                        <span class="t2">
+                          <img
+                            src="../../assets/小人头.png"
+                            style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
+                          >
+                          {{item.username}}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </el-card>
+                  </el-card>
+                </router-link>
               </el-col>
             </el-row>
           </el-tab-pane>
@@ -353,9 +365,9 @@ export default {
   data() {
     return {
       imageList: [
-        "http://tubu100.com:8053/Files/At/20190531173549516403.jpg",
-        "http://tubu100.com:8053/Files/At/20190507162755a93b39.jpg",
-        "http://tubu100.com:8053/Files/At/201811061033529830be.jpg"
+        "/image/upload/index/bg1.jpg",
+        "/image/upload/index/bg2.jpg",
+        "/image/upload/index/bg3.jpg"
       ],
       total: 0,
       total1: 0,
@@ -1238,7 +1250,8 @@ li {
   position: relative;
   /* width: 220px;
   height: 220px; */
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .ih-item .info {

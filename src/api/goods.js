@@ -32,3 +32,18 @@ export function getGoodsDetail(id) {
     method: "get"
   });
 }
+export function goodsComment(data) {
+  return request({
+    url: "/api/Comment",
+    method: "post",
+    data
+  });
+}
+
+export function getCommentList(query) {
+  return request({
+    url: "/api/Comment",
+    method: "get",
+    params: query
+  });
+}

@@ -22,11 +22,11 @@
               </template>
             </el-table-column>
             <el-table-column align="center" label="操作" width="240px">
-              <template>
+              <template slot-scope="scope">
                 <router-link to="/activity-public">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
                 </router-link>
-                <el-button type="success" plain size="mini" @click="dialogTableVisible = true">报名审核</el-button>
+                <el-button type="success" plain size="mini" @click="showTable(scope.row.id)">报名审核</el-button>
                 <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
               </template>
             </el-table-column>
@@ -35,41 +35,38 @@
       </div>
     </div>
     <el-dialog title="我的结伴报名状态" :visible.sync="dialogTableVisible" width="70%">
-      <el-table
-        :data="gridData"
-        stripe
-        height="250"
-        highlight-current-row
-        @current-change="handleCurrentChange"
-        ref="singleTable"
-      >
-        <el-table-column type="selection" width="55"></el-table-column>
+      <el-table :data="gridData" stripe height="250" highlight-current-row ref="singleTable">
+        <!-- <el-table-column type="selection" width="55"></el-table-column> -->
         <el-table-column type="index" :index="index" label="序号" sortable width="50px"></el-table-column>
-        <el-table-column prop="name" label="用户名" :formatter="formatter"></el-table-column>
-        <el-table-column prop="truename" label="真实姓名" :formatter="formatter"></el-table-column>
-        <el-table-column prop="sex" label="性别" :formatter="formatter"></el-table-column>
-        <el-table-column prop="number" label="手机号" :formatter="formatter"></el-table-column>
+        <el-table-column prop="username" label="用户名"></el-table-column>
+        <el-table-column prop="name" label="真实姓名"></el-table-column>
+        <el-table-column label="性别">
+          <template slot-scope="scope">
+            <span>{{scope.row.sex|genderFilter}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="number" label="手机号"></el-table-column>
+        <el-table-column label="审核状态">
+          <template slot-scope="scope">
+            <el-tag v-if="scope.row.status == 0" size="mini">待审核</el-tag>
+            <el-tag v-if="scope.row.status == 1" type="success" size="mini">已通过</el-tag>
+            <el-tag v-if="scope.row.status == 2" type="warning" size="mini">未通过</el-tag>
+          </template>
+        </el-table-column>
         <el-table-column label="操作">
-          <template>
-            <el-button size="mini" style="margin-right:10px;" @click="dialogpass  = true">通过</el-button>
-            <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
+          <template slot-scope="scope">
+            <el-popover v-if="scope.row.status == 0" placement="top" trigger="click">
+              <el-row>
+                <el-button size="mini" type="success" @click="passUser(scope.row.id,1)">通过</el-button>
+                <el-button size="mini" type="warning" @click="passUser(scope.row.id,2)">不通过</el-button>
+              </el-row>
+              <el-button slot="reference" size="mini" style="margin-right:10px;">审核</el-button>
+            </el-popover>
+
+            <el-button type="danger" size="mini" @click="handleDelete(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
-    </el-dialog>
-    <el-dialog :visible.sync="dialogpass" width="30%" :before-close="handleClose">
-      <span>是否通过</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogpass = false">取 消</el-button>
-        <el-button type="primary" @click="dialogpass = false">确 定</el-button>
-      </span>
-    </el-dialog>
-    <el-dialog :visible.sync="dialogdelete" width="30%" :before-close="handleClose">
-      <span>是否删除</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogdelete = false">取 消</el-button>
-        <el-button type="primary" @click="dialogdelete = false">确 定</el-button>
-      </span>
     </el-dialog>
   </div>
 </template>
@@ -77,7 +74,10 @@
 import {
   getuserpublicList,
   deleteActivity,
-  getJoinList
+  getJoinList,
+  getuserJionList,
+  validUser,
+  deleteUser
 } from "@/api/activity.js";
 export default {
   filters: {
@@ -89,6 +89,17 @@ export default {
           return "已通过";
         case 2:
           return "未通过";
+        default:
+          return "";
+      }
+    },
+    genderFilter: function(value) {
+      switch (value) {
+        case 0:
+          return "女";
+        case 1:
+          return "男";
+
         default:
           return "";
       }
@@ -175,7 +186,7 @@ export default {
     },
     getjoinList() {
       this.listLoading = true;
-      getJoinList(this.joinquery).then(resp => {
+      getuserJionList(this.joinquery).then(resp => {
         this.gridData = resp.data;
         this.jointotal = resp.jointotal;
         this.listLoading = false;
@@ -183,6 +194,51 @@ export default {
     },
     index(val) {
       return (this.joinquery.page - 1) * this.joinquery.pageSize + val + 1;
+    },
+    showTable(id) {
+      this.joinquery.activityId = id;
+      this.getjoinList();
+      this.dialogTableVisible = true;
+    },
+    passUser(id, status) {
+      this.$confirm(`${status == 1 ? "通过" : "取消通过"}该用户？`)
+        .then(_ => {
+          validUser(id, status).then(resp => {
+            this.$notify({
+              title: "成功",
+              message: "操作成功",
+              type: "success",
+              duration: 2000
+            });
+            this.getList();
+          });
+        })
+        .catch(_ => {});
+    },
+    handleDelete(id) {
+      this.$confirm("此操作将永久删除改项, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          deleteUser([id]).then(resp => {
+            this.$notify({
+              title: "成功",
+              message: "删除成功",
+              type: "success",
+              duration: 2000
+            });
+            this.getAcList();
+          });
+        })
+        .catch(() => {
+          this.$notify({
+            message: "已取消删除",
+            type: "info",
+            duration: 2000
+          });
+        });
     }
   }
 };

@@ -43,10 +43,6 @@ color: #FFF;">{{userInfo.place}}</b>
               <div class="collapse-title">个人中心</div>
             </template>
             <ul @click="clickItem">
-              <li id="setting" :class="{ actived: actived == 'setting' }">
-                <img src="../../assets/个人设置.png">
-                个人设置
-              </li>
               <li id="usersign" :class="{ actived: actived == 'usersign' }">
                 <img src="../../assets/报名.png">
                 我的报名
@@ -93,12 +89,16 @@ color: #FFF;">{{userInfo.place}}</b>
               <div class="collapse-title">安全中心</div>
             </template>
             <ul @click="clickItem">
+              <li id="setting" :class="{ actived: actived == 'setting' }">
+                <img src="../../assets/个人设置.png">
+                个人设置
+              </li>
               <li id="password" :class="{ actived: actived == 'password' }">
                 <img src="../../assets/密码.png">修改密码
               </li>
-              <li id="usernotice" :class="{ actived: actived == 'usernotice' }">
+              <!-- <li id="usernotice" :class="{ actived: actived == 'usernotice' }">
                 <img src="../../assets/系统通知.png">系统通知
-              </li>
+              </li>-->
             </ul>
           </el-collapse-item>
         </el-collapse>
@@ -149,7 +149,7 @@ export default {
 
   data() {
     return {
-      actived: "setting",
+      actived: "usersign",
       centerList: {
         id: 0,
         userId: "徒步用户01",
