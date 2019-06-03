@@ -19,7 +19,7 @@
     </div>
     <div class="activity">
       <div>
-        <el-tabs value="first">
+        <el-tabs value="first" :tab-click="changeTab">
           <el-tab-pane name="first">
             <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
               <img class="ac1" src="../../assets/activity.png"> 常规活动
@@ -49,7 +49,7 @@
                             src="../../assets/小人头.png"
                             style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                           >
-                          {{item.viewCount}}
+                          {{item.username}}
                         </span>
                       </div>
                     </div>
@@ -63,7 +63,11 @@
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <router-link to="/activity">
                   <el-card :body-style="{ padding: '0px' }">
-                    <img :src="item.image" class="image">
+                    <img
+                      :src="`/image${item.image}`"
+                      class="image"
+                      style="width:310px;height:230px;"
+                    >
                     <div class="activity-title">
                       <span>{{item.name}}</span>
                       <div class="bottom clearfix">
@@ -72,14 +76,14 @@
                             src="../../assets/时间.png"
                             style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                           >
-                          {{item.date}}
+                          {{item.publishTime|timeFilter}}
                         </span>
                         <span class="t2">
                           <img
                             src="../../assets/小人头.png"
                             style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                           >
-                          {{item.viewCount}}
+                          {{item.username}}
                         </span>
                       </div>
                     </div>
@@ -92,7 +96,7 @@
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
-                  <img :src="item.image" class="image">
+                  <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
                   <div class="activity-title">
                     <span>{{item.name}}</span>
                     <div class="bottom clearfix">
@@ -101,14 +105,14 @@
                           src="../../assets/时间.png"
                           style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                         >
-                        {{item.date}}
+                        {{item.publishTime|timeFilter}}
                       </span>
                       <span class="t2">
                         <img
                           src="../../assets/小人头.png"
                           style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                         >
-                        {{item.viewCount}}
+                        {{item.username}}
                       </span>
                     </div>
                   </div>
@@ -120,7 +124,7 @@
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
-                  <img :src="item.image" class="image">
+                  <img :src="`/image${item.image}`" class="image" style="width:310px;height:230px;">
                   <div class="activity-title">
                     <span>{{item.name}}</span>
                     <div class="bottom clearfix">
@@ -129,14 +133,14 @@
                           src="../../assets/时间.png"
                           style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                         >
-                        {{item.date}}
+                        {{item.publishTime|timeFilter}}
                       </span>
                       <span class="t2">
                         <img
                           src="../../assets/小人头.png"
                           style="height: 15px; margin-right: 5px;margin-bottom: -2px;"
                         >
-                        {{item.viewCount}}
+                        {{item.username}}
                       </span>
                     </div>
                   </div>
@@ -612,7 +616,8 @@ export default {
         );
       }
       this.getListOrderby();
-    }
+    },
+    changeTab() {}
   }
 };
 </script>
