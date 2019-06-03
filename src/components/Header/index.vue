@@ -21,7 +21,7 @@
       <el-menu-item index="/travels" :style="{ fontSize: '16px' }">路书</el-menu-item>
       <el-menu-item index="/goods" :style="{ fontSize: '16px' }">闲趣</el-menu-item>
     </el-menu>
-
+    <!-- 
     <el-input
       :style="{ width: '250px',marginLeft:'10px'}"
       placeholder="搜索目的地/活动"
@@ -29,11 +29,11 @@
       size="medium"
     >
       <el-button slot="append" icon="el-icon-search"></el-button>
-    </el-input>
+    </el-input>-->
 
     <router-link v-if="!isLogin" :to="{ path: '/mLogin', query: { isLogin: 1 }}">
       <el-button
-        :style="{ margin: '0 0 0 50px', color: '#333' }"
+        :style="{ margin: '0 0 0 200px', color: '#333' }"
         type="text"
         @click="dialogFormVisible = true"
       >登录</el-button>
@@ -106,8 +106,8 @@ export default {
       this.isLogin = false;
       this.$router.push("/index");
     },
-    loginSuccess(){
-      this.isLogin=true;
+    loginSuccess() {
+      this.isLogin = true;
     }
   }
 };

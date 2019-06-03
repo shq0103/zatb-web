@@ -179,6 +179,7 @@
           </el-row>
           <el-pagination
             @current-change="handleCurrentChange"
+            background
             :page-size="query.pageSize"
             layout="prev, pager, next, jumper"
             :total="total"

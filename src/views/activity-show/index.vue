@@ -24,7 +24,7 @@
       </p>
       <div class="a-i-content">
         <div class="a-i-c-lf">
-          <img :src="acPublic.image">
+          <img :src="`/image${acPublic.image}`">
           <label>{{acPublic.theme|lineFilter}}系列</label>
           <b class="stat_01">报名中</b>
         </div>

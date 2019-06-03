@@ -25,27 +25,27 @@ export default {
       tableData: [
         {
           address: "30KM",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
+          title: "飞檐走壁玩心跳--清远飞拉达",
           date: "2016-05-02",
           type: "长线"
         },
         {
-          address: "30KM",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          date: "2016-05-02",
-          type: "长线"
+          address: "25KM",
+          title: "A线/大美龙脊梯田梳秧节，一个让你终身难忘的节日",
+          date: "2016-06-02",
+          type: "中线"
         },
         {
-          address: "30KM",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          date: "2016-05-02",
-          type: "长线"
+          address: "10KM",
+          title: " 莲峰古道飞庵行 AA活动",
+          date: "2017-07-15",
+          type: "短线"
         },
         {
-          address: "30KM",
-          title: "啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦",
-          date: "2016-05-02",
-          type: "长线"
+          address: "26KM",
+          title: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
+          date: "2018-05-02",
+          type: "中线"
         }
       ]
     };

@@ -9,269 +9,53 @@
           <div class="tr-b-rf-bottom1">
             <div class="tr-b-rf-bottom">
               <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
+                <!-- <i :style="{float:'left'}">
                   <img
                     src="../../assets/个人1.png"
                     style="height: 16px; margin-right:3px;margin-bottom: -2px;"
                   >###
-                </i>
+                </i>-->
                 <img
                   src="../../assets/评论1.png"
                   style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
+                >10
                 <img
                   src="../../assets/浏览.png"
                   style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
+                >30
               </div>
               <div class="tr-b-rf-title">
                 <el-alert
-                  title="带辅助性文字介绍"
+                  title="漫步山水间邂逅古堡访古村穿越十里"
                   type="success"
                   :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
+                  description="个人装备：速干衣裤，登山杖，登山鞋，背包，头灯或手电筒必带，防晒防雨用品，备多一件厚衣服。"
                 ></el-alert>
               </div>
               <div class="tr-b-rf-img">
                 <el-row :gutter="24">
                   <el-col :span="8">
                     <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
+                      <img
+                        src="http://www.hw917.com/data/attachment/image/000/03/99/87_340_230.jpg"
+                        style="heigh:134px;width:220px;"
+                      >
                     </div>
                   </el-col>
                   <el-col :span="8">
                     <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
+                      <img
+                        src="http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg"
+                        style="heigh:134px;width:220px;"
+                      >
                     </div>
                   </el-col>
                   <el-col :span="8">
                     <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
-                </i>
-                <img
-                  src="../../assets/评论1.png"
-                  style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
-                <img
-                  src="../../assets/浏览.png"
-                  style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
-              </div>
-              <div class="tr-b-rf-title">
-                <el-alert
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="tr-b-rf-img">
-                <el-row :gutter="24">
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
-                </i>
-                <img
-                  src="../../assets/评论1.png"
-                  style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
-                <img
-                  src="../../assets/浏览.png"
-                  style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
-              </div>
-              <div class="tr-b-rf-title">
-                <el-alert
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="tr-b-rf-img">
-                <el-row :gutter="24">
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
-                </i>
-                <img
-                  src="../../assets/评论1.png"
-                  style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
-                <img
-                  src="../../assets/浏览.png"
-                  style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
-              </div>
-              <div class="tr-b-rf-title">
-                <el-alert
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="tr-b-rf-img">
-                <el-row :gutter="24">
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
-                </i>
-                <img
-                  src="../../assets/评论1.png"
-                  style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
-                <img
-                  src="../../assets/浏览.png"
-                  style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
-              </div>
-              <div class="tr-b-rf-title">
-                <el-alert
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="tr-b-rf-img">
-                <el-row :gutter="24">
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="tr-b-rf-public">
-                <i :style="{float:'left'}">
-                  <img
-                    src="../../assets/个人1.png"
-                    style="height: 16px; margin-right:3px;margin-bottom: -2px;"
-                  >###
-                </i>
-                <img
-                  src="../../assets/评论1.png"
-                  style="height: 20px; margin-bottom: -3px;margin-right:3px;"
-                >3700
-                <img
-                  src="../../assets/浏览.png"
-                  style="height: 23px; margin-bottom: -5px;margin-right:3px;margin-left:3px;"
-                >300
-              </div>
-              <div class="tr-b-rf-title">
-                <el-alert
-                  title="带辅助性文字介绍"
-                  type="success"
-                  :closable="false"
-                  description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……"
-                ></el-alert>
-              </div>
-              <div class="tr-b-rf-img">
-                <el-row :gutter="24">
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img1">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img2">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
-                    </div>
-                  </el-col>
-                  <el-col :span="8">
-                    <div class="tr-b-rf-img3">
-                      <img src="../../assets/youji.jpg" style="heigh:134px;width:220px;">
+                      <img
+                        src="http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg"
+                        style="heigh:134px;width:220px;"
+                      >
                     </div>
                   </el-col>
                 </el-row>
@@ -279,7 +63,7 @@
             </div>
           </div>
           <div class="tr-b-rf-page">
-            <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+            <el-pagination class="page-1" background layout="prev, pager, next" :total="1"></el-pagination>
           </div>
         </div>
       </div>

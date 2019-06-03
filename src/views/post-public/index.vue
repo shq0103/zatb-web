@@ -126,7 +126,7 @@ export default {
                 duration: 2000
               });
             }
-            this.$refs.from.resetFields();
+            this.$refs.form.resetFields();
             // this.$refs.uploadImg.clearFiles();
             this.$router.push("/post");
           });

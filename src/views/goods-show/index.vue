@@ -17,10 +17,10 @@
         <span>{{goods.viewCount}}</span>
       </div>
 
-      <div class="user-info-index">
+      <!-- <div class="user-info-index">
         <h5>用户闲趣留言</h5>
-        <span>{{}}人留言</span>
-      </div>
+        <span>人留言</span>
+      </div>-->
 
       <div class="user-info-more">
         <h5>举报该闲趣</h5>
@@ -30,7 +30,7 @@
       <div class="g-intro-lf">
         <pic-zoom
           :style="{width: '300px',height: '300px',margin:'0 auto' }"
-          :url="picList[liActIndex]"
+          :url="`/image${picList[liActIndex]}`"
           :scale="3"
         ></pic-zoom>
 
@@ -44,7 +44,7 @@
               :class="{liactivite:liActIndex===index}"
               :key="index"
             >
-              <el-image style="width: 70px; height: 70px" :src="item" :fit="fit"></el-image>
+              <el-image style="width: 70px; height: 70px" :src="`/image${item}`" :fit="fit"></el-image>
             </li>
           </ul>
         </vue-seamless-scroll>
@@ -288,6 +288,7 @@ export default {
     this.id = this.$route.params.id;
     getGoodsDetail(this.id).then(resp => {
       this.goods = resp.data;
+      this.picList = this.goods.imgList;
     });
     this.getListOrderby();
   },

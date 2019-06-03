@@ -5,37 +5,37 @@
         <div class="us-center-left-top1">
           <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
           <h3 style="font-size: 25px;
-color: #FFF;margin:5px 0px;">徒步用户</h3>
+color: #FFF;margin:5px 0px;">test1234</h3>
           <b style="font-weight: normal;
-color: #FFF;">暂无所属俱乐部</b>
-          <ul>
+color: #FFF;">北京</b>
+          <!-- <ul>
             <li>
-              <span>0</span>
+              <span>1</span>
               <p>路书</p>
             </li>
             <li>
-              <span>0</span>
+              <span>4</span>
               <p>活动</p>
             </li>
             <li>
-              <span>0</span>
+              <span>1</span>
               <p>帖子</p>
             </li>
             <li>
-              <span>0</span>
+              <span>1</span>
               <p>闲趣</p>
             </li>
             <li>
-              <span>0</span>
+              <span>1</span>
               <p>关注</p>
             </li>
             <li>
-              <span>0</span>
+              <span>1</span>
               <p>粉丝</p>
             </li>
-          </ul>
+          </ul>-->
           <el-row>
-            <el-button type="success" plain style="width:80%;">关注</el-button>
+            <el-button type="success" plain style="width:80%;" @click="open">关注</el-button>
           </el-row>
         </div>
       </div>
@@ -62,10 +62,10 @@ color: #FFF;">暂无所属俱乐部</b>
                 <img src="../../assets/收藏.png">
                 Ta的帖子
               </li>
-              <li id="people-comment" :class="{ actived: actived == 'people-comment' }">
+              <!-- <li id="people-comment" :class="{ actived: actived == 'people-comment' }">
                 <img src="../../assets/评论.png">
                 Ta的评论
-              </li>
+              </li>-->
 
               <li id="people-point" :class="{ actived: actived == 'people-point' }">
                 <img src="../../assets/关注.png">Ta的关注
@@ -142,6 +142,10 @@ export default {
         const id = e.target.id;
         this.actived = id;
       }
+    },
+    open() {
+      this.$message("关注成功!");
+      type: "success";
     }
   }
 };
@@ -170,7 +174,7 @@ export default {
     #74b628 25%,
     #ffeb3b 100%
   );
-  height: 455px;
+  height: 250px;
 }
 .us-center-left-bottom {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);

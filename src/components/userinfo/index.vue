@@ -153,7 +153,7 @@ export default {
 </script>
 <style scoped>
 .el-form-item img {
-  height: 100px;
+  /* height: 100px; */
 }
 .update-img {
   height: 100px;

@@ -11,32 +11,35 @@
               <el-col :span="8">
                 <div class="g-i-m-1">
                   <div class="g-i-m-img">
-                    <img src="../../assets/3.jpg" style="width:226px;height:158px;">
+                    <img
+                      src="http://image1.8264.com/plugin/201904/04/162350q1gcj8hgs12oyrgc.jpg!t3w322h0"
+                      style="width:226px;height:158px;"
+                    >
                   </div>
                   <div class="g-i-m-content">
                     <el-alert
-                      title="带辅助性文字介绍"
+                      title="Outdoor Research 西雅图 Seattle 儿童大檐帽 - 男款 - A264410 "
                       type="success"
-                      description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；"
+                      description="Outdoor Research 西雅图 Seattle 儿童大檐帽 - 男款 - A264410 "
                       :closable="false"
                     ></el-alert>
                   </div>
                   <div class="g-i-m-user">
-                    <div class="new-right2">
+                    <!-- <div class="new-right2">
                       <i>
                         <img src="../../assets/用户.png" style="height: 20px; margin-bottom: -3px;">###
                       </i>
                       <i style="padding-left:20px">
                         <img src="../../assets/钱.png" style="height: 20px; margin-bottom: -3px;">300
                       </i>
-                    </div>
+                    </div>-->
                   </div>
                   <div class="show-more">
-                    <router-link to="/goods-show">更多>></router-link>
+                    <a href="http://www.8264.com/zhuangbei-5535743-1.html" target="_blank">更多>></a>
                   </div>
                 </div>
               </el-col>
-              <el-col :span="8">
+              <!-- <el-col :span="8">
                 <div class="g-i-m-1">
                   <div class="g-i-m-img">
                     <img src="../../assets/3.jpg" style="width:226px;height:158px;">
@@ -91,7 +94,7 @@
                     <a>更多>></a>
                   </div>
                 </div>
-              </el-col>
+              </el-col>-->
             </el-row>
           </div>
           <div class="tr-b-rf-page">

@@ -5,10 +5,10 @@
         <div class="us-center-left-top1">
           <img src="http://tubu100.com:8053/Files/Default/UserHead.png">
           <h3 style="font-size: 25px;
-color: #FFF;margin:5px 0px;">{{centerList.userId}}</h3>
+color: #FFF;margin:5px 0px;">{{userInfo.nickname}}</h3>
           <b style="font-weight: normal;
-color: #FFF;">{{centerList.place}}</b>
-          <ul>
+color: #FFF;">{{userInfo.place}}</b>
+          <!-- <ul>
             <li>
               <span>{{centerList.trCount}}</span>
               <p>路书</p>
@@ -33,7 +33,7 @@ color: #FFF;">{{centerList.place}}</b>
               <span>{{centerList.fans}}</span>
               <p>粉丝</p>
             </li>
-          </ul>
+          </ul>-->
         </div>
       </div>
       <div class="us-center-left-bottom">
@@ -131,6 +131,7 @@ import UserPoint from "@/components/user-point";
 import UserFans from "@/components/user-fans";
 import UserNotice from "@/components/user-notice";
 import ActivityPublic from "@/components/user-activitypublic";
+import { getUserDetail, updateUser } from "@/api/user.js";
 export default {
   components: {
     UserSecure,
@@ -145,6 +146,7 @@ export default {
     UserNotice,
     ActivityPublic
   },
+
   data() {
     return {
       actived: "setting",
@@ -158,8 +160,14 @@ export default {
         pointCount: 4,
         fans: 10,
         place: "桂林"
-      }
+      },
+      userInfo: {}
     };
+  },
+  created() {
+    getUserDetail(1111).then(resp => {
+      this.userInfo = resp.data;
+    });
   },
   methods: {
     clickItem(e) {
@@ -195,7 +203,7 @@ export default {
     #74b628 25%,
     #ffeb3b 100%
   );
-  height: 400px;
+  height: 220px;
 }
 .us-center-left-bottom {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);

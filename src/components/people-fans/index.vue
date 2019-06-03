@@ -12,14 +12,11 @@
           <ul class="follow_users">
             <li>
               <a>
-                <img src="http://tubu100.com:8053/Files/UserHead/201803201009380990a8.jpg">
-                <label style="font-size:16px">徒步小能手</label>
-              </a>
-            </li>
-            <li>
-              <a>
-                <img src="http://tubu100.com:8053/Files/UserHead/201803201009380990a8.jpg">
-                <label style="font-size:16px">徒步小能手</label>
+                <img
+                  src="http://avatar.8264.com/data/avatar/016/78/36/02_avatar_middle.jpg?0RTpZP?tempid=0063"
+                  style="height:120px;width:120px;"
+                >
+                <label style="font-size:16px">罗罗罗</label>
               </a>
             </li>
           </ul>

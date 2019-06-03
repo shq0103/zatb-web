@@ -9,87 +9,28 @@
           <div class="tr-b-rf-bottom1">
             <div class="tr-b-rf-bottom">
               <div class="post-bottom-content-rf">
-                <router-link to="/post-show">
+                <a href="http://hw917.com/forum.php?mod=viewthread&tid=3825" target="blank">
                   <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
+                    <el-alert
+                      class="new-alert"
+                      title="东西涌海岸线穿越【我的第一次户外】"
+                      type="success"
+                      :closable="false"
+                    ></el-alert>
                   </div>
-                </router-link>
+                </a>
                 <div class="new-right2">
-                  <i>
+                  <!-- <i>
                     <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                  </i>
+                  </i>-->
                   <i class="el-icon-time">2019-4-21 18:24</i>
-                  <i class="el-icon-view" style="padding-left:20px">300</i>
-                </div>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="post-bottom-content-rf">
-                <router-link to="/post-show">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                </router-link>
-                <div class="new-right2">
-                  <i>
-                    <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                  </i>
-                  <i class="el-icon-time">2019-4-21 18:24</i>
-                  <i class="el-icon-view" style="padding-left:20px">300</i>
-                </div>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="post-bottom-content-rf">
-                <router-link to="/post-show">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                </router-link>
-                <div class="new-right2">
-                  <i>
-                    <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                  </i>
-                  <i class="el-icon-time">2019-4-21 18:24</i>
-                  <i class="el-icon-view" style="padding-left:20px">300</i>
-                </div>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="post-bottom-content-rf">
-                <router-link to="/post-show">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                </router-link>
-                <div class="new-right2">
-                  <i>
-                    <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                  </i>
-                  <i class="el-icon-time">2019-4-21 18:24</i>
-                  <i class="el-icon-view" style="padding-left:20px">300</i>
-                </div>
-              </div>
-            </div>
-            <div class="tr-b-rf-bottom">
-              <div class="post-bottom-content-rf">
-                <router-link to="/post-show">
-                  <div class="ac-content-right1">
-                    <el-alert class="new-alert" title="带辅助性文字介绍" type="success" :closable="false"></el-alert>
-                  </div>
-                </router-link>
-                <div class="new-right2">
-                  <i>
-                    <img src="../../assets/个人.png" style="height: 14px; margin-bottom: -1px;">###
-                  </i>
-                  <i class="el-icon-time">2019-4-21 18:24</i>
-                  <i class="el-icon-view" style="padding-left:20px">300</i>
+                  <i class="el-icon-view" style="padding-left:20px">10</i>
                 </div>
               </div>
             </div>
           </div>
           <div class="tr-b-rf-page">
-            <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+            <el-pagination class="page-1" background layout="prev, pager, next" :total="1"></el-pagination>
           </div>
         </div>
       </div>
