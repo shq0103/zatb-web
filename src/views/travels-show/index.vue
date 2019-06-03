@@ -138,10 +138,10 @@
 
                   <div class="new-right2">
                     <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lng}}</i>
-                    <i
+                    <!-- <i
                       class="el-icon-chat-line-square"
                       style="padding-left:20px"
-                    >{{item.commentCount}}</i>
+                    >{{item.commentCount}}</i>-->
                   </div>
                   <div>
                     <span style="text-indent: 2.5em;">
@@ -211,7 +211,7 @@
       :before-close="handleClose"
       class="el-title"
     >
-      <div class="el-dialog-title">共{{total}}条评论</div>
+      <div class="el-dialog-title">共{{commList.length}}条评论</div>
       <div class="el-dialog-content">
         <div
           class="user-commemt"
@@ -253,7 +253,7 @@
 <script>
 import Hamburger from "./Hamburger.vue";
 import MapShow from "@/components/BdmapT/index.vue";
-import { getTravelsDetail } from "@/api/travels.js";
+import { getTravelsDetail, starTT } from "@/api/travels.js";
 import { postComment, getCommentList } from "@/api/post.js";
 import "viewerjs/dist/viewer.css";
 import Viewer from "v-viewer";
@@ -384,9 +384,12 @@ export default {
     },
     handleClose() {},
     dianzan(id) {
-      this.$message({
-        type: "success",
-        message: "点赞成功！"
+      starTT(1, this.id).then(resp => {
+        this.$notify({
+          type: "success",
+          message: "点赞成功！",
+          duration: 1000
+        });
       });
     },
     commentPoint(id) {

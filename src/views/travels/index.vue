@@ -109,7 +109,7 @@
                       src="../../assets/个人1.png"
                       style="height: 15px; margin-right:3px;margin-bottom: -2px;"
                     >
-                    {{item.userId}}
+                    {{item.nickname}}
                   </span>
                   <img src="../../assets/点赞-1.png" style="height: 19px; margin-bottom: -3px;">
                   {{item.star}}
@@ -176,13 +176,13 @@
                       src="../../assets/个人1.png"
                       style="height: 15px; margin-right:3px;margin-bottom: -2px;"
                     >
-                    {{item.userId}}
+                    {{item.nickname}}
                   </span>
-                  <img
+                  <!-- <img
                     src="../../assets/评论1.png"
                     style="height: 19px; margin-bottom: -3px;margin-right:3px;"
                   >
-                  {{item.commentCount}}
+                  {{item.commentCount}}-->
                   <img
                     src="../../assets/浏览.png"
                     style="height: 22px; margin-bottom: -6px;margin-left:5px;"
@@ -341,7 +341,7 @@ export default {
           title: "全国徒步大会百色德保、靖西站活动"
         },
         {
-          id: 0,
+          id: 1,
           title: "全国徒步大会百色德保、靖西站活动"
         }
       ],
@@ -351,7 +351,7 @@ export default {
           title: "全国徒步大会百色德保、靖西站活动"
         },
         {
-          id: 0,
+          id: 1,
           title: "全国徒步大会百色德保、靖西站活动"
         }
       ],
@@ -361,7 +361,7 @@ export default {
           title: "全国徒步大会百色德保、靖西站活动"
         },
         {
-          id: 0,
+          id: 1,
           title: "全国徒步大会百色德保、靖西站活动"
         }
       ],
@@ -371,7 +371,7 @@ export default {
           title: "全国徒步大会百色德保、靖西站活动"
         },
         {
-          id: 0,
+          id: 1,
           title: "全国徒步大会百色德保、靖西站活动"
         }
       ],
