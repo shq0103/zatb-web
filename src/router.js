@@ -65,6 +65,11 @@ export default new Router({
           component: () => import("./views/travels-public/edit.vue")
         },
         {
+          path: "activity-edit/:id",
+          name: "activity-edit",
+          component: () => import("./views/activity-public/edit.vue")
+        },
+        {
           path: "post-show/:id",
           name: "post-show",
 

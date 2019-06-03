@@ -83,16 +83,30 @@
               ></el-input>
             </el-form-item>
             <el-form-item label="活动封面">
-              <el-upload
+              <!-- <el-upload
                 class="upload-demo"
                 action="/api/File/UploadImg"
                 :headers="{Authorization:`Bearer ${token}`}"
                 :on-remove="handleRemove"
                 :on-success="handleSuccess"
                 :limit="1"
+                :file-list="imgList"
               >
                 <el-button size="small" type="success" plain>点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+              </el-upload>-->
+              <el-upload
+                list-type="picture-card"
+                ref="uploadImg"
+                class="upload-demo"
+                action="/api/File/UploadImg"
+                :headers="{Authorization:`Bearer ${token}`}"
+                :on-remove="handleRemove"
+                :on-success="handleSuccess"
+                :limit="1"
+                :file-list="imgList"
+              >
+                <i class="el-icon-plus"></i>
               </el-upload>
             </el-form-item>
             <el-form-item>
@@ -189,10 +203,16 @@ import { quillEditor } from "vue-quill-editor";
 import VueQuillEditor, { Quill } from "vue-quill-editor";
 import { ImageDrop } from "quill-image-drop-module";
 Quill.register("modules/imageDrop", ImageDrop);
-import { publicActivity } from "@/api/activity.js";
+import { publicActivity, getAcDetail, putActivity } from "@/api/activity.js";
 export default {
   components: {
     quillEditor
+  },
+  props: {
+    isEdit: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -248,11 +268,19 @@ export default {
           { required: true, message: "请输入活动封面图", trigger: "blur" }
         ]
       },
-      token: ""
+      token: "",
+      imgList: []
     };
   },
   created() {
     this.token = localStorage.getItem("token");
+    if (this.isEdit) {
+      const id = this.$route.params && this.$route.params.id;
+      getAcDetail(id).then(resp => {
+        Object.assign(this.form, resp.data);
+        this.imgList.push({ url: `/image/${resp.data.image}` });
+      });
+    }
   },
   methods: {
     handleSuccess(response) {
@@ -270,21 +298,45 @@ export default {
       this.$refs.form.validate(valid => {
         if (valid) {
           this.loading = true;
-          publicActivity(this.form).then(resp => {
-            if (resp.code === 0) {
-              this.$notify({
-                title: "成功",
-                message: "发布活动成功",
-                type: "success",
-                duration: 2000
-              });
-            }
-            this.$refs.form.resetFields();
+          if (this.isEdit) {
+            putActivity(this.form)
+              .then(resp => {
+                if (resp.code === 0) {
+                  this.$notify({
+                    title: "成功",
+                    message: "修改活动成功",
+                    type: "success",
+                    duration: 2000
+                  });
+                }
+                this.$refs.form.resetFields();
 
-            this.$refs.uploadImg.clearFiles();
-            this.$router.push("/activity");
-          });
-          this.loading = false;
+                this.$refs.uploadImg.clearFiles();
+                this.$router.push("/activity");
+              })
+              .catch(() => {
+                this.loading = false;
+              });
+          } else {
+            publicActivity(this.form)
+              .then(resp => {
+                if (resp.code === 0) {
+                  this.$notify({
+                    title: "成功",
+                    message: "发布活动成功",
+                    type: "success",
+                    duration: 2000
+                  });
+                }
+                this.$refs.form.resetFields();
+
+                this.$refs.uploadImg.clearFiles();
+                this.$router.push("/activity");
+              })
+              .catch(() => {
+                this.loading = false;
+              });
+          }
         } else {
           console.log("error submit!!");
           return false;

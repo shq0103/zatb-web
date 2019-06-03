@@ -76,3 +76,11 @@ export function deleteUser(id) {
     method: "delete"
   });
 }
+
+export function putActivity(data) {
+  return request({
+    url: `/api/activity`,
+    method: "put",
+    data
+  });
+}

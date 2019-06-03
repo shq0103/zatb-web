@@ -23,9 +23,8 @@
             </el-table-column>
             <el-table-column align="center" label="操作" width="240px">
               <template slot-scope="scope">
-                <router-link to="/activity-public">
-                  <el-button size="mini" style="margin-right:10px;">编辑</el-button>
-                </router-link>
+                <el-button size="mini" @click="editAc(scope.row.id)" style="margin-right:10px;">编辑</el-button>
+
                 <el-button type="success" plain size="mini" @click="showTable(scope.row.id)">报名审核</el-button>
                 <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
               </template>
@@ -176,6 +175,9 @@ export default {
   },
 
   methods: {
+    editAc(id) {
+      this.$router.push("/activity-edit/" + id);
+    },
     handleCurrentChange(val) {
       this.currentRow = val;
     },
