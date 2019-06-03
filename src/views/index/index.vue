@@ -297,7 +297,7 @@
                     >
                     <div class="p-content-top-info">
                       <span>发布人：{{item.username}}</span>
-                      <router-link to="/post-show">{{item.title}}</router-link>
+                      <router-link :to="`/post-show/${item.id}`">{{item.title}}</router-link>
                     </div>
                   </div>
                   <div class="p-content-bottom">
@@ -377,7 +377,8 @@ export default {
       query: {
         page: 1,
         pageSize: 3,
-        orderBy: "viewCount"
+        orderBy: "viewCount",
+        status: 1
       },
       commendQuery: {
         page: 1,
@@ -397,47 +398,6 @@ export default {
         {
           title: "2019曼谷新玩法打卡：湄南河上看落日，享受香槟和泰国料理",
           date: "2019-05-19"
-        },
-        {
-          title: "每5分钟售出1000支的草本牙膏，安雅（Anya）进军中国市场",
-          date: "2019-05-17"
-        },
-        {
-          title: "5·19中国旅游日 | “1+15+81+N”文旅惠民系列活动成就美好生活",
-          date: "2019-05-17"
-        },
-        {
-          title: "惠州乡村振兴崭露头角，秋长谷里成5月热门",
-          date: "2019-05-16"
-        },
-        {
-          title:
-            "万豪酒店携手西班牙轻奢珠宝品牌TOUS桃丝熊，为宾客打造美味趣致体验",
-          date: "2019-04-16"
-        },
-        {
-          title: "秀水扬帆 碧波争流 首届“可人酒店杯”Zest 帆船赛启航千岛湖",
-          date: "2019-04-15"
-        },
-        {
-          title: "维珍航空首批A350-1000客机树立行业新标杆",
-          date: "2019-04-16"
-        },
-        {
-          title: "世茂Hello Kitty主题馆春季限定商品来袭，手快有，手慢无！",
-          date: "2019-04-10"
-        },
-        {
-          title: "“畅游宁波，遇见海丝”名校采风活动启幕",
-          date: "2019-03-20"
-        },
-        {
-          title: "沙8鸣鼓点将，汉能汉包赋能沙友踏征程",
-          date: "2019-02-22"
-        },
-        {
-          title: "博华太平洋抢占美国塞班岛先机，创造“远洋奇迹”",
-          date: "2019-02-02"
         }
       ],
       activityList: [
@@ -448,30 +408,6 @@ export default {
           viewCount: 100,
           image:
             "http://www.hw917.com/data/attachment/image/000/04/01/97_340_230.jpg"
-        },
-        {
-          id: 1,
-          name: "走进人间仙境桂林阳朔纯玩约伴，迷失西街游世外桃源",
-          viewCount: 200,
-          date: "2019-10-10至2019-10-15",
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/01/53_340_230.jpg"
-        },
-        {
-          id: 2,
-          name: " B线：漫步山水间邂逅古堡访古村穿越十里",
-          viewCount: 1400,
-          date: "2019-10-10至2019-10-15",
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/00/66_340_230.jpg"
-        },
-        {
-          id: 3,
-          name: "川西环线约伴",
-          viewCount: 100,
-          date: "2019-10-10至2019-10-15",
-          image:
-            "http://www.hw917.com/data/attachment/image/000/04/00/61_340_230.jpg"
         }
       ],
       hottravelsList: [
@@ -484,26 +420,6 @@ export default {
           title: "不忘初心，砥砺前行--2017五大连池徒步大会",
           intro:
             " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
-        },
-        {
-          id: 1,
-          userId: "徒步用户02",
-          commentCount: 500,
-          viewCount: 1030,
-          image: "http://tubu100.com:8053/Files/Note/2018031415165195f847.jpg",
-          title: "2017徒步中国·全国徒步大会张掖山丹站",
-          intro:
-            " 下午1点10分从齐云山庄出发，一路拔高，走走拍拍，于5点30左右到达山顶，用时4小时20分，到了山顶，落日中的云海翻腾，陶醉在美景中，竞忘关记录了，以至于记录了用时11个多小时。图表"
-        },
-        {
-          id: 2,
-          userId: "徒步用户03",
-          commentCount: 300,
-          viewCount: 100,
-          image: "http://tubu100.com:8053/Files/Note/20180822120952a89a92.jpg",
-          title: " 2018华夏行· 探秘天堂秘境 九色甘南之旅第二期",
-          intro:
-            " 明月山，国家级风景名胜区、国家AAAA级旅游景区、国家森林公园、国家地质公园、国家自然遗产、中国温泉之乡，江西省新赣鄱十景之一-----明月山,位于中国优秀旅游城市宜春市城西南15公里处，规划面积104平方公里，属武功山东北端的山麓部分，是以奇峰险壑、温泉飞瀑、珍稀动植物和禅宗文化为主要特色，集生态游览、休闲度假、科普教育和宗教旅游为一体的山岳型风景名胜区 。"
         }
       ],
       newtravelsList: [
@@ -518,24 +434,6 @@ export default {
           userId: "徒步用户01",
           title: "不忘初心，砥砺前行--2017五大连池徒步大会",
           publishTime: "2019-11-10"
-        },
-        {
-          id: 2,
-          userId: "徒步用户02",
-          title: " 2018徒步中国·全国徒步大会宝泉崖上太行站",
-          publishTime: "2019-12-10"
-        },
-        {
-          id: 3,
-          userId: "徒步用户03",
-          title: "徒步中国·全国徒步大会百色（乐业、凌云）站",
-          publishTime: "2019-12-12"
-        },
-        {
-          id: 4,
-          userId: "徒步用户04",
-          title: "华夏行·呼伦贝尔全国徒步大会",
-          publishTime: "2019-12-14"
         }
       ],
       postList: [
@@ -547,33 +445,6 @@ export default {
           contents:
             "传统的好处:1,便宜2,轻不足:1,不方便携带,都有点大2,舒适度差点充气的好处:1,小巧,可压小放2,睡觉时舒适不足:1相比传统价高2,比传统重点建议短...",
           title: "新手请教，防潮垫时用传统的还是自充气的？"
-        },
-        {
-          id: 1,
-          image:
-            "http://avatar.8264.com/data/avatar/034/36/27/53_avatar_middle.jpg?KnOKMz?tempid=8411",
-          userId: "徒步用户xixi",
-          contents:
-            "央视网消息：如今的服装不仅款式多，功能性服装也火了起来，所谓功能性，就比如、吸湿、防水、速干、防细菌等等，听起来服装有了这些功能真是不错，但不久前上海市市场",
-          title: "这样的内衣、冲锋衣你敢穿？央视曝光那些可致癌功能性服装"
-        },
-        {
-          id: 2,
-          image:
-            "http://avatar.8264.com/data/avatar/034/24/36/11_avatar_middle.jpg?qCB02M?tempid=7787",
-          userId: "徒步用户hehe",
-          contents:
-            "可以先试干嘛不买？冷门也有好货，试穿试测是第一重要，其他都是狗屁!牌子再大有鸟用，照样不合脚的海了去我发现装备版对于东西合不合脚合不合...",
-          title: "问个常见的问题，鞋子臭了怎么办？"
-        },
-        {
-          id: 3,
-          image:
-            "http://avatar.8264.com/data/avatar/034/60/39/98_avatar_middle.jpg?XBP1Pz?tempid=5603",
-          userId: "徒步用户hoho",
-          contents:
-            "Wind2收到手才知道是Sample，——空间很大，高山帐，和我的SDTiros重复了Twinpeak也是收到后才知道是SalemanSampleMissingLink本来就是错买的...",
-          title: "大家都有几个帐篷？"
         }
       ]
     };

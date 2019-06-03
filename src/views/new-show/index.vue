@@ -140,7 +140,8 @@ export default {
       commendQuery: {
         page: 1,
         pageSize: 4,
-        orderBy: "star"
+        orderBy: "star",
+        status: 1
       }
     };
   },

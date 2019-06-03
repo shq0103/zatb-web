@@ -27,9 +27,9 @@
                 <span>{{scope.row.status|typeFilter}}</span>
               </template>
             </el-table-column>
-            <el-table-column align="center" label="操作" width="240px">
+            <el-table-column align="center" label="操作" width="250px">
               <template slot-scope="scope">
-                <el-button size="mini" @click="editAc(scope.row.id)" style="margin-right:10px;">编辑</el-button>
+                <el-button size="mini" @click="editAc(scope.row.id)">编辑</el-button>
 
                 <el-button type="success" plain size="mini" @click="showTable(scope.row.id)">报名审核</el-button>
                 <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>

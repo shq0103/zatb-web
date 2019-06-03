@@ -31,10 +31,10 @@
           <img src="../../assets/咨讯浏览.png" style="height:21px;margin:-3px 2px -5px 0;">
           {{travels.viewCount}}人浏览
         </li>
-        <li>
+        <!-- <li>
           <img src="../../assets/路书评论.png" style="height:15px;margin:-3px 2px -3px 0;">
           {{travels.commentCount}}人评论
-        </li>
+        </li>-->
       </ul>
       <div class="a-i-content">
         <el-row :gutter="24">
@@ -223,7 +223,7 @@
             <el-col :span="4">
               <div class="grid-content-lf">
                 <img :src="`/image${item.avatar}`">
-                <span>{{item.nickname}}</span>
+                <span style="margin-left: 30px;">{{item.nickname}}</span>
               </div>
             </el-col>
             <el-col :span="20">
