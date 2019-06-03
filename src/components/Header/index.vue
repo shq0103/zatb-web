@@ -21,7 +21,7 @@
       <el-menu-item index="/travels" :style="{ fontSize: '16px' }">路书</el-menu-item>
       <el-menu-item index="/goods" :style="{ fontSize: '16px' }">闲趣</el-menu-item>
     </el-menu>
-    <!-- 
+    <!--
     <el-input
       :style="{ width: '250px',marginLeft:'10px'}"
       placeholder="搜索目的地/活动"
@@ -62,7 +62,7 @@ import { eventBus } from "@/utils/eventBus";
 export default {
   data() {
     return {
-      activeIndex: localStorage.getItem("path") || "/index",
+      activeIndex: "/index",
       dialogFormVisible: false,
       loginForm: {
         username: "",
@@ -79,6 +79,7 @@ export default {
   },
   created() {
     eventBus.$on("loginSuccess", this.loginSuccess);
+    eventBus.$on("changePass", this.logout);
   },
   methods: {
     clickMenuItem(key) {
@@ -108,6 +109,15 @@ export default {
     },
     loginSuccess() {
       this.isLogin = true;
+    }
+  },
+  destroyed() {
+    eventBus.$off("loginSuccess", this.loginSuccess);
+    eventBus.$off("changePass", this.logout);
+  },
+  watch: {
+    $route(to, from) {
+      this.activeIndex = to.path;
     }
   }
 };

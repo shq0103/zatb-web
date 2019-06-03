@@ -52,3 +52,11 @@ export function deleteTravels(data) {
     data
   });
 }
+
+export function starTT(type, id) {
+  return request({
+    url: "/api/TravelBook/star",
+    method: "put",
+    params: { type, id }
+  });
+}
