@@ -49,16 +49,16 @@
         <!-- <div style="margin:10px 0px;display:flex;">
           <el-button type="success" icon="el-icon-zoom-in" plain>添加报名人</el-button>
         </div>-->
-        <div class="event_05">
+        <!-- <div class="event_05">
           <el-checkbox-group>
             <el-checkbox v-model="checked">
               我已阅读并同意相关
-              <!-- <input id="agree_bm" type="checkbox" class="checkbox">我已阅读并同意相关 -->
+            
               <a href="http://www.tubu100.com/mianze.docx" target="_blank">免责声明</a>、
               <a href="http://www.tubu100.com/Home/Read" target="_blank">赛事保险</a>
             </el-checkbox>
           </el-checkbox-group>
-        </div>
+        </div>-->
 
         <el-button type="success" style="width: 95%;margin: 20px 0;" round @click="submitForm">立即报名</el-button>
       </el-col>
@@ -66,7 +66,7 @@
         <div class="a-j-rf">
           <div class="event_right">
             <p class="p1">{{acPublic.name}}</p>
-            <p class="p2">{{acPublic.theme}}</p>
+            <p class="p2">{{acPublic.theme|themeFilter}}</p>
             <p class="p2">已报名{{acPublic.signin}}人</p>
             <p class="p2">出发：{{acPublic.startPlace}}</p>
             <p class="p2">{{acPublic.date}}</p>
@@ -86,6 +86,20 @@
 <script>
 import { joinActivity, getAcDetail } from "@/api/activity.js";
 export default {
+  filters: {
+    themeFilter: function(value) {
+      switch (value) {
+        case 1:
+          return "短线";
+        case 2:
+          return "中线";
+        case 3:
+          return "长线";
+        default:
+          return "";
+      }
+    }
+  },
   data() {
     return {
       checked: "",

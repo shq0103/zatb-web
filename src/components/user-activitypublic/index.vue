@@ -38,9 +38,10 @@
       <el-table :data="gridData" stripe height="250" highlight-current-row ref="singleTable">
         <!-- <el-table-column type="selection" width="55"></el-table-column> -->
         <el-table-column type="index" :index="index" label="序号" sortable width="50px"></el-table-column>
-        <el-table-column prop="username" label="用户名"></el-table-column>
+        <el-table-column prop="username" label="用户名" width="100px;"></el-table-column>
         <el-table-column prop="name" label="真实姓名"></el-table-column>
-        <el-table-column label="性别">
+        <el-table-column prop="idcard" label="身份证" width="160px;"></el-table-column>
+        <el-table-column label="性别" width="70px;">
           <template slot-scope="scope">
             <span>{{scope.row.sex|genderFilter}}</span>
           </template>
@@ -53,7 +54,7 @@
             <el-tag v-if="scope.row.status == 2" type="warning" size="mini">未通过</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" width="150px;">
           <template slot-scope="scope">
             <el-popover v-if="scope.row.status == 0" placement="top" trigger="click">
               <el-row>

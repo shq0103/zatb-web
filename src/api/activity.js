@@ -37,7 +37,7 @@ export function joinActivity(data) {
 
 export function getuserJionList(query) {
   return request({
-    url: "/api/ActivityJion",
+    url: "/api/ActivityJion/user",
     method: "get",
     params: query
   });

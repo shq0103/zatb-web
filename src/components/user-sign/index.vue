@@ -10,15 +10,17 @@
             </router-link>
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }" fit>
-            <el-table-column align="center" prop="title" label="活动名称" width="280px"></el-table-column>
+            <el-table-column align="center" prop="activityName" label="活动名称" width="280px"></el-table-column>
             <!-- <el-table-column align="center" prop="name" label="参加人"></el-table-column> -->
-            <el-table-column align="center" prop="type" label="状态"></el-table-column>
+            <el-table-column align="center" prop="status" label="状态">
+              <template slot-scope="scope">{{scope.row.status|statusFilter}}</template>
+            </el-table-column>
             <el-table-column align="center" label="操作" width="180px">
-              <template>
-                <router-link to="/activity-join">
+              <template slot-scope="scope">
+                <!-- <router-link to="/activity-join">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
-                </router-link>
-                <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
+                </router-link>-->
+                <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -42,8 +44,22 @@
   </div>
 </template>
 <script>
-import { getuserJionList, deleteActivity } from "@/api/activity.js";
+import { getuserJionList, deleteUser } from "@/api/activity.js";
 export default {
+  filters: {
+    statusFilter: function(value) {
+      switch (value) {
+        case 0:
+          return "待审核";
+        case 1:
+          return "已通过";
+        case 2:
+          return "未通过";
+        default:
+          return "";
+      }
+    }
+  },
   data() {
     return {
       tableData: [
@@ -86,6 +102,31 @@ export default {
         this.tableData = resp.data;
         this.total = resp.total;
       });
+    },
+    handleDelete(id) {
+      this.$confirm("此操作将永久删除改项, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          deleteUser(id).then(resp => {
+            this.$notify({
+              title: "成功",
+              message: "删除成功",
+              type: "success",
+              duration: 2000
+            });
+            this.getuserList();
+          });
+        })
+        .catch(() => {
+          this.$notify({
+            message: "已取消删除",
+            type: "info",
+            duration: 2000
+          });
+        });
     }
   }
 };

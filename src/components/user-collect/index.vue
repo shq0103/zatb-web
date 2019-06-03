@@ -19,9 +19,9 @@
             <!-- <el-table-column align="center" prop="type" label="状态"></el-table-column> -->
             <el-table-column align="center" label="操作" width="180px">
               <template slot-scope="scope">
-                <router-link to="/post-public">
+                <!-- <router-link to="/post-public">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
-                </router-link>
+                </router-link>-->
                 <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">删除</el-button>
               </template>
             </el-table-column>
