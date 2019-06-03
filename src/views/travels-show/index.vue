@@ -349,7 +349,7 @@ export default {
       },
       queryComm: {
         page: 1,
-        pageSize: 2,
+        pageSize: 20,
         toId: 0,
         type: 1
       },
@@ -402,6 +402,13 @@ export default {
       this.form.toId = id;
     },
     publicComm() {
+      if (!localStorage.getItem("token")) {
+        this.$message({
+          type: "warning",
+          message: "请先登录!"
+        });
+        return;
+      }
       this.$refs.form.validate(valid => {
         if (valid) {
           postComment(this.form).then(resp => {

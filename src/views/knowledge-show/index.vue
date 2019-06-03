@@ -29,16 +29,38 @@
             style="height:26px; font-size: 16px;font-weight:bold;text-align: -webkit-auto;padding-left: 20px;"
           >网友评论</div>
         </div>
-        <div class="search-content"></div>
+        <div class="el-dialog-content">
+          <div
+            class="user-commemt"
+            v-for="(item,index) in commList"
+            :key="item.id"
+            :class="{borderNone:index+1===commList.length}"
+          >
+            <el-row :gutter="20">
+              <el-col :span="4">
+                <div class="grid-content-lf">
+                  <img :src="`/image${item.avatar}`">
+                  <span style="margin-left: 30px;">{{item.nickname}}</span>
+                </div>
+              </el-col>
+              <el-col :span="20">
+                <div class="grid-content-rf">
+                  <p v-html="item.contents" style="text-align:left;"></p>
+                  <span>发表于 {{item.time|timeFilter}}</span>
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
         <div class="show-comment">
           <el-form ref="form" :model="form" label-width="80px">
             <el-form-item style="margin:0px;text-align:left;">发表评论</el-form-item>
             <el-form-item>
               <!-- <el-input type="textarea"></el-input> -->
-              <QuillEditor/>
+              <quill-editor v-model="form.contents" :options="editorOption"></quill-editor>
             </el-form-item>
             <el-form-item>
-              <el-button type="success" @click="onSubmit">发表</el-button>
+              <el-button type="success" @click="publicComm">发表</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -92,12 +114,42 @@
 import QuillEditor from "@/components/QuillEditor";
 import { getNewsDetail } from "@/api/news.js";
 import { getList } from "@/api/knows.js";
+import { postComment, getCommentList } from "@/api/post.js";
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
 export default {
   components: {
-    QuillEditor
+    quillEditor
   },
   data() {
     return {
+      editorOption: {
+        modules: {
+          toolbar: [
+            [{ size: ["small", false, "large"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            [{ header: 1 }, { header: 2 }],
+            ["bold", "italic"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"]
+          ],
+          history: {
+            delay: 1000,
+            maxStack: 50,
+            userOnly: false
+          },
+          imageDrop: true
+        }
+      },
       commentMenu: [
         "bold",
         "fontSize",
@@ -143,28 +195,111 @@ export default {
         pageSize: 10,
         type: 5,
         orderBy: "viewCount"
-      }
+      },
+      form: {
+        id: 0,
+        userId: 0,
+        toId: 0,
+        replyTo: 0,
+        contents: "",
+        type: 3,
+        time: 0
+      },
+      queryComm: {
+        page: 1,
+        pageSize: 20,
+        toId: 0,
+        type: 3
+      },
+      commList: []
     };
   },
   created() {
     this.id = this.$route.params.id;
+    this.queryComm.toId = this.id;
+    this.form.toId = this.id;
     getNewsDetail(this.id).then(resp => {
       this.knowledges = resp.data;
       console.log(this.news);
     });
     this.getListOrderby();
+    this.getCL();
   },
   methods: {
+    getCL() {
+      getCommentList(this.queryComm).then(resp => {
+        this.commList = resp.data;
+        this.total = resp.total;
+      });
+    },
     getListOrderby() {
       getList(this.clickQuery).then(resp => {
         this.clickList = resp.data;
         this.total = resp.total;
+      });
+    },
+    publicComm() {
+      if (!localStorage.getItem("token")) {
+        this.$message({
+          type: "warning",
+          message: "请先登录!"
+        });
+        return;
+      }
+      if (!this.form.contents) {
+        this.$message({
+          type: "error",
+          message: "内容不能为空！"
+        });
+        return;
+      }
+      postComment(this.form).then(resp => {
+        if (resp.code === 0) {
+          this.$message({
+            type: "success",
+            message: "发表成功！"
+          });
+          this.getCL();
+          this.form.contents = "";
+        } else {
+          this.$message({
+            type: "success",
+            message: resp.data
+          });
+        }
       });
     }
   }
 };
 </script>
 <style scoped>
+.el-dialog-content {
+  padding: 20px 20px;
+}
+.user-commemt {
+  border-bottom: #99a9bf 1px dotted;
+  padding-bottom: 15px;
+  margin: 10px 0;
+}
+.grid-content-lf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid-content-lf img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin: 0 0 5px 20px;
+}
+.grid-content-rf span {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  font-size: 13px;
+}
+
 .index {
   display: flex;
 }

@@ -17,7 +17,7 @@
           <div class="know-content-top">
             <div class="know-c-t-lf">
               <h2>{{item.date|monthFilter}}月</h2>
-              <p>{{item.time|datetimeFilter}}</p>
+              <p>{{item.date|datetimeFilter}}</p>
             </div>
             <div class="know-c-t-rf">
               <h2>{{item.title}}</h2>
@@ -211,6 +211,7 @@ export default {
   },
   methods: {
     changeType(value) {
+      this.query.page = 1;
       this.query.type = value;
       this.getNewsList();
     },

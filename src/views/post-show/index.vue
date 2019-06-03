@@ -313,6 +313,13 @@ export default {
         });
         return;
       } else {
+        if (!comForm.form.contents) {
+          this.$message({
+            type: "error",
+            message: "内容不能为空！"
+          });
+          return;
+        }
         postComment(this.comForm).then(resp => {
           this.$message({
             type: "success",
