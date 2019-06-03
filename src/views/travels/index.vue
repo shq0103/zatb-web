@@ -368,17 +368,20 @@ export default {
       query: {
         page: 1,
         pageSize: 5,
-        orderBy: "viewCount"
+        orderBy: "viewCount",
+        status: 1
       },
       commendQuery: {
         page: 1,
-        pageSize: 6,
-        orderBy: "star"
+        pageSize: 5,
+        orderBy: "star",
+        status: 1
       },
       TopQuery: {
         page: 1,
         pageSize: 10,
-        orderBy: ""
+        orderBy: "",
+        status: 1
       }
     };
   },

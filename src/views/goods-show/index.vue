@@ -113,7 +113,7 @@
                     </a>
                   </h3>
                 </div>
-                <div class="attr-content">{{goods.introduction}}</div>
+                <div class="attr-content" v-html="goods.introduction"></div>
               </div>
               <div class="a-c-l-c-2">
                 <div class="attr-title">

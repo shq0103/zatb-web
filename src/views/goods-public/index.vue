@@ -42,7 +42,7 @@
             <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="详细介绍" prop="introduction">
-            <el-input type="textarea" rows="10" v-model="form.introduction"></el-input>
+            <quillEditor height="100px" v-model="form.introduction" :options="editorOption"/>
           </el-form-item>
           <el-form-item label="图片上传">
             <el-upload
@@ -70,21 +70,31 @@
   </div>
 </template>
 <script>
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+
+import { quillEditor } from "vue-quill-editor";
+import VueQuillEditor, { Quill } from "vue-quill-editor";
+import { ImageDrop } from "quill-image-drop-module";
+Quill.register("modules/imageDrop", ImageDrop);
 import { publicGoods } from "@/api/goods.js";
 export default {
+  components: {
+    quillEditor
+  },
   data() {
     return {
       total: 0,
       form: {
         name: null,
         introduction: null,
-        price: 0,
+        price: null,
         extent: "",
-        sPrice: 0,
-        time: 0,
-        type: 0,
-        num: "string",
-        place: "string",
+        sPrice: null,
+        type: null,
+        num: "",
+        place: "",
         imgList: [],
         viewCount: 0
       },

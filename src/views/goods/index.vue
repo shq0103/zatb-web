@@ -116,7 +116,7 @@
                   <div class="new-right2">
                     <p style="margin:0 0 15px 0;font-size:14px;">
                       <img src="../../assets/用户.png" style="height: 18px; margin-bottom: -3px;">
-                      {{item.userId}}
+                      {{item.nickname}}
                     </p>
                     <p style="padding-left:20px;margin:0 0 15px 0;font-size:15px;">
                       <img src="../../assets/钱.png" style="height: 18px; margin-bottom: -3px;">
@@ -200,7 +200,7 @@ export default {
       ],
       query: {
         page: 1,
-        pageSize: 5,
+        pageSize: 12,
         type: null,
         orderBy: "",
         keyword: ""
@@ -237,11 +237,11 @@ export default {
     },
     handleSizeChange(pageSize) {
       this.query.pageSize = pageSize;
-      this.getNewsList();
+      this.getList();
     },
     handleCurrentChange(curPage) {
       this.query.page = curPage;
-      this.getNewsList();
+      this.getList();
     }
   }
 };
@@ -306,7 +306,7 @@ export default {
   margin: 10px 0;
 }
 .t2 {
-  padding-left: 43px;
+  padding-left: 65px;
   color: #999;
   box-sizing: border-box;
   position: relative;
@@ -476,6 +476,9 @@ export default {
   margin: 0px;
   color: #75b628;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .adiv {
   background-color: #f0f9eb;

@@ -4,7 +4,7 @@
 
     <back-top>
       <div>
-        <img class="return" src="./assets/return.png">
+        <img class="return" src="./assets/返回顶部 .png">
       </div>
     </back-top>
   </div>

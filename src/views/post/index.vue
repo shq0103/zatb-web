@@ -20,7 +20,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
+                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -35,7 +35,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
+                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -52,7 +52,7 @@
               <el-popover placement="top-start" :title="ss" width="200" trigger="hover">
                 <div class="popover">
                   <h5>标题：{{item.title}}</h5>
-                  <p>作者：{{item.userId}}({{item.date|timeWithoutMin}})</p>
+                  <p>作者：{{item.nickname}}({{item.date|timeWithoutMin}})</p>
                   <p>查看/回复：{{item.viewCount}}/{{item.commentCount}}</p>
                 </div>
                 <span slot="reference">{{item.title}}</span>
@@ -139,7 +139,16 @@
         </el-row>
       </div>
       <div class="post-page">
-        <el-pagination class="page-1" background layout="prev, pager, next" :total="1000"></el-pagination>
+        <el-pagination
+          class="page-1"
+          background
+          layout="prev, pager, next"
+          :total="total"
+          :page-size="query.pageSize"
+          :current-page="query.page"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
       </div>
     </div>
   </div>
@@ -474,6 +483,14 @@ export default {
       getPostList(this.newtheme).then(resp => {
         this.newreplyList = resp.data;
       });
+    },
+    handleSizeChange(pageSize) {
+      this.query.pageSize = pageSize;
+      this.getList();
+    },
+    handleCurrentChange(curPage) {
+      this.query.page = curPage;
+      this.getList();
     },
     getHotList() {
       getPostList(this.hottheme).then(resp => {

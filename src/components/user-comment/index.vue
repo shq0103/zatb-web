@@ -8,14 +8,14 @@
 -webkit-border-bottom-left-radius: 20px;-moz-border-bottom-left-radius: 20px;-webkit-border-top-right-radius: 20px;background: #8bc34a;"
           >我的评论</h3>
           <el-table :data="tableData" border fit>
-            <el-table-column align="center" prop="title" label="评论类型标题" width="280px"></el-table-column>
+            <!-- <el-table-column align="center" prop="contents" label="评论类型标题" width="280px"></el-table-column> -->
             <el-table-column align="center" prop="type" label="评论类型"></el-table-column>
-            <el-table-column align="center" prop="date" label="评论时间"></el-table-column>
+            <el-table-column align="center" prop="time" label="评论时间"></el-table-column>
             <el-table-column align="center" label="操作" width="180px">
               <template>
-                <router-link to="/goods-public">
+                <!-- <router-link to="/goods-public">
                   <el-button size="mini" style="margin-right:10px;">编辑</el-button>
-                </router-link>
+                </router-link>-->
                 <el-button size="mini" type="danger" @click="dialogdelete = true">删除</el-button>
               </template>
             </el-table-column>
@@ -40,6 +40,7 @@
   </div>
 </template>
 <script>
+import { getUserComment, deleteComment } from "@/api/comment.js";
 export default {
   data() {
     return {
@@ -77,7 +78,44 @@ export default {
       dialogdelete: false
     };
   },
-  methods: {}
+  methods: {
+    created() {
+      this.getcommentList();
+    },
+    methods: {
+      getcommentList() {
+        getUserComment().then(resp => {
+          this.tableData = resp.data;
+          this.total = resp.total;
+        });
+      },
+      handleDelete(id) {
+        this.$confirm("此操作将永久删除改项, 是否继续?", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        })
+          .then(() => {
+            deleteComment(id).then(resp => {
+              this.$notify({
+                title: "成功",
+                message: "删除成功",
+                type: "success",
+                duration: 2000
+              });
+              this.getcommentList();
+            });
+          })
+          .catch(() => {
+            this.$notify({
+              message: "已取消删除",
+              type: "info",
+              duration: 2000
+            });
+          });
+      }
+    }
+  }
 };
 </script>
 <style scoped>

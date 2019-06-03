@@ -52,7 +52,7 @@
                   <div class="p-name">
                     <router-link to="/user-info">
                       <img src="../../assets/个人头像.png">
-                      {{mainpost.userId}}
+                      {{mainpost.nickname}}
                     </router-link>
                   </div>
                   <div class="p-info">

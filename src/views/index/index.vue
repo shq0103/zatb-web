@@ -2,14 +2,14 @@
   <div class="index">
     <div class="picture">
       <el-carousel height="420px">
-        <el-carousel-item v-for="item in 4" :key="item">
+        <el-carousel-item v-for="item in imageList" :key="item" style="width:1199px;">
           <div class="ih-item">
-            <a href="#">
+            <a href="http://www.tubu100.com/Activity/Detail/1070">
               <div class="img">
-                <img src="../../assets/首页1.jpg" alt="img">
-              </div>//图片
+                <img :src="item" alt="img">
+              </div>
               <div class="info">
-                <h3>这里是新闻标题简要介绍一下吗</h3>
+                <h3>华夏行•慕士塔格登山徒步大会</h3>
               </div>
             </a>
           </div>
@@ -348,6 +348,11 @@ Vue.use(scroll);
 export default {
   data() {
     return {
+      imageList: [
+        "http://tubu100.com:8053/Files/At/20190531173549516403.jpg",
+        "http://tubu100.com:8053/Files/At/20190507162755a93b39.jpg",
+        "http://tubu100.com:8053/Files/At/201811061033529830be.jpg"
+      ],
       total: 0,
       total1: 0,
       posttotal: 0,

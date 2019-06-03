@@ -16,7 +16,7 @@
     <div class="activity_info">
       <div class="a-i-title">
         <h3 class="activity_title">{{travels.title}}</h3>
-        <b class="activity_distance">{{travels.length}}</b>
+        <b class="activity_distance">{{travels.length|themeFilter}}</b>
       </div>
       <ul class="activity_text" style="display:flex;padding:0px;">
         <li>
@@ -158,9 +158,9 @@
                     </div>
                   </div>
                   <div class="tr-b-rf-title">
-                    <router-link to="/new-show">
-                      <p class="aname1">{{item.title}}</p>
-                    </router-link>
+                    <!-- <a href="http://www.tubu100.com/Note"> -->
+                    <p class="aname1">{{item.title}}</p>
+                    <!-- </a> -->
                   </div>
                 </div>
               </div>
@@ -230,6 +230,21 @@ export default {
   components: {
     Hamburger,
     MapShow
+  },
+  filters: {
+    themeFilter: function(value) {
+      switch (value) {
+        case 1:
+          return "短线";
+        case 2:
+          return "中线";
+        case 3:
+          return "长线";
+
+        default:
+          return "";
+      }
+    }
   },
   data() {
     return {
@@ -597,6 +612,9 @@ a:hover {
   font-size: 15px;
   color: #515151;
   line-height: 25px;
+}
+a {
+  color: #000;
 }
 .a-c-rf-top span {
   color: #75b628;

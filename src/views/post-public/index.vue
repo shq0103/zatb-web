@@ -98,7 +98,7 @@ export default {
       rules: {
         title: [
           { required: true, message: "请输入帖子名称", trigger: "blur" },
-          { max: 20, message: "长度不超过20字符", trigger: "blur" }
+          { max: 50, message: "长度不超过50字符", trigger: "blur" }
         ],
         type: [{ required: true, message: "请选择帖子类型", trigger: "blur" }],
         contents: [
