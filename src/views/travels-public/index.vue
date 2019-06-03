@@ -262,6 +262,10 @@ export default {
               });
             });
           }
+          this.$router.push({
+            path: "/user-center",
+            query: { tab: "userTravels" }
+          });
         } else {
           console.log("发布失败!!");
           return false;

@@ -109,14 +109,14 @@
                   ></el-alert>-->
                   <div class="adiv">
                     <p class="aname">{{item.name}}</p>
-                    <p class="ap">{{item.introduction}}</p>
+                    <p class="ap">{{item.introduction|htmlToStr}}</p>
                   </div>
                 </div>
                 <div class="g-i-m-user">
                   <div class="new-right2">
                     <p style="margin:0 0 15px 0;font-size:14px;">
                       <img src="../../assets/用户.png" style="height: 18px; margin-bottom: -3px;">
-                      {{item.nickname}}
+                      {{item.username}}
                     </p>
                     <p style="padding-left:20px;margin:0 0 15px 0;font-size:15px;">
                       <img src="../../assets/钱.png" style="height: 18px; margin-bottom: -3px;">
