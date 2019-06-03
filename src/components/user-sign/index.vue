@@ -10,7 +10,13 @@
             </router-link>
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }" fit>
-            <el-table-column align="center" prop="activityName" label="活动名称" width="280px"></el-table-column>
+            <el-table-column align="center" prop="activityName" label="活动名称" width="280px">
+              <template slot-scope="scope">
+                <router-link :to="`/activity-show/${scope.row.activityId}`">
+                  <span>{{scope.row.activityName}}</span>
+                </router-link>
+              </template>
+            </el-table-column>
             <!-- <el-table-column align="center" prop="name" label="参加人"></el-table-column> -->
             <el-table-column align="center" prop="status" label="状态">
               <template slot-scope="scope">{{scope.row.status|statusFilter}}</template>
@@ -134,6 +140,12 @@ export default {
 <style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #75b628;
 }
 .user-secure-button {
   color: #fff;

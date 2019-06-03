@@ -67,10 +67,10 @@ color: #FFF;">{{userInfo.place}}</b>
                 <img src="../../assets/收藏.png">
                 我的帖子
               </li>
-              <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
+              <!-- <li id="user-comment" :class="{ actived: actived == 'user-comment' }">
                 <img src="../../assets/评论.png">
                 我的评论
-              </li>
+              </li>-->
               <li id="user-point" :class="{ actived: actived == 'user-point' }">
                 <img src="../../assets/关注.png">我的关注
               </li>

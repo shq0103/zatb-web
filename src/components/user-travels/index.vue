@@ -10,7 +10,13 @@
             </router-link>
           </div>
           <el-table :data="tableData" border fit>
-            <el-table-column align="center" prop="title" label="路书标题" width="300px"></el-table-column>
+            <el-table-column align="center" prop="title" label="路书标题" width="300px">
+              <template slot-scope="scope">
+                <router-link :to="`/travels-show/${scope.row.id}`">
+                  <span>{{scope.row.title}}</span>
+                </router-link>
+              </template>
+            </el-table-column>
             <el-table-column align="center" label="创建时间">
               <template slot-scope="scope">
                 <span>{{scope.row.publishTime|timeFilter}}</span>
@@ -140,6 +146,12 @@ export default {
   color: #fff;
   background-color: #8bc34a !important;
   border-color: #8bc34a !important;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #75b628;
 }
 .ac-h3 {
   color: #fff;

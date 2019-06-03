@@ -10,7 +10,13 @@
             </router-link>
           </div>
           <el-table :data="tableData" border :style="{ width: '100%' }">
-            <el-table-column align="center" prop="title" label="帖子标题"></el-table-column>
+            <el-table-column align="center" prop="title" label="帖子标题">
+              <template slot-scope="scope">
+                <router-link :to="`/post-show/${scope.row.id}`">
+                  <span>{{scope.row.title}}</span>
+                </router-link>
+              </template>
+            </el-table-column>
             <el-table-column align="center" label="创建时间">
               <template slot-scope="scope">
                 <span>{{scope.row.date|timeFilter}}</span>
@@ -124,6 +130,9 @@ export default {
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
 }
+a:hover {
+  color: #75b628;
+}
 .user-secure-button {
   color: #fff;
   background-color: #8bc34a !important;
@@ -144,6 +153,9 @@ export default {
 .ac-h3 h3 {
   margin: auto;
   font-size: 16px;
+}
+a {
+  color: #000;
 }
 .ac-h3 span {
   position: absolute;

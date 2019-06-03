@@ -10,7 +10,13 @@
             </router-link>
           </div>
           <el-table :data="tableData" border fit>
-            <el-table-column align="center" prop="name" label="闲趣标题" width="280px"></el-table-column>
+            <el-table-column align="center" prop="name" label="闲趣标题" width="280px">
+              <template slot-scope="scope">
+                <router-link :to="`/goods-show/${scope.row.id}`">
+                  <span>{{scope.row.name}}</span>
+                </router-link>
+              </template>
+            </el-table-column>
             <el-table-column align="center" label="闲趣类型">
               <template slot-scope="scope">
                 <span>{{scope.row.type|typeFilter}}</span>
@@ -131,6 +137,12 @@ export default {
 <style scoped>
 .ac-public-form2-2 {
   margin: 30px 100px 0px 100px;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #75b628;
 }
 .user-secure-button {
   color: #fff;
