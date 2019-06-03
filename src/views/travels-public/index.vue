@@ -110,7 +110,7 @@
           <el-row style="margin-top:20px">
             <el-col :span="24">
               <!-- <el-button type="success" round style="float: left;">保存草稿</el-button> -->
-              <el-button type="success" round style="float: left;">预览路书</el-button>
+              <!-- <el-button type="success" round style="float: left;">预览路书</el-button> -->
               <el-button
                 type="success"
                 v-if="!isEdit"
@@ -136,7 +136,8 @@
           width="80%"
         >
           <AddAddress
-            :is-edit="isEdit"
+            :is-edit="isEditA"
+            :show-dialog="dialogFormVisible"
             :deafult-data="travelPlace"
             @cancel="dialogFormVisible = false"
             @confirm="addTravelPlace"
@@ -192,11 +193,14 @@ export default {
           { max: 150, message: "不能超过150字符", trigger: "blur" }
         ]
       },
-      travelPlace: null
+      travelPlace: null,
+      editIndex: -1,
+      isEditA: false
     };
   },
   created() {
     if (this.isEdit) {
+      this.isEditA = true;
       const id = this.$route.params && this.$route.params.id;
       getTravelsDetail(id).then(resp => {
         Object.assign(this.form, resp.data);
@@ -206,19 +210,32 @@ export default {
     }
   },
   methods: {
-    addTravelPlace: function(travelPlace) {
-      this.form.travelPlaces.push(travelPlace);
-      this.dialogFormVisible = false;
-      this.$message({
-        type: "success",
-        message: "添加打卡点成功！"
-      });
+    addTravelPlace(travelPlace) {
+      if (this.isEditA) {
+        Object.assign(this.form.travelPlaces[this.editIndex], travelPlace);
+        this.dialogFormVisible = false;
+        this.$message({
+          type: "success",
+          message: "修改打卡点成功！"
+        });
+        this.isEditA = false;
+      } else {
+        this.form.travelPlaces.push(travelPlace);
+        this.dialogFormVisible = false;
+        this.$message({
+          type: "success",
+          message: "添加打卡点成功！"
+        });
+      }
+
       console.log(this.form);
     },
-    deleteTravelPlace: function(index) {
+    deleteTravelPlace(index) {
       this.form.travelPlaces.splice(index, 1);
     },
     editTravelPlace(index) {
+      this.isEditA = true;
+      this.editIndex = index;
       this.travelPlace = this.form.travelPlaces[index];
       this.dialogFormVisible = true;
     },

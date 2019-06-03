@@ -19,8 +19,8 @@
     </div>
     <div class="activity">
       <div>
-        <el-tabs value="first" :tab-click="changeTab">
-          <el-tab-pane name="first">
+        <el-tabs value="normal" @tab-click="changeTab">
+          <el-tab-pane name="normal">
             <span slot="label" :style="{ fontSize: '18px', fontWeight: 'bold' }">
               <img class="ac1" src="../../assets/activity.png"> 常规活动
             </span>
@@ -58,7 +58,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="官方活动" name="second">
+          <el-tab-pane label="官方活动" name="admin">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <router-link to="/activity">
@@ -92,7 +92,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="最新上线" name="third">
+          <el-tab-pane label="最新上线" name="publishTime">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
@@ -120,7 +120,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="热门推荐" name="fourth">
+          <el-tab-pane label="热门推荐" name="viewCount">
             <el-row :gutter="24" type="flex" justify="center">
               <el-col :span="5" v-for="item in activityList" :key="item.id">
                 <el-card :body-style="{ padding: '0px' }">
@@ -378,7 +378,8 @@ export default {
         page: 1,
         pageSize: 4,
         status: 1,
-        orderBy: ""
+        orderBy: "",
+        user: ""
       },
       listData: [
         {
@@ -617,7 +618,26 @@ export default {
       }
       this.getListOrderby();
     },
-    changeTab() {}
+    changeTab(tab) {
+      console.log(tab);
+      const dData = {
+        page: 1,
+        pageSize: 4,
+        status: 1,
+        orderBy: "",
+        user: ""
+      };
+      Object.assign(this.Activityquery, dData);
+      if (tab.name == "admin") {
+        this.Activityquery.user = "admin";
+      } else {
+        this.Activityquery.orderBy = tab.name;
+      }
+      if (tab.name == "normal") {
+        Object.assign(this.Activityquery, dData);
+      }
+      this.getActivityList();
+    }
   }
 };
 </script>

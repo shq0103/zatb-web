@@ -6,7 +6,7 @@
       @dblclick="dblClickMap"
       :scroll-wheel-zoom="true"
       :double-click-zoom="false"
-      :center="myPoint"
+      center="桂林"
       :zoom="15"
       :map-click="false"
     >

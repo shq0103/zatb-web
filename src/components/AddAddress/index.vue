@@ -92,6 +92,10 @@ export default {
       type: Boolean,
       default: false
     },
+    showDialog: {
+      type: Boolean,
+      default: false
+    },
     deafultData: {}
   },
 
@@ -146,7 +150,7 @@ export default {
       dialogVisible: false,
       dialogImageUrl: "",
       tempList: [],
-      deafultPoint: {}
+      deafultPoint: null
     };
   },
   created() {
@@ -156,6 +160,15 @@ export default {
   methods: {
     cancel: function() {
       this.$emit("cancel");
+      Object.assign(this.travelPlace, {
+        name: "",
+        lat: null,
+        lng: null,
+        contents: "",
+        imgList: []
+      });
+      this.deafultPoint = null;
+      this.$refs.uploadImg.clearFiles();
     },
 
     handlePictureCardPreview(file) {
@@ -178,8 +191,16 @@ export default {
         if (valid) {
           let copyTravelPlace = Object.assign({}, this.travelPlace);
           this.$emit("confirm", copyTravelPlace);
+          Object.assign(this.travelPlace, {
+            name: "",
+            lat: null,
+            lng: null,
+            contents: "",
+            imgList: []
+          });
+          this.deafultPoint = null;
+          this.$refs.uploadImg.clearFiles();
         } else {
-          console.log("添加失败!");
           return false;
         }
       });
@@ -203,7 +224,7 @@ export default {
     }
   },
   watch: {
-    deafultData() {
+    showDialog(newV) {
       this.prepareEdit();
     }
   }

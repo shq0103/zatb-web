@@ -117,14 +117,20 @@
                   </el-button>
                 </div>
                 <div class="box-card-content">
-                  <!-- <el-carousel :interval="5000" arrow="always">
+                  <el-carousel height="400px" v-viewer :interval="5000" arrow="always">
                     <el-carousel-item v-for="(el,elindex) in item.imgList" :key="elindex">
-                      <img :src="`/image${el}`" preview="0" preview-text="描述文字">
+                      <img
+                        width="100%"
+                        height="100%"
+                        :src="`/image${el}`"
+                        preview="0"
+                        preview-text="描述文字"
+                      >
                     </el-carousel-item>
-                  </el-carousel>-->
-                  <viewer :images="item.imgList">
+                  </el-carousel>
+                  <!-- <viewer :images="item.imgList">
                     <img v-for="(el,elindex) in item.imgList" :src="`/image${el}`" :key="elindex">
-                  </viewer>
+                  </viewer>-->
 
                   <div class="new-right2">
                     <i class="el-icon-place">纬度:{{item.lat}}, 经度:{{item.lng}}</i>
